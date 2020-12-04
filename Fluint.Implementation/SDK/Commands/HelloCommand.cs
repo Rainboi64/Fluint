@@ -11,7 +11,7 @@ namespace Fluint.Implementation.SDK.Commands
 
         public void Do(string[] args)
         {
-            Console.WriteLine("peeps be like");
+            Console.WriteLine("peeps be like lmfao");
         }
     }
 }

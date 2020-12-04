@@ -18,9 +18,13 @@ namespace Fluint.SDK
             var packet = modulesManager.ModuleCollection.ModulePacket;
             var logger = packet.GetSingleton<ILogger>();
             var parser = packet.GetScoped<IParser>();
-            parser.Parse("hello",null);
-            logger.Error("We did it reddit!");
-            Console.ReadLine();
+
+            while (true)
+            {
+                Console.ReadLine();
+                parser.Parse("hello",null);
+                logger.Error("Unrecognized Command.");
+            }
         }
     }
 }

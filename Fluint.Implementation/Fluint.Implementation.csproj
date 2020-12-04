@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Platforms>AnyCPU;x64</Platforms>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+    <Configurations>Debug;Release;Debug With Modules Setup</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +14,12 @@
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
   </ItemGroup>
 
-    <ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">
+    <OutputPath>$(SolutionDir)output\$(Platform)\modules</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
       <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
     </ItemGroup>
 </Project>
