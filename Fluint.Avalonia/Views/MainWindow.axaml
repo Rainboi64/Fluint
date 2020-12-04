@@ -1,0 +1,104 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:Fluint.Avalonia.ViewModels;assembly=Fluint.Avalonia"
+        xmlns:idc="clr-namespace:Dock.Avalonia.Controls;assembly=Dock.Avalonia"
+        xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
+        Width="1280" Height="720"
+        x:Class="Fluint.Avalonia.Views.MainWindow"
+        Icon="/Assets/fluint-logo.ico"
+        Title="Fluint"
+        HasSystemDecorations="True" >
+  
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <DockPanel>
+
+
+      <Menu DockPanel.Dock="Top">
+
+        <Menu.Styles>
+          <Style Selector="MenuItem.SubItem">
+            <Setter Property="Width" Value="200"/>
+          </Style>
+        </Menu.Styles>
+
+        <MenuItem Header="_File" >
+
+          <MenuItem Header="_Open..." Classes="SubItem"/>
+
+          <Separator/>
+
+          <MenuItem Header="_Save" Classes="SubItem"/>
+
+          <MenuItem Header="_Save As" Classes="SubItem"/>
+          
+          <Separator/>
+
+          <MenuItem Header="_Export" Classes="SubItem"/>
+
+          <MenuItem Header="_Import" Classes="SubItem"/>
+          
+          <Separator/>
+
+          <MenuItem Header="_Exit" Classes="SubItem"/>
+        </MenuItem>
+        <MenuItem Header="_Edit">
+          <MenuItem Header="_Undo"/>
+          <MenuItem Header="_Redo"/>
+          <MenuItem Header="_History"/>
+          <Separator/>
+          <MenuItem Header="_Copy"/>
+          <MenuItem Header="_Cut"/> 
+          <MenuItem Header="_Paste"/>
+          <Separator/>
+          <MenuItem Header="_Delete"/>
+          <MenuItem Header="_Duplicate"/>
+          <Separator/>
+          <MenuItem Header="_Select All"/>
+
+        </MenuItem>
+        <MenuItem Header="_Windows">
+          <MenuItem Header="Save Layout"/>
+          <MenuItem Header="Restore Defaults"/>
+          <Separator/>
+          <MenuItem Header="_Camera">
+            <MenuItem Header="_Perspective 3D"/>
+            <Separator/>
+            <MenuItem Header="Orthographic _Top"/>
+            <MenuItem Header="Orthographic _Down"/>
+            <MenuItem Header="Orthographic _Left"/>
+            <MenuItem Header="Orthographic _Right"/>
+           </MenuItem>
+          <Separator/>
+          <MenuItem Header="_Scene View"/>
+          <MenuItem Header="_Tool Strip"/>
+          <Separator/>
+          <MenuItem Header="Console _Window"/>
+        </MenuItem>
+        <MenuItem Header="_Extensions">
+
+          <MenuItem Header="_Manage Extensions"/>
+        </MenuItem>
+
+        <MenuItem Header="_Tools">
+          <MenuItem Header="_Themes"/>
+          <MenuItem Header="_Settings"/>
+        </MenuItem>
+        <MenuItem Header="_Help">
+          <MenuItem Header="_Fluint Tutorial/Documentation"/>
+          <MenuItem Header="_Fluint API"/>
+          <MenuItem Header="_About Extensions"/>
+          <Separator/>
+          <MenuItem Header="_About"/>
+        </MenuItem>
+
+      </Menu>
+
+    <idc:DockControl Layout="{Binding Layout}"/>
+  </DockPanel>
+</Window>

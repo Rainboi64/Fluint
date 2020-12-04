@@ -18,28 +18,34 @@ namespace Fluint.Layer.DependencyInjection
 
         private readonly Dictionary<Type, Type> _mappings = new Dictionary<Type, Type>();
         private readonly Dictionary<Type, Type> _singletonMappings = new Dictionary<Type, Type>();
+        private readonly List<Type> _instances = new List<Type>();
+        private ModulePacket GenerateModulePacket()
+        {
+            return new ModulePacket(_mappings, _singletonMappings, _instances);
+        }
 
-        private void MapScoped(Type abstraction, Type implementation)
+        public void MapScoped(Type abstraction, Type implementation)
         {
             _mappings.Add(abstraction, implementation);
         }
-        private void MapSingleton(Type abstraction, Type implementation)
+
+        public void MapSingleton(Type abstraction, Type implementation)
         {
             _singletonMappings.Add(abstraction, implementation);
         }
-        private ModulePacket GenerateModulePacket()
-        {
-            return new ModulePacket(_mappings, _singletonMappings);
-        }
 
+        public void AddInstanced(Type instanced)
+        {
+            _instances.Add(instanced);
+        }
 
         public void MapScoped<Abstraction, Implementation>()
             where Abstraction : IModule
             where Implementation : IModule
         {
             var abstractionType = typeof(Abstraction);
-            var ImplementationType = typeof(Implementation);
-            MapScoped(abstractionType, ImplementationType);
+            var implementationType = typeof(Implementation);
+            MapScoped(abstractionType, implementationType);
         }
 
         public void MapSingleton<Abstraction, Implementation>()
@@ -47,8 +53,13 @@ namespace Fluint.Layer.DependencyInjection
             where Implementation : IModule
         {
             var abstractionType = typeof(Abstraction);
-            var ImplementationType = typeof(Implementation);
-            MapSingleton(abstractionType, ImplementationType);
+            var implementationType = typeof(Implementation);
+            MapSingleton(abstractionType, implementationType);
+        }
+        public void AddInstanced<InstancedType>() 
+        {
+            var instancedType = typeof(InstancedType);
+            AddInstanced(instancedType);
         }
 
     }

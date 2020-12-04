@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Fluint.Layer.SDK
 {
-    public interface IParser
+    [Initialization(InitializationMethod.Scoped)]
+    public interface IParser : IModule
     {
+        void Parse(string command, string[] args);
     }
 }

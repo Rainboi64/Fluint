@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Fluint.Layer.SDK
 {
-    public interface ICommand : IInstance
+    [Initialization(InitializationMethod.Instanced)]
+    public interface ICommand : IModule
     {
+        string Command { get; }
+        void Do(string[] args);
     }
 }

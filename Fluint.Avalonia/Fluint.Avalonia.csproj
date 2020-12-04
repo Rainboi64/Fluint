@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\f-logo.png" />
+    <None Remove="Assets\fluint-logo.ico" />
+    <None Remove="Assets\fluint-logo.png" />
+    <None Remove="Assets\RibbonIcons\camera.png" />
+    <None Remove="Assets\RibbonIcons\exit.png" />
+    <None Remove="Assets\RibbonIcons\export.png" />
+    <None Remove="Assets\RibbonIcons\import.png" />
+    <None Remove="Assets\RibbonIcons\open.png" />
+    <None Remove="Assets\RibbonIcons\save.png" />
+    <None Remove="Assets\RibbonIcons\save_as.png" />
+    <None Remove="Assets\RibbonIcons\settings.png" />
+    <None Remove="Assets\RibbonIcons\view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.0-preview6" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview6" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview6" />
+    <PackageReference Include="Dock.Avalonia" Version="0.10.0-preview6" />
+    <PackageReference Include="Dock.Avalonia.Themes.Default" Version="0.10.0-preview6" />
+    <PackageReference Include="Dock.Model.ReactiveUI" Version="0.10.0-preview6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
+  </ItemGroup>
+</Project>

@@ -3,6 +3,9 @@ using Fluint.Layer.Runtime;
 using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
+using Fluint.Layer.Debugging;
+using Fluint.Layer.SDK;
+
 namespace Fluint.SDK
 {
     class Program
@@ -12,11 +15,12 @@ namespace Fluint.SDK
             ModulesManager modulesManager = new ModulesManager();
             modulesManager.LoadFolder("modules");
 
-            var implementationModule = modulesManager.Modules.OfType<ImplementationModule>().FirstOrDefault();
-            var parserType = implementationModule.GetImplementations().Where(type => type is ICommandLineArgumentParser).FirstOrDefault();
-
-            var dependencyCollection = new ServiceCollection();
-            dependencyCollection.AddScoped<ICommandLineArgumentParser, parserType>();
+            var packet = modulesManager.ModuleCollection.ModulePacket;
+            var logger = packet.GetSingleton<ILogger>();
+            var parser = packet.GetScoped<IParser>();
+            parser.Parse("hello",null);
+            logger.Error("We did it reddit!");
+            Console.ReadLine();
         }
     }
 }

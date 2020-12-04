@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Fluint.Layer.Runtime
 {
+    [Initialization(InitializationMethod.Instanced)]
     public interface ICommandLineArgument
     {
         string CommandText { get; set; }
