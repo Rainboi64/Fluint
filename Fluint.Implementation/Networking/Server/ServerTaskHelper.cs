@@ -14,10 +14,10 @@ namespace Fluint.Implementation.Networking.Server
 
         public ServerTaskHelper()
         {
-            PacketsToMultiCast = new List<NetworkPacket>();
+            PacketsToMultiCast = new List<INetworkPacket>();
         }
 
-        public List<NetworkPacket> PacketsToMultiCast { get; }
+        public List<INetworkPacket> PacketsToMultiCast { get; }
 
         public void InvokeConnectedEvent(IClientData client)
         {

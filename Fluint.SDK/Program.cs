@@ -2,9 +2,9 @@
 using Fluint.Layer.Runtime;
 using System;
 using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
 using Fluint.Layer.Debugging;
 using Fluint.Layer.SDK;
+using Fluint.Layer.Configuration;
 
 namespace Fluint.SDK
 {
@@ -12,19 +12,14 @@ namespace Fluint.SDK
     {
         static void Main(string[] args)
         {
+            Console.Title = "Fluint SDK";
+            Console.WriteLine("Started Fluint SDK.");
             ModulesManager modulesManager = new ModulesManager();
+            Console.WriteLine("Loading './modules'");
             modulesManager.LoadFolder("modules");
 
             var packet = modulesManager.ModuleCollection.ModulePacket;
-            var logger = packet.GetSingleton<ILogger>();
-            var parser = packet.GetScoped<IParser>();
-
-            while (true)
-            {
-                Console.ReadLine();
-                parser.Parse("hello",null);
-                logger.Error("Unrecognized Command.");
-            }
+            new SDKBase(packet).Listen();
         }
     }
 }

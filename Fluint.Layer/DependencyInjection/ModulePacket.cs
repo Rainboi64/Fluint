@@ -14,16 +14,16 @@ namespace Fluint.Layer.DependencyInjection
         {
             _mappings = mappings;
             _singletonMappings = new Dictionary<Type, IModule>();
-            _instances = new List<IModule>();
-            foreach (var type in instances)
-            {
-                _instances.Add((IModule)CreateInstance(type));
-            }
             foreach (var pair in singletonMappings)
             {
                 var key = pair.Key;
                 var value = (IModule)CreateInstance(pair.Value);
                 _singletonMappings.Add(key, value);
+            }
+            _instances = new List<IModule>();
+            foreach (var type in instances)
+            {
+                _instances.Add((IModule)CreateInstance(type));
             }
         }
 

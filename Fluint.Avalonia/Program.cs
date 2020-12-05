@@ -4,6 +4,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Microsoft.Extensions.DependencyInjection;
 using Avalonia.ReactiveUI;
 using Fluint.Layer.Debugging;
+using Fluint.Layer;
 
 namespace Fluint.Avalonia
 {
@@ -14,6 +15,10 @@ namespace Fluint.Avalonia
         // yet and stuff might break.
         public static void Main(string[] args) 
         {
+            ModulesManager modulesManager = new ModulesManager();
+            Console.WriteLine("Loading './modules'");
+            modulesManager.LoadFolder("./modules");
+
             BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
         }
@@ -22,7 +27,7 @@ namespace Fluint.Avalonia
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .LogToDebug()
+                .LogToTrace()
                 .UseReactiveUI();
     }
 }

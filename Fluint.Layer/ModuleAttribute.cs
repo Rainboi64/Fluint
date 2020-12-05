@@ -13,7 +13,16 @@ namespace Fluint.Layer
         {
             ModuleName = moduleName;
             Description = description;
+            Help = Description;
         }
+
+        public ModuleAttribute(string moduleName, string description, string help)
+        {
+            ModuleName = moduleName;
+            Description = description;
+            Help = help;
+        }
+
 
         /// <summary>
         /// The name of the module
@@ -24,5 +33,7 @@ namespace Fluint.Layer
         /// The description of the module.
         /// </summary>
         public string Description { get; }
+
+        public string Help { get; }
     }
 }

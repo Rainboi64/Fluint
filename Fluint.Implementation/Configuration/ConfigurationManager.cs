@@ -10,7 +10,7 @@ namespace Fluint.Implementation.Configuration
 {
     public class ConfigurationManager : IConfigurationManager
     {
-        private List<IConfiguration> _confings = new List<IConfiguration>();
+        private readonly List<IConfiguration> _confings = new List<IConfiguration>();
         public T Get<T>() where T : IConfiguration
         {
             if (_confings.OfType<T>().Any())
@@ -19,7 +19,7 @@ namespace Fluint.Implementation.Configuration
             }
             else
             {
-               var jsonData= File.ReadAllText(@".\config\" + nameof(T));
+               var jsonData= File.ReadAllText(@$".\configs\" + nameof(T));
                var obj = JsonConvert.DeserializeObject<T>(jsonData);
                _confings.Add(obj);
                return obj;
@@ -30,7 +30,7 @@ namespace Fluint.Implementation.Configuration
         {
             _confings.Add(configuration);
             var jsonData = JsonConvert.SerializeObject(configuration);
-            File.WriteAllText(@".\config\" + nameof(configuration), jsonData);
+            File.WriteAllText(@$".\configs\" + nameof(configuration), jsonData);
         }
 
         public void Save()
@@ -38,7 +38,7 @@ namespace Fluint.Implementation.Configuration
             foreach (var config in _confings)
             {
                 var jsonData = JsonConvert.SerializeObject(config);
-                File.WriteAllText(@".\config\" + nameof(config), jsonData);
+                File.WriteAllText(@$".\configs\" + nameof(config), jsonData);
             }
         }
     }

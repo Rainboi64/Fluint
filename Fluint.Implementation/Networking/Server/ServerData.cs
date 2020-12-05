@@ -5,7 +5,6 @@ using Fluint.Layer.Networking.Server;
 
 namespace Fluint.Implementation.Networking.Server
 {
-
     public class ServerData : IServerData
     {
         public ServerData(string ipAddress, int port, int tickDelay, string name)

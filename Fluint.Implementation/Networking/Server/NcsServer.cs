@@ -18,7 +18,7 @@ namespace Fluint.Implementation.Networking.Server
         public event EventHandler<ClientSentDataEventArgs> ClientSentData;
 
         private readonly ILogger _logger;
-        private readonly List<NetworkPacket> _packetsToSend = new List<NetworkPacket>();
+        private readonly List<INetworkPacket> _packetsToSend = new List<INetworkPacket>();
         private readonly IEnumerable<IServerTask> _tasks;
 
         public NcsServer(IPAddress address, int port, IEnumerable<IServerTask> tasks) : base(address, port)
