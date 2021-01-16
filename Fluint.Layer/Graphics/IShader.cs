@@ -7,6 +7,7 @@
 
 namespace Fluint.Layer.Graphics
 {
+    [Initialization(InitializationMethod.Scoped)]
     public interface IShader : IModule
     {
         void Enable();

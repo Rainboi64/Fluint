@@ -42,15 +42,11 @@ namespace Fluint.Engine.GL46.Graphics
                 _disposedValue = true;
             }
         }
-
-        ~Buffer()
+        public void Dispose()
         {
             Unbind();
             GL.DeleteBuffer(Handle);
-        }
 
-        public void Dispose()
-        {
             Dispose(true);
             GC.SuppressFinalize(this);
         }

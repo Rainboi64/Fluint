@@ -5,27 +5,55 @@ using Avalonia.Data;
 using Dock.Avalonia.Controls;
 using Dock.Model;
 using Dock.Model.Controls;
-using Fluint.Avalonia.Models.Documents;
 using Fluint.Avalonia.ViewModels;
+using Fluint.Avalonia.Models;
+using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Graphics;
+using Fluint.Avalonia.Views;
 
 namespace Fluint.Avalonia
 {
     public class MainDockFactory : Factory
     {
         private object _context;
+        private ModulePacket _packet;
 
         public MainDockFactory(object context)
         {
             _context = context;
         }
 
+        public MainDockFactory(object context, ModulePacket packet) : this(context)
+        {
+            this._packet = packet;
+        }
+
         public override IDock CreateLayout()
         {
-            var document1 = new RendererDocumentViewModel
+            //var document1 = 
+
+            //var document2 = ;
+
+            var a = new RendererDocumentViewModel(_packet)
             {
                 Id = "Document1",
                 Title = "Document1"
             };
+
+            var b =  new RendererDocumentViewModel(_packet)
+            {
+                Id = "Document2",
+                Title = "Document2"
+            };
+
+
+            var c = new RendererDocumentViewModel(_packet)
+            {
+                Id = "Document3",
+                Title = "Document3"
+            };
+
+
             var mainLayout = new ProportionalDock
             {
                 Id = "MainLayout",
@@ -40,23 +68,13 @@ namespace Fluint.Avalonia
                         Id = "DocumentsPane",
                         Title = "DocumentsPane",
                         Proportion = double.NaN,
-                        ActiveDockable = document1,
+                        ActiveDockable = (IDockable)a,
                         VisibleDockables = CreateList<IDockable>
                         (
-                            document1
-                        )
-                    },
-                    new DocumentDock
-                    {
-                        Id = "DocumentsPane",
-                        Title = "DocumentsPane",
-                        Proportion = double.NaN,
-                        ActiveDockable = document1,
-                        VisibleDockables = CreateList<IDockable>
-                        (
-                            document1
+                            a, b, c
                         )
                     }
+
                 )
 
             };
@@ -79,6 +97,8 @@ namespace Fluint.Avalonia
 
             return root;
         }
+
+
         public override void InitLayout(IDockable layout)
         {
             this.ContextLocator = new Dictionary<string, Func<object>>
@@ -91,7 +111,7 @@ namespace Fluint.Avalonia
                 [nameof(IDockWindow)] = () => _context,
                 [nameof(IDocument)] = () => _context,
                 [nameof(ITool)] = () => _context,
-                ["Document1"] = () => new RendererDocument(),
+                ["Document1"] = () => _context,
                 ["LeftPane"] = () => _context,
                 ["LeftPaneTop"] = () => _context,
                 ["LeftPaneTopSplitter"] = () => _context,

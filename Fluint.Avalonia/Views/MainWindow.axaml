@@ -3,6 +3,7 @@
         xmlns:vm="clr-namespace:Fluint.Avalonia.ViewModels;assembly=Fluint.Avalonia"
         xmlns:idc="clr-namespace:Dock.Avalonia.Controls;assembly=Dock.Avalonia"
         xmlns:ribbon="clr-namespace:AvaloniaUI.Ribbon;assembly=AvaloniaUI.Ribbon"
+        xmlns:fluint="clr-namespace:Fluint.Avalonia.Controls;assembly=Fluint.Avalonia"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1280" d:DesignHeight="720"
@@ -98,7 +99,6 @@
         </MenuItem>
 
       </Menu>
-
     <idc:DockControl Layout="{Binding Layout}"/>
   </DockPanel>
 </Window>

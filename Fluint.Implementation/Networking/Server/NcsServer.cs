@@ -1,4 +1,10 @@
-﻿using System;
+﻿/**
+ * @author Yaman Alhalabi <yamanalhalabi2@gmail.com>
+ * @file inner server using NetCoreServer
+ * @desc Created on 2020-12-11 7:50:07 pm
+ * @copyright Panic Factory (C) 2020 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,14 +21,15 @@ namespace Fluint.Implementation.Networking.Server
     {
         public event EventHandler<ClientConnectedEventArgs> ClientConnected;
         public event EventHandler<ClientDisconnectedEventArgs> ClientDisconnected;
-        public event EventHandler<ClientSentDataEventArgs> ClientSentData;
+        // public event EventHandler<ClientSentDataEventArgs> ClientSentData;
 
         private readonly ILogger _logger;
-        private readonly List<INetworkPacket> _packetsToSend = new List<INetworkPacket>();
+        private readonly List<NetworkPacket> _packetsToSend = new List<NetworkPacket>();
         private readonly IEnumerable<IServerTask> _tasks;
 
-        public NcsServer(IPAddress address, int port, IEnumerable<IServerTask> tasks) : base(address, port)
+        public NcsServer(IPAddress address, int port, IEnumerable<IServerTask> tasks, ILogger logger) : base(address, port)
         {
+            _logger = logger;
             _tasks = tasks;
         }
 

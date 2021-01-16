@@ -7,12 +7,6 @@ namespace Fluint.Layer.Graphics
     /// </summary>
     public struct PositionNormalVertex
     {
-        public static VertexLayoutAttribute[] VertexLayout = new VertexLayoutAttribute[]
-        {
-            new VertexLayoutAttribute(VertexLayoutAttributeType.Float, 3),
-            new VertexLayoutAttribute(VertexLayoutAttributeType.Float, 3)
-        };
-
         public readonly Vector3 Position { get; }
         public readonly Vector3 Normal { get; }
 

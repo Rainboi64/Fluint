@@ -15,13 +15,10 @@ namespace Fluint.Avalonia
         // yet and stuff might break.
         public static void Main(string[] args) 
         {
-            ModulesManager modulesManager = new ModulesManager();
-            Console.WriteLine("Loading './modules'");
-            modulesManager.LoadFolder("./modules");
-
             BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
         }
+
 
         // Avalonia configuration, don't remove; also used by visual designer.
         public static AppBuilder BuildAvaloniaApp()
@@ -29,5 +26,6 @@ namespace Fluint.Avalonia
                 .UsePlatformDetect()
                 .LogToTrace()
                 .UseReactiveUI();
+
     }
 }

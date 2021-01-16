@@ -38,6 +38,7 @@ namespace Fluint.Implementation.Localization
                 _records.Add(recordName, recordData);
             else
                 _records[recordName] = recordData;
+            Directory.CreateDirectory(@$"{LanguagesFolder}\");
             File.WriteAllText(@$"{LanguagesFolder}\{ActiveLanguage}.json", JsonConvert.SerializeObject(_records, Formatting.Indented));
         }
 

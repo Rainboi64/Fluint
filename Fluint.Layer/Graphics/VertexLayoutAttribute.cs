@@ -6,11 +6,13 @@ namespace Fluint.Layer.Graphics
 {
     public class VertexLayoutAttribute
     {
+        public string Name { get; set; }
         public VertexLayoutAttributeType AttributeType { get; set; }
         public int ComponentsCount { get; set; }
 
-        public VertexLayoutAttribute(VertexLayoutAttributeType attributeType, int componentsCount)
+        public VertexLayoutAttribute(string name, VertexLayoutAttributeType attributeType, int componentsCount)
         {
+            Name = name;
             AttributeType = attributeType;
             ComponentsCount = componentsCount;
         }

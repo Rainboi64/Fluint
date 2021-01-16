@@ -4,6 +4,8 @@ using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using Avalonia.Markup.Xaml.Styling;
+using Fluint.Avalonia.Controls;
+using Fluint.Layer.DependencyInjection;
 using System;
 
 namespace Fluint.Avalonia.Views

@@ -5,19 +5,32 @@ using Dock.Model;
 using Fluint.Avalonia.Models;
 using Fluint.Avalonia.ViewModels;
 using Fluint.Avalonia.Views;
+using Fluint.Layer;
+using Fluint.Layer.DependencyInjection;
+using System;
 
 namespace Fluint.Avalonia
 {
     public class App : Application
     {
+        private ModulePacket _packet;
+
         public override void Initialize()
         {
+            ModulesManager modulesManager = new ModulesManager();
+            Console.WriteLine("Loading './modules'");
+            modulesManager.LoadFolder("./modules");
+
+            _packet = modulesManager.ModuleCollection.ModulePacket;
+
             AvaloniaXamlLoader.Load(this);
+
+            DataTemplates.Add(new ViewLocator(_packet));
         }
 
         public override void OnFrameworkInitializationCompleted()
         {
-            var factory = new MainDockFactory(new DemoData());
+            var factory = new MainDockFactory(new object(), _packet);
             var layout = factory.CreateLayout();
             factory.InitLayout(layout);
 
@@ -30,7 +43,7 @@ namespace Fluint.Avalonia
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktopLifetime)
             {
 
-                var mainWindow = new MainWindow
+                var mainWindow = new MainWindow()
                 {
                     DataContext = mainWindowViewModel
                 };

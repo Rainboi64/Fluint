@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+ * @author Yaman Alhalabi <yamanalhalabi2@gmail.com>
+ * @file The standard implementation for the server class in Fluint.Layer
+ * @desc Created on 2020-12-11 7:50:10 pm
+ * @copyright Panic Factory (C) 2020 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -18,10 +25,11 @@ namespace Fluint.Implementation.Networking.Server
 {
     public class Server : IServer
     {
-        public Server(IServerData serverInfo, IEnumerable<IServerTask> tasks)
+        public Server(IServerData serverInfo, IEnumerable<IServerTask> tasks, ILogger logger)
         {
+            _logger = logger;
             ServerInfo = serverInfo;
-            server = new NcsServer(IPAddress.Parse(ServerInfo.IpAddress), ServerInfo.Port, tasks);
+            server = new NcsServer(IPAddress.Parse(ServerInfo.IpAddress), ServerInfo.Port, tasks, logger);
             server.ClientConnected += ClientConnected;
             server.ClientDisconnected += ClientDisconnected;
         }

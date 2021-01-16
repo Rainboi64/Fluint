@@ -7,6 +7,7 @@ namespace Fluint.Layer.SDK
     [Initialization(InitializationMethod.Scoped)]
     public interface IParser : IModule
     {
+        void Add(ICommand command);
         void Parse(string command, string[] args);
     }
 }

@@ -10,13 +10,13 @@ namespace Fluint.Implementation.Networking.Server
 {
     internal class ServerTcpSession : TcpSession
     {
-        public List<INetworkPacket> PacketsReceived = new List<INetworkPacket>();
+        public List<NetworkPacket> PacketsReceived = new List<NetworkPacket>();
         public ServerTcpSession(TcpServer server) : base(server) { }
 
         protected override void OnReceived(byte[] buffer, long offset, long size)
         {
             var message = Encoding.UTF8.GetString(buffer, (int)offset, (int)size);
-            PacketsReceived.Add(JsonConvert.DeserializeObject<INetworkPacket>(message));
+            PacketsReceived.Add(JsonConvert.DeserializeObject<NetworkPacket>(message));
         }
 
         protected override void OnError(SocketError error)

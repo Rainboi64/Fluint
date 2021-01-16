@@ -11,6 +11,11 @@ namespace Fluint.Layer.Graphics
     public interface IRenderer3D<VertexType> : IModule where VertexType : struct
     {
         /// <summary>
+        /// Initilizes The Renderer.
+        /// </summary>
+        void Load();
+
+        /// <summary>
         /// Initializes The renderer. (gets it ready to start receiving data)
         /// </summary>
         void Begin(IVertexLayout<VertexType> layout, IShader shader);

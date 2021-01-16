@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fluint.Avalonia.Models.Documents
+namespace Fluint.Layer.Engine
 {
-    public class RendererDocument
+    public interface IScene : ICollection<IMesh>
     {
+
     }
 }

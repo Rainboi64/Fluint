@@ -198,13 +198,10 @@ namespace Fluint.Engine.GL46.Graphics
             _disposedValue = true;
         }
 
-        ~Shader()
-        {
-            GL.DeleteProgram(_handle);
-        }
-
         public void Dispose()
         {
+            GL.DeleteProgram(_handle);
+
             Dispose(true);
             GC.SuppressFinalize(this);
         }

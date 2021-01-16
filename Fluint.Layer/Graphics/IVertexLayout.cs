@@ -4,12 +4,19 @@ using System.Text;
 
 namespace Fluint.Layer.Graphics
 {
-    public interface IVertexLayout<VertexType> where VertexType : struct
+    [Initialization(InitializationMethod.Scoped)]
+    public interface IVertexLayout<VertexType> : IModule where VertexType : struct
     {
         /// <summary>
         /// Gets the size of the vertex.
         /// </summary>
         int VertexSize { get; }
+
+        /// <summary>
+        /// Calculates the vertex size.
+        /// </summary>
+        void Calculate();
+
         /// <summary>
         /// To be called before enabling the layout.
         /// </summary>

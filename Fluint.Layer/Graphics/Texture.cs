@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fluint.Avalonia.Models
+namespace Fluint.Layer.Graphics
 {
-    class DemoData
+    public class Texture
     {
     }
 }

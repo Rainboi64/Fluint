@@ -10,11 +10,11 @@ namespace Fluint.Implementation.SDK
 {
     public class Parser : IParser
     {
-        public IEnumerable<ICommand> _commands;
+        public IList<ICommand> _commands;
         public ILogger _logger;
         public Parser(IEnumerable<IModule> instances, ILogger logger)
         {
-            _commands = instances.OfType<ICommand>();
+            _commands = instances.OfType<ICommand>().ToList();
             _logger = logger;
         }
 
@@ -58,6 +58,11 @@ namespace Fluint.Implementation.SDK
             {
                 _logger.Error("[Parser] command not found.");
             }
+        }
+
+        public void Add(ICommand command)
+        {
+            _commands.Add(command);
         }
     }
 }

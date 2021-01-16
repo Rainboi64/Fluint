@@ -3,7 +3,7 @@ using Fluint.Layer.Localization;
 using Fluint.Layer.SDK;
 using System;
 
-namespace Fluint.Implementation.SDK.Commands
+namespace Fluint.SDK.Commands
 {
     [Layer.Module("Language Command", "An interface for communicating with the localization API",
         "An interface for communicating with the localization API\n" +

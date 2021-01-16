@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fluint.Layer.SDK
+namespace Fluint.Avalonia.Models
 {
-    public interface IState
+    public class RendererDocumentModel
     {
     }
 }

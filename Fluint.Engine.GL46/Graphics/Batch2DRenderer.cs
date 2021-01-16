@@ -22,7 +22,6 @@ namespace Fluint.Engine.GL46.Graphics.Renderers
 
     public class Batch2DRenderer : IRenderer2D
     {
-
         public void Begin()
         {
             throw new NotImplementedException();

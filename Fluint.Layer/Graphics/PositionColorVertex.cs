@@ -1,20 +1,16 @@
 ﻿using Fluint.Layer.Mathematics;
+using System.Runtime.InteropServices;
 
 namespace Fluint.Layer.Graphics
 {
     /// <summary>
     /// A data structure to be loaded into buffers, contains position, and color.
     /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public struct PositionColorVertex 
     {
-        public static VertexLayoutAttribute[] VertexLayout = new VertexLayoutAttribute[]
-        {
-            new VertexLayoutAttribute(VertexLayoutAttributeType.Float, 3),
-            new VertexLayoutAttribute(VertexLayoutAttributeType.Float, 4)
-        };
-
-        public Vector3 Position { get; set; }
-        public Vector4 Color { get; set; }
+        public Vector3 Position;
+        public Vector4 Color;
 
         public PositionColorVertex(Vector3 position, Vector4 color) 
         {

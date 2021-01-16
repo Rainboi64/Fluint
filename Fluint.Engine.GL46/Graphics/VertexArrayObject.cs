@@ -10,50 +10,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.Graphics;
+using System.Runtime.InteropServices;
 
 namespace Fluint.Engine.GL46.Graphics
 {
     public class VertexArrayObject<VertexType> : IVertexLayout<VertexType> where VertexType : struct
     {
-        private readonly List<VertexLayoutAttribute> _attributes;
+        private List<VertexLayoutAttribute> _attributes;
         public int VertexSize { get; private set; }
         public int Handle { get; private set; }
 
-        public VertexArrayObject()
-        {
-            //Handle = GL.GenVertexArray();
-            _attributes = new List<VertexLayoutAttribute>();
-            Handle = GL.GenVertexArray();
-
-            var type = typeof(VertexType);
-            var properties = type.GetProperties();
-
-            foreach (var property in properties)
-            {
-
-                //TODO: Finish these..
-                var @switch = new Dictionary<Type, Action>
-                {
-                    { typeof(int),     () => Add(VertexLayoutAttributeType.Int, 1)                  },
-                    { typeof(uint),    () => Add(VertexLayoutAttributeType.UnsignedInt, 1)          },
-                    { typeof(short),   () => Add(VertexLayoutAttributeType.Short, 1)                },
-                    { typeof(ushort),  () => Add(VertexLayoutAttributeType.UnsignedShort, 1)        },
-                    { typeof(float),   () => Add(VertexLayoutAttributeType.Float, 1)                },
-                    { typeof(double),  () => Add(VertexLayoutAttributeType.Double, 1)               },
-                    { typeof(Vector2), () => Add(VertexLayoutAttributeType.Float, 2)                },
-                    { typeof(Vector3), () => Add(VertexLayoutAttributeType.Float, 3)                },
-                    { typeof(Vector4), () => Add(VertexLayoutAttributeType.Float, 4)                },
-                };
-
-                @switch[property.PropertyType]();
-            }
-
-            foreach (var attribute in _attributes)
-            {
-                VertexSize += GetAttributeTypeSize(attribute.AttributeType) * attribute.ComponentsCount;
-            }
-
-        }
 
         public void Bind()
         {
@@ -71,22 +37,22 @@ namespace Fluint.Engine.GL46.Graphics
             GL.EnableVertexAttribArray(0);
         }
 
-        private void Add(VertexLayoutAttributeType type, int components)
+        private void Add(string name, VertexLayoutAttributeType type, int components)
         {
-            _attributes.Add(new VertexLayoutAttribute(type, components));
+            _attributes.Add(new VertexLayoutAttribute(name, type, components));
         }
 
         public void Enable()
         {
             Bind();
-            var offset = 0;
             for (int i = 0; i < _attributes.Count; i++)
             {
                 var attribute = _attributes[i];
-                GL.VertexAttribPointer(i, attribute.ComponentsCount, GetVertexPointerType(attribute.AttributeType),
-                    false, VertexSize, offset);
+                var type = GetVertexPointerType(attribute.AttributeType);
+                var offset = Marshal.OffsetOf<VertexType>(attribute.Name);
 
-                offset += GetAttributeTypeSize(attribute.AttributeType) * attribute.ComponentsCount;
+                GL.VertexAttribPointer(i, attribute.ComponentsCount, type,
+                    false, VertexSize, offset);
             }
             GL.EnableVertexAttribArray(0);
 
@@ -120,20 +86,33 @@ namespace Fluint.Engine.GL46.Graphics
             };
         }
 
-        private static int GetAttributeTypeSize(VertexLayoutAttributeType type)
+        public void Calculate()
         {
-            return type switch
+            //Handle = GL.GenVertexArray();
+            _attributes = new List<VertexLayoutAttribute>();
+            Handle = GL.GenVertexArray();
+
+            var type = typeof(VertexType);
+            var properties = type.GetFields();
+
+            foreach (var property in properties)
             {
-                VertexLayoutAttributeType.Byte => sizeof(byte),
-                VertexLayoutAttributeType.Double => sizeof(double),
-                VertexLayoutAttributeType.Float => sizeof(float),
-                VertexLayoutAttributeType.Int => sizeof(int),
-                VertexLayoutAttributeType.Short => sizeof(short),
-                VertexLayoutAttributeType.UnsignedByte => sizeof(byte),
-                VertexLayoutAttributeType.UnsignedInt => sizeof(uint),
-                VertexLayoutAttributeType.UnsignedShort => sizeof(ushort),
-                _ => throw new NotImplementedException($"Unsupported AttributeType: {type}."),
-            };
+                //TODO: Finish these..
+                var @switch = new Dictionary<Type, Action>
+                {
+                    { typeof(int),     () => Add(property.Name, VertexLayoutAttributeType.Int, 1)                  },
+                    { typeof(uint),    () => Add(property.Name, VertexLayoutAttributeType.UnsignedInt, 1)          },
+                    { typeof(short),   () => Add(property.Name, VertexLayoutAttributeType.Short, 1)                },
+                    { typeof(ushort),  () => Add(property.Name, VertexLayoutAttributeType.UnsignedShort, 1)        },
+                    { typeof(float),   () => Add(property.Name, VertexLayoutAttributeType.Float, 1)                },
+                    { typeof(double),  () => Add(property.Name, VertexLayoutAttributeType.Double, 1)               },
+                    { typeof(Vector2), () => Add(property.Name, VertexLayoutAttributeType.Float, 2)                },
+                    { typeof(Vector3), () => Add(property.Name, VertexLayoutAttributeType.Float, 3)                },
+                    { typeof(Vector4), () => Add(property.Name, VertexLayoutAttributeType.Float, 4)                },
+                };
+                @switch[property.FieldType]();
+            }
+            VertexSize = Marshal.SizeOf(type);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
 using OpenTK;
@@ -61,6 +62,7 @@ namespace Fluint.Engine.GL46.Graphics
             get => _vectors;
             set
             {
+                var xd = value;
                 _vectors = value;
                 VertexBuffer.Bind();
                 GL.BufferData(BufferTarget.ArrayBuffer, MeshVertex.Size * value.Length, value, BufferUsageHint.DynamicDraw);

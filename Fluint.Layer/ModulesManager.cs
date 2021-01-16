@@ -118,7 +118,14 @@ namespace Fluint.Layer
                     // only loads *.dll
                     if (file.EndsWith(".dll"))
                     {
-                        var assembly = Assembly.LoadFrom(Path.GetFullPath(file));
+                        try
+                        {
+                            var assembly = Assembly.LoadFrom(Path.GetFullPath(file));
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex);
+                        }
                     }
                 }
             }
@@ -126,11 +133,17 @@ namespace Fluint.Layer
             Type interfaceType = typeof(IModule);
             //Fetch all types that implement the interface IPlugin and are a class
             Type[] types = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(a => a.GetTypes())
+                .SelectMany(a => GetTypes(a))
                 .Where(p => interfaceType.IsAssignableFrom(p) && p.IsClass)
                 .ToArray();
 
-
+            static IEnumerable<Type> GetTypes(Assembly a)
+            {
+                foreach (var type in a.GetTypes())
+                { 
+                    yield return type;
+                }
+            }
 
             foreach (var type in types)
             {

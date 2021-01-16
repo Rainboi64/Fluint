@@ -3,11 +3,18 @@ using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using Dock.Model;
 using Fluint.Avalonia.ViewModels;
+using Fluint.Layer.DependencyInjection;
 
 namespace Fluint.Avalonia
 {
     public class ViewLocator : IDataTemplate
     {
+        private readonly ModulePacket _packet;
+        public ViewLocator(ModulePacket packet)
+        {
+            _packet = packet;
+        }
+
         public bool SupportsRecycling => false;
 
         public IControl Build(object data)
@@ -17,7 +24,7 @@ namespace Fluint.Avalonia
 
             if (type != null)
             {
-                return (Control)Activator.CreateInstance(type);
+                return (IControl)_packet.CreateInstance(type);
             }
             else
             {
