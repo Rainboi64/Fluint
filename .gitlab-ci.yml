@@ -1,0 +1,22 @@
+pages:
+  stage: deploy
+  image: mono:latest
+  
+  script:
+   - apt-get update && apt-get install unzip wget git -y && \
+   - wget -q -P /tmp https://github.com/dotnet/docfx/releases/download/v2.56.4/docfx.zip && \
+   - mkdir -p /opt/docfx && \
+   - unzip /tmp/docfx.zip -d /opt/docfx && \
+   - chmod +x /usr/bin/docfx && \
+   - rm -f /tmp/*
+   - cd Fluint.Layer/
+   - mono /opt/docfx/docfx.exe docfx.json
+   - cd ..
+   - mkdir public
+   - mv Fluint.Layer/docs/_site/* public
+   - mv Fluint.Layer/docs/index.html public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

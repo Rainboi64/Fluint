@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Fluint.Layer.Runtime
 {
-    public interface ICommandLineArgumentParser
+    [Initialization(InitializationMethod.Scoped)]
+    public interface ICommandLineArgumentParser : IModule
     {
         public void Parse(string command, string[] arguments);
     }

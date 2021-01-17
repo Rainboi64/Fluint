@@ -2,21 +2,24 @@
 using Fluint.Layer.Runtime;
 using System;
 using System.Linq;
-using Microsoft.Extensions.DependencyInjection;
+using Fluint.Layer.Debugging;
+using Fluint.Layer.SDK;
+using Fluint.Layer.Configuration;
+
 namespace Fluint.SDK
 {
     class Program
     {
         static void Main(string[] args)
         {
+            Console.Title = "Fluint SDK";
+            Console.WriteLine("Started Fluint SDK.");
             ModulesManager modulesManager = new ModulesManager();
+            Console.WriteLine("Loading './modules'");
             modulesManager.LoadFolder("modules");
 
-            var implementationModule = modulesManager.Modules.OfType<ImplementationModule>().FirstOrDefault();
-            var parserType = implementationModule.GetImplementations().Where(type => type is ICommandLineArgumentParser).FirstOrDefault();
-
-            var dependencyCollection = new ServiceCollection();
-            dependencyCollection.AddScoped<ICommandLineArgumentParser, parserType>();
+            var packet = modulesManager.ModuleCollection.ModulePacket;
+            new SDKBase(packet).Listen();
         }
     }
 }
