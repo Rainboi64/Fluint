@@ -4,6 +4,10 @@
 
 This project was born out of the frustrations of the cumbersome, non-intuitive, level design process that modern 3D tools provide. our mission with this project is to build a utility that's aimed at making the level design process as efficient and mindless as possible, we want to provide powerful yet fluent tools for the designer.
 
+## Project Status
+work on this project is very slow since am doing other stuff. and it's honestly not a top priority.
+coding on this is generally for fun. feel free to contirbute.
+
 ## Building
 You need to have dotnetsdk 2.1, to build on Windows
 ```
