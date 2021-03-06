@@ -17,8 +17,8 @@ namespace Fluint.Implementation.IO
         public IOManager(ModulePacket packet)
         {
             _packet = packet;
-            _exporters = (List<IExporter>)packet.GetInstances().OfType<IExporter>();
-            _importers = (List<IImporter>)packet.GetInstances().OfType<IImporter>();
+            _exporters = (List<IExporter>)_packet.GetInstances().OfType<IExporter>();
+            _importers = (List<IImporter>)_packet.GetInstances().OfType<IImporter>();
         }
 
         public void Export(string fileName, IMesh[] meshes, string format = "")
