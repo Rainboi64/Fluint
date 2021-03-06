@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fluint.Layer.Graphics
+namespace Fluint.Layer.Engine
 {
-    public class Texture
+    public interface IParticle : IRenderComponent
     {
     }
 }

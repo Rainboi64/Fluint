@@ -20,7 +20,6 @@ namespace Fluint.Engine.GL46.Graphics
         public int VertexSize { get; private set; }
         public int Handle { get; private set; }
 
-
         public void Bind()
         {
             GL.BindVertexArray(Handle);

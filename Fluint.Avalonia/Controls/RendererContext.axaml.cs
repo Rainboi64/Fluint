@@ -63,7 +63,7 @@ namespace Fluint.Avalonia.Controls
                 var settings = new BindingContextSettings(_handle, (int)Math.Truncate(Height), (int)Math.Truncate(Width));
                 BindingContext.InitializeContext(settings);
 
-                Ready.Invoke();
+                Ready?.Invoke();
 
                 _contextInit = true;
             }

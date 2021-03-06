@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 
 namespace Fluint.Layer.DependencyInjection
 {
@@ -39,6 +39,8 @@ namespace Fluint.Layer.DependencyInjection
         {
             // When the electricity is back I should check names
 
+            // Frick I forgot what I meant. :(
+
             if (_mappings.Where(x => x.Key.Name == type.Name).Any())
             {
                 Console.WriteLine($"Found: {type.Name}");
@@ -56,6 +58,7 @@ namespace Fluint.Layer.DependencyInjection
 
         public object CreateInstance(Type target, Type[] generics)
         {
+            var watch = new Stopwatch();
             var constructor = target.GetConstructors()[0];
             var parameters = constructor.GetParameters();
 
@@ -75,6 +78,7 @@ namespace Fluint.Layer.DependencyInjection
 
         private Type ResolveType(Type type) 
         {
+            // 😂🤣 WHO DID THIS 🤣😂
             if (_mappings.Where(x => x.Key.Name == type.Name).Any())
             {
                 foreach (var pair in _mappings)
@@ -96,6 +100,19 @@ namespace Fluint.Layer.DependencyInjection
         private object GetSingleton(Type type)
         {
             return _singletonMappings[type];
+        }
+
+        public T New<T>(params object[] parameters) where T : IModule
+        {
+            var target = ResolveType(typeof(T));
+            var generics = target.GetGenericArguments();
+
+            if (target.ContainsGenericParameters)
+            {
+                target = target.MakeGenericType(generics);
+            }
+
+            return (T)Activator.CreateInstance(target, parameters);
         }
 
         public T GetScoped<T>() where T : IModule

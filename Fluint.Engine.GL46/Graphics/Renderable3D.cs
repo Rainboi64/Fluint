@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
-using OpenTK;
 using OpenTK.Graphics.OpenGL4;
-using SixLabors.ImageSharp.Processing;
 
 namespace Fluint.Engine.GL46.Graphics
 {
-    public class Renderable3D<VertexType> : Layer.Graphics.Renderable3D<VertexType> where VertexType : struct
+    public class Renderable3D<VertexType> : IRenderable3D<VertexType> where VertexType : struct
     {
         private uint[] _indices;
         private VertexType[] _vectors;
@@ -46,7 +40,7 @@ namespace Fluint.Engine.GL46.Graphics
             }
         }
 
-        public new uint[] Indices
+        public uint[] Indices
         {
             get => _indices;
             set
@@ -57,17 +51,22 @@ namespace Fluint.Engine.GL46.Graphics
             }
         }
 
-        public new VertexType[] Vertices
+        public VertexType[] Vertices
         {
             get => _vectors;
             set
             {
-                var xd = value;
                 _vectors = value;
                 VertexBuffer.Bind();
                 GL.BufferData(BufferTarget.ArrayBuffer, MeshVertex.Size * value.Length, value, BufferUsageHint.DynamicDraw);
             }
         }
+        // TODO: implement this shit.
+        public Matrix ModelMatrix { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector3 Translation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Vector3 Scale { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Quaternion Rotation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public ShaderPacket Packet { get; set; }
     }
 }
 

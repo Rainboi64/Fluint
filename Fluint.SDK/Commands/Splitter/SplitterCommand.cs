@@ -114,7 +114,7 @@ namespace Fluint.SDK.Commands.Splitter
             var jsonData = File.ReadAllText(configPath);
             var configuration = JsonConvert.DeserializeObject<SplitConfigurations>(jsonData);
             var splitCount = configuration.Splits.Count();
-
+            
             Directory.CreateDirectory(outputPath);
             Console.WriteLine("Beginning file generation 0/{0}", splitCount + 1);
 

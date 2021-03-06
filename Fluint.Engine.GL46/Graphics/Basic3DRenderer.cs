@@ -17,7 +17,6 @@ namespace Fluint.Engine.GL46.Graphics
         private List<Renderable3D<VertexType>> _renderables;
         private IVertexLayout<VertexType> _layout;
         private IShader _shader;
-        int _frameCounter = 0;
 
         public void Begin(IVertexLayout<VertexType> layout, IShader shader)
         {
@@ -34,14 +33,12 @@ namespace Fluint.Engine.GL46.Graphics
 
         public void Flush()
         {
-            _frameCounter++;
-
             _shader.Enable();
             _layout.Load();
             foreach (var renderable in _renderables)
             {
-                renderable.Scale = new Vector3((float)((Math.Sin((double)_frameCounter / 250) + 1) / 2));
                 _shader.SetModelMatrix(renderable.ModelMatrix);
+                _shader.LoadPacket(renderable.Packet);
                 renderable.VertexBuffer.Bind();
                 renderable.ElementBuffer.Bind();
                 GL.DrawElements(PrimitiveType.Triangles, renderable.Indices.Length, DrawElementsType.UnsignedInt, 0);
@@ -55,7 +52,7 @@ namespace Fluint.Engine.GL46.Graphics
         /// <summary>
         /// Submits Renderables
         /// </summary>
-        public void Submit(Layer.Graphics.Renderable3D<VertexType> renderable)
+        public void Submit(IRenderable3D<VertexType> renderable)
         {
             var newRenderable = new Renderable3D<VertexType>(renderable.Vertices, renderable.Indices, Matrix.Identity);
             newRenderable.VertexBuffer.Bind();

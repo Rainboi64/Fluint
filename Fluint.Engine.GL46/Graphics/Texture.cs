@@ -3,22 +3,22 @@
 //
 // Copyright (C) 2020 Yaman Alhalabi
 //
+
 using System;
 using System.Collections.Generic;
+using Fluint.Layer.Graphics;
 using OpenTK.Graphics.OpenGL4;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Advanced;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
 namespace Fluint.Engine.GL46.Graphics
 {
-    public class Texture
+    public class Texture : ITexture
     {
-
         public static void ConfigureTextures()
         {
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.LinearMipmapLinear);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
         }
 
@@ -27,9 +27,25 @@ namespace Fluint.Engine.GL46.Graphics
         public int Height { get; set; }
         public int Width { get; set; }
 
-        public Texture(string Filename)
+        public Texture() { }
+        public Texture(string filename)
         {
-            this.Filename = Filename;
+            LoadFromFile(filename);
+        }
+
+        public void Bind() 
+        {
+            GL.BindTexture(TextureTarget.Texture2D, Handle);
+        }
+
+        public void Unbind()
+        {
+            GL.BindTexture(TextureTarget.Texture2D, 0);
+        }
+
+        public void LoadFromFile(string fileName)
+        {
+            Filename = fileName;
             Handle = GL.GenTexture();
             var img = (Image<Rgba32>)Image.Load(Filename);
 
@@ -55,17 +71,6 @@ namespace Fluint.Engine.GL46.Graphics
             GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, Width, Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels.ToArray());
         }
 
-        public void Bind() 
-        {
-            GL.BindTexture(TextureTarget.Texture2D, Handle);
-        }
-
-        public void Unbind()
-        {
-            GL.BindTexture(TextureTarget.Texture2D, 0);
-        }
-
-
         //Disposing Code
 
         private bool _disposedValue;
@@ -73,16 +78,11 @@ namespace Fluint.Engine.GL46.Graphics
         {
             if (!_disposedValue)
             {
-                GL.DeleteProgram(Handle);
+                Unbind();
+                GL.DeleteTexture(Handle);
 
                 _disposedValue = true;
             }
-        }
-
-        ~Texture()
-        {
-            Unbind();
-            GL.DeleteTexture(Handle);
         }
 
         public void Dispose()

@@ -10,52 +10,37 @@ namespace Fluint.Layer.Graphics
         /// <summary>
         /// The diffuse texture of the material
         /// </summary>
-        public Texture Diffuse { get; set; }
+        public ITexture Diffuse { get; set; }
 
         /// <summary>
         /// The specular texture of the material
         /// </summary>
-        public Texture Specular { get; set; }
+        public ITexture Specular { get; set; }
 
         /// <summary>
         /// The ambient texture of the material.
         /// </summary>
-        public Texture Ambient { get; set; }
+        public ITexture Ambient { get; set; }
 
         /// <summary>
         /// The emmissive texture of the material.
         /// </summary>
-        public Texture Emissive { get; set; }
-
-        /// <summary>
-        /// The hightmap of the material.
-        /// </summary>
-        public Texture HeightMap { get; set; }
+        public ITexture Emissive { get; set; }
 
         /// <summary>
         /// The normal map of the material.
         /// </summary>
-        public Texture NormalMap { get; set; }
+        public ITexture NormalMap { get; set; }
 
         /// <summary>
         /// The Opacity map of the material.
         /// </summary>
-        public Texture OpacityMap { get; set; }
+        public ITexture OpacityMap { get; set; }
 
         /// <summary>
         /// The displacment map for the material.
         /// </summary>
-        public Texture DisplacementMap { get; set; }
-
-        /// <summary>
-        /// The light map for the material.
-        /// </summary>
-        public Texture LightMap { get; set; }
-
-        /// <summary>
-        /// The reflection map of the material.
-        /// </summary>
-        public Texture ReflectionMap { get; set; }
+        public ITexture DisplacementMap { get; set; }
 
         /// <summary>
         /// The shading mode of the material.
@@ -74,7 +59,7 @@ namespace Fluint.Layer.Graphics
         public float BumpScaling { get; set; } = 1;
 
         /// <summary>
-        /// The opacity of the overall object. is one by default ie. no completely opaque.
+        /// The opacity of the overall object. is one by default ie. completely opaque.
         /// </summary>
         public float Opacity { get; set; } = 1;
 
@@ -107,16 +92,5 @@ namespace Fluint.Layer.Graphics
         /// The emmisive color of the object, is overriden by the emmisive texture if existant.
         /// </summary>
         public Color EmissiveColor { get; set; }
-
-        /// <summary>
-        /// The transperancy color of the object, is overriden by the transperancy texture if existant.
-        /// </summary>
-        public Color TransparentColor { get; set; }
-
-        /// <summary>
-        /// The reflective color of the object, is overriden by the reflective texture if existant.
-        /// </summary>
-        public Color ReflectiveColor { get; set; }
-
     }
 }

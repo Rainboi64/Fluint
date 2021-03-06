@@ -24,7 +24,7 @@ namespace Fluint.Layer.Graphics
         /// Pass in the renderables to be rendered.
         /// </summary>
         /// <param name="renderable3D">the actual renderer</param>
-        void Submit(Renderable3D<VertexType> renderable3D);
+        void Submit(IRenderable3D<VertexType> renderable3D);
 
         /// <summary>
         /// Renders all the renderables.

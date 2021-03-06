@@ -35,9 +35,6 @@
     <None Update="shader.frag">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="shader.vert">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>

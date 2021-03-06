@@ -12,7 +12,10 @@ namespace Fluint.Layer.Graphics
     {
         void Enable();
         void Disable();
+        void LoadPacket(ShaderPacket packet);
         void SetModelMatrix(Mathematics.Matrix matrix);
+        void SetViewMatrix(Mathematics.Matrix matrix);
+        void SetProjectionMatrix(Mathematics.Matrix matrix);
         void LoadSource(string vertexShaderSource, string pixelShaderSource);
     }
 }

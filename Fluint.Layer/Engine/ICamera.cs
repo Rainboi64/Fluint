@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fluint.Layer.Engine
 {
-    
+    [Initialization(InitializationMethod.Scoped)]
     public interface ICamera : IModule
     {
         Vector3 Position { get; set; }
