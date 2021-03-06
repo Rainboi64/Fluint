@@ -1,4 +1,5 @@
-﻿using Fluint.Layer.Mathematics;
+﻿using Fluint.Layer.Graphics;
+using Fluint.Layer.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,9 +12,9 @@ namespace Fluint.Layer.Engine
     /// really really should.
     /// </summary>
     /// <typeparam name="VertexType"></typeparam>
-    public interface IMesh<VertexType> : IRenderComponent, ISceneObject, IModule
+    public interface IMesh : IRenderComponent, ISceneObject, IModule
     {
-        IEnumerable<VertexType> VertexArray { get; set; }
+        IEnumerable<PositionNormalUVTIDVertex> VertexArray { get; set; }
         IEnumerable<uint> IndexArray { get; set; }
     }
 }

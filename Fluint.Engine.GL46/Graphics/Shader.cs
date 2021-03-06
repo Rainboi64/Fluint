@@ -54,7 +54,7 @@ namespace Fluint.Engine.GL46.Graphics
         }
 
         public void Disable()
-        {
+        {   
             GL.UseProgram(0);
         }
 

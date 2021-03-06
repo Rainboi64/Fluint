@@ -10,7 +10,7 @@ namespace Fluint.Layer.Input
     /// an interface for managing keybinds.
     /// </summary>
     [Initialization(InitializationMethod.Scoped)]
-    public interface IBindingsManager
+    public interface IBindingsManager : IModule
     {
 
         /// <summary>

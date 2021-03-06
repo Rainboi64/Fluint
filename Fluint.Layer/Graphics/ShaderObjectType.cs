@@ -6,7 +6,6 @@ namespace Fluint.Layer.Graphics
 {
     public enum ShaderObjectType
     {
-        // TODO: Add more!
         Texture,
         Matrix4x4,
         Vector3,

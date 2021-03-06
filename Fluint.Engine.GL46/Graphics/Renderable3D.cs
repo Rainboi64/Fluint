@@ -61,11 +61,48 @@ namespace Fluint.Engine.GL46.Graphics
                 GL.BufferData(BufferTarget.ArrayBuffer, MeshVertex.Size * value.Length, value, BufferUsageHint.DynamicDraw);
             }
         }
-        // TODO: implement this shit.
-        public Matrix ModelMatrix { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Vector3 Translation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Vector3 Scale { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Quaternion Rotation { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        private Matrix _modelMatrix;
+        private Vector3 _translation;
+        private Vector3 _scale;
+        private Quaternion _rotation;
+
+        public Matrix ModelMatrix
+        {
+            get => _modelMatrix;
+            set
+            {
+                _modelMatrix = value;
+                _modelMatrix.Decompose(out _scale, out _rotation, out _translation);
+            }
+        }
+        public Vector3 Translation
+        {
+            get => _translation;
+            set
+            {
+                _translation = value;
+                _modelMatrix.TranslationVector = value;
+            }
+        }
+        public Vector3 Scale
+        {
+            get => _scale;
+            set 
+            {
+                _scale = value;
+                _modelMatrix.ScaleVector = value;
+            }
+        }
+        public Quaternion Rotation
+        {
+            get => _rotation;
+            set 
+            {
+                // yep, the same old s*r*t
+                _modelMatrix = Matrix.Scaling(_scale) * Matrix.RotationQuaternion(value) * Matrix.Translation(_translation);
+            }
+        }
         public ShaderPacket Packet { get; set; }
     }
 }
