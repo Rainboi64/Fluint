@@ -27,7 +27,7 @@ exports.transform = function (model) {
             formatExample(child.responses);
             resolveAllOf(child);
             transformReference(child);
-        };
+        }
         if (!model.tags || model.tags.length === 0) {
             var childTags = [];
             for (var i = 0; i < model.children.length; i++) {

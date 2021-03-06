@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-var common = require('./common.js');;
+var common = require('./common.js');
 var classCategory = 'class';
 var namespaceCategory = 'ns';
 
@@ -12,7 +12,7 @@ exports.transform = function (model) {
     normalizeLanguageValuePairs(model.children).forEach(function (item) {
       handleItem(item, model._gitContribute, model._gitUrlPattern);
     });
-  };
+  }
 
   if (model.type) {
     switch (model.type.toLowerCase()) {

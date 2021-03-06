@@ -342,7 +342,7 @@ $(function () {
         });
       }
     }
-  };
+  }
 
   // Update href in navbar
   function renderNavbar() {
@@ -488,7 +488,7 @@ $(function () {
           for (var i = 0; i < parentNodes.length; i++) {
             var parentText = $(parentNodes[i]).children('a').attr('title');
             if (parentText) text = parentText + '.' + text;
-          };
+          }
           if (filterNavItem(text, val)) {
             parent.addClass(show);
             parent.removeClass(hide);
