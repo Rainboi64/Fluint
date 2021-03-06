@@ -6,7 +6,8 @@ namespace Fluint.Layer.IO
     public interface IIOManager : IModule
     {
         IMesh[] Import(string fileName);
-        void Export(string fileName, IMesh[] meshes);
-        string[] QueryLoadedFormats();
+        void Export(string fileName, IMesh[] meshes, string format = "");
+        string[] QueryImportableFormats();
+        string[] QueryExportableFormats();
     }
 }
