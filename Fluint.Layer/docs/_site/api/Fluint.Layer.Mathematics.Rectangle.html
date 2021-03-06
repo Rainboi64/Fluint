@@ -1,0 +1,1267 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Rectangle
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Rectangle
+   ">
+    <meta name="generator" content="docfx 2.56.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Fluint.Layer.Mathematics.Rectangle">
+  
+  
+  <h1 id="Fluint_Layer_Mathematics_Rectangle" data-uid="Fluint.Layer.Mathematics.Rectangle" class="text-break">Struct Rectangle
+  </h1>
+  <div class="markdown level0 summary"><p>Define a Rectangle. This structure is slightly different from System.Drawing.Rectangle as it is
+internally storing Left,Top,Right,Bottom instead of Left,Top,Width,Height.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fluint.Layer.Mathematics.html">Fluint.Layer.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
+  <h5 id="Fluint_Layer_Mathematics_Rectangle_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Rectangle : IEquatable&lt;Rectangle&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle__ctor_" data-uid="Fluint.Layer.Mathematics.Rectangle.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle__ctor_System_Int32_System_Int32_System_Int32_System_Int32_" data-uid="Fluint.Layer.Mathematics.Rectangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">Rectangle(Int32, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rectangle(int x, int y, int width, int height)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>The left.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>The top.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">width</span></td>
+        <td><p>The width.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">height</span></td>
+        <td><p>The height.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Bottom" data-uid="Fluint.Layer.Mathematics.Rectangle.Bottom">Bottom</h4>
+  <div class="markdown level1 summary"><p>The bottom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Bottom</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Empty" data-uid="Fluint.Layer.Mathematics.Rectangle.Empty">Empty</h4>
+  <div class="markdown level1 summary"><p>An empty rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Rectangle Empty</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Left" data-uid="Fluint.Layer.Mathematics.Rectangle.Left">Left</h4>
+  <div class="markdown level1 summary"><p>The left.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Left</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Right" data-uid="Fluint.Layer.Mathematics.Rectangle.Right">Right</h4>
+  <div class="markdown level1 summary"><p>The right.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Right</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Top" data-uid="Fluint.Layer.Mathematics.Rectangle.Top">Top</h4>
+  <div class="markdown level1 summary"><p>The top.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Top</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Height_" data-uid="Fluint.Layer.Mathematics.Rectangle.Height*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Height" data-uid="Fluint.Layer.Mathematics.Rectangle.Height">Height</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the height.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Height { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The height.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_IsEmpty_" data-uid="Fluint.Layer.Mathematics.Rectangle.IsEmpty*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_IsEmpty" data-uid="Fluint.Layer.Mathematics.Rectangle.IsEmpty">IsEmpty</h4>
+  <div class="markdown level1 summary"><p>Gets a value that indicates whether the rectangle is empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEmpty { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if [is empty]; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Width_" data-uid="Fluint.Layer.Mathematics.Rectangle.Width*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Width" data-uid="Fluint.Layer.Mathematics.Rectangle.Width">Width</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The width.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_X_" data-uid="Fluint.Layer.Mathematics.Rectangle.X*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_X" data-uid="Fluint.Layer.Mathematics.Rectangle.X">X</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the X position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int X { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The X position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Y_" data-uid="Fluint.Layer.Mathematics.Rectangle.Y*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Y" data-uid="Fluint.Layer.Mathematics.Rectangle.Y">Y</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Y position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Y { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The Y position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Contains_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Contains_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains(Fluint.Layer.Mathematics.Rectangle)">Contains(Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Determines whether this rectangle entirely contains a specified rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(Rectangle value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rectangle to evaluate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Contains_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Contains_Fluint_Layer_Mathematics_Rectangle__System_Boolean__" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains(Fluint.Layer.Mathematics.Rectangle@,System.Boolean@)">Contains(ref Rectangle, out Boolean)</h4>
+  <div class="markdown level1 summary"><p>Determines whether this rectangle entirely contains a specified rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Contains(ref Rectangle value, out bool result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rectangle to evaluate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>[OutAttribute] On exit, is true if this rectangle entirely contains the specified rectangle, or false if not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Contains_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Contains_System_Int32_System_Int32_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains(System.Int32,System.Int32)">Contains(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Determines whether this rectangle contains a specified point represented by its x- and y-coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(int x, int y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>The x-coordinate of the specified point.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>The y-coordinate of the specified point.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Contains_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Contains_System_Single_System_Single_" data-uid="Fluint.Layer.Mathematics.Rectangle.Contains(System.Single,System.Single)">Contains(Single, Single)</h4>
+  <div class="markdown level1 summary"><p>Checks, if specified point is inside <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(float x, float y)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>X point coordinate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Y point coordinate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if point is inside <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a>, otherwise <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Equals_" data-uid="Fluint.Layer.Mathematics.Rectangle.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Equals_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.Equals(Fluint.Layer.Mathematics.Rectangle)">Equals(Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Rectangle other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Equals_" data-uid="Fluint.Layer.Mathematics.Rectangle.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Equals_Fluint_Layer_Mathematics_Rectangle__" data-uid="Fluint.Layer.Mathematics.Rectangle.Equals(Fluint.Layer.Mathematics.Rectangle@)">Equals(ref Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ref Rectangle other)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">other</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Equals_" data-uid="Fluint.Layer.Mathematics.Rectangle.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Equals_System_Object_" data-uid="Fluint.Layer.Mathematics.Rectangle.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">System.Object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The <span class="xref">System.Object</span> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <span class="xref">System.Object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_GetHashCode_" data-uid="Fluint.Layer.Mathematics.Rectangle.GetHashCode*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_GetHashCode" data-uid="Fluint.Layer.Mathematics.Rectangle.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Inflate_" data-uid="Fluint.Layer.Mathematics.Rectangle.Inflate*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Inflate_System_Int32_System_Int32_" data-uid="Fluint.Layer.Mathematics.Rectangle.Inflate(System.Int32,System.Int32)">Inflate(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Pushes the edges of the rectangle out by the horizontal and vertical values specified.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Inflate(int horizontalAmount, int verticalAmount)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">horizontalAmount</span></td>
+        <td><p>Value to push the sides out by.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">verticalAmount</span></td>
+        <td><p>Value to push the top and bottom out by.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Intersect_" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersect*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Intersect_Fluint_Layer_Mathematics_Rectangle_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersect(Fluint.Layer.Mathematics.Rectangle,Fluint.Layer.Mathematics.Rectangle)">Intersect(Rectangle, Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Creates a rectangle defining the area where one rectangle overlaps with another rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rectangle Intersect(Rectangle value1, Rectangle value2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first rectangle to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second rectangle to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><p>The intersection rectangle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Intersect_" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersect*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Intersect_Fluint_Layer_Mathematics_Rectangle__Fluint_Layer_Mathematics_Rectangle__Fluint_Layer_Mathematics_Rectangle__" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersect(Fluint.Layer.Mathematics.Rectangle@,Fluint.Layer.Mathematics.Rectangle@,Fluint.Layer.Mathematics.Rectangle@)">Intersect(ref Rectangle, ref Rectangle, out Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Creates a rectangle defining the area where one rectangle overlaps with another rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Intersect(ref Rectangle value1, ref Rectangle value2, out Rectangle result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first rectangle to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second rectangle to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>[OutAttribute] The area where the two first parameters overlap.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Intersects_" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Intersects_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersects(Fluint.Layer.Mathematics.Rectangle)">Intersects(Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a specified rectangle intersects with this rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(Rectangle value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rectangle to evaluate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Intersects_" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Intersects_Fluint_Layer_Mathematics_Rectangle__System_Boolean__" data-uid="Fluint.Layer.Mathematics.Rectangle.Intersects(Fluint.Layer.Mathematics.Rectangle@,System.Boolean@)">Intersects(ref Rectangle, out Boolean)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a specified rectangle intersects with this rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Intersects(ref Rectangle value, out bool result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The rectangle to evaluate</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>[OutAttribute] true if the specified rectangle intersects with this one; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Offset_" data-uid="Fluint.Layer.Mathematics.Rectangle.Offset*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Offset_System_Int32_System_Int32_" data-uid="Fluint.Layer.Mathematics.Rectangle.Offset(System.Int32,System.Int32)">Offset(Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Changes the position of the rectangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Offset(int offsetX, int offsetY)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">offsetX</span></td>
+        <td><p>Change in the x-position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">offsetY</span></td>
+        <td><p>Change in the y-position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_ToString_" data-uid="Fluint.Layer.Mathematics.Rectangle.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_ToString" data-uid="Fluint.Layer.Mathematics.Rectangle.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Union_" data-uid="Fluint.Layer.Mathematics.Rectangle.Union*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Union_Fluint_Layer_Mathematics_Rectangle_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.Union(Fluint.Layer.Mathematics.Rectangle,Fluint.Layer.Mathematics.Rectangle)">Union(Rectangle, Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Creates a new rectangle that exactly contains two other rectangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Rectangle Union(Rectangle value1, Rectangle value2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first rectangle to contain.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second rectangle to contain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><p>The union rectangle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_Union_" data-uid="Fluint.Layer.Mathematics.Rectangle.Union*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_Union_Fluint_Layer_Mathematics_Rectangle__Fluint_Layer_Mathematics_Rectangle__Fluint_Layer_Mathematics_Rectangle__" data-uid="Fluint.Layer.Mathematics.Rectangle.Union(Fluint.Layer.Mathematics.Rectangle@,Fluint.Layer.Mathematics.Rectangle@,Fluint.Layer.Mathematics.Rectangle@)">Union(ref Rectangle, ref Rectangle, out Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Creates a new rectangle that exactly contains two other rectangles.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Union(ref Rectangle value1, ref Rectangle value2, out Rectangle result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first rectangle to contain.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second rectangle to contain.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>[OutAttribute] The rectangle that must be the union of the first two rectangles.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_op_Equality_" data-uid="Fluint.Layer.Mathematics.Rectangle.op_Equality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_op_Equality_Fluint_Layer_Mathematics_Rectangle_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.op_Equality(Fluint.Layer.Mathematics.Rectangle,Fluint.Layer.Mathematics.Rectangle)">Equality(Rectangle, Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Implements the operator ==.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Rectangle left, Rectangle right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The left.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The right.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>The result of the operator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_Rectangle_op_Inequality_" data-uid="Fluint.Layer.Mathematics.Rectangle.op_Inequality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Rectangle_op_Inequality_Fluint_Layer_Mathematics_Rectangle_Fluint_Layer_Mathematics_Rectangle_" data-uid="Fluint.Layer.Mathematics.Rectangle.op_Inequality(Fluint.Layer.Mathematics.Rectangle,Fluint.Layer.Mathematics.Rectangle)">Inequality(Rectangle, Rectangle)</h4>
+  <div class="markdown level1 summary"><p>Implements the operator !=.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Rectangle left, Rectangle right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The left.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Rectangle.html">Rectangle</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The right.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>The result of the operator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

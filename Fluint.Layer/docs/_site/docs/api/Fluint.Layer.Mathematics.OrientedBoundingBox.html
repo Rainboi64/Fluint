@@ -1,0 +1,1946 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct OrientedBoundingBox
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct OrientedBoundingBox
+   ">
+    <meta name="generator" content="docfx 2.56.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox">
+  
+  
+  <h1 id="Fluint_Layer_Mathematics_OrientedBoundingBox" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox" class="text-break">Struct OrientedBoundingBox
+  </h1>
+  <div class="markdown level0 summary"><p>OrientedBoundingBox (OBB) is a rectangular block, much like an AABB (BoundingBox) but with an arbitrary orientation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fluint.Layer.Mathematics.html">Fluint.Layer.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct OrientedBoundingBox : IEquatable&lt;OrientedBoundingBox&gt;, IFormattable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.%23ctor(Fluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L31">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.#ctor(Fluint.Layer.Mathematics.BoundingBox)">OrientedBoundingBox(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Creates an <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> from a BoundingBox.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrientedBoundingBox(BoundingBox bb)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">bb</span></td>
+        <td><p>The BoundingBox to create from.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_BoundingBox__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Initially, the OBB is axis-aligned box, but it can be rotated and transformed later.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.%23ctor(Fluint.Layer.Mathematics.Vector3%2CFluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L46">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.#ctor(Fluint.Layer.Mathematics.Vector3,Fluint.Layer.Mathematics.Vector3)">OrientedBoundingBox(Vector3, Vector3)</h4>
+  <div class="markdown level1 summary"><p>Creates an <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> which contained between two minimum and maximum points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrientedBoundingBox(Vector3 minimum, Vector3 maximum)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">minimum</span></td>
+        <td><p>The minimum vertex of the bounding box.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">maximum</span></td>
+        <td><p>The maximum vertex of the bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Initially, the OrientedBoundingBox is axis-aligned box, but it can be rotated and transformed later.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_Vector3___.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.%23ctor(Fluint.Layer.Mathematics.Vector3%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L61">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_Vector3___" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.#ctor(Fluint.Layer.Mathematics.Vector3[])">OrientedBoundingBox(Vector3[])</h4>
+  <div class="markdown level1 summary"><p>Creates an <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OrientedBoundingBox(Vector3[] points)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points that will be contained by the box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox__ctor_Fluint_Layer_Mathematics_Vector3____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is not for computing the best tight-fitting OrientedBoundingBox.
+And initially, the OrientedBoundingBox is axis-aligned box, but it can be rotated and transformed later.</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Extents.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Extents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L17">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Extents" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Extents">Extents</h4>
+  <div class="markdown level1 summary"><p>Half lengths of the box along each axis.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Extents</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Transformation.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Transformation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L22">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transformation" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Transformation">Transformation</h4>
+  <div class="markdown level1 summary"><p>The matrix which aligns and scales the box, and its translation vector represents the center of the box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Matrix Transformation</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Matrix.html">Matrix</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Center.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Center%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L236">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Center_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Center*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Center" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Center">Center</h4>
+  <div class="markdown level1 summary"><p>Returns the center of the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Center { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Size.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L189">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Size_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Size*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Size" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Size">Size</h4>
+  <div class="markdown level1 summary"><p>The size of the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> if no scaling is applied to the transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Size { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Size_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The property will return the actual size even if the scaling is applied using Scale method,
+but if the scaling is applied to transformation matrix, use GetSize Function instead.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Add_Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Add(Fluint.Layer.Mathematics.OrientedBoundingBox%40%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L730">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Add_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Add*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Add_Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Add(Fluint.Layer.Mathematics.OrientedBoundingBox@,System.Boolean)">Add(ref OrientedBoundingBox, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Merge another OrientedBoundingBox into this OrientedBoundingBox.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(ref OrientedBoundingBox OBB, bool NoMatrixScaleApplied = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">OBB</span></td>
+        <td><p>The other <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> to merge into this OrientedBoundingBox.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">NoMatrixScaleApplied</span></td>
+        <td><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L503">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.BoundingBox@)">Contains(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Check the intersection between an <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> and <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The BoundingBox to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For accuracy, The transformation matrix for the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> must not have any scaling applied to it.
+Anyway, scaling using Scale method will keep this method accurate.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere_System_Boolean_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.BoundingSphere%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L328">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere_System_Boolean_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.BoundingSphere,System.Boolean)">Contains(BoundingSphere, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(BoundingSphere sphere, bool IgnoreScale = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">IgnoreScale</span></td>
+        <td><p>Optimize the check operation by assuming that <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> has no scaling applied</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is not designed for <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> which has a non-uniform scaling applied to its transformation matrix.
+But any type of scaling applied using Scale method will keep this method accurate.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_OrientedBoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.OrientedBoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L382">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_OrientedBoundingBox__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.OrientedBoundingBox@)">Contains(ref OrientedBoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Check the intersection between two <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref OrientedBoundingBox obb)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">obb</span></td>
+        <td><p>The OrientedBoundingBoxs to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_OrientedBoundingBox___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For accuracy, The transformation matrix for both <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> must not have any scaling applied to it.
+Anyway, scaling using Scale method will keep this method accurate.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L274">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.Vector3)">Contains(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L249">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.Vector3@)">Contains(ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_Vector3___.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.Vector3%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L284">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Contains_Fluint_Layer_Mathematics_Vector3___" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Contains(Fluint.Layer.Mathematics.Vector3[])">Contains(Vector3[])</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> contains an array of points&gt;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(Vector3[] points)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points array to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_ContainsLine_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.ContainsLine(Fluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L463">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_ContainsLine_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ContainsLine*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_ContainsLine_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ContainsLine(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">ContainsLine(ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Check the intersection between an <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> and a line defined by two points</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType ContainsLine(ref Vector3 L1, ref Vector3 L2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">L1</span></td>
+        <td><p>The first point in the line.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">L2</span></td>
+        <td><p>The second point in the line.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_ContainsLine_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For accuracy, The transformation matrix for the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> must not have any scaling applied to it.
+Anyway, scaling using Scale method will keep this method accurate.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_Fluint_Layer_Mathematics_OrientedBoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Equals(Fluint.Layer.Mathematics.OrientedBoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L755">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_Fluint_Layer_Mathematics_OrientedBoundingBox_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Equals(Fluint.Layer.Mathematics.OrientedBoundingBox)">Equals(OrientedBoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(OrientedBoundingBox value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_Fluint_Layer_Mathematics_OrientedBoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Equals(Fluint.Layer.Mathematics.OrientedBoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L742">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_Fluint_Layer_Mathematics_OrientedBoundingBox__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Equals(Fluint.Layer.Mathematics.OrientedBoundingBox@)">Equals(ref OrientedBoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ref OrientedBoundingBox value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L768">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Equals_System_Object_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">System.Object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <span class="xref">System.Object</span> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <span class="xref">System.Object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_GetBoundingBox.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.GetBoundingBox%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L633">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetBoundingBox_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetBoundingBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetBoundingBox" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetBoundingBox">GetBoundingBox()</h4>
+  <div class="markdown level1 summary"><p>Get the axis-aligned <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> which contains all <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> corners.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoundingBox GetBoundingBox()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><p>The axis-aligned BoundingBox of this OrientedBoundingBox.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_GetBoxToBoxMatrix_Fluint_Layer_Mathematics_OrientedBoundingBox__Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.GetBoxToBoxMatrix(Fluint.Layer.Mathematics.OrientedBoundingBox%40%2CFluint.Layer.Mathematics.OrientedBoundingBox%40%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L647">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetBoxToBoxMatrix_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetBoxToBoxMatrix*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetBoxToBoxMatrix_Fluint_Layer_Mathematics_OrientedBoundingBox__Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetBoxToBoxMatrix(Fluint.Layer.Mathematics.OrientedBoundingBox@,Fluint.Layer.Mathematics.OrientedBoundingBox@,System.Boolean)">GetBoxToBoxMatrix(ref OrientedBoundingBox, ref OrientedBoundingBox, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Calculates the matrix required to transfer any point from one <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> local coordinates to another.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Matrix GetBoxToBoxMatrix(ref OrientedBoundingBox A, ref OrientedBoundingBox B, bool NoMatrixScaleApplied = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">A</span></td>
+        <td><p>The source OrientedBoundingBox.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">B</span></td>
+        <td><p>The target OrientedBoundingBox.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">NoMatrixScaleApplied</span></td>
+        <td><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Matrix.html">Matrix</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_GetCorners.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.GetCorners%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L84">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetCorners_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetCorners*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetCorners" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetCorners">GetCorners()</h4>
+  <div class="markdown level1 summary"><p>Retrieves the eight corners of the bounding box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3[] GetCorners()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><p>An array of points representing the eight corners of the bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_GetHashCode.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L807">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetHashCode_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetHashCode*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetHashCode" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_GetSize.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.GetSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L205">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetSize_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetSize*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetSize" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetSize">GetSize()</h4>
+  <div class="markdown level1 summary"><p>Returns the size of the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> taking into consideration the scaling applied to the transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetSize()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><p>The size of the consideration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetSize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is computationally expensive, so if no scale is applied to the transformation matrix
+use <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html#Fluint_Layer_Mathematics_OrientedBoundingBox_Size">Size</a> property instead.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_GetSizeSquared.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.GetSizeSquared%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L221">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetSizeSquared_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetSizeSquared*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_GetSizeSquared" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.GetSizeSquared">GetSizeSquared()</h4>
+  <div class="markdown level1 summary"><p>Returns the square size of the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> taking into consideration the scaling applied to the transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 GetSizeSquared()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><p>The size of the consideration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Intersects(Fluint.Layer.Mathematics.Ray%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L605">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Intersects(Fluint.Layer.Mathematics.Ray@)">Intersects(ref Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Intersects(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L580">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Intersects(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Ray, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Merge_Fluint_Layer_Mathematics_OrientedBoundingBox__Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Merge(Fluint.Layer.Mathematics.OrientedBoundingBox%40%2CFluint.Layer.Mathematics.OrientedBoundingBox%40%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L687">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Merge_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Merge*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Merge_Fluint_Layer_Mathematics_OrientedBoundingBox__Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Merge(Fluint.Layer.Mathematics.OrientedBoundingBox@,Fluint.Layer.Mathematics.OrientedBoundingBox@,System.Boolean)">Merge(ref OrientedBoundingBox, ref OrientedBoundingBox, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Merge an OrientedBoundingBox B into another OrientedBoundingBox A, by expanding A to contain B and keeping A orientation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge(ref OrientedBoundingBox A, ref OrientedBoundingBox B, bool NoMatrixScaleApplied = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">A</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> to merge into it.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">B</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> to be merged</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">NoMatrixScaleApplied</span></td>
+        <td><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Merge_Fluint_Layer_Mathematics_OrientedBoundingBox__Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Unlike merging axis aligned boxes, The operation is not interchangeable, because it keeps A orientation and merge B into it.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_MergeInto_Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.MergeInto(Fluint.Layer.Mathematics.OrientedBoundingBox%40%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L718">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_MergeInto_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.MergeInto*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_MergeInto_Fluint_Layer_Mathematics_OrientedBoundingBox__System_Boolean_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.MergeInto(Fluint.Layer.Mathematics.OrientedBoundingBox@,System.Boolean)">MergeInto(ref OrientedBoundingBox, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Merge this OrientedBoundingBox into another OrientedBoundingBox, keeping the other OrientedBoundingBox orientation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MergeInto(ref OrientedBoundingBox OBB, bool NoMatrixScaleApplied = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">OBB</span></td>
+        <td><p>The other <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> to merge into.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">NoMatrixScaleApplied</span></td>
+        <td><p>If true, the method will use a fast algorithm which is inapplicable if a scale is applied to the transformation matrix of the OrientedBoundingBox.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Scale(Fluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L149">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Scale*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Scale(Fluint.Layer.Mathematics.Vector3)">Scale(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix,
+By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Scale(Vector3 scaling)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">scaling</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Scale(Fluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L139">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Scale*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Scale(Fluint.Layer.Mathematics.Vector3@)">Scale(ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix,
+By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Scale(ref Vector3 scaling)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">scaling</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_System_Single_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Scale(System.Single)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L159">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Scale*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Scale_System_Single_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Scale(System.Single)">Scale(Single)</h4>
+  <div class="markdown level1 summary"><p>Scales the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> by scaling its Extents without affecting the Transformation matrix,
+By keeping Transformation matrix scaling-free, the collision detection methods will be more accurate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Scale(float scaling)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">scaling</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_ToString.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L818">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.ToString(System.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L846">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.ToString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L830">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_System_String_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString(System.String)">ToString(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_System_String_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.ToString(System.String%2CSystem.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L859">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_ToString_System_String_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.ToString(System.String,System.IFormatProvider)">ToString(String, IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_Fluint_Layer_Mathematics_Matrix_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Transform(Fluint.Layer.Mathematics.Matrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L129">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Transform*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_Fluint_Layer_Mathematics_Matrix_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Transform(Fluint.Layer.Mathematics.Matrix)">Transform(Matrix)</h4>
+  <div class="markdown level1 summary"><p>Transforms this box using a transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Transform(Matrix mat)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Matrix.html">Matrix</a></td>
+        <td><span class="parametername">mat</span></td>
+        <td><p>The transformation matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_Fluint_Layer_Mathematics_Matrix__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which
+scales the Extents and keeps the Transformation matrix for rotation only, and that preserves collision detection accuracy.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_Fluint_Layer_Mathematics_Matrix__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Transform(Fluint.Layer.Mathematics.Matrix%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L116">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Transform*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_Fluint_Layer_Mathematics_Matrix__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Transform(Fluint.Layer.Mathematics.Matrix@)">Transform(ref Matrix)</h4>
+  <div class="markdown level1 summary"><p>Transforms this box using a transformation matrix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Transform(ref Matrix mat)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Matrix.html">Matrix</a></td>
+        <td><span class="parametername">mat</span></td>
+        <td><p>The transformation matrix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Transform_Fluint_Layer_Mathematics_Matrix___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>While any kind of transformation can be applied, it is recommended to apply scaling using scale method instead, which
+scales the Extents and keeps the Transformation matrix for rotation only, and that preserves collision detection accuracy.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Translate_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Translate(Fluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L177">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Translate_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Translate*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Translate_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Translate(Fluint.Layer.Mathematics.Vector3)">Translate(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Translates the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> to a new position using a translation vector;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Translate(Vector3 translation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">translation</span></td>
+        <td><p>the translation vector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_Translate_Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.Translate(Fluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L168">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_Translate_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Translate*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_Translate_Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.Translate(Fluint.Layer.Mathematics.Vector3@)">Translate(ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Translates the <a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a> to a new position using a translation vector;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Translate(ref Vector3 translation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">translation</span></td>
+        <td><p>the translation vector.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_op_Equality_Fluint_Layer_Mathematics_OrientedBoundingBox_Fluint_Layer_Mathematics_OrientedBoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.op_Equality(Fluint.Layer.Mathematics.OrientedBoundingBox%2CFluint.Layer.Mathematics.OrientedBoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L783">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_op_Equality_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.op_Equality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_op_Equality_Fluint_Layer_Mathematics_OrientedBoundingBox_Fluint_Layer_Mathematics_OrientedBoundingBox_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.op_Equality(Fluint.Layer.Mathematics.OrientedBoundingBox,Fluint.Layer.Mathematics.OrientedBoundingBox)">Equality(OrientedBoundingBox, OrientedBoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(OrientedBoundingBox left, OrientedBoundingBox right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox_op_Inequality_Fluint_Layer_Mathematics_OrientedBoundingBox_Fluint_Layer_Mathematics_OrientedBoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox.op_Inequality(Fluint.Layer.Mathematics.OrientedBoundingBox%2CFluint.Layer.Mathematics.OrientedBoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L795">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_OrientedBoundingBox_op_Inequality_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.op_Inequality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_OrientedBoundingBox_op_Inequality_Fluint_Layer_Mathematics_OrientedBoundingBox_Fluint_Layer_Mathematics_OrientedBoundingBox_" data-uid="Fluint.Layer.Mathematics.OrientedBoundingBox.op_Inequality(Fluint.Layer.Mathematics.OrientedBoundingBox,Fluint.Layer.Mathematics.OrientedBoundingBox)">Inequality(OrientedBoundingBox, OrientedBoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(OrientedBoundingBox left, OrientedBoundingBox right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.OrientedBoundingBox.html">OrientedBoundingBox</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_OrientedBoundingBox.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.OrientedBoundingBox%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/OrientedBoundingBox.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

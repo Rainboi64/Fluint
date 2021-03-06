@@ -1,0 +1,1621 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct BoundingSphere
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct BoundingSphere
+   ">
+    <meta name="generator" content="docfx 2.56.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Fluint.Layer.Mathematics.BoundingSphere">
+  
+  
+  <h1 id="Fluint_Layer_Mathematics_BoundingSphere" data-uid="Fluint.Layer.Mathematics.BoundingSphere" class="text-break">Struct BoundingSphere
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a bounding sphere in three dimensional space.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fluint.Layer.Mathematics.html">Fluint.Layer.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
+  <h5 id="Fluint_Layer_Mathematics_BoundingSphere_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct BoundingSphere : IEquatable&lt;BoundingSphere&gt;, IFormattable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere__ctor_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere__ctor_Fluint_Layer_Mathematics_Vector3_System_Single_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.#ctor(Fluint.Layer.Mathematics.Vector3,System.Single)">BoundingSphere(Vector3, Single)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoundingSphere(Vector3 center, float radius)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">center</span></td>
+        <td><p>The center of the sphere in three dimensional space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">radius</span></td>
+        <td><p>The radius of the sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Center" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Center">Center</h4>
+  <div class="markdown level1 summary"><p>The center of the sphere in three dimensional space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Center</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Radius" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Radius">Radius</h4>
+  <div class="markdown level1 summary"><p>The radius of the sphere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Radius</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Contains_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains(Fluint.Layer.Mathematics.BoundingBox@)">Contains(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Contains_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains(Fluint.Layer.Mathematics.BoundingSphere@)">Contains(ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Contains_Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains(Fluint.Layer.Mathematics.Vector3@)">Contains(ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Contains_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Contains(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">Contains(ref Vector3, ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Equals_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Equals_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Equals(Fluint.Layer.Mathematics.BoundingSphere)">Equals(BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(BoundingSphere value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Equals_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Equals_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Equals(Fluint.Layer.Mathematics.BoundingSphere@)">Equals(ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ref BoundingSphere value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Equals_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Equals_System_Object_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">System.Object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <span class="xref">System.Object</span> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <span class="xref">System.Object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_FromBox_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_FromBox_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromBox(Fluint.Layer.Mathematics.BoundingBox)">FromBox(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> from a given box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingSphere FromBox(BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box that will designate the extents of the sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><p>The newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_FromBox_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_FromBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromBox(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingSphere@)">FromBox(ref BoundingBox, out BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> from a given box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromBox(ref BoundingBox box, out BoundingSphere result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box that will designate the extents of the sphere.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, the newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_FromPoints_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromPoints*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_FromPoints_Fluint_Layer_Mathematics_Vector3___" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromPoints(Fluint.Layer.Mathematics.Vector3[])">FromPoints(Vector3[])</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingSphere FromPoints(Vector3[] points)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points that will be contained by the sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><p>The newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_FromPoints_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromPoints*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_FromPoints_Fluint_Layer_Mathematics_Vector3___Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromPoints(Fluint.Layer.Mathematics.Vector3[],Fluint.Layer.Mathematics.BoundingSphere@)">FromPoints(Vector3[], out BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromPoints(Vector3[] points, out BoundingSphere result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points that will be contained by the sphere.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_FromPoints_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromPoints*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_FromPoints_Fluint_Layer_Mathematics_Vector3___System_Int32_System_Int32_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.FromPoints(Fluint.Layer.Mathematics.Vector3[],System.Int32,System.Int32,Fluint.Layer.Mathematics.BoundingSphere@)">FromPoints(Vector3[], Int32, Int32, out BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromPoints(Vector3[] points, int start, int count, out BoundingSphere result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points that will be contained by the sphere.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>The start index from points array to start compute the bounding sphere.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>The count of points to process to compute the bounding sphere.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>points</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ArgumentOutOfRangeException</span></td>
+        <td><p>start
+or
+count</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_GetHashCode_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.GetHashCode*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_GetHashCode" data-uid="Fluint.Layer.Mathematics.BoundingSphere.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.BoundingBox)">Intersects(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.BoundingBox@)">Intersects(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.BoundingSphere)">Intersects(BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.BoundingSphere@)">Intersects(ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_Plane__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.Plane@)">Intersects(ref Plane)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref Plane plane)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_Ray__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.Ray@)">Intersects(ref Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Ray, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_Ray__System_Single__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.Ray@,System.Single@)">Intersects(ref Ray, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Intersects(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Vector3, ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Merge_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Merge*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Merge_Fluint_Layer_Mathematics_BoundingSphere_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Merge(Fluint.Layer.Mathematics.BoundingSphere,Fluint.Layer.Mathematics.BoundingSphere)">Merge(BoundingSphere, BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> that is the as large as the total combined area of the two specified spheres.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingSphere Merge(BoundingSphere value1, BoundingSphere value2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first sphere to merge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second sphere to merge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><p>The newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_Merge_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Merge*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_Merge_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingSphere.Merge(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingSphere@)">Merge(ref BoundingSphere, ref BoundingSphere, out BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> that is the as large as the total combined area of the two specified spheres.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge(ref BoundingSphere value1, ref BoundingSphere value2, out BoundingSphere result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first sphere to merge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second sphere to merge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the newly constructed bounding sphere.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_ToString" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_ToString_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_ToString_System_String_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString(System.String)">ToString(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_ToString_System_String_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.ToString(System.String,System.IFormatProvider)">ToString(String, IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_op_Equality_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.op_Equality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_op_Equality_Fluint_Layer_Mathematics_BoundingSphere_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.op_Equality(Fluint.Layer.Mathematics.BoundingSphere,Fluint.Layer.Mathematics.BoundingSphere)">Equality(BoundingSphere, BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(BoundingSphere left, BoundingSphere right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Fluint_Layer_Mathematics_BoundingSphere_op_Inequality_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.op_Inequality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingSphere_op_Inequality_Fluint_Layer_Mathematics_BoundingSphere_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingSphere.op_Inequality(Fluint.Layer.Mathematics.BoundingSphere,Fluint.Layer.Mathematics.BoundingSphere)">Inequality(BoundingSphere, BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(BoundingSphere left, BoundingSphere right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

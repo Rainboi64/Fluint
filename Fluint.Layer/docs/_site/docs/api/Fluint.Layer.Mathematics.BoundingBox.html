@@ -1,0 +1,1997 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct BoundingBox
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct BoundingBox
+   ">
+    <meta name="generator" content="docfx 2.56.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Fluint.Layer.Mathematics.BoundingBox">
+  
+  
+  <h1 id="Fluint_Layer_Mathematics_BoundingBox" data-uid="Fluint.Layer.Mathematics.BoundingBox" class="text-break">Struct BoundingBox
+  </h1>
+  <div class="markdown level0 summary"><p>Represents an axis-aligned bounding box in three dimensional space.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fluint.Layer.Mathematics.html">Fluint.Layer.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
+  <h5 id="Fluint_Layer_Mathematics_BoundingBox_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct BoundingBox : IEquatable&lt;BoundingBox&gt;, IFormattable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.%23ctor(Fluint.Layer.Mathematics.Vector3%2CFluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L29">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox__ctor_" data-uid="Fluint.Layer.Mathematics.BoundingBox.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.BoundingBox.#ctor(Fluint.Layer.Mathematics.Vector3,Fluint.Layer.Mathematics.Vector3)">BoundingBox(Vector3, Vector3)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BoundingBox(Vector3 minimum, Vector3 maximum)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">minimum</span></td>
+        <td><p>The minimum vertex of the bounding box.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">maximum</span></td>
+        <td><p>The maximum vertex of the bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Maximum.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Maximum%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L22">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Maximum" data-uid="Fluint.Layer.Mathematics.BoundingBox.Maximum">Maximum</h4>
+  <div class="markdown level1 summary"><p>The maximum point of the box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Maximum</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Minimum.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Minimum%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L17">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Minimum" data-uid="Fluint.Layer.Mathematics.BoundingBox.Minimum">Minimum</h4>
+  <div class="markdown level1 summary"><p>The minimum point of the box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Minimum</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Center.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Center%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L58">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Center_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Center*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Center" data-uid="Fluint.Layer.Mathematics.BoundingBox.Center">Center</h4>
+  <div class="markdown level1 summary"><p>Returns the size of the bounding box</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Center { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Depth.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Depth%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L48">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Depth_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Depth*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Depth" data-uid="Fluint.Layer.Mathematics.BoundingBox.Depth">Depth</h4>
+  <div class="markdown level1 summary"><p>Returns the height of the bounding box</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Depth { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Height.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Height%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L43">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Height_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Height*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Height" data-uid="Fluint.Layer.Mathematics.BoundingBox.Height">Height</h4>
+  <div class="markdown level1 summary"><p>Returns the height of the bounding box</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Height { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Size.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Size%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L53">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Size_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Size*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Size" data-uid="Fluint.Layer.Mathematics.BoundingBox.Size">Size</h4>
+  <div class="markdown level1 summary"><p>Returns the size of the bounding box</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Size { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Width.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Width%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L38">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Width_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Width*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Width" data-uid="Fluint.Layer.Mathematics.BoundingBox.Width">Width</h4>
+  <div class="markdown level1 summary"><p>Returns the width of the bounding box</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float Width { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L234">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingBox)">Contains(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L224">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingBox@)">Contains(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingSphere)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L254">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingSphere)">Contains(BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L244">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.BoundingSphere@)">Contains(ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L200">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.Vector3)">Contains(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L190">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Contains_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Contains_Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Contains(Fluint.Layer.Mathematics.Vector3@)">Contains(ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the current objects contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContainmentType Contains(ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Equals_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Equals(Fluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L469">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Equals_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Equals_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Equals(Fluint.Layer.Mathematics.BoundingBox)">Equals(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(BoundingBox value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Equals_Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Equals(Fluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L456">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Equals_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Equals_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Equals(Fluint.Layer.Mathematics.BoundingBox@)">Equals(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ref BoundingBox value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L482">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Equals_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Equals_System_Object_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">System.Object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <span class="xref">System.Object</span> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <span class="xref">System.Object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_FromPoints_Fluint_Layer_Mathematics_Vector3___.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.FromPoints(Fluint.Layer.Mathematics.Vector3%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L288">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_FromPoints_" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromPoints*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_FromPoints_Fluint_Layer_Mathematics_Vector3___" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromPoints(Fluint.Layer.Mathematics.Vector3[])">FromPoints(Vector3[])</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingBox FromPoints(Vector3[] points)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points that will be contained by the box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><p>The newly constructed bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">points</code> is <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_FromPoints_Fluint_Layer_Mathematics_Vector3___Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.FromPoints(Fluint.Layer.Mathematics.Vector3%5B%5D%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L265">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_FromPoints_" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromPoints*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_FromPoints_Fluint_Layer_Mathematics_Vector3___Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromPoints(Fluint.Layer.Mathematics.Vector3[],Fluint.Layer.Mathematics.BoundingBox@)">FromPoints(Vector3[], out BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> that fully contains the given points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromPoints(Vector3[] points, out BoundingBox result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">points</span></td>
+        <td><p>The points that will be contained by the box.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the newly constructed bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Thrown when <code data-dev-comment-type="paramref" class="paramref">points</code> is <code>null</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_FromSphere_Fluint_Layer_Mathematics_BoundingSphere_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.FromSphere(Fluint.Layer.Mathematics.BoundingSphere)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L321">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_FromSphere_" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_FromSphere_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromSphere(Fluint.Layer.Mathematics.BoundingSphere)">FromSphere(BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> from a given sphere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingBox FromSphere(BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere that will designate the extents of the box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><p>The newly constructed bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_FromSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.FromSphere(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L310">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_FromSphere_" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_FromSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingBox.FromSphere(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingBox@)">FromSphere(ref BoundingSphere, out BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> from a given sphere.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void FromSphere(ref BoundingSphere sphere, out BoundingBox result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere that will designate the extents of the box.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the newly constructed bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_GetCorners.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.GetCorners%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L64">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_GetCorners_" data-uid="Fluint.Layer.Mathematics.BoundingBox.GetCorners*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_GetCorners" data-uid="Fluint.Layer.Mathematics.BoundingBox.GetCorners">GetCorners()</h4>
+  <div class="markdown level1 summary"><p>Retrieves the eight corners of the bounding box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3[] GetCorners()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><p>An array of points representing the eight corners of the bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_GetCorners_Fluint_Layer_Mathematics_Vector3___.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.GetCorners(Fluint.Layer.Mathematics.Vector3%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L75">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_GetCorners_" data-uid="Fluint.Layer.Mathematics.BoundingBox.GetCorners*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_GetCorners_Fluint_Layer_Mathematics_Vector3___" data-uid="Fluint.Layer.Mathematics.BoundingBox.GetCorners(Fluint.Layer.Mathematics.Vector3[])">GetCorners(Vector3[])</h4>
+  <div class="markdown level1 summary"><p>Retrieves the eight corners of the bounding box.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetCorners(Vector3[] corners)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a>[]</td>
+        <td><span class="parametername">corners</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_GetHashCode.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L441">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_GetHashCode_" data-uid="Fluint.Layer.Mathematics.BoundingBox.GetHashCode*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_GetHashCode" data-uid="Fluint.Layer.Mathematics.BoundingBox.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L160">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingBox)">Intersects(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L150">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingBox@)">Intersects(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingSphere_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingSphere)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L180">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingSphere)">Intersects(BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L170">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.BoundingSphere@)">Intersects(ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Plane__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Plane%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L126">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Plane__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Plane@)">Intersects(ref Plane)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlaneIntersectionType Intersects(ref Plane plane)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Ray%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L92">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Ray@)">Intersects(ref Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L116">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Ray, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Ray%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L104">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Intersects_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Intersects_Fluint_Layer_Mathematics_Ray__System_Single__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Intersects(Fluint.Layer.Mathematics.Ray@,System.Single@)">Intersects(ref Ray, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Merge_Fluint_Layer_Mathematics_BoundingBox_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Merge(Fluint.Layer.Mathematics.BoundingBox%2CFluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L347">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Merge_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Merge*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Merge_Fluint_Layer_Mathematics_BoundingBox_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Merge(Fluint.Layer.Mathematics.BoundingBox,Fluint.Layer.Mathematics.BoundingBox)">Merge(BoundingBox, BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> that is as large as the total combined area of the two specified boxes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static BoundingBox Merge(BoundingBox value1, BoundingBox value2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first box to merge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second box to merge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><p>The newly constructed bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_Merge_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.Merge(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L335">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_Merge_" data-uid="Fluint.Layer.Mathematics.BoundingBox.Merge*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_Merge_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.BoundingBox.Merge(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingBox@)">Merge(ref BoundingBox, ref BoundingBox, out BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> that is as large as the total combined area of the two specified boxes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Merge(ref BoundingBox value1, ref BoundingBox value2, out BoundingBox result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">value1</span></td>
+        <td><p>The first box to merge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">value2</span></td>
+        <td><p>The second box to merge.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the newly constructed bounding box.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_ToString.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L385">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_ToString" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_ToString_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.ToString(System.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L413">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_ToString_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_ToString_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.ToString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L397">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_ToString_System_String_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString(System.String)">ToString(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_ToString_System_String_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.ToString(System.String%2CSystem.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L426">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_ToString_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_ToString_System_String_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.BoundingBox.ToString(System.String,System.IFormatProvider)">ToString(String, IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_op_Equality_Fluint_Layer_Mathematics_BoundingBox_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.op_Equality(Fluint.Layer.Mathematics.BoundingBox%2CFluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L361">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_op_Equality_" data-uid="Fluint.Layer.Mathematics.BoundingBox.op_Equality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_op_Equality_Fluint_Layer_Mathematics_BoundingBox_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingBox.op_Equality(Fluint.Layer.Mathematics.BoundingBox,Fluint.Layer.Mathematics.BoundingBox)">Equality(BoundingBox, BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(BoundingBox left, BoundingBox right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox_op_Inequality_Fluint_Layer_Mathematics_BoundingBox_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox.op_Inequality(Fluint.Layer.Mathematics.BoundingBox%2CFluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L373">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_BoundingBox_op_Inequality_" data-uid="Fluint.Layer.Mathematics.BoundingBox.op_Inequality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_BoundingBox_op_Inequality_Fluint_Layer_Mathematics_BoundingBox_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.BoundingBox.op_Inequality(Fluint.Layer.Mathematics.BoundingBox,Fluint.Layer.Mathematics.BoundingBox)">Inequality(BoundingBox, BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(BoundingBox left, BoundingBox right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_BoundingBox.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.BoundingBox%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/BoundingBox.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

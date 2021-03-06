@@ -1,0 +1,2350 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Collision
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Collision
+   ">
+    <meta name="generator" content="docfx 2.56.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Fluint.Layer.Mathematics.Collision">
+  
+  
+  <h1 id="Fluint_Layer_Mathematics_Collision" data-uid="Fluint.Layer.Mathematics.Collision" class="text-break">Class Collision
+  </h1>
+  <div class="markdown level0 summary"><p>Contains static methods to help in determining intersections, containment, etc.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Collision</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fluint.Layer.Mathematics.html">Fluint.Layer.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
+  <h5 id="Fluint_Layer_Mathematics_Collision_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Collision</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_BoxContainsBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.BoxContainsBox(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1142">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_BoxContainsBox_" data-uid="Fluint.Layer.Mathematics.Collision.BoxContainsBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_BoxContainsBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.Collision.BoxContainsBox(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingBox@)">BoxContainsBox(ref BoundingBox, ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsBox(ref BoundingBox box1, ref BoundingBox box2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box1</span></td>
+        <td><p>The first box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box2</span></td>
+        <td><p>The second box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_BoxContainsPoint_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.BoxContainsPoint(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1099">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_BoxContainsPoint_" data-uid="Fluint.Layer.Mathematics.Collision.BoxContainsPoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_BoxContainsPoint_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.BoxContainsPoint(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.Vector3@)">BoxContainsPoint(ref BoundingBox, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsPoint(ref BoundingBox box, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_BoxContainsSphere_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.BoxContainsSphere(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1169">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_BoxContainsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.BoxContainsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_BoxContainsSphere_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Collision.BoxContainsSphere(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingSphere@)">BoxContainsSphere(ref BoundingBox, ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType BoxContainsSphere(ref BoundingBox box, ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_BoxIntersectsBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.BoxIntersectsBox(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1029">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_BoxIntersectsBox_" data-uid="Fluint.Layer.Mathematics.Collision.BoxIntersectsBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_BoxIntersectsBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.Collision.BoxIntersectsBox(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingBox@)">BoxIntersectsBox(ref BoundingBox, ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BoxIntersectsBox(ref BoundingBox box1, ref BoundingBox box2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box1</span></td>
+        <td><p>The first box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box2</span></td>
+        <td><p>The second box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_BoxIntersectsSphere_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.BoxIntersectsSphere(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1049">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_BoxIntersectsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.BoxIntersectsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_BoxIntersectsSphere_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Collision.BoxIntersectsSphere(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingSphere@)">BoxIntersectsSphere(ref BoundingBox, ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool BoxIntersectsSphere(ref BoundingBox box, ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_ClosestPointBoxPoint_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.ClosestPointBoxPoint(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L137">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_ClosestPointBoxPoint_" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointBoxPoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_ClosestPointBoxPoint_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointBoxPoint(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">ClosestPointBoxPoint(ref BoundingBox, ref Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointBoxPoint(ref BoundingBox box, ref Vector3 point, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the closest point between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_ClosestPointPlanePoint_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.ClosestPointPlanePoint(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L120">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_ClosestPointPlanePoint_" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointPlanePoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_ClosestPointPlanePoint_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointPlanePoint(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">ClosestPointPlanePoint(ref Plane, ref Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPlanePoint(ref Plane plane, ref Vector3 point, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the closest point between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_ClosestPointPointTriangle_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.ClosestPointPointTriangle(Fluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L42">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_ClosestPointPointTriangle_" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointPointTriangle*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_ClosestPointPointTriangle_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointPointTriangle(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">ClosestPointPointTriangle(ref Vector3, ref Vector3, ref Vector3, ref Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the closest point between a point and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointPointTriangle(ref Vector3 point, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the closest point between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_ClosestPointSpherePoint_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.ClosestPointSpherePoint(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L153">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_ClosestPointSpherePoint_" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointSpherePoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_ClosestPointSpherePoint_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointSpherePoint(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">ClosestPointSpherePoint(ref BoundingSphere, ref Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointSpherePoint(ref BoundingSphere sphere, ref Vector3 point, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the closest point between the two objects;
+or, if the point is directly in the center of the sphere, contains <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_ClosestPointSphereSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.ClosestPointSphereSphere(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L182">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_ClosestPointSphereSphere_" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointSphereSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_ClosestPointSphereSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.ClosestPointSphereSphere(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@)">ClosestPointSphereSphere(ref BoundingSphere, ref BoundingSphere, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the closest point between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClosestPointSphereSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2, out Vector3 result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere1</span></td>
+        <td><p>The first sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere2</span></td>
+        <td><p>The second sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>When the method completes, contains the closest point between the two objects;
+or, if the point is directly in the center of the sphere, contains <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_Collision_ClosestPointSphereSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the two spheres are overlapping, but not directly on top of each other, the closest point
+is the 'closest' point of intersection. This can also be considered is the deepest point of
+intersection.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_DistanceBoxBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.DistanceBoxBox(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L251">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_DistanceBoxBox_" data-uid="Fluint.Layer.Mathematics.Collision.DistanceBoxBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_DistanceBoxBox_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.Collision.DistanceBoxBox(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.BoundingBox@)">DistanceBoxBox(ref BoundingBox, ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceBoxBox(ref BoundingBox box1, ref BoundingBox box2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box1</span></td>
+        <td><p>The first box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box2</span></td>
+        <td><p>The second box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><p>The distance between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_DistanceBoxPoint_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.DistanceBoxPoint(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L220">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_DistanceBoxPoint_" data-uid="Fluint.Layer.Mathematics.Collision.DistanceBoxPoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_DistanceBoxPoint_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.DistanceBoxPoint(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.Vector3@)">DistanceBoxPoint(ref BoundingBox, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceBoxPoint(ref BoundingBox box, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><p>The distance between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_DistancePlanePoint_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.DistancePlanePoint(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L205">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_DistancePlanePoint_" data-uid="Fluint.Layer.Mathematics.Collision.DistancePlanePoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_DistancePlanePoint_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.DistancePlanePoint(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Vector3@)">DistancePlanePoint(ref Plane, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistancePlanePoint(ref Plane plane, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><p>The distance between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_DistanceSpherePoint_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.DistanceSpherePoint(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L303">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_DistanceSpherePoint_" data-uid="Fluint.Layer.Mathematics.Collision.DistanceSpherePoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_DistanceSpherePoint_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.DistanceSpherePoint(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@)">DistanceSpherePoint(ref BoundingSphere, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceSpherePoint(ref BoundingSphere sphere, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><p>The distance between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_DistanceSphereSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.DistanceSphereSphere(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L320">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_DistanceSphereSphere_" data-uid="Fluint.Layer.Mathematics.Collision.DistanceSphereSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_DistanceSphereSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Collision.DistanceSphereSphere(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingSphere@)">DistanceSphereSphere(ref BoundingSphere, ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines the distance between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float DistanceSphereSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere1</span></td>
+        <td><p>The first sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere2</span></td>
+        <td><p>The second sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><p>The distance between the two objects.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_PlaneIntersectsBox_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.PlaneIntersectsBox(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L948">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsBox_" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsBox_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsBox(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.BoundingBox@)">PlaneIntersectsBox(ref Plane, ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsBox(ref Plane plane, ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Plane__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.PlaneIntersectsPlane(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Plane%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L859">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsPlane*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Plane__" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsPlane(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Plane@)">PlaneIntersectsPlane(ref Plane, ref Plane)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PlaneIntersectsPlane(ref Plane plane1, ref Plane plane2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane1</span></td>
+        <td><p>The first plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane2</span></td>
+        <td><p>The second plane to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Ray__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.PlaneIntersectsPlane(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Ray%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L886">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsPlane*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Ray__" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsPlane(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Ray@)">PlaneIntersectsPlane(ref Plane, ref Plane, out Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PlaneIntersectsPlane(ref Plane plane1, ref Plane plane2, out Ray line)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane1</span></td>
+        <td><p>The first plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane2</span></td>
+        <td><p>The second plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">line</span></td>
+        <td><p>When the method completes, contains the line of intersection
+as a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>, or a zero ray if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPlane_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Ray___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Although a ray is set to have an origin, the ray returned by this method is really
+a line in three dimensions which has no real origin. The ray is considered valid when
+both the positive direction is used and when the negative direction is used.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_PlaneIntersectsPoint_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.PlaneIntersectsPoint(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L839">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPoint_" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsPoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsPoint_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsPoint(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Vector3@)">PlaneIntersectsPoint(ref Plane, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsPoint(ref Plane plane, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_PlaneIntersectsSphere_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.PlaneIntersectsSphere(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L982">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsSphere_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsSphere(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.BoundingSphere@)">PlaneIntersectsSphere(ref Plane, ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsSphere(ref Plane plane, ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_PlaneIntersectsTriangle_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.PlaneIntersectsTriangle(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L924">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsTriangle_" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsTriangle*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_PlaneIntersectsTriangle_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.PlaneIntersectsTriangle(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">PlaneIntersectsTriangle(ref Plane, ref Vector3, ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PlaneIntersectionType PlaneIntersectsTriangle(ref Plane plane, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.PlaneIntersectionType.html">PlaneIntersectionType</a></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsBox_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsBox(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L761">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsBox_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsBox_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsBox(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.Vector3@)">RayIntersectsBox(ref Ray, ref BoundingBox, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsBox(ref Ray ray, ref BoundingBox box, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsBox_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingBox__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsBox(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.BoundingBox%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L649">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsBox_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsBox_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingBox__System_Single__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsBox(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.BoundingBox@,System.Single@)">RayIntersectsBox(ref Ray, ref BoundingBox, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsBox(ref Ray ray, ref BoundingBox box, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsPlane_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsPlane(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L497">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsPlane_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsPlane*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsPlane_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsPlane(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Vector3@)">RayIntersectsPlane(ref Ray, ref Plane, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPlane(ref Ray ray, ref Plane plane, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsPlane_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Plane__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsPlane(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Plane%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L464">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsPlane_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsPlane*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsPlane_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Plane__System_Single__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsPlane(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Plane@,System.Single@)">RayIntersectsPlane(ref Ray, ref Plane, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPlane(ref Ray ray, ref Plane plane, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersect.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsPoint_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsPoint(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L337">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsPoint_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsPoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsPoint_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsPoint(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@)">RayIntersectsPoint(ref Ray, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsPoint(ref Ray ray, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersect.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsRay_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsRay(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L378">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsRay_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsRay*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsRay_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsRay(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@)">RayIntersectsRay(ref Ray, ref Ray, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsRay(ref Ray ray1, ref Ray ray2, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray1</span></td>
+        <td><p>The first ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray2</span></td>
+        <td><p>The second ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersect.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_Collision_RayIntersectsRay_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method performs a ray vs ray intersection test based on the following formula
+from Goldman.</p>
+<pre><code>s = det([o_2 - o_1, d_2, d_1 x d_2]) / ||d_1 x d_2||^2</code></pre>
+<pre><code>t = det([o_2 - o_1, d_1, d_1 x d_2]) / ||d_1 x d_2||^2</code></pre>
+<p>Where o_1 is the position of the first ray, o_2 is the position of the second ray,
+d_1 is the normalized direction of the first ray, d_2 is the normalized direction
+of the second ray, det denotes the determinant of a matrix, x denotes the cross
+product, [ ] denotes a matrix, and || || denotes the length or magnitude of a vector.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsSphere_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsSphere(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L821">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsSphere_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsSphere(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@)">RayIntersectsSphere(ref Ray, ref BoundingSphere, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsSphere(ref Ray ray, ref BoundingSphere sphere, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsSphere_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingSphere__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsSphere(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.BoundingSphere%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L781">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsSphere_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_BoundingSphere__System_Single__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsSphere(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.BoundingSphere@,System.Single@)">RayIntersectsSphere(ref Ray, ref BoundingSphere, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsSphere(ref Ray ray, ref BoundingSphere sphere, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsTriangle(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L629">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsTriangle*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsTriangle(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">RayIntersectsTriangle(ref Ray, ref Vector3, ref Vector3, ref Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.RayIntersectsTriangle(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L529">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsTriangle*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__System_Single__" data-uid="Fluint.Layer.Mathematics.Collision.RayIntersectsTriangle(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,System.Single@)">RayIntersectsTriangle(ref Ray, ref Vector3, ref Vector3, ref Vector3, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Fluint_Layer_Mathematics_Collision_RayIntersectsTriangle_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__System_Single___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method tests if the ray intersects either the front or back of the triangle.
+If the ray is parallel to the triangle's plane, no intersection is assumed to have
+happened. If the intersection of the ray and the triangle is behind the origin of
+the ray, no intersection is assumed to have happened. In both cases of assumptions,
+this method returns false.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_SphereContainsBox_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.SphereContainsBox(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1233">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_SphereContainsBox_" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsBox*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_SphereContainsBox_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsBox(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingBox@)">SphereContainsBox(ref BoundingSphere, ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsBox(ref BoundingSphere sphere, ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_SphereContainsPoint_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.SphereContainsPoint(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1193">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_SphereContainsPoint_" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsPoint*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_SphereContainsPoint_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsPoint(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@)">SphereContainsPoint(ref BoundingSphere, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsPoint(ref BoundingSphere sphere, ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_SphereContainsSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.SphereContainsSphere(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1306">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_SphereContainsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_SphereContainsSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsSphere(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingSphere@)">SphereContainsSphere(ref BoundingSphere, ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere1</span></td>
+        <td><p>The first sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere2</span></td>
+        <td><p>The second sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_SphereContainsTriangle_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.SphereContainsTriangle(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1209">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_SphereContainsTriangle_" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsTriangle*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_SphereContainsTriangle_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.SphereContainsTriangle(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">SphereContainsTriangle(ref BoundingSphere, ref Vector3, ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> contains a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContainmentType SphereContainsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ContainmentType.html">ContainmentType</a></td>
+        <td><p>The type of containment the two objects have.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_SphereIntersectsSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.SphereIntersectsSphere(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1087">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_SphereIntersectsSphere_" data-uid="Fluint.Layer.Mathematics.Collision.SphereIntersectsSphere*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_SphereIntersectsSphere_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Collision.SphereIntersectsSphere(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.BoundingSphere@)">SphereIntersectsSphere(ref BoundingSphere, ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SphereIntersectsSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere1</span></td>
+        <td><p>First sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere2</span></td>
+        <td><p>Second sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision_SphereIntersectsTriangle_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision.SphereIntersectsTriangle(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L1068">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Collision_SphereIntersectsTriangle_" data-uid="Fluint.Layer.Mathematics.Collision.SphereIntersectsTriangle*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Collision_SphereIntersectsTriangle_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Collision.SphereIntersectsTriangle(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">SphereIntersectsTriangle(ref BoundingSphere, ref Vector3, ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines whether there is an intersection between a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a> and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SphereIntersectsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Collision.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Collision%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Collision.cs/#L32" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
