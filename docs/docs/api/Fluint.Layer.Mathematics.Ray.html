@@ -1,0 +1,1764 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct Ray
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct Ray
+   ">
+    <meta name="generator" content="docfx 2.56.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Fluint.Layer.Mathematics.Ray">
+  
+  
+  <h1 id="Fluint_Layer_Mathematics_Ray" data-uid="Fluint.Layer.Mathematics.Ray" class="text-break">Struct Ray
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a three dimensional line based on a point in space and a direction.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IEquatable</span>&lt;<a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>&gt;</div>
+    <div><span class="xref">System.IFormattable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Fluint.Layer.Mathematics.html">Fluint.Layer.Mathematics</a></h6>
+  <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
+  <h5 id="Fluint_Layer_Mathematics_Ray_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct Ray : IEquatable&lt;Ray&gt;, IFormattable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.%23ctor(Fluint.Layer.Mathematics.Vector3%2CFluint.Layer.Mathematics.Vector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L29">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray__ctor_" data-uid="Fluint.Layer.Mathematics.Ray.#ctor*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray__ctor_Fluint_Layer_Mathematics_Vector3_Fluint_Layer_Mathematics_Vector3_" data-uid="Fluint.Layer.Mathematics.Ray.#ctor(Fluint.Layer.Mathematics.Vector3,Fluint.Layer.Mathematics.Vector3)">Ray(Vector3, Vector3)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> struct.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Ray(Vector3 position, Vector3 direction)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">position</span></td>
+        <td><p>The position in three dimensional space of the origin of the ray.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">direction</span></td>
+        <td><p>The normalized direction of the ray.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Direction.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Direction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L22">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Direction" data-uid="Fluint.Layer.Mathematics.Ray.Direction">Direction</h4>
+  <div class="markdown level1 summary"><p>The normalized direction in which the ray points.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Direction</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Position.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L17">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Position" data-uid="Fluint.Layer.Mathematics.Ray.Position">Position</h4>
+  <div class="markdown level1 summary"><p>The position in three dimensional space where the ray starts.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3 Position</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Equals_Fluint_Layer_Mathematics_Ray_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Equals(Fluint.Layer.Mathematics.Ray)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L361">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Equals_" data-uid="Fluint.Layer.Mathematics.Ray.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Equals_Fluint_Layer_Mathematics_Ray_" data-uid="Fluint.Layer.Mathematics.Ray.Equals(Fluint.Layer.Mathematics.Ray)">Equals(Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(Ray value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Equals_Fluint_Layer_Mathematics_Ray__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Equals(Fluint.Layer.Mathematics.Ray%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L348">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Equals_" data-uid="Fluint.Layer.Mathematics.Ray.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Equals_Fluint_Layer_Mathematics_Ray__" data-uid="Fluint.Layer.Mathematics.Ray.Equals(Fluint.Layer.Mathematics.Ray@)">Equals(ref Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ref Ray value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <a class="xref" href="Fluint.Layer.Mathematics.Vector4.html">Vector4</a> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Equals_System_Object_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L374">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Equals_" data-uid="Fluint.Layer.Mathematics.Ray.Equals*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Equals_System_Object_" data-uid="Fluint.Layer.Mathematics.Ray.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the specified <span class="xref">System.Object</span> is equal to this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The <span class="xref">System.Object</span> to compare with this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified <span class="xref">System.Object</span> is equal to this instance; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.Equals(System.Object)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_GetHashCode.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L333">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_GetHashCode_" data-uid="Fluint.Layer.Mathematics.Ray.GetHashCode*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_GetHashCode" data-uid="Fluint.Layer.Mathematics.Ray.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Returns a hash code for this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.GetHashCode()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_GetPickRay_System_Int32_System_Int32_Fluint_Layer_Mathematics_ViewportF_Fluint_Layer_Mathematics_Matrix_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.GetPickRay(System.Int32%2CSystem.Int32%2CFluint.Layer.Mathematics.ViewportF%2CFluint.Layer.Mathematics.Matrix)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L237">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_GetPickRay_" data-uid="Fluint.Layer.Mathematics.Ray.GetPickRay*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_GetPickRay_System_Int32_System_Int32_Fluint_Layer_Mathematics_ViewportF_Fluint_Layer_Mathematics_Matrix_" data-uid="Fluint.Layer.Mathematics.Ray.GetPickRay(System.Int32,System.Int32,Fluint.Layer.Mathematics.ViewportF,Fluint.Layer.Mathematics.Matrix)">GetPickRay(Int32, Int32, ViewportF, Matrix)</h4>
+  <div class="markdown level1 summary"><p>Calculates a world space <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a> from 2d screen coordinates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Ray GetPickRay(int x, int y, ViewportF viewport, Matrix worldViewProjection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">x</span></td>
+        <td><p>X coordinate on 2d screen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">y</span></td>
+        <td><p>Y coordinate on 2d screen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.ViewportF.html">ViewportF</a></td>
+        <td><span class="parametername">viewport</span></td>
+        <td><p><a class="xref" href="Fluint.Layer.Mathematics.ViewportF.html">ViewportF</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Matrix.html">Matrix</a></td>
+        <td><span class="parametername">worldViewProjection</span></td>
+        <td><p>Transformation <a class="xref" href="Fluint.Layer.Mathematics.Matrix.html">Matrix</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><p>Resulting <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L156">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox)">Intersects(BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L146">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox@)">Intersects(ref BoundingBox)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingBox box)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L180">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref BoundingBox, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingBox box, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L168">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingBox__System_Single__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingBox@,System.Single@)">Intersects(ref BoundingBox, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingBox box, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingBox.html">BoundingBox</a></td>
+        <td><span class="parametername">box</span></td>
+        <td><p>The box to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L200">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere)">Intersects(BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L190">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere@)">Intersects(ref BoundingSphere)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingSphere sphere)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L224">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref BoundingSphere, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingSphere sphere, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L212">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_BoundingSphere__System_Single__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.BoundingSphere@,System.Single@)">Intersects(ref BoundingSphere, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref BoundingSphere sphere, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.BoundingSphere.html">BoundingSphere</a></td>
+        <td><span class="parametername">sphere</span></td>
+        <td><p>The sphere to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Plane__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Plane%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L72">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Plane__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Plane@)">Intersects(ref Plane)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Plane plane)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Plane%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L96">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Plane__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Plane@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Plane, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Plane plane, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Plane__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Plane%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L84">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Plane__System_Single__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Plane@,System.Single@)">Intersects(ref Plane, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Plane plane, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Plane.html">Plane</a></td>
+        <td><span class="parametername">plane</span></td>
+        <td><p>The plane to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Ray__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Ray%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L50">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Ray__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Ray@)">Intersects(ref Ray)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Ray%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L62">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Ray__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Ray@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Ray, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a <a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Ray ray, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">ray</span></td>
+        <td><p>The ray to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L40">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>The point to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L108">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Vector3, ref Vector3, ref Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L136">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@)">Intersects(ref Vector3, ref Vector3, ref Vector3, out Vector3)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 point)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">point</span></td>
+        <td><p>When the method completes, contains the point of intersection,
+or <a class="xref" href="Fluint.Layer.Mathematics.Vector3.html#Fluint_Layer_Mathematics_Vector3_Zero">Zero</a> if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__System_Single__.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CFluint.Layer.Mathematics.Vector3%40%2CSystem.Single%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L122">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_Intersects_" data-uid="Fluint.Layer.Mathematics.Ray.Intersects*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_Intersects_Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__Fluint_Layer_Mathematics_Vector3__System_Single__" data-uid="Fluint.Layer.Mathematics.Ray.Intersects(Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,Fluint.Layer.Mathematics.Vector3@,System.Single@)">Intersects(ref Vector3, ref Vector3, ref Vector3, out Single)</h4>
+  <div class="markdown level1 summary"><p>Determines if there is an intersection between the current object and a triangle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Intersects(ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out float distance)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex1</span></td>
+        <td><p>The first vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex2</span></td>
+        <td><p>The second vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Vector3.html">Vector3</a></td>
+        <td><span class="parametername">vertex3</span></td>
+        <td><p>The third vertex of the triangle to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">distance</span></td>
+        <td><p>When the method completes, contains the distance of the intersection,
+or 0 if there was no intersection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Whether the two objects intersected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_ToString.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L283">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_ToString_" data-uid="Fluint.Layer.Mathematics.Ray.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_ToString" data-uid="Fluint.Layer.Mathematics.Ray.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.ValueType.ToString()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_ToString_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.ToString(System.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L308">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_ToString_" data-uid="Fluint.Layer.Mathematics.Ray.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_ToString_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.Ray.ToString(System.IFormatProvider)">ToString(IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_ToString_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.ToString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L295">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_ToString_" data-uid="Fluint.Layer.Mathematics.Ray.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_ToString_System_String_" data-uid="Fluint.Layer.Mathematics.Ray.ToString(System.String)">ToString(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_ToString_System_String_System_IFormatProvider_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.ToString(System.String%2CSystem.IFormatProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L321">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_ToString_" data-uid="Fluint.Layer.Mathematics.Ray.ToString*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_ToString_System_String_System_IFormatProvider_" data-uid="Fluint.Layer.Mathematics.Ray.ToString(System.String,System.IFormatProvider)">ToString(String, IFormatProvider)</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToString(string format, IFormatProvider formatProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">format</span></td>
+        <td><p>The format.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IFormatProvider</span></td>
+        <td><span class="parametername">formatProvider</span></td>
+        <td><p>The format provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_op_Equality_Fluint_Layer_Mathematics_Ray_Fluint_Layer_Mathematics_Ray_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.op_Equality(Fluint.Layer.Mathematics.Ray%2CFluint.Layer.Mathematics.Ray)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L259">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_op_Equality_" data-uid="Fluint.Layer.Mathematics.Ray.op_Equality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_op_Equality_Fluint_Layer_Mathematics_Ray_Fluint_Layer_Mathematics_Ray_" data-uid="Fluint.Layer.Mathematics.Ray.op_Equality(Fluint.Layer.Mathematics.Ray,Fluint.Layer.Mathematics.Ray)">Equality(Ray, Ray)</h4>
+  <div class="markdown level1 summary"><p>Tests for equality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(Ray left, Ray right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has the same value as <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray_op_Inequality_Fluint_Layer_Mathematics_Ray_Fluint_Layer_Mathematics_Ray_.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray.op_Inequality(Fluint.Layer.Mathematics.Ray%2CFluint.Layer.Mathematics.Ray)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L271">View Source</a>
+  </span>
+  <a id="Fluint_Layer_Mathematics_Ray_op_Inequality_" data-uid="Fluint.Layer.Mathematics.Ray.op_Inequality*"></a>
+  <h4 id="Fluint_Layer_Mathematics_Ray_op_Inequality_Fluint_Layer_Mathematics_Ray_Fluint_Layer_Mathematics_Ray_" data-uid="Fluint.Layer.Mathematics.Ray.op_Inequality(Fluint.Layer.Mathematics.Ray,Fluint.Layer.Mathematics.Ray)">Inequality(Ray, Ray)</h4>
+  <div class="markdown level1 summary"><p>Tests for inequality between two objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(Ray left, Ray right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first value to compare.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.Mathematics.Ray.html">Ray</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second value to compare.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if <code data-dev-comment-type="paramref" class="paramref">left</code> has a different value than <code data-dev-comment-type="paramref" class="paramref">right</code>; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IEquatable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.IFormattable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_Mathematics_Ray.md&amp;value=---%0Auid%3A%20Fluint.Layer.Mathematics.Ray%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Rainboi64/Fluint/blob/master/Fluint.Layer/Mathematics/Ray.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
