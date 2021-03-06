@@ -29,7 +29,7 @@ exports.transform = function (model) {
       var length = item.items.length;
       for (var i = 0; i < length; i++) {
         transformItem(item.items[i], level + 1);
-      };
+      }
     } else {
       item.items = [];
       item.leaf = true;
