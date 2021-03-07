@@ -659,7 +659,6 @@ namespace Fluint.Layer.Mathematics
                 rotation = Quaternion.Identity;
                 return false;
             }
-            
 
             //The rotation is the left over matrix after dividing out the scaling.
             Matrix rotationmatrix = new Matrix();

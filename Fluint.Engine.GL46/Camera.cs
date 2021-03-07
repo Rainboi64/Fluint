@@ -64,16 +64,17 @@ namespace Fluint.Engine.GL46
             }
         }
 
-        public ProjectionMode ProjectionMode { get; set; }
+        public ProjectionMode ProjectionMode { get; set; } = ProjectionMode.Prespective;
 
         private Matrix _viewMatrix = Matrix.Identity;
-        private Matrix _projectionMatrix;
-        private Vector3 _translation;
-        private Quaternion _rotation;
-        private Vector3 _scale;
+        private Matrix _projectionMatrix = Matrix.Identity;
+        private Vector3 _translation = new Vector3(0);
+        private Quaternion _rotation = Quaternion.Identity;
+        private Vector3 _scale = new Vector3(1);
         private Viewport _viewport;
 
         private readonly ModulePacket _packet;
+
         private readonly IRenderer3D<PositionNormalUVTIDVertex> _renderer3D;
         private readonly IShader _shader;
         private readonly IVertexLayout<PositionNormalUVTIDVertex> _vertexLayout;
