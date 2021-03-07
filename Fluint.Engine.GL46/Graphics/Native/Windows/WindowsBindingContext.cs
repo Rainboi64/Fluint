@@ -18,10 +18,7 @@ namespace Fluint.Engine.GL46.Graphics.Native.Windows
     #if Platform_Windows
     public class WindowsBindingContext : IBindingContext
     {
-        public WindowsBindingContext()
-        {
-
-        }
+        public WindowsBindingContext() { }
 
         private int _width;
         private int _height;

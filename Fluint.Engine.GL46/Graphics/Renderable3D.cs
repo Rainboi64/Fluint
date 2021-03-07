@@ -106,4 +106,3 @@ namespace Fluint.Engine.GL46.Graphics
         public ShaderPacket Packet { get; set; }
     }
 }
-

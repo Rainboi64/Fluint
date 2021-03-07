@@ -46,7 +46,6 @@ namespace Fluint.Avalonia
                 Title = "Document2"
             };
 
-
             var c = new RendererDocumentViewModel(_packet)
             {
                 Id = "Document3",
@@ -74,9 +73,7 @@ namespace Fluint.Avalonia
                             a, b, c
                         )
                     }
-
                 )
-
             };
 
             var mainView = new MainViewModel
@@ -147,5 +144,4 @@ namespace Fluint.Avalonia
             base.InitLayout(layout);
         }
     }
-
 }

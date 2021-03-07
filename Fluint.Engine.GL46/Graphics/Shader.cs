@@ -274,6 +274,5 @@ namespace Fluint.Engine.GL46.Graphics
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
     }
 }

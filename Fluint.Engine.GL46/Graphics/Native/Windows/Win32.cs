@@ -3,7 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace Fluint.Engine.GL46.Graphics.Native.Windows
 {
-
     #if Platform_Windows
     /// <summary>
     /// P/Invoke functions and declarations for Microsoft Windows (32-bit and 64-bit).
