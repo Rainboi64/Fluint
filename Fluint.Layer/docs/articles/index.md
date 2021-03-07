@@ -1,2 +1,0 @@
-# What is Fluint.Layer
-Fluint.Layer is an abstraction layer that allows developers to create there own implementation of fluint's interface, so it can be completely modular. When you create your implementation you can import it into fluint as a plugin, which allows you to override existing functionality with your own. 
