@@ -1,11 +1,9 @@
 ﻿//
-// Fluint3DRenderer.cs
-//
+// Basic3DRenderer.cs
+// (Lmao, see previous commit)
 // Copyright (C) 2020 Yaman Alhalabi
 //
 
-using System;
-using System.Collections.Generic;
 using OpenTK.Graphics.OpenGL4;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
@@ -14,16 +12,23 @@ namespace Fluint.Engine.GL46.Graphics
 {
     public class Basic3DRenderer<VertexType> : IRenderer3D<VertexType> where VertexType : struct
     {
-        private List<Renderable3D<VertexType>> _renderables;
+        private Renderable3D<VertexType>[] _renderables;
         private IVertexLayout<VertexType> _layout;
         private IShader _shader;
+        private Matrix _viewMatrix = Matrix.Identity;
+        private Matrix _projectionMatrix = Matrix.Identity;
+
+        public Matrix ViewMatrix { get => _viewMatrix; set => _viewMatrix = value; }
+        public Matrix ProjectionMatrix { get => _projectionMatrix; set => _projectionMatrix = value; }
+
+        public void Load()
+        {
+        }
 
         public void Begin(IVertexLayout<VertexType> layout, IShader shader)
         {
-            _renderables = new List<Renderable3D<VertexType>>();
             _shader = shader;
             _layout = layout;
-            _layout.Calculate();
         }
 
         public void End()
@@ -34,19 +39,23 @@ namespace Fluint.Engine.GL46.Graphics
         public void Flush()
         {
             _shader.Enable();
+
+            _shader.SetViewMatrix(_viewMatrix);
+            _shader.SetProjectionMatrix(_projectionMatrix);
+
             _layout.Load();
-            foreach (var renderable in _renderables)
+            for ( var i = 0; i < 0; i++ )
             {
+                var renderable = _renderables[i];
+
                 _shader.SetModelMatrix(renderable.ModelMatrix);
                 _shader.LoadPacket(renderable.Packet);
+
                 renderable.VertexBuffer.Bind();
                 renderable.ElementBuffer.Bind();
+
                 GL.DrawElements(PrimitiveType.Triangles, renderable.Indices.Length, DrawElementsType.UnsignedInt, 0);
             }
-        }
-
-        public void Load()
-        {
         }
 
         /// <summary>
@@ -63,7 +72,20 @@ namespace Fluint.Engine.GL46.Graphics
 
             _layout.Enable();
 
-            _renderables.Add(newRenderable);
+            // array concatenation
+            var length = _renderables.Length;
+
+            // create new array
+            Renderable3D<VertexType>[] newRenderables = new Renderable3D<VertexType>[length + 1];
+
+            // copy old values
+            newRenderables.CopyTo(_renderables, 0);
+
+            // copy new value
+            new[] { newRenderable }.CopyTo(newRenderables, length);
+
+            // reasign the new data
+            _renderables = newRenderables;
         }
     }
 }

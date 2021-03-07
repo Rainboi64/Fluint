@@ -634,7 +634,7 @@ namespace Fluint.Layer.Mathematics
         /// <param name="rotation">When the method completes, contains the rotation component of the decomposed matrix.</param>
         /// <param name="translation">When the method completes, contains the translation component of the decomposed matrix.</param>
         /// <remarks>
-        /// This method is designed to decompose an SRT transformation matrix only.
+        /// This method is designed to decompose an SRT transformation matrix only. also I bet this is fucky wucky slow :(
         /// </remarks>
         public bool Decompose(out Vector3 scale, out Quaternion rotation, out Vector3 translation)
         {
@@ -659,6 +659,7 @@ namespace Fluint.Layer.Mathematics
                 rotation = Quaternion.Identity;
                 return false;
             }
+            
 
             //The rotation is the left over matrix after dividing out the scaling.
             Matrix rotationmatrix = new Matrix();

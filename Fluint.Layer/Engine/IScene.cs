@@ -5,7 +5,7 @@ using System.Text;
 namespace Fluint.Layer.Engine
 {
     [Initialization(InitializationMethod.Scoped)]
-    public interface IScene : ICollection<ISceneObject>, IModule
+    public interface IScene : IList<ISceneObject>, IModule
     {
     }
 }

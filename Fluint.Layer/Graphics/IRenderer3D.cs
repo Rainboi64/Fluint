@@ -5,11 +5,16 @@
 //
 
 
+using Fluint.Layer.Mathematics;
+
 namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
     public interface IRenderer3D<VertexType> : IModule where VertexType : struct
     {
+        Matrix ViewMatrix { get; set; }
+        Matrix ProjectionMatrix { get; set; }
+
         /// <summary>
         /// Initilizes The Renderer.
         /// </summary>

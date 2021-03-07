@@ -1,4 +1,5 @@
-﻿using Fluint.Layer.Mathematics;
+﻿using Fluint.Layer.Graphics;
+using Fluint.Layer.Mathematics;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,14 @@ namespace Fluint.Layer.Engine
     [Initialization(InitializationMethod.Scoped)]
     public interface ICamera : IModule
     {
-        Vector3 Position { get; set; }
+        Vector3 Translation { get; set; }
         Quaternion Rotation { get; set; }
         Vector3 Scale { get; set; }
+        Matrix ViewMatrix { get; set; }
+        ProjectionMode ProjectionMode { get; set; }
+        Viewport Viewport { get; set; }
 
-        void Render(IScene scene);
+        void Submit(IScene scene);
+        void Render();
     }
 }
