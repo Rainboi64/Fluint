@@ -2,22 +2,6 @@
 
 echo Started Fluint build script
 
-echo. 
-echo building Fluint.Layer
-echo.
-
-cd Fluint.Layer
-dotnet build
-cd ..
-
-echo.
-echo building Fluint.Engine
-echo.
-
-cd Fluint.Engine
-dotnet build
-cd ..
-
 :start
 SET choice=
 SET /p choice=Run Fluint.Avalonia? Y or [N]: 
