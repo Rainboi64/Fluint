@@ -32,7 +32,6 @@ namespace Fluint.SDK
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Fluint.SDK>");
                 Console.ResetColor();
 
                 var input = Console.ReadLine().Split(' ');

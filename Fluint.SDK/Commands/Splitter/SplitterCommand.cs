@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Logging.Serilog;
+using Fluint.Layer;
 using Fluint.Layer.Debugging;
 using Fluint.Layer.SDK;
 using Fluint.SDK.Commands.Splitter.GUI;
@@ -12,6 +13,7 @@ using System.Text;
 
 namespace Fluint.SDK.Commands.Splitter
 {
+    [Module("A Command for splitting modules", "A Command for splitting modules.")]
     public class SplitterCommand : ICommand
     {
         public string Command => "splitter";

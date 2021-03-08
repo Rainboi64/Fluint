@@ -1,5 +1,5 @@
 ﻿//
-// Basic3DRenderer.cs
+//Basic3DRenderer.cs
 // (Lmao, see previous commit)
 // Copyright (C) 2020 Yaman Alhalabi
 //
@@ -39,12 +39,12 @@ namespace Fluint.Engine.GL46.Graphics
         public void Flush()
         {
             _shader.Enable();
-
+ 
             _shader.SetViewMatrix(_viewMatrix);
             _shader.SetProjectionMatrix(_projectionMatrix);
 
             _layout.Load();
-            for ( var i = 0; i < 0; i++ )
+            for (var i = 0; i < 0; i++)
             {
                 var renderable = _renderables[i];
 
@@ -63,15 +63,6 @@ namespace Fluint.Engine.GL46.Graphics
         /// </summary>
         public void Submit(IRenderable3D<VertexType> renderable)
         {
-            var newRenderable = new Renderable3D<VertexType>(renderable.Vertices, renderable.Indices, Matrix.Identity);
-            newRenderable.VertexBuffer.Bind();
-            GL.BufferData(newRenderable.VertexBuffer.BufferType, _layout.VertexSize * newRenderable.Vertices.Length, newRenderable.Vertices, BufferUsageHint.DynamicDraw);
-
-            newRenderable.ElementBuffer.Bind();
-            GL.BufferData(newRenderable.ElementBuffer.BufferType, _layout.VertexSize * newRenderable.Indices.Length, newRenderable.Indices, BufferUsageHint.DynamicDraw);
-
-            _layout.Enable();
-
             // array concatenation
             var length = _renderables.Length;
 
@@ -82,7 +73,7 @@ namespace Fluint.Engine.GL46.Graphics
             newRenderables.CopyTo(_renderables, 0);
 
             // copy new value
-            new[] { newRenderable }.CopyTo(newRenderables, length);
+            new[] { renderable }.CopyTo(newRenderables, length);
 
             // reasign the new data
             _renderables = newRenderables;

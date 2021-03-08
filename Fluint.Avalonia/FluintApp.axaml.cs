@@ -7,13 +7,21 @@ using Fluint.Avalonia.ViewModels;
 using Fluint.Avalonia.Views;
 using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
+using Fluint.SDK;
 using System;
+using System.Threading;
 
 namespace Fluint.Avalonia
 {
     public class App : Application
     {
         private ModulePacket _packet;
+
+        private void ConsoleThreadFunction()
+        {
+            var sdkBase = new SDKBase(_packet);
+            sdkBase.Listen();
+        }
 
         public override void Initialize()
         {
@@ -22,6 +30,9 @@ namespace Fluint.Avalonia
             modulesManager.LoadFolder("./modules");
 
             _packet = modulesManager.ModuleCollection.ModulePacket;
+
+            var ConsoleThread = new Thread(() => { ConsoleThreadFunction(); });
+            ConsoleThread.Start();
 
             AvaloniaXamlLoader.Load(this);
 

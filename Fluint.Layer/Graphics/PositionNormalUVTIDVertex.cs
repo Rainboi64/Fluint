@@ -7,10 +7,10 @@ namespace Fluint.Layer.Graphics
     /// </summary>
     public struct PositionNormalUVTIDVertex
     {
-        public readonly Vector3 Position { get; }
-        public readonly Vector3 Normal { get; }
-        public readonly Vector2 UV { get; }
-        public readonly uint TID { get; }
+        public readonly Vector3 Position;
+        public readonly Vector3 Normal;
+        public readonly Vector2 UV;
+        public readonly uint TID;
 
         public PositionNormalUVTIDVertex(Vector3 position, Vector3 normal, Vector2 uv, uint tid) 
         {

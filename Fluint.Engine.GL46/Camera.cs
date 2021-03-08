@@ -22,12 +22,12 @@ namespace Fluint.Engine.GL46
             get => _rotation;
             set
             {
-                _viewMatrix = Matrix.Scaling(_scale) * Matrix.RotationQuaternion(value) * Matrix.Translation(_translation);
+               _viewMatrix = Matrix.Scaling(_scale) * Matrix.RotationQuaternion(value) * Matrix.Translation(_translation);
             }
         }
 
         public Vector3 Scale
-        {
+        { 
             get => _scale;
             set
             {
