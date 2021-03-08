@@ -4,7 +4,9 @@
 // Copyright (C) 2020 Yaman Alhalabi
 //
 
+using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
+using System;
 
 namespace Fluint.Layer.Input
 {
@@ -14,24 +16,16 @@ namespace Fluint.Layer.Input
     [Initialization(InitializationMethod.Scoped)]
     public interface IInputManager : IModule
     {
-        /// <summary>
-        /// Returns the if the specified key is pressed. 
-        /// </summary>
-        /// <param name="key">The key to test for.</param>
-        /// <returns>true if the key is pressed, otherwise else.</returns>
-        bool IsKeyDown(Key key);
+        void Load(IBindingContext bindingContext);
 
-        /// <summary>
-        /// Returns the if the specified key is pressed. 
-        /// </summary>
-        /// <param name="key">The key to test for.</param>
-        /// <returns>true if the key is pressed, otherwise else.</returns>
-        bool IsButtonDown(MouseButton key);
+        event Action<InputState, Key> Keyboard;
+
+        event Action<InputState, MouseButton> MouseButton;        
 
         /// <summary>
         /// Gets the location of the mouse.
         /// </summary>
         /// <returns>the location of the mouse.</returns>
-        Point GetMouseLocation();
+        Point GetMouseLocation { get; set; }
     }
-}
+}   

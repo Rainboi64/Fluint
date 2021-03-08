@@ -26,6 +26,8 @@ namespace Fluint.Engine.GL46.Graphics.Native.Windows
         private IGLFWGraphicsContext _internalContext;
         private NativeWindow _nativeWindow;
 
+        public object NativeContext => _nativeWindow;
+        
         public unsafe void InitializeContext(BindingContextSettings settings)
         {
 

@@ -13,6 +13,6 @@ namespace Fluint.Layer.Graphics
         void PostRender();
         void MakeCurrent();
         void SwapBuffers();
-        void Test();
+        object NativeContext { get; }
     }
 }
