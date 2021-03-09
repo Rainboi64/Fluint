@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Logging.Serilog;
 using Fluint.Layer;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 using Fluint.SDK.Commands.Splitter.GUI;
 using Newtonsoft.Json;

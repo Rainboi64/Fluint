@@ -3,7 +3,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Microsoft.Extensions.DependencyInjection;
 using Avalonia.ReactiveUI;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer;
 
 namespace Fluint.Avalonia

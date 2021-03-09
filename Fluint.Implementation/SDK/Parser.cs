@@ -1,5 +1,5 @@
 ﻿using Fluint.Layer;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 using System;
 using System.Collections.Generic;

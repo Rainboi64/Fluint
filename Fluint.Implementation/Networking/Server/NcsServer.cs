@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Networking;
 using Fluint.Layer.Networking.Server;
 using NetCoreServer;

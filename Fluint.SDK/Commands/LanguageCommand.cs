@@ -1,4 +1,4 @@
-﻿using Fluint.Layer.Debugging;
+﻿using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Localization;
 using Fluint.Layer.SDK;
 using System;

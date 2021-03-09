@@ -2,7 +2,7 @@
 using Fluint.Layer.Runtime;
 using System;
 using System.Linq;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 using Fluint.Layer.Configuration;
 

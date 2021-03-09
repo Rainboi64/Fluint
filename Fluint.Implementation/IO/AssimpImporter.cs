@@ -17,7 +17,6 @@ namespace Fluint.Implementation.IO
         }
 
         public string[] FileExtenstions => new[] { "obj" };
-
         public unsafe IMesh[] Import(string fileName)
         {
             var newMeshes = new List<IMesh>();

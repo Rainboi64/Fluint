@@ -1,4 +1,4 @@
-﻿using Fluint.Layer.Debugging;
+﻿using Fluint.Layer.Diagnostics;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.SDK;
 using Fluint.SDK.Commands;

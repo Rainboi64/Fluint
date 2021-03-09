@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Fluint.Layer.Debugging
+namespace Fluint.Layer.Diagnostics
 {
     /// <summary>
     /// an interface for a Logger

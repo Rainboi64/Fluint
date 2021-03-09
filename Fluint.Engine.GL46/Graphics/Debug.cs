@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using OpenTK.Graphics.OpenGL4;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 
 namespace Fluint.Engine.GL46.Graphics
 {

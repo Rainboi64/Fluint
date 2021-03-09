@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Serilog;
 using Serilog.Core;
-using ILogger = Fluint.Layer.Debugging.ILogger;
+using ILogger = Fluint.Layer.Diagnostics.ILogger;
 
 namespace Fluint.Implementation.Debugging
 {

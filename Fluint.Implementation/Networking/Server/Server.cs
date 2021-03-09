@@ -14,7 +14,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using Fluint.Implementation.Networking.Client;
-using Fluint.Layer.Debugging;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Networking;
 using Fluint.Layer.Networking.Client;
 using Fluint.Layer.Networking.Server;
