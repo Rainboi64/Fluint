@@ -11,12 +11,7 @@ namespace Fluint.Engine.GL46.Graphics
         private VertexType[] _vectors;
         private Buffer _vertexBuffer;
         private Buffer _elementBuffer;
-
-        public Renderable3D(VertexType[] vertices, uint[] indices, Matrix model)
-        {
-            Vertices = vertices;
-            Indices = indices;
-        }
+        public Renderable3D() { }
 
         public Buffer VertexBuffer
         {

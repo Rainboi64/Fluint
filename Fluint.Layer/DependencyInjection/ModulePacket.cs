@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fluint.Layer.Miscellaneous;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -7,6 +8,7 @@ namespace Fluint.Layer.DependencyInjection
 {
     public class ModulePacket
     {
+
         private readonly Dictionary<Type, Type> _mappings;
         private readonly Dictionary<Type, IModule> _singletonMappings;
         private readonly List<IModule> _instances;
@@ -58,12 +60,30 @@ namespace Fluint.Layer.DependencyInjection
 
         public object CreateInstance(Type target, Type[] generics)
         {
-            var watch = new Stopwatch();
             var constructor = target.GetConstructors()[0];
             var parameters = constructor.GetParameters();
 
             if (target.ContainsGenericParameters)
             { 
+                target = target.MakeGenericType(generics);
+            }
+
+            List<object> resolvedParameters = new List<object>();
+
+            foreach (var item in parameters)
+            {
+                resolvedParameters.Add(Get(item.ParameterType));
+            }
+            return Activator.CreateInstance(target, resolvedParameters.ToArray());
+        }
+
+        public object CreateInstance(Type target, Type[] generics, params object[] parameterss)
+        {
+            var constructor = target.GetConstructors()[0];
+            var parameters = constructor.GetParameters();
+
+            if (target.ContainsGenericParameters)
+            {
                 target = target.MakeGenericType(generics);
             }
 
@@ -92,6 +112,13 @@ namespace Fluint.Layer.DependencyInjection
             return type;
         }
 
+        private Type ResolveTypeWithoutCheck(Type type)
+        {
+            // 😂🤣 WHO DID THIS 🤣😂
+            
+            return _mappings.Where((x) => x.Key.Name == type.Name).FirstOrDefault().Value;
+        }
+
         private object GetScoped(Type type)
         {
             return CreateInstance(ResolveType(type), type.GetGenericArguments());
@@ -102,17 +129,10 @@ namespace Fluint.Layer.DependencyInjection
             return _singletonMappings[type];
         }
 
-        public T New<T>(params object[] parameters) where T : IModule
+        public T New<T>() where T : IModule
         {
-            var target = ResolveType(typeof(T));
-            var generics = target.GetGenericArguments();
-
-            if (target.ContainsGenericParameters)
-            {
-                target = target.MakeGenericType(generics);
-            }
-
-            return (T)Activator.CreateInstance(target, parameters);
+            var type = typeof(T);
+            return (T)CreateInstance(ResolveTypeWithoutCheck(type), type.GetGenericArguments());
         }
 
         public T GetScoped<T>() where T : IModule
