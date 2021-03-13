@@ -7,6 +7,7 @@ namespace Fluint.Layer.Tasks
     [Initialization(InitializationMethod.Instanced)]
     public interface ITask : IModule
     {
+        TaskSchedule Schedule { get; }
         void Start();
     }
 }

@@ -39,10 +39,7 @@ namespace Fluint.Layer.DependencyInjection
 
         private object Get(Type type)
         {
-            // When the electricity is back I should check names
-
-            // Frick I forgot what I meant. :(
-
+            if (type == typeof(ModulePacket)) return this;
             if (_mappings.Where(x => x.Key.Name == type.Name).Any())
             {
                 Console.WriteLine($"Found: {type.Name}");

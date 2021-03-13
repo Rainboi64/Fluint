@@ -5,7 +5,7 @@ using Serilog;
 using Serilog.Core;
 using ILogger = Fluint.Layer.Diagnostics.ILogger;
 
-namespace Fluint.Implementation.Debugging
+namespace Fluint.Implementation.Diagnostics
 {
     public class SerilogLogger : ILogger
     {

@@ -7,7 +7,7 @@ using Fluint.Avalonia.ViewModels;
 using Fluint.Avalonia.Views;
 using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
-using Fluint.SDK;
+using Fluint.Layer.Tasks;
 using System;
 using System.Threading;
 
@@ -17,12 +17,6 @@ namespace Fluint.Avalonia
     {
         private ModulePacket _packet;
 
-        private void ConsoleThreadFunction()
-        {
-            var sdkBase = new SDKBase(_packet);
-            sdkBase.Listen();
-        }
-
         public override void Initialize()
         {
             ModulesManager modulesManager = new ModulesManager();
@@ -31,8 +25,10 @@ namespace Fluint.Avalonia
 
             _packet = modulesManager.ModuleCollection.ModulePacket;
 
-            var ConsoleThread = new Thread(() => { ConsoleThreadFunction(); });
-            ConsoleThread.Start();
+            var taskManager = _packet.GetScoped<ITaskManager>();
+
+            taskManager.Invoke(TaskSchedule.Startup);
+            taskManager.Invoke(TaskSchedule.Background);
 
             AvaloniaXamlLoader.Load(this);
 

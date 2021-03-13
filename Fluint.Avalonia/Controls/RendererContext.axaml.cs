@@ -8,7 +8,6 @@ using Avalonia.Threading;
 using Avalonia.Markup.Xaml;
 using Fluint.Layer.Graphics;
 using System;
-using Avalonia.Rendering;
 using Avalonia.Media;
 using System.Diagnostics;
 

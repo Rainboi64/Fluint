@@ -48,7 +48,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
-    <ProjectReference Include="..\Fluint.SDK\Fluint.SDK.csproj" />
   </ItemGroup>
   
   <ItemGroup>

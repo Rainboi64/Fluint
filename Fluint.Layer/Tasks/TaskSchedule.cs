@@ -7,7 +7,7 @@ namespace Fluint.Layer.Tasks
     public enum TaskSchedule
     {
         Startup = 0,
-        Backgroud = 1,
+        Background = 1,
         Update = 2,
     }
 }

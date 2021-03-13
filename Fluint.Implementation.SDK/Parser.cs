@@ -1,4 +1,5 @@
 ﻿using Fluint.Layer;
+using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 using System;
@@ -12,10 +13,10 @@ namespace Fluint.Implementation.SDK
     {
         public IList<ICommand> _commands;
         public ILogger _logger;
-        public Parser(IEnumerable<IModule> instances, ILogger logger)
+        public Parser(ModulePacket packet)
         {
-            _commands = instances.OfType<ICommand>().ToList();
-            _logger = logger;
+            _commands = packet.GetInstances().OfType<ICommand>().ToList();
+            _logger = packet.GetSingleton<ILogger>();
         }
 
         public void Parse(string command, string[] args)
