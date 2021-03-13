@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -274,36 +273,6 @@ namespace Fluint.Layer.Miscellaneous
         {
             return typeof(T).GetProperties().Select(x => x.PropertyType).ToArray();
         }
-    }
-
-    public class ConsoleTableOptions
-    {
-        public IEnumerable<string> Columns { get; set; } = new List<string>();
-        public bool EnableCount { get; set; } = true;
-
-        /// <summary>
-        /// Enable only from a list of objects
-        /// </summary>
-        public Alignment NumberAlignment { get; set; } = Alignment.Left;
-
-        /// <summary>
-        /// The <see cref="TextWriter"/> to write to. Defaults to <see cref="Console.Out"/>.
-        /// </summary>
-        public TextWriter OutputTo { get; set; } = Console.Out;
-    }
-
-    public enum Format
-    {
-        Default = 0,
-        MarkDown = 1,
-        Alternative = 2,
-        Minimal = 3
-    }
-
-    public enum Alignment
-    {
-        Left,
-        Right
     }
 }
 

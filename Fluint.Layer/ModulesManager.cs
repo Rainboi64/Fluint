@@ -1,6 +1,4 @@
-﻿
-
-// ::::;;,,,............,oxddddolodxxxkkxo::cldddoc;,,;clodo:...,llll:;cloooodooxxdc'......',;;:::llllcccl:.....'ldo,,okxxo:,,,;;,'',;:looddxxxddddoooolllccccc:::::;;;;;,,,',codxxkkkkOOOOOOOOOOOOOOOOOkkk
+﻿// ::::;;,,,............,oxddddolodxxxkkxo::cldddoc;,,;clodo:...,llll:;cloooodooxxdc'......',;;:::llllcccl:.....'ldo,,okxxo:,,,;;,'',;:looddxxxddddoooolllccccc:::::;;;;;,,,',codxxkkkkOOOOOOOOOOOOOOOOOkkk
 // ::::;;;,,............,oxdxxxxdxxkkkkxdl;,:lddlc:;'..,:codc...'clll:;cllooodoodl,........',;:;,,coollccl:.....'ldo;,lkkxl;,,,;;,'',;:clooddxddddoooooollcccc::::;;;;;;;,,,,;lddxxkkkkOOOOOOOOOOOkkkOOOOOO
 // :::::;;,,............:xxxxxxxxkkkxxxddol:;clc;;cc:,',:lodl,.',clloc:cllooodoc,.. .',....';;,',:looollllc'....,loo:'lkkxl;;,,;;,''';:cllodddddoooooooolllcc:::;;;;;;;;;,,,:ldxxxkkkkOOOOOOOkkxxxdxxxxxkkk
 // cc::::;;,...........'lxkkkkkkkkkxxxxxxxdc;:clodxxdl;,;cldo;',,clodl:cllooodl'.....,;,...,,'',;cllooollll,....,lddc,cxkdc;;,,,,,''',;clloooooooooooooollllcc:;;;;,,;;;;,;codxxkkkkkOOOOkkdddxxxxxkkkkkkxx
@@ -71,7 +69,6 @@
 //                                                                                                                                                                                                         
 //                                                                                                                                                                                                         
 
-
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -93,7 +90,6 @@ namespace Fluint.Layer
             ModuleCollection = new ModuleCollection();
         }
 
-
         /// <summary>
         /// Loads the modules inside the file using System.Reflection
         /// </summary>
@@ -101,7 +97,7 @@ namespace Fluint.Layer
         public void LoadFolder(string pluginFolder)
         {
             var dllCount = 0;
-            //Load the DLLs from the Plugins directory
+            // Load the DLLs from the Plugins directory
             if (Directory.Exists(pluginFolder))
             {
                 string[] files = Directory.GetFiles(pluginFolder);
@@ -146,7 +142,6 @@ namespace Fluint.Layer
                     .Where(x => x.GetInterfaces()
                     .FirstOrDefault() == interfaceType)
                     .FirstOrDefault();
-
 
                 var initializationMethod = parent.GetCustomAttribute<InitializationAttribute>().InitializationMethod;
                 switch (initializationMethod)
