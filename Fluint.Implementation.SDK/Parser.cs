@@ -1,6 +1,7 @@
 ﻿using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,9 @@ namespace Fluint.Implementation.SDK
     public class Parser : IParser
     {
         public IList<ICommand> _commands;
-        public ILogger _logger;
         public Parser(ModulePacket packet)
         {
             _commands = packet.GetInstances().OfType<ICommand>().ToList();
-            _logger = packet.GetSingleton<ILogger>();
         }
 
         public void Parse(string command, string[] args)
@@ -32,16 +31,19 @@ namespace Fluint.Implementation.SDK
             else if (command == "list")
                 List();
             else
-                _logger.Error("[Parser] command not found.");
+                ConsoleHelper.WriteEmbeddedColorLine($"'[blue]{command}[/blue]' couldn't be recognized as valid internal, or external command module.\nto see available commands try running '[blue]list[/blue]'");
         }
 
         private void List()
         {
+            var table = new ConsoleTable();
+            table.AddColumn(new[] {"Command", "Name", "Description" });
             foreach (var consoleCommand in _commands)
             {
                 var commandAttribute = consoleCommand.GetType().GetCustomAttributes(false).OfType<ModuleAttribute>().FirstOrDefault();
-                Console.WriteLine($"[{consoleCommand.Command}] {commandAttribute.ModuleName}: {commandAttribute.Description}");
+                table.AddRow($"'{consoleCommand.Command}'", commandAttribute.ModuleName, commandAttribute.Description);
             }
+            Console.WriteLine($"\n{table.ToMarkDownString()}");
         }
 
         private void Help(string command)
@@ -57,7 +59,6 @@ namespace Fluint.Implementation.SDK
             }
             else
             {
-                _logger.Error("[Parser] command not found.");
             }
         }
 

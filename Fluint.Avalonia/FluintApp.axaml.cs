@@ -20,7 +20,6 @@ namespace Fluint.Avalonia
         public override void Initialize()
         {
             ModulesManager modulesManager = new ModulesManager();
-            Console.WriteLine("Loading './modules'");
             modulesManager.LoadFolder("./modules");
 
             _packet = modulesManager.ModuleCollection.ModulePacket;

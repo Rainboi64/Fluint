@@ -1,4 +1,6 @@
-﻿using Fluint.Layer.Tasks;
+﻿using Fluint.Engine.GL46.Graphics;
+using Fluint.Layer.Miscellaneous;
+using Fluint.Layer.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -12,7 +14,8 @@ namespace Fluint.Engine.GL46
 
         public void Start()
         {
-            Console.WriteLine($"\n\nStarted OpenGL46 Task, from {Assembly.GetExecutingAssembly()}\n\n");
+            ConsoleHelper.WriteEmbeddedColorLine($"Started [blue]OpenGL46[/blue] Engine Task");
+            // var DebugObject = new Debug();
         }
     }
 }

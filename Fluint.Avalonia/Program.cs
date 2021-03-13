@@ -1,10 +1,8 @@
 ﻿using System;
 using Avalonia;
-using Avalonia.Controls.ApplicationLifetimes;
-using Microsoft.Extensions.DependencyInjection;
 using Avalonia.ReactiveUI;
-using Fluint.Layer.Diagnostics;
-using Fluint.Layer;
+using Fluint.Layer.Miscellaneous;
+using System.Reflection;
 
 namespace Fluint.Avalonia
 {
@@ -14,7 +12,8 @@ namespace Fluint.Avalonia
         // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
         // yet and stuff might break.
         public static void Main(string[] args)
-        { 
+        {
+            ConsoleHelper.WriteEmbeddedColorLine($"\n[red]Welcome to Fluint.[/red]\nStart-line called at {DateTime.Now} Called by {Assembly.GetCallingAssembly()}\nRunning in {Assembly.GetExecutingAssembly()}\n");
             BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
         }

@@ -3,6 +3,7 @@ using Fluint.SDK;
 using Fluint.Layer.DependencyInjection;
 using System;
 using System.Reflection;
+using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Implementation.Tasks
 {
@@ -17,14 +18,7 @@ namespace Fluint.Implementation.Tasks
 
         public void Start()
         {
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Started SDK Console Task, from {Assembly.GetExecutingAssembly()}");
-            Console.ResetColor();
-            Console.WriteLine();
-            Console.WriteLine();
-
+            ConsoleHelper.WriteEmbeddedColorLine($"Started [green]SDK Console[/green] Task");
             var sdkBase = new SDKBase(_packet);
             sdkBase.Listen();
         }

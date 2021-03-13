@@ -79,13 +79,13 @@ using System.Linq;
 using System.IO;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Layer
 {
     // only used in implementation
     public class ModulesManager
     {
-        public List<IModule> Instances = new List<IModule>();
         public ModuleCollection ModuleCollection { get; private set; }
 
         public ModulesManager()
@@ -99,8 +99,7 @@ namespace Fluint.Layer
         /// <returns>The calculated hashcode</returns>
         public override int GetHashCode()
         {
-            return Instances.AsReadOnly().Select(item => item.GetHashCode())
-            .Aggregate((total, nextCode) => total ^ nextCode);
+            return ModuleCollection.GetHashCode();
         }
 
         /// <summary>
@@ -109,6 +108,7 @@ namespace Fluint.Layer
         /// <param name="pluginFolder">The path of the folder to be loaded.</param>
         public void LoadFolder(string pluginFolder)
         {
+            var dllCount = 0;
             //Load the DLLs from the Plugins directory
             if (Directory.Exists(pluginFolder))
             {
@@ -121,6 +121,7 @@ namespace Fluint.Layer
                         try
                         {
                             var assembly = Assembly.LoadFrom(Path.GetFullPath(file));
+                            dllCount++;
                         }
                         catch (Exception ex)
                         {
@@ -145,6 +146,8 @@ namespace Fluint.Layer
                 }
             }
 
+            ConsoleTable table = new ConsoleTable();
+            table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode"});
             foreach (var type in types)
             {
                 var parent = type.GetInterfaces()
@@ -152,23 +155,26 @@ namespace Fluint.Layer
                     .FirstOrDefault() == interfaceType)
                     .FirstOrDefault();
 
+
                 var initializationMethod = parent.GetCustomAttribute<InitializationAttribute>().InitializationMethod;
                 switch (initializationMethod)
                 {
                     case InitializationMethod.Scoped:
                         ModuleCollection.MapScoped(parent, type);
-                        Console.WriteLine($"Loaded Scoped in {parent.Name}, {type.Name} from {type.Assembly.FullName}.");
+                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Scoped");
                         break;
                     case InitializationMethod.Singleton:
                         ModuleCollection.MapSingleton(parent, type);
-                        Console.WriteLine($"Loaded Singleton in {parent.Name}, {type.Name} from {type.Assembly.FullName}.");
+                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Singleton");
                         break;
                     case InitializationMethod.Instanced:
                         ModuleCollection.AddInstanced(type);
-                        Console.WriteLine($"Loaded Instanced in {parent.Name}, {type.Name} from {type.Assembly.FullName}.");
+                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Instanced");
                         break;
                 }
             }
+            ConsoleHelper.WriteInfo(table.ToMarkDownString());
+            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} Module from {dllCount} DLL in {pluginFolder}. Module Hashcode: {GetHashCode()}");
         }
     }
 }
