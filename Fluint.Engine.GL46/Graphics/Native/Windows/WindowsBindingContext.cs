@@ -1,5 +1,4 @@
 ﻿#define Platform_Windows
-#define DEBUG
 // Greatly Influenced by : https://github.com/varon/GLWpfControl/blob/master/src/GLWpfControl/DXGLContext.cs
 // Greatly Influenced by : https://github.com/opentk/GLControl/blob/master/OpenTK.WinForms/GLControl.cs
 using System;
@@ -7,10 +6,6 @@ using Fluint.Layer.Graphics;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
-using OpenTK.Windowing.GraphicsLibraryFramework;
-using Fluint.Layer;
-using System.Threading;
-using System.Threading.Tasks;
 using Fluint.Engine.GL46.Graphics.Native.GLFW;
 
 namespace Fluint.Engine.GL46.Graphics.Native.Windows
@@ -30,8 +25,6 @@ namespace Fluint.Engine.GL46.Graphics.Native.Windows
         
         public unsafe void InitializeContext(BindingContextSettings settings)
         {
-
-
             // init the mfing native window.
 
             var nws = NativeWindowSettings.Default;
@@ -84,10 +77,6 @@ namespace Fluint.Engine.GL46.Graphics.Native.Windows
             Win32.SendMessage(hWnd, Win32.WM_SYSCOMMAND, Win32.SC_MAXIMIZE, 0);
             MakeCurrent();
             GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-
-#if DEBUG
-            new Debug();
-#endif
         }
 
         public void Resize(int width, int height)
