@@ -30,12 +30,6 @@ namespace Fluint.Layer.DependencyInjection
                 _instances.Add((IModule)CreateInstance(type));
             }
         }
-        private string GetNameWithoutGenericArity(Type t)
-        {
-            string name = t.Name;
-            int index = name.IndexOf('`');
-            return index == -1 ? name : name.Substring(0, index);
-        }
 
         private object Get(Type type)
         {
@@ -62,25 +56,6 @@ namespace Fluint.Layer.DependencyInjection
 
             if (target.ContainsGenericParameters)
             { 
-                target = target.MakeGenericType(generics);
-            }
-
-            List<object> resolvedParameters = new List<object>();
-
-            foreach (var item in parameters)
-            {
-                resolvedParameters.Add(Get(item.ParameterType));
-            }
-            return Activator.CreateInstance(target, resolvedParameters.ToArray());
-        }
-
-        public object CreateInstance(Type target, Type[] generics, params object[] parameterss)
-        {
-            var constructor = target.GetConstructors()[0];
-            var parameters = constructor.GetParameters();
-
-            if (target.ContainsGenericParameters)
-            {
                 target = target.MakeGenericType(generics);
             }
 

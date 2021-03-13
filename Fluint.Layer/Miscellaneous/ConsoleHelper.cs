@@ -129,7 +129,7 @@ namespace Fluint.Layer.Miscellaneous
             WriteLine(line, dashColor);
         }
 
-        private static Lazy<Regex> colorBlockRegEx = new Lazy<Regex>(
+        private static readonly Lazy<Regex> colorBlockRegEx = new Lazy<Regex>(
             () => new Regex("\\[(?<color>.*?)\\](?<text>[^[]*)\\[/\\k<color>\\]", RegexOptions.IgnoreCase),
             isThreadSafe: true);
 

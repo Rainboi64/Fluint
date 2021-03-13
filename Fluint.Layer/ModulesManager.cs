@@ -93,14 +93,6 @@ namespace Fluint.Layer
             ModuleCollection = new ModuleCollection();
         }
 
-        /// <summary>
-        /// Calculates the hashcode representing all of the active plugins
-        /// </summary>
-        /// <returns>The calculated hashcode</returns>
-        public override int GetHashCode()
-        {
-            return ModuleCollection.GetHashCode();
-        }
 
         /// <summary>
         /// Loads the modules inside the file using System.Reflection

@@ -24,15 +24,12 @@ namespace Fluint.Engine.GL46.Graphics
         /// </summary>
         public Debug()
         {
-            _debugProcCallbackHandle = GCHandle.Alloc(_debugProcCallback);
-
             GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
             GL.Enable(EnableCap.DebugOutput);
             GL.Enable(EnableCap.DebugOutputSynchronous);
         }
 
-        private static DebugProc _debugProcCallback = DebugCallback;
-        private static GCHandle _debugProcCallbackHandle;
+        private static readonly DebugProc _debugProcCallback = DebugCallback;
         private static void DebugCallback(DebugSource source,
             DebugType type,
             int id,

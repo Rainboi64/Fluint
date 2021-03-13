@@ -14,7 +14,7 @@ namespace Fluint.Avalonia.Views
 {
     public class RendererDocumentView : UserControl
     {
-        private RendererContext _rendererContext;
+        private readonly RendererContext _rendererContext;
         private readonly ModulePacket _packet;
 
         public RendererDocumentView(ModulePacket packet)
