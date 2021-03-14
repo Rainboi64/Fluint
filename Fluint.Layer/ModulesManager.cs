@@ -120,7 +120,7 @@ namespace Fluint.Layer
             }
 
             Type interfaceType = typeof(IModule);
-            //Fetch all types that implement the interface IPlugin and are a class
+            // Fetch all types that implement the interface IModule and are a class
             Type[] types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(a => GetTypes(a))
                 .Where(p => interfaceType.IsAssignableFrom(p) && p.IsClass)
@@ -161,7 +161,7 @@ namespace Fluint.Layer
                 }
             }
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
-            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} Module from {dllCount} DLL in {pluginFolder}. Module Hashcode: {GetHashCode()}");
+            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} Module from {dllCount} DLL in {pluginFolder}. Instance Fingerprint: {GetHashCode()}");
         }
     }
 }

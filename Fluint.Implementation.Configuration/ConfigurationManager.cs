@@ -19,7 +19,7 @@ namespace Fluint.Implementation.Configuration
             }
             else
             {
-               var jsonData= File.ReadAllText(@$".\configs\" + nameof(T));
+               var jsonData= File.ReadAllText(@$".\configs\{nameof(T)}.json");
                var obj = JsonConvert.DeserializeObject<T>(jsonData);
                _confings.Add(obj);
                return obj;
@@ -30,7 +30,8 @@ namespace Fluint.Implementation.Configuration
         {
             _confings.Add(configuration);
             var jsonData = JsonConvert.SerializeObject(configuration);
-            File.WriteAllText(@$".\configs\" + nameof(configuration), jsonData);
+            Directory.CreateDirectory(@$".\configs\");
+            File.WriteAllText(@$".\configs\{configuration.GetType().Name}.json", jsonData);
         }
 
         public void Save()
