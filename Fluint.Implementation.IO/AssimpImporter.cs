@@ -32,7 +32,7 @@ namespace Fluint.Implementation.IO
                     indices.AddRange((IEnumerable<uint>)face.Indices);
                 }
 
-                for (int i = 0; i < mesh.VertexCount; i++)
+                for (var i = 0; i < mesh.VertexCount; i++)
                 {
                     var vertice = mesh.Vertices[i];
                     var normal = mesh.Normals[i];

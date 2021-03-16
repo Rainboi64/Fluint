@@ -34,13 +34,22 @@ namespace Fluint.Implementation.Tasks
             switch (schedule)
             {
                 case TaskSchedule.Startup:
-                    foreach (var item in _startupTasks) item.Start();
+                    foreach (var item in _startupTasks)
+                    {
+                        item.Start();
+                    }
                     break;
                 case TaskSchedule.Background:
-                    foreach (var item in _backgroundTasks) new Thread(() => item.Start()).Start();
+                    foreach (var item in _backgroundTasks)
+                    {
+                        new Thread(() => item.Start()).Start();
+                    }
                     break;
                 case TaskSchedule.Update:
-                    foreach (var item in _updateTasks) item.Start();
+                    foreach (var item in _updateTasks)
+                    {
+                        item.Start();
+                    }
                     break;
                 default:
                     throw new NotImplementedException("Couldn't find schedule.");

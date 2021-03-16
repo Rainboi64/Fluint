@@ -11,8 +11,8 @@ namespace Fluint.Implementation.IO
     public class IOManager : IIOManager
     {
         private readonly ModulePacket _packet;
-        private List<IExporter> _exporters;
-        private List<IImporter> _importers;
+        private readonly List<IExporter> _exporters;
+        private readonly List<IImporter> _importers;
 
         public IOManager(ModulePacket packet)
         {

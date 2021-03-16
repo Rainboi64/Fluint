@@ -100,8 +100,8 @@ namespace Fluint.Layer
             // Load the DLLs from the Plugins directory
             if (Directory.Exists(pluginFolder))
             {
-                string[] files = Directory.GetFiles(pluginFolder);
-                foreach (string file in files)
+                var files = Directory.GetFiles(pluginFolder);
+                foreach (var file in files)
                 {
                     // only loads *.dll
                     if (file.EndsWith(".dll"))
@@ -119,9 +119,9 @@ namespace Fluint.Layer
                 }
             }
 
-            Type interfaceType = typeof(IModule);
+            var interfaceType = typeof(IModule);
             // Fetch all types that implement the interface IModule and are a class
-            Type[] types = AppDomain.CurrentDomain.GetAssemblies()
+            var types = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(a => GetTypes(a))
                 .Where(p => interfaceType.IsAssignableFrom(p) && p.IsClass)
                 .ToArray();
@@ -134,7 +134,7 @@ namespace Fluint.Layer
                 }
             }
 
-            ConsoleTable table = new ConsoleTable();
+            var table = new ConsoleTable();
             table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode"});
             foreach (var type in types)
             {

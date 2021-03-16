@@ -10,7 +10,7 @@ namespace Fluint.Implementation.Configuration
 {
     public class ConfigurationManager : IConfigurationManager
     {
-        private readonly List<IConfiguration> _confings = new List<IConfiguration>();
+        private readonly List<IConfiguration> _confings = new();
         public T Get<T>() where T : IConfiguration
         {
             if (_confings.OfType<T>().Any())

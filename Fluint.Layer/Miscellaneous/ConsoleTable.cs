@@ -16,13 +16,19 @@ namespace Fluint.Layer.Miscellaneous
 
         public ConsoleTableOptions Options { get; protected set; }
         public Type[] ColumnTypes { get; private set; }
-
-        public static HashSet<Type> NumericTypes = new HashSet<Type>
+        public static HashSet<Type> NumericTypes { get; } = new()
         {
-            typeof(int),  typeof(double),  typeof(decimal),
-            typeof(long), typeof(short),   typeof(sbyte),
-            typeof(byte), typeof(ulong),   typeof(ushort),
-            typeof(uint), typeof(float)
+            typeof(int),
+            typeof(double),
+            typeof(decimal),
+            typeof(long),
+            typeof(short),
+            typeof(sbyte),
+            typeof(byte),
+            typeof(ulong),
+            typeof(ushort),
+            typeof(uint),
+            typeof(float)
         };
 
         public ConsoleTable(params string[] columns)
@@ -40,21 +46,29 @@ namespace Fluint.Layer.Miscellaneous
         public ConsoleTable AddColumn(IEnumerable<string> names)
         {
             foreach (var name in names)
+            {
                 Columns.Add(name);
+            }
             return this;
         }
 
         public ConsoleTable AddRow(params object[] values)
         {
             if (values == null)
+            {
                 throw new ArgumentNullException(nameof(values));
+            }
 
             if (!Columns.Any())
+            {
                 throw new Exception("Please set the columns first");
+            }
 
             if (Columns.Count != values.Length)
+            {
                 throw new Exception(
                     $"The number columns in the row ({Columns.Count}) does not match the values ({values.Length})");
+            }
 
             Rows.Add(values);
             return this;
