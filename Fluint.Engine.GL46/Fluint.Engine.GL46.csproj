@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Configurations>Debug;Release;Debug With Modules Setup</Configurations>
   </PropertyGroup>
@@ -53,8 +53,8 @@
 
   <ItemGroup>
     <PackageReference Include="glfw-net" Version="3.3.1" />
-    <PackageReference Include="OpenTK" Version="4.1.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
+    <PackageReference Include="OpenTK" Version="4.5.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>

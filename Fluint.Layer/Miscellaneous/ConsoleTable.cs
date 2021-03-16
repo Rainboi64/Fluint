@@ -32,7 +32,7 @@ namespace Fluint.Layer.Miscellaneous
 
         public ConsoleTable(ConsoleTableOptions options)
         {
-            Options = options ?? throw new ArgumentNullException("options");
+            Options = options ?? throw new ArgumentNullException(nameof(options));
             Rows = new List<object[]>();
             Columns = new List<object>(options.Columns);
         }
@@ -80,7 +80,10 @@ namespace Fluint.Layer.Miscellaneous
             foreach (
                 var propertyValues
                 in values.Select(value => columns.Select(column => GetColumnValue<T>(value, column)))
-            ) table.AddRow(propertyValues.ToArray());
+            )
+            {
+                table.AddRow(propertyValues.ToArray());
+            }
 
             return table;
         }
