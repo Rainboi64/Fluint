@@ -1,12 +1,13 @@
 ﻿<Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Fluint.Avalonia"
-             x:Class="Fluint.Avalonia.App">
-  
+             x:Class="Fluint.Avalonia.App"
+             xmlns:idc="using:Dock.Avalonia.Controls">
+
   <Application.Styles>
     <StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
     <StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseDark.xaml"/>
-    <StyleInclude Source="avares://Dock.Avalonia/Themes/DefaultTheme.axaml"/>
+    <StyleInclude Source="avares://Dock.Avalonia.Themes.Default/DefaultTheme.axaml"/>
   </Application.Styles>
   
 </Application>
