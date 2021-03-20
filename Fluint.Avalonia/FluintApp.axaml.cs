@@ -7,6 +7,7 @@ using Fluint.Avalonia.ViewModels;
 using Fluint.Avalonia.Views;
 using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Input;
 using Fluint.Layer.Tasks;
 using System;
 using System.Threading;
@@ -19,7 +20,7 @@ namespace Fluint.Avalonia
 
         public override void Initialize()
         {
-            ModulesManager modulesManager = new ModulesManager();
+            var modulesManager = new ModulesManager();
             modulesManager.LoadFolder("./modules");
 
             _packet = modulesManager.ModuleCollection.ModulePacket;

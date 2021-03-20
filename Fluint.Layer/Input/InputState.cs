@@ -8,6 +8,6 @@ namespace Fluint.Layer.Input
     {
         Press = 1,
         Release = 0,
-        Repeat = 2
+        Repeat = 2,
     }
 }

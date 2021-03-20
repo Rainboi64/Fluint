@@ -17,6 +17,7 @@ namespace Fluint.Layer.Input
     public interface IInputManager : IModule
     {
         void Load(IBindingContext bindingContext);
+        InputState State(Key key);
 
         event Action<InputState, Key> Keyboard;
 

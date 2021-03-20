@@ -29,23 +29,23 @@ namespace Fluint.Implementation.Networking.Server
         {
             _logger = logger;
             ServerInfo = serverInfo;
-            server = new NcsServer(IPAddress.Parse(ServerInfo.IpAddress), ServerInfo.Port, tasks, logger);
-            server.ClientConnected += ClientConnected;
-            server.ClientDisconnected += ClientDisconnected;
+            _server = new NcsServer(IPAddress.Parse(ServerInfo.IpAddress), ServerInfo.Port, tasks, logger);
+            _server.ClientConnected += ClientConnected;
+            _server.ClientDisconnected += ClientDisconnected;
         }
 
-        private readonly NcsServer server;
+        private readonly NcsServer _server;
 
         private readonly ILogger _logger;
         public IServerData ServerInfo { get; }
         public IReadOnlyCollection<IClientData> Clients => _clients;
         public bool ServerStarted { get; private set; }
 
-        private List<IClientData> _clients = new List<IClientData>();
+        private readonly List<IClientData> _clients = new();
 
         public void Start()
         {
-            server.Start();
+            _server.Start();
             _logger.Information("Server Started.");
             ServerStarted = true;
             while (ServerStarted)
@@ -58,21 +58,21 @@ namespace Fluint.Implementation.Networking.Server
         public void Stop()
         {
             _logger.Information("Server Stopped.");
-            server.Stop();
+            _server.Stop();
             ServerStarted = false;
         }
 
         public void Restart()
         {
             ServerStarted = false;
-            server.Restart();
+            _server.Restart();
             ServerStarted = true;
             _logger.Information("Server Restarted.");
         }
 
         private void Tick()
         {
-            server.Tick();
+            _server.Tick();
         }
 
 

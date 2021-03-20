@@ -10,6 +10,8 @@ using Fluint.Layer.Graphics;
 using System;
 using Avalonia.Media;
 using System.Diagnostics;
+using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Tasks;
 
 namespace Fluint.Avalonia.Controls
 {
@@ -33,9 +35,16 @@ namespace Fluint.Avalonia.Controls
         public event Action Ready;
 
         /// <summary>
+        /// Gets called when the binding context is Disposing
+        /// </summary>
+        public event Action Disposing;
+
+        /// <summary>
         /// Main Render Event (gets called when rendering is requested, should contain the actual rendering data)
         /// </summary>
         public event Action<TimeSpan> RenderCallback;
+
+        private ITaskManager _taskManager;
 
         public RendererContext()
         {
@@ -47,11 +56,12 @@ namespace Fluint.Avalonia.Controls
             AvaloniaXamlLoader.Load(this);
         }
 
-        public void Load(IBindingContext bindingContext)
+        public void Load(IBindingContext bindingContext, ITaskManager taskManager)
         {
             BindingContext = bindingContext;
+            _taskManager = taskManager;
         }
-        
+
         protected override IPlatformHandle CreateNativeControlCore(IPlatformHandle parent)
         {
             var handle = base.CreateNativeControlCore(parent);
@@ -63,6 +73,8 @@ namespace Fluint.Avalonia.Controls
                 BindingContext.InitializeContext(settings);
 
                 Ready?.Invoke();
+
+                _taskManager.Invoke(TaskSchedule.RendererReady);
 
                 _contextInit = true;
             }
@@ -80,9 +92,13 @@ namespace Fluint.Avalonia.Controls
 
             BindingContext.Resize((int)this.Bounds.Width, (int)this.Bounds.Height);
 
+            _taskManager.Invoke(TaskSchedule.PreRender);
+            
             BindingContext.PreRender();
             RenderCallback?.Invoke(deltaT);
             BindingContext.PostRender();
+            
+            _taskManager.Invoke(TaskSchedule.PostRender);
 
             BindingContext.SwapBuffers();
 
@@ -94,6 +110,14 @@ namespace Fluint.Avalonia.Controls
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            _taskManager.Invoke(TaskSchedule.RendererDisposing);
+            Disposing?.Invoke();
             BindingContext.Dispose();
         }
     }

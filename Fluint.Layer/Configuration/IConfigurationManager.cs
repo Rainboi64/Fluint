@@ -24,5 +24,12 @@ namespace Fluint.Layer.Configuration
         /// Saves all the data to the long-term container 'ex: hard-drive'
         /// </summary>
         void Save();
+
+        /// <summary>
+        /// Checks if the configuration manager has type.
+        /// </summary>
+        /// <typeparam name="T">the type to check for.</typeparam>
+        /// <returns>if the type is queryable, thus exists.</returns>
+        bool Contains<T>() where T : IConfiguration;
     }
 }

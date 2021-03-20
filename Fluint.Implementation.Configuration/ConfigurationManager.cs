@@ -39,8 +39,28 @@ namespace Fluint.Implementation.Configuration
             foreach (var config in _confings)
             {
                 var jsonData = JsonConvert.SerializeObject(config);
-                File.WriteAllText(@$".\configs\" + nameof(config), jsonData);
+                File.WriteAllText(@$".\configs\{config.GetType().Name}.json", jsonData);
             }
+        }
+
+        public bool Contains<T>() where T : IConfiguration
+        {
+            var length = _confings.Count;
+            for (var i = 0; i < length; i++)
+            {
+                var current = _confings[length];
+                if (current.GetType() == typeof(T))
+                {
+                    return true;
+                }
+            }
+
+            if (File.Exists(@$".\configs\{typeof(T).Name}.json"))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

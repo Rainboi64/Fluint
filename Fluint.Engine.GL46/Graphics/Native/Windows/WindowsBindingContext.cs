@@ -28,8 +28,8 @@ namespace Fluint.Engine.GL46.Graphics.Native.Windows
             // init the mfing native window.
 
             var nws = NativeWindowSettings.Default;
-            nws.StartFocused = false;
-            nws.StartVisible = false;
+            nws.StartFocused = true;
+            nws.StartVisible = true;
             nws.NumberOfSamples = 0;
             nws.APIVersion = new Version(4, 6);
             nws.Flags = ContextFlags.Default;
@@ -51,26 +51,17 @@ namespace Fluint.Engine.GL46.Graphics.Native.Windows
             const int CS_HREDRAW = 0x2;
             const int CS_OWNDC = 0x20;
 
-            IntPtr style = (IntPtr)(long)(CS_VREDRAW | CS_HREDRAW | CS_OWNDC);
+            var style = (IntPtr)(long)(CS_VREDRAW | CS_HREDRAW | CS_OWNDC);
 
             Win32.SetWindowLongPtr(_handle, Win32.WindowLongs.GWL_STYLE, style);
 
             // Get the the actual (windows shit) window pointer
-            IntPtr hWnd = GLFWNative.glfwGetWin32Window(_nativeWindow.WindowPtr);
+            var hWnd = GLFWNative.glfwGetWin32Window(_nativeWindow.WindowPtr);
 
             // Set the parent of the window to be the control.
             Win32.SetParent(hWnd, _handle);
 
             // Yeah, am a CHAD, I use WINAPI and unsafe functions and am not scared at all.
-
-            // Change the real HWND's window styles to be "WS_CHILD | WS_DISABLED" (i.e.,
-            // a child of some container, with no input support), and turn off *all* the
-            // other style bits (most of the rest of them could cause trouble).  In
-            // particular, this turns off stuff like WS_BORDER and WS_CAPTION and WS_POPUP
-            // and so on, any of which GLFW might have turned on for us.
-            IntPtr childStyle = (IntPtr)(long)(Win32.WindowStyles.WS_CHILD
-                );
-            Win32.SetWindowLongPtr(hWnd, Win32.WindowLongs.GWL_STYLE, childStyle);
 
             Resize(settings.Width, settings.Height);
 

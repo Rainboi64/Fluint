@@ -14,18 +14,24 @@ namespace Fluint.Implementation.Tasks
         private readonly ModulePacket _packet;
         private readonly IEnumerable<ITask> _tasks;
 
-        private readonly IEnumerable<ITask> _startupTasks;
-        private readonly IEnumerable<ITask> _updateTasks;
-        private readonly IEnumerable<ITask> _backgroundTasks;
+        private readonly ITask[] _startupTasks;
+        private readonly ITask[] _readyTasks;
+        private readonly ITask[] _preRenderTasks;
+        private readonly ITask[] _postRenderTasks;
+        private readonly ITask[] _rendererDisposingTasks;
+        private readonly ITask[] _backgroundTasks;
 
         public TaskManager(ModulePacket packet)
         {
             _packet = packet;
             _tasks = _packet.GetInstances().OfType<ITask>();
 
-            _startupTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Startup);
-            _updateTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Update);
-            _backgroundTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Background);
+            _startupTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Startup).ToArray();
+            _backgroundTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Background).ToArray();
+            _readyTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.RendererReady).ToArray();
+            _preRenderTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.PreRender).ToArray();
+            _postRenderTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.PostRender).ToArray();
+            _rendererDisposingTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.RendererDisposing).ToArray();
 
         }
 
@@ -45,8 +51,26 @@ namespace Fluint.Implementation.Tasks
                         new Thread(() => item.Start()).Start();
                     }
                     break;
-                case TaskSchedule.Update:
-                    foreach (var item in _updateTasks)
+                case TaskSchedule.PreRender:
+                    foreach (var item in _preRenderTasks)
+                    {
+                        item.Start();
+                    }
+                    break;
+                case TaskSchedule.PostRender:
+                    foreach (var item in _postRenderTasks)
+                    {
+                        item.Start();
+                    }
+                    break;
+                case TaskSchedule.RendererReady:
+                    foreach (var item in _readyTasks)
+                    {
+                        item.Start();
+                    }
+                    break;
+                case TaskSchedule.RendererDisposing:
+                    foreach (var item in _rendererDisposingTasks)
                     {
                         item.Start();
                     }

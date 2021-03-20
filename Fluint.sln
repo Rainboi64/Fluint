@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Avalonia", "Fluint.A
 	ProjectSection(ProjectDependencies) = postProject
 		{40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0} = {40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0}
 		{6F5C1735-69F0-476E-AF8A-F54A3C8CDECC} = {6F5C1735-69F0-476E-AF8A-F54A3C8CDECC}
+		{A1696D37-C974-49CA-B486-3736254443AD} = {A1696D37-C974-49CA-B486-3736254443AD}
 		{57CDC538-88CF-4533-BA9D-BE41E5004050} = {57CDC538-88CF-4533-BA9D-BE41E5004050}
 		{24FAC640-6218-49E2-AAD8-24AFDE4D1B23} = {24FAC640-6218-49E2-AAD8-24AFDE4D1B23}
 		{6F43CE40-292C-453C-9A9E-7FFEB7D8B969} = {6F43CE40-292C-453C-9A9E-7FFEB7D8B969}
@@ -51,19 +52,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APITest", "APITest\APITest.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.Tasks", "Fluint.Implementation.Tasks\Fluint.Implementation.Tasks.csproj", "{49D0F24C-F8C7-4D47-B1BE-FAB890354B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Tasks", "Fluint.Implementation.Tasks\Fluint.Implementation.Tasks.csproj", "{49D0F24C-F8C7-4D47-B1BE-FAB890354B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.Diagnostics", "Fluint.Implementation.Diagnostics\Fluint.Implementation.Diagnostics.csproj", "{24FAC640-6218-49E2-AAD8-24AFDE4D1B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Diagnostics", "Fluint.Implementation.Diagnostics\Fluint.Implementation.Diagnostics.csproj", "{24FAC640-6218-49E2-AAD8-24AFDE4D1B23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.SDK", "Fluint.Implementation.SDK\Fluint.Implementation.SDK.csproj", "{57CDC538-88CF-4533-BA9D-BE41E5004050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.SDK", "Fluint.Implementation.SDK\Fluint.Implementation.SDK.csproj", "{57CDC538-88CF-4533-BA9D-BE41E5004050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.IO", "Fluint.Implementation.IO\Fluint.Implementation.IO.csproj", "{6F5C1735-69F0-476E-AF8A-F54A3C8CDECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.IO", "Fluint.Implementation.IO\Fluint.Implementation.IO.csproj", "{6F5C1735-69F0-476E-AF8A-F54A3C8CDECC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.Localization", "Fluint.Implementation.Localization\Fluint.Implementation.Localization.csproj", "{F48FE8E9-BB03-44C5-82CF-240EA2723FCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Localization", "Fluint.Implementation.Localization\Fluint.Implementation.Localization.csproj", "{F48FE8E9-BB03-44C5-82CF-240EA2723FCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.Networking", "Fluint.Implementation.Networking\Fluint.Implementation.Networking.csproj", "{40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Networking", "Fluint.Implementation.Networking\Fluint.Implementation.Networking.csproj", "{40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Implementation.Configuration", "Fluint.Implementation.Configuration\Fluint.Implementation.Configuration.csproj", "{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Configuration", "Fluint.Implementation.Configuration\Fluint.Implementation.Configuration.csproj", "{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Input", "Fluint.Implementation.Input\Fluint.Implementation.Input.csproj", "{A1696D37-C974-49CA-B486-3736254443AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -366,6 +369,24 @@ Global
 		{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}.Release|x64.Build.0 = Release|Any CPU
 		{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}.Release|x86.ActiveCfg = Release|Any CPU
 		{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}.Release|x86.Build.0 = Release|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug With Modules Setup|Any CPU.ActiveCfg = Debug With Modules Setup|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug With Modules Setup|Any CPU.Build.0 = Debug With Modules Setup|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug With Modules Setup|x64.ActiveCfg = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug With Modules Setup|x64.Build.0 = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug With Modules Setup|x86.ActiveCfg = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug With Modules Setup|x86.Build.0 = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug|x64.Build.0 = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Debug|x86.Build.0 = Debug|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Release|x64.ActiveCfg = Release|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Release|x64.Build.0 = Release|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Release|x86.ActiveCfg = Release|Any CPU
+		{A1696D37-C974-49CA-B486-3736254443AD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -383,6 +404,7 @@ Global
 		{F48FE8E9-BB03-44C5-82CF-240EA2723FCC} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 		{40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 		{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
+		{A1696D37-C974-49CA-B486-3736254443AD} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {448C7179-E7AE-4470-97E2-A32117E7168A}

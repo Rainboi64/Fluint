@@ -1,43 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+using Fluint.Layer.Miscellaneous;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Fluint.Avalonia.Controls;
 using Fluint.Avalonia.ViewModels;
-using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Graphics;
-using Fluint.Layer.Mathematics;
 
 namespace Fluint.Avalonia.Views
 {
+    // MVVM Research needed
     public class RendererDocumentView : UserControl
     {
         private readonly RendererContext _rendererContext;
-        private readonly ModulePacket _packet;
+        private RendererDocumentViewModel _viewModel;
 
-        public RendererDocumentView(ModulePacket packet)
+        public RendererDocumentView()
         {
             this.InitializeComponent();
-            _packet = packet;
             _rendererContext = this.FindControl<RendererContext>("renderer");
-            _rendererContext.Load(_packet.New<IBindingContext>());
-
-            _rendererContext.Ready += ContextReady;
-            _rendererContext.RenderCallback += ContextRender;
         }
 
-        public RendererDocumentView() { }
+        protected override void OnDataContextChanged(EventArgs e)
+        {
+            // TODO: Add window caching.
+            // TODO: probably should implement this into a logger.
+            ConsoleHelper.WriteEmbeddedColorLine($"Inititialized [cyan]{this}[/cyan]");
+            _viewModel = (RendererDocumentViewModel)DataContext;
+            _rendererContext.Load(_viewModel.BindingContext, _viewModel.TaskManager);
+
+            _rendererContext.Ready += ContextReady;
+            _rendererContext.RenderCallback += ContextRender;            
+        }
 
         private void ContextReady()
         {
-
+            _viewModel.Ready();
         }
 
         private void ContextRender(TimeSpan obj)
         {
-
+            _viewModel.Render();
         }
 
         private void InitializeComponent()

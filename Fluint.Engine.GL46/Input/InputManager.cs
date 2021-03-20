@@ -1,7 +1,7 @@
 ﻿using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
-using GLFW;
+using OpenTK.Windowing.Desktop;
 using System;
 
 namespace Fluint.Engine.GL46.Input
@@ -10,25 +10,49 @@ namespace Fluint.Engine.GL46.Input
     {
         NativeWindow _nativeWindow;
 
-        public event Action<Layer.Input.InputState, Key> Keyboard;
-        public event Action<Layer.Input.InputState, Layer.Input.MouseButton> MouseButton;
-
-        private void _nativeWindow_KeyAction(object sender, KeyEventArgs e)
-        {
-            Keyboard?.Invoke((Layer.Input.InputState)e.State, (Key)e.Key);
-        }
-
-        private void _nativeWindow_MouseButton(object sender, MouseButtonEventArgs e)
-        {
-            MouseButton?.Invoke((Layer.Input.InputState)e.Action, (Layer.Input.MouseButton)e.Button);
-        }
+        public event Action<InputState, Key> Keyboard;
+        public event Action<InputState, MouseButton> MouseButton;
 
         public void Load(IBindingContext bindingContext)
         {
             _nativeWindow = (NativeWindow)bindingContext.NativeContext;
+            _nativeWindow.KeyDown += NativeWindow_KeyDown;
+            _nativeWindow.KeyUp += NativeWindow_KeyUp;
         }
 
-        unsafe Point IInputManager.GetMouseLocation { get => new Point(_nativeWindow.MousePosition.X, _nativeWindow.MousePosition.Y); set => _nativeWindow.MousePosition = new System.Drawing.Point(value.X, value.Y); }
+        private void NativeWindow_KeyUp(OpenTK.Windowing.Common.KeyboardKeyEventArgs obj)
+        {
+            Keyboard?.Invoke(InputState.Release, (Key)obj.Key);
+        }
+
+        private void NativeWindow_KeyDown(OpenTK.Windowing.Common.KeyboardKeyEventArgs obj)
+        {
+            var newState = InputState.Press;
+            if (obj.IsRepeat)
+            {
+                newState = InputState.Repeat;
+            }
+            Keyboard?.Invoke(newState, (Key)obj.Key);
+        }
+
+        public InputState State(Key key)
+        {
+            if (_nativeWindow.KeyboardState.IsKeyDown((OpenTK.Windowing.GraphicsLibraryFramework.Keys)key))
+            {
+                if (_nativeWindow.KeyboardState.WasKeyDown((OpenTK.Windowing.GraphicsLibraryFramework.Keys)key))
+                {
+                    return InputState.Repeat;
+                }
+                return InputState.Press;
+            }
+            return InputState.Release;
+        }
+
+        unsafe Point IInputManager.GetMouseLocation
+        {
+            get => new((int)_nativeWindow.MousePosition.X, (int)_nativeWindow.MousePosition.Y);
+            set => _nativeWindow.MousePosition = new(value.X, value.Y);
+        }
 
     }
 }

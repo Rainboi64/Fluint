@@ -25,14 +25,11 @@ namespace Fluint.Avalonia
 
         public MainDockFactory(object context, ModulePacket packet) : this(context)
         {
-            this._packet = packet;
+            _packet = packet;
         }
 
         public override IDock CreateLayout()
         {
-            //var document1 = 
-
-            //var document2 = ;
 
             var a = new RendererDocumentViewModel(_packet)
             {
@@ -93,55 +90,6 @@ namespace Fluint.Avalonia
             root.VisibleDockables = CreateList<IDockable>(mainView);
 
             return root;
-        }
-
-
-        public override void InitLayout(IDockable layout)
-        {
-            this.ContextLocator = new Dictionary<string, Func<object>>
-            {
-                [nameof(IRootDock)] = () => _context,
-                [nameof(IProportionalDock)] = () => _context,
-                [nameof(IDocumentDock)] = () => _context,
-                [nameof(IToolDock)] = () => _context,
-                [nameof(ISplitterDock)] = () => _context,
-                [nameof(IDockWindow)] = () => _context,
-                [nameof(IDocument)] = () => _context,
-                [nameof(ITool)] = () => _context,
-                ["Document1"] = () => _context,
-                ["LeftPane"] = () => _context,
-                ["LeftPaneTop"] = () => _context,
-                ["LeftPaneTopSplitter"] = () => _context,
-                ["LeftPaneBottom"] = () => _context,
-                ["RightPane"] = () => _context,
-                ["RightPaneTop"] = () => _context,
-                ["RightPaneTopSplitter"] = () => _context,
-                ["RightPaneBottom"] = () => _context,
-                ["DocumentsPane"] = () => _context,
-                ["MainLayout"] = () => _context,
-                ["LeftSplitter"] = () => _context,
-                ["RightSplitter"] = () => _context,
-                ["MainLayout"] = () => _context,
-                ["Main"] = () => _context,
-            };
-
-            this.HostWindowLocator = new Dictionary<string, Func<IHostWindow>>
-            {
-                [nameof(IDockWindow)] = () =>
-                {
-                    var hostWindow = new HostWindow()
-                    {
-                        [!HostWindow.TitleProperty] = new Binding("ActiveDockable.Title")
-                    };
-                    return hostWindow;
-                }
-            };
-
-            this.DockableLocator = new Dictionary<string, Func<IDockable>>
-            {
-            };
-
-            base.InitLayout(layout);
         }
     }
 }

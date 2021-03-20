@@ -24,7 +24,9 @@ namespace Fluint.Avalonia
 
             if (type != null)
             {
-                return (IControl)_packet.CreateInstance(type);
+                var initType = (IControl)_packet.CreateInstance(type);
+                initType.DataContext = data;
+                return initType;
             }
             else
             {
