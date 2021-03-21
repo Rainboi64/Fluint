@@ -3,15 +3,58 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Input;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Fluint.Implementation.Input
 {
     public class BindingsManager : IBindingsManager
     {
-        public static readonly IEnumerable<Binding> Default = new List<Binding>()
+        public readonly static IEnumerable<Binding> Default = new[]
         {
-            new Binding() { Tag = "that one key", MainCombination = new[] { Key.LeftControl, Key.R }, SecondaryCombination = new[] { Key.RightControl, Key.R } }
+            new Binding() { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } }
         };
+
+        //=> Generate();
+
+        // generate random keybinds
+        //private static IEnumerable<Binding> Generate()
+        //{
+        //    var bindings = new List<Binding>
+        //    {
+        //        new Binding() { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } }
+        //    };
+        //    var random = new Random();
+        //    var loopCount = random.Next(1, 500);
+        //    for (var i = 0; i < loopCount; i++)
+        //    {
+        //        var newBind = new Binding();
+        //        var keys = new List<Key>();
+        //        for (var k = 0; k < random.Next(1, 3); k++)
+        //        {
+        //            keys.Add((Key)random.Next(0, 348));
+        //        }
+        //        newBind.MainCombination = keys.ToArray();
+
+        //        keys.Clear();
+        //        for (var k = 0; k < random.Next(1, 3); k++)
+        //        {
+        //            keys.Add((Key)random.Next(0, 348));
+        //        }
+        //        newBind.SecondaryCombination = keys.ToArray();
+
+        //        const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        //        var res = new StringBuilder();
+        //        var length = random.Next(3, 5);
+        //        while (0 < length--)
+        //        {
+        //            res.Append(valid[random.Next(valid.Length)]);
+        //        }
+        //        newBind.Tag = res.ToString();
+        //        bindings.Add(newBind);
+        //    }
+
+        //    return bindings;
+        //}
 
         private string _current = "default";
 
@@ -179,7 +222,7 @@ namespace Fluint.Implementation.Input
 
         public void SaveCurrentCollection(string tag)
         {
-            if (_bindingsDictionary.ContainsKey(tag) && tag != _current)
+            if (_bindingsDictionary.ContainsKey(tag))
             {
                 _bindingsDictionary[tag] = _bindingsDictionary[_current];
             }

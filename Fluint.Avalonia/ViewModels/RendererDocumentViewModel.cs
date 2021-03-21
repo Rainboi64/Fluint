@@ -34,6 +34,15 @@ namespace Fluint.Avalonia.ViewModels
 
         private void BindingsManager_BindingStateUpdated(InputState state, Binding binding)
         {
+            switch (binding.Tag)
+            {
+                case "SAVE_CONFIG":
+                    if (state == InputState.Press)
+                    {
+                        BindingsManager.SaveCurrentCollection("default");
+                    }
+                    break;
+            }
             Console.WriteLine($"Binding: {binding}, State: {state}");
         }
 

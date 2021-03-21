@@ -19,8 +19,8 @@ namespace Fluint.Implementation.Configuration
             }
             else
             {
-               var jsonData= File.ReadAllText(@$".\configs\{nameof(T)}.json");
-               var obj = JsonConvert.DeserializeObject<T>(jsonData);
+               var jsonData = File.ReadAllText(@$".\configs\{typeof(T).Name}.json");
+               var obj = JsonConvert.DeserializeObject<T>(jsonData, new Newtonsoft.Json.Converters.StringEnumConverter());
                _confings.Add(obj);
                return obj;
             }
@@ -29,7 +29,7 @@ namespace Fluint.Implementation.Configuration
         public void Add(IConfiguration configuration)
         {
             _confings.Add(configuration);
-            var jsonData = JsonConvert.SerializeObject(configuration);
+            var jsonData = JsonConvert.SerializeObject(configuration, Formatting.Indented, new Newtonsoft.Json.Converters.StringEnumConverter());
             Directory.CreateDirectory(@$".\configs\");
             File.WriteAllText(@$".\configs\{configuration.GetType().Name}.json", jsonData);
         }
@@ -38,7 +38,7 @@ namespace Fluint.Implementation.Configuration
         {
             foreach (var config in _confings)
             {
-                var jsonData = JsonConvert.SerializeObject(config);
+                var jsonData = JsonConvert.SerializeObject(config, Formatting.Indented, new Newtonsoft.Json.Converters.StringEnumConverter());
                 File.WriteAllText(@$".\configs\{config.GetType().Name}.json", jsonData);
             }
         }
@@ -48,7 +48,7 @@ namespace Fluint.Implementation.Configuration
             var length = _confings.Count;
             for (var i = 0; i < length; i++)
             {
-                var current = _confings[length];
+                var current = _confings[length - 1];
                 if (current.GetType() == typeof(T))
                 {
                     return true;
