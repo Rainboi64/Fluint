@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Platforms>AnyCPU;x64;x86</Platforms>
-    <Configurations>Debug;Release;Debug With Modules Setup</Configurations>
-  </PropertyGroup>
-
-</Project>

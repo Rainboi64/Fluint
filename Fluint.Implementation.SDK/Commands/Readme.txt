@@ -1,1 +1,0 @@
-﻿This is left for quality of life sakes, for the important/essential/basic commands, I think they should be implemented in the SDK directly.

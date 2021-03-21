@@ -1,4 +1,0 @@
-namespace Fluint.Layer.Graphics
-{
-    
-}
