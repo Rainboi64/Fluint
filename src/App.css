@@ -32,12 +32,12 @@ path {
   float: Right;
   width: 50px;
   height: 50px;
-  margin: 0px 0px 0px 0px;
+  margin: 0;
 }
 .RepositoryIcon {
   width: 50px;
   height: 50px;
-  margin: 8px 0px 0px 0px;
+  margin: 8px 0 0;
 }
 
 .RepositoryContainer :hover {
@@ -53,7 +53,7 @@ path {
   float: left;
   width: 50px;
   height: 50px;
-  margin: 8px 0px 0px 0px;
+  margin: 8px 0 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
