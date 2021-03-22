@@ -1,15 +1,64 @@
-.App {
-  text-align: center;
+@import '~antd/dist/antd.dark.css';
+
+path {
+  transition: fill .4s ease;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.Side-menu
+{
+  float: Left;
+}
+
+.Site-layout .Site-layout-background {
+  background: rgb(20, 20, 20);
+  height: 1000px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.RepositoryText {
+  float: Left;
+}
+
+.RepositoryContainer {
+  float: Right;
+  width: 50px;
+  height: 50px;
+  margin: 0px 0px 0px 0px;
+}
+.RepositoryIcon {
+  width: 50px;
+  height: 50px;
+  margin: 8px 0px 0px 0px;
+}
+
+.RepositoryContainer :hover {
+  fill: #FFF;
+}
+
+
+.ant-layout-header {
+  background: #B72E48;
+}
+
+.Logo {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 8px 0px 0px 0px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .Logo :hover {
+    animation: Logo-spin infinite 20s linear;
   }
 }
 
