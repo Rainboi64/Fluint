@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/Fluint/static/css/main.7d180cbf.chunk.css",
-    "main.js": "/Fluint/static/js/main.3d86eed6.chunk.js",
-    "main.js.map": "/Fluint/static/js/main.3d86eed6.chunk.js.map",
-    "runtime-main.js": "/Fluint/static/js/runtime-main.a6a57832.js",
-    "runtime-main.js.map": "/Fluint/static/js/runtime-main.a6a57832.js.map",
-    "static/js/2.804ca7e8.chunk.js": "/Fluint/static/js/2.804ca7e8.chunk.js",
-    "static/js/2.804ca7e8.chunk.js.map": "/Fluint/static/js/2.804ca7e8.chunk.js.map",
-    "static/js/3.39b90cc2.chunk.js": "/Fluint/static/js/3.39b90cc2.chunk.js",
-    "static/js/3.39b90cc2.chunk.js.map": "/Fluint/static/js/3.39b90cc2.chunk.js.map",
+    "main.css": "/Fluint/static/css/main.9f39b2ac.chunk.css",
+    "main.js": "/Fluint/static/js/main.aeeefdcd.chunk.js",
+    "main.js.map": "/Fluint/static/js/main.aeeefdcd.chunk.js.map",
+    "runtime-main.js": "/Fluint/static/js/runtime-main.87185689.js",
+    "runtime-main.js.map": "/Fluint/static/js/runtime-main.87185689.js.map",
+    "static/css/2.8ef0d3d6.chunk.css": "/Fluint/static/css/2.8ef0d3d6.chunk.css",
+    "static/js/2.079c3c55.chunk.js": "/Fluint/static/js/2.079c3c55.chunk.js",
+    "static/js/2.079c3c55.chunk.js.map": "/Fluint/static/js/2.079c3c55.chunk.js.map",
+    "static/js/3.f69b7062.chunk.js": "/Fluint/static/js/3.f69b7062.chunk.js",
+    "static/js/3.f69b7062.chunk.js.map": "/Fluint/static/js/3.f69b7062.chunk.js.map",
     "index.html": "/Fluint/index.html",
-    "static/css/main.7d180cbf.chunk.css.map": "/Fluint/static/css/main.7d180cbf.chunk.css.map",
-    "static/js/2.804ca7e8.chunk.js.LICENSE.txt": "/Fluint/static/js/2.804ca7e8.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/Fluint/static/media/logo.6ce24c58.svg"
+    "static/css/2.8ef0d3d6.chunk.css.map": "/Fluint/static/css/2.8ef0d3d6.chunk.css.map",
+    "static/css/main.9f39b2ac.chunk.css.map": "/Fluint/static/css/main.9f39b2ac.chunk.css.map",
+    "static/js/2.079c3c55.chunk.js.LICENSE.txt": "/Fluint/static/js/2.079c3c55.chunk.js.LICENSE.txt",
+    "static/media/logo.fa80111b.svg": "/Fluint/static/media/logo.fa80111b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a6a57832.js",
-    "static/js/2.804ca7e8.chunk.js",
-    "static/css/main.7d180cbf.chunk.css",
-    "static/js/main.3d86eed6.chunk.js"
+    "static/js/runtime-main.87185689.js",
+    "static/css/2.8ef0d3d6.chunk.css",
+    "static/js/2.079c3c55.chunk.js",
+    "static/css/main.9f39b2ac.chunk.css",
+    "static/js/main.aeeefdcd.chunk.js"
   ]
 }
