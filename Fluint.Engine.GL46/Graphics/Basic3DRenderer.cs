@@ -67,7 +67,7 @@ namespace Fluint.Engine.GL46.Graphics
             var length = _renderables.Length;
 
             // create new array
-            Renderable3D<VertexType>[] newRenderables = new Renderable3D<VertexType>[length + 1];
+            var newRenderables = new Renderable3D<VertexType>[length + 1];
 
             // copy old values
             newRenderables.CopyTo(_renderables, 0);

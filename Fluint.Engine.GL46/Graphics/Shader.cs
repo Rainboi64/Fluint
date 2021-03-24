@@ -11,6 +11,7 @@ using System.Text;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
 using OpenTK.Graphics.OpenGL4;
+using ShaderType = OpenTK.Graphics.OpenGL4.ShaderType;
 
 namespace Fluint.Engine.GL46.Graphics
 {

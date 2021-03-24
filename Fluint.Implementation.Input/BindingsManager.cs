@@ -3,6 +3,7 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Input;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Fluint.Implementation.Input
@@ -110,7 +111,7 @@ namespace Fluint.Implementation.Input
             {
                 _bindingsDictionary = new Dictionary<string, List<Binding>>
                 {
-                    { "default", (List<Binding>)Default }
+                    { "default", Default.ToList() }
                 };
             }
         }
