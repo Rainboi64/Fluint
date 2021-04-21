@@ -5,7 +5,6 @@
 //
 
 using System;
-using System.Collections.Generic;
 using Fluint.Layer.Graphics;
 using OpenTK.Graphics.OpenGL4;
 using SixLabors.ImageSharp;
@@ -16,18 +15,30 @@ namespace Fluint.Engine.GL46.Graphics
 {
     public class Texture : ITexture
     {
-        public static void ConfigureTextures()
+        public string Filename { get; private set; }
+        public int Handle { get; private set; }
+        public int Height { get; private set; }
+        public int Width { get; private set; }
+        public Layer.Mathematics.Color[] Pixels { get; private set; }
+
+        public Texture(int width, int height)
+        {
+            Width = width;
+            Height = height;
+
+            Handle = GL.GenTexture();
+
+            Bind();
+            SetupTextureFilters();
+            Unbind();
+        }
+
+        private static void SetupTextureFilters()
         {
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.LinearMipmapLinear);
             GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
         }
 
-        public string Filename { get; set; }
-        public int Handle { get; set; }
-        public int Height { get; set; }
-        public int Width { get; set; }
-
-        public Texture() { }
         public Texture(string filename)
         {
             LoadFromFile(filename);
@@ -49,26 +60,30 @@ namespace Fluint.Engine.GL46.Graphics
             Handle = GL.GenTexture();
             var img = (Image<Rgba32>)Image.Load(Filename);
 
+            Bind();
+
+            SetupTextureFilters();
+
             Width = img.Width;
             Height = img.Height;
 
-            img.Mutate(x => x.Flip(FlipMode.Vertical));
+            Pixels = new Layer.Mathematics.Color[Width * Height];
 
-            var pixels = new List<byte>();
+            img.Mutate(x => x.Flip(FlipMode.Vertical));
 
             for (var x = 0; x < Width; x++)
             {
                 for (var y = 0; y < Height; y++)
                 {
-                    var currentPixel = img[x, y];
-                    pixels.Add(currentPixel.R);
-                    pixels.Add(currentPixel.G);
-                    pixels.Add(currentPixel.B);
-                    pixels.Add(currentPixel.A);
+                    // I could use some bit-hack magicary in here.
+                    // It would also be wise to use System.Drawing.
+                    Pixels[ConvertIndex(x, y)] = new Layer.Mathematics.Color(
+                        img[x, y].R,
+                        img[x, y].G,
+                        img[x, y].B);
                 }
             }
-
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, Width, Height, 0, PixelFormat.Rgba, PixelType.UnsignedByte, pixels.ToArray());
+            Upload();
         }
 
         //Disposing Code
@@ -89,6 +104,25 @@ namespace Fluint.Engine.GL46.Graphics
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public int ConvertIndex(int x, int y)
+        {
+            return x + Width * y;
+        }
+
+        public void Upload()
+        {
+            GL.TexImage2D(
+                TextureTarget.Texture2D,
+                0,
+                PixelInternalFormat.Rgba,
+                Width,
+                Height,
+                0,
+                PixelFormat.Rgba,
+                PixelType.UnsignedByte,
+                Pixels);
         }
     }
 }
