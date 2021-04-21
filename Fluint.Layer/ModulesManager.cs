@@ -77,6 +77,7 @@ using System.IO;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
+using System.Diagnostics;
 
 namespace Fluint.Layer
 {
@@ -119,6 +120,9 @@ namespace Fluint.Layer
                 }
             }
 
+            var watch = new Stopwatch();
+            watch.Start();
+
             var interfaceType = typeof(IModule);
             // Fetch all types that implement the interface IModule and are a class
             var types = AppDomain.CurrentDomain.GetAssemblies()
@@ -136,8 +140,10 @@ namespace Fluint.Layer
 
             var table = new ConsoleTable();
             table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode"});
+
             foreach (var type in types)
-            {
+            { 
+
                 var parent = type.GetInterfaces()
                     .Where(x => x.GetInterfaces()
                     .FirstOrDefault() == interfaceType)
@@ -160,8 +166,10 @@ namespace Fluint.Layer
                         break;
                 }
             }
+            watch.Stop();
+
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
-            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} Module from {dllCount} DLL in {pluginFolder}. Instance Fingerprint: {GetHashCode()}");
+            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} module from {dllCount} DLL in {pluginFolder} in {watch.ElapsedMilliseconds}ms. Instance Fingerprint: {GetHashCode()}");
         }
     }
 }
