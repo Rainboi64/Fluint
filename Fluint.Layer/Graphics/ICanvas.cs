@@ -3,15 +3,23 @@ using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Graphics
 {
-    public interface ICanvas
+    [Initialization(InitializationMethod.Scoped)]
+    public interface ICanvas : IModule
     {
+        public void InitializeCanvas(int width, int Height);
+        
         public Color[] Pixels { get; }
 
         public int Width { get; }
         public int Height { get; }
 
         public int ConvertIndex(int x, int y);
-        public void Render();
+
+        public void Set(int x, int y, Color color);
+        public Color Get(int x, int y);
+
+        public ITexture CreateCopyTexture();
+        public ITexture CreateBoundTexture();
 
         public void DrawShape(Color color, params Vector2i[] points);
         public void DrawShape(Func<Vector2i, Color> color, params Vector2i[] points);
@@ -37,10 +45,10 @@ namespace Fluint.Layer.Graphics
         public void DrawFilledQuad(Vector2i v1, Vector2i v2, Vector2i v3, Vector2i v4, Color color);
         public void DrawFilledQuad(Vector2i v1, Vector2i v2, Vector2i v3, Vector2i v4, Func<Vector2i, Color> color);
 
-        public void DrawCircle(Vector2i location, float radius, Color color);
-        public void DrawCircle(Vector2i location, float radius, Func<Vector2i, Color> color);
+        public void DrawCircle(Vector2i location, int radius, Color color);
+        public void DrawCircle(Vector2i location, int radius, Func<Vector2i, Color> color);
 
-        public void DrawFilledCircle(Vector2i location, float radius, Color color);
-        public void DrawFilledCircle(Vector2i location, float radius, Func<Vector2i, Color> color);
+        public void DrawFilledCircle(Vector2i location, int radius, Color color);
+        public void DrawFilledCircle(Vector2i location, int radius, Func<Vector2i, Color> color);
     }
 }

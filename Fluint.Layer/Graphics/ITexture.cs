@@ -6,7 +6,7 @@ using Fluint.Layer.Mathematics;
 namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
-    public interface ITexture : IModule
+    public interface ITexture : IModule, IDisposable
     {
         public void Bind();
         public void Unbind();

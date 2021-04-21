@@ -21,6 +21,21 @@ namespace Fluint.Engine.GL46.Graphics
         public int Width { get; private set; }
         public Layer.Mathematics.Color[] Pixels { get; private set; }
 
+        public Texture() { }
+
+        public Texture(int width, int height, Layer.Mathematics.Color[] pixels)
+        {
+            Pixels = pixels;
+            Width = width;
+            Height = height;
+
+            Handle = GL.GenTexture();
+
+            Bind();
+            SetupTextureFilters();
+            Unbind();
+        }
+
         public Texture(int width, int height)
         {
             Width = width;
@@ -57,6 +72,7 @@ namespace Fluint.Engine.GL46.Graphics
         public void LoadFromFile(string fileName)
         {
             Filename = fileName;
+
             Handle = GL.GenTexture();
             var img = (Image<Rgba32>)Image.Load(Filename);
 
