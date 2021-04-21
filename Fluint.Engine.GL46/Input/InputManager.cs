@@ -16,8 +16,20 @@ namespace Fluint.Engine.GL46.Input
         public void Load(IBindingContext bindingContext)
         {
             _nativeWindow = (NativeWindow)bindingContext.NativeContext;
+            _nativeWindow.MouseDown += NativeWindow_MouseDown;
+            _nativeWindow.MouseUp += NativeWindow_MouseUp;
             _nativeWindow.KeyDown += NativeWindow_KeyDown;
             _nativeWindow.KeyUp += NativeWindow_KeyUp;
+        }
+
+        private void NativeWindow_MouseUp(OpenTK.Windowing.Common.MouseButtonEventArgs obj)
+        {
+            MouseButton?.Invoke(InputState.Release, (MouseButton)obj.Button);
+        }
+
+        private void NativeWindow_MouseDown(OpenTK.Windowing.Common.MouseButtonEventArgs obj)
+        {
+            MouseButton?.Invoke(InputState.Press, (MouseButton)obj.Button);
         }
 
         private void NativeWindow_KeyUp(OpenTK.Windowing.Common.KeyboardKeyEventArgs obj)

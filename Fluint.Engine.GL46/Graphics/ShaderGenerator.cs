@@ -55,8 +55,6 @@ namespace Fluint.Engine.GL46.Graphics
 
             var vertexShaderSource = new StringBuilder();
 
-            var header = @"";
-
             var vertexModulesLength = _localVertexModules.Count;
             for (var i = 0; i < vertexModulesLength; i++)
             {
