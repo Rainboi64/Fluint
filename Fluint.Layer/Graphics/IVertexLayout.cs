@@ -5,7 +5,7 @@ using System.Text;
 namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
-    public interface IVertexLayout<VertexType> : IModule where VertexType : struct
+    public interface IVertexLayout<VertexType> : IModule, IDisposable where VertexType : struct
     {
         /// <summary>
         /// Gets the size of the vertex.

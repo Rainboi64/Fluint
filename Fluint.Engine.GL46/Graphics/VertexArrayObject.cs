@@ -113,5 +113,11 @@ namespace Fluint.Engine.GL46.Graphics
             }
             VertexSize = Marshal.SizeOf(type);
         }
+
+        public void Dispose()
+        {
+            GL.DeleteVertexArray(Handle);
+            GC.SuppressFinalize(this);
+        }
     }
 }
