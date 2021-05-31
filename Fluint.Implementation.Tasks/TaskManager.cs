@@ -1,10 +1,8 @@
-﻿using Fluint.Layer;
-using Fluint.Layer.DependencyInjection;
+﻿using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace Fluint.Implementation.Tasks
@@ -15,69 +13,105 @@ namespace Fluint.Implementation.Tasks
         private readonly IEnumerable<ITask> _tasks;
 
         private readonly ITask[] _startupTasks;
-        private readonly ITask[] _readyTasks;
-        private readonly ITask[] _preRenderTasks;
-        private readonly ITask[] _postRenderTasks;
-        private readonly ITask[] _rendererDisposingTasks;
         private readonly ITask[] _backgroundTasks;
+        private readonly ITask[] _windowReadyTasks;
+
+        private readonly ITask[] _windowRenderTasks;
+        private readonly ITask[] _windowUpdateTasks;
+        private readonly ITask[] _windowResizeTasks;
+        private readonly ITask[] _windowEnterTextTasks;
+        private readonly ITask[] _windowScrollTasks;
+        private readonly ITask[] _windowDisposingTasks;
+
 
         public TaskManager(ModulePacket packet)
         {
             _packet = packet;
             _tasks = _packet.GetInstances().OfType<ITask>();
 
-            _startupTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Startup).ToArray();
-            _backgroundTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Background).ToArray();
-            _readyTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.RendererReady).ToArray();
-            _preRenderTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.PreRender).ToArray();
-            _postRenderTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.PostRender).ToArray();
-            _rendererDisposingTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.RendererDisposing).ToArray();
+            // excuse this shit
 
+            _startupTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Startup).OrderBy(task => task.Priority).ToArray();
+            _backgroundTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.Background).OrderBy(task => task.Priority).ToArray();
+
+            _windowRenderTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowRender).OrderBy(task => task.Priority).ToArray();
+            _windowUpdateTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowUpdate).OrderBy(task => task.Priority).ToArray();
+            _windowResizeTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowResize).OrderBy(task => task.Priority).ToArray();
+            _windowEnterTextTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowEnterText).OrderBy(task => task.Priority).ToArray();
+            _windowScrollTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowMouseScroll).OrderBy(task => task.Priority).ToArray();
+            _windowDisposingTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowDisposing).OrderBy(task => task.Priority).ToArray();
+
+            _windowReadyTasks = _tasks.Where((x) => x.Schedule == TaskSchedule.WindowReady).OrderBy(task => task.Priority).ToArray();
         }
 
-        public void Invoke(TaskSchedule schedule)
+        public void Invoke(TaskSchedule schedule, TaskArgs args)
         {
             switch (schedule)
             {
                 case TaskSchedule.Startup:
                     foreach (var item in _startupTasks)
                     {
-                        item.Start();
+                        item.Start(args);
                     }
                     break;
                 case TaskSchedule.Background:
                     foreach (var item in _backgroundTasks)
                     {
-                        new Thread(() => item.Start()).Start();
+                        new Thread(() => item.Start(args)).Start();
                     }
                     break;
-                case TaskSchedule.PreRender:
-                    foreach (var item in _preRenderTasks)
+
+                case TaskSchedule.WindowReady:
+                    foreach (var item in _windowReadyTasks)
                     {
-                        item.Start();
+                        item.Start(args);
                     }
                     break;
-                case TaskSchedule.PostRender:
-                    foreach (var item in _postRenderTasks)
+                case TaskSchedule.WindowUpdate:
+                    foreach (var item in _windowUpdateTasks)
                     {
-                        item.Start();
+                        item.Start(args);
                     }
                     break;
-                case TaskSchedule.RendererReady:
-                    foreach (var item in _readyTasks)
+                case TaskSchedule.WindowRender:
+                    foreach (var item in _windowRenderTasks)
                     {
-                        item.Start();
+                        item.Start(args);
                     }
                     break;
-                case TaskSchedule.RendererDisposing:
-                    foreach (var item in _rendererDisposingTasks)
+                case TaskSchedule.WindowDisposing:
+                    foreach (var item in _windowDisposingTasks)
                     {
-                        item.Start();
+                        item.Start(args);
                     }
                     break;
+                case TaskSchedule.WindowEnterText:
+                    foreach (var item in _windowEnterTextTasks)
+                    {
+                        item.Start(args);
+                    }
+                    break;
+                case TaskSchedule.WindowMouseScroll:
+                    foreach (var item in _windowScrollTasks)
+                    {
+                        item.Start(args);
+                    }
+                    break;
+                case TaskSchedule.WindowResize:
+                    foreach (var item in _windowResizeTasks)
+                    {
+                        item.Start(args);
+                    }
+                    break;
+
                 default:
                     throw new NotImplementedException("Couldn't find schedule.");
             }
+        }
+
+        public void Invoke(TaskSchedule schedule)
+        {
+            Invoke(schedule, new TaskArgs(this));
         }
     }
 }

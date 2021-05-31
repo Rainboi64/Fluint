@@ -6,6 +6,7 @@
 
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.Windowing;
 using System;
 
 namespace Fluint.Layer.Input
@@ -16,17 +17,33 @@ namespace Fluint.Layer.Input
     [Initialization(InitializationMethod.Scoped)]
     public interface IInputManager : IModule
     {
-        void Load(IBindingContext bindingContext);
+        void Load(IWindowProvider bindingContext);
         InputState State(Key key);
+        InputState State(MouseButton button);
 
-        event Action<InputState, Key> Keyboard;
+        bool IsKeyPressed(Key key);
+        bool IsKeyReleased(Key key);
+        bool WasKeyPressed(Key key);   
 
-        event Action<InputState, MouseButton> MouseButton;        
+        bool IsMouseButtonPressed(MouseButton button);
+        bool IsMouseButtonReleased(MouseButton button);
+        bool WasMouseButtonPressed(MouseButton button);
+
 
         /// <summary>
         /// Gets the location of the mouse.
         /// </summary>
         /// <returns>the location of the mouse.</returns>
-        Point GetMouseLocation { get; set; }
+        Vector2 MouseLocation { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Vector2 LastMouseLocation { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        Vector2 MouseMovementDelta { get; }
     }
 }   

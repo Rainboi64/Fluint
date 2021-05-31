@@ -25,9 +25,25 @@ namespace Fluint.Engine.GL46
         {
             return *(OpenTK.Mathematics.Vector4*)&vector4;
         }
+        public static unsafe OpenTK.Mathematics.Color4 Color4(Layer.Mathematics.Color4 color4)
+        {
+            return *(OpenTK.Mathematics.Color4*)&color4;
+        }
         public static unsafe OpenTK.Mathematics.Vector2 Vector2(Layer.Mathematics.Vector2 vector2)
         {
             return *(OpenTK.Mathematics.Vector2*)&vector2;
+        }
+        public static unsafe Layer.Mathematics.Vector2 Vector2(OpenTK.Mathematics.Vector2 vector2)
+        {
+            return *(Layer.Mathematics.Vector2*)&vector2;
+        }
+        public static unsafe OpenTK.Mathematics.Vector2i Vector2i(Layer.Mathematics.Vector2i vector2i)
+        {
+            return *(OpenTK.Mathematics.Vector2i*)&vector2i;
+        }
+        public static unsafe Layer.Mathematics.Vector2i Vector2i(OpenTK.Mathematics.Vector2i vector2i)
+        {
+            return *(Layer.Mathematics.Vector2i*)&vector2i;
         }
     }
 }

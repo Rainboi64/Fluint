@@ -13,7 +13,6 @@ namespace Fluint.Avalonia
         // yet and stuff might break.
         public static void Main(string[] args)
         {
-            ConsoleHelper.WriteEmbeddedColorLine($"\n[red]Welcome to Fluint.[/red]\nStart-line called at {DateTime.Now} Called by {Assembly.GetCallingAssembly()}\nRunning in {Assembly.GetExecutingAssembly()}\n");
             BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
         }

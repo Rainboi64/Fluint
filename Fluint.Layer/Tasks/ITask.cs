@@ -8,6 +8,7 @@ namespace Fluint.Layer.Tasks
     public interface ITask : IModule
     {
         TaskSchedule Schedule { get; }
-        void Start();
+        int Priority { get; }
+        void Start(TaskArgs args);
     }
 }

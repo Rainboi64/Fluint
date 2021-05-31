@@ -4,7 +4,6 @@ using Fluint.Layer.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Fluint.Implementation.Input
 {
@@ -15,48 +14,6 @@ namespace Fluint.Implementation.Input
             new Binding() { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } }
         };
 
-        //=> Generate();
-
-        // generate random keybinds
-        //private static IEnumerable<Binding> Generate()
-        //{
-        //    var bindings = new List<Binding>
-        //    {
-        //        new Binding() { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } }
-        //    };
-        //    var random = new Random();
-        //    var loopCount = random.Next(1, 500);
-        //    for (var i = 0; i < loopCount; i++)
-        //    {
-        //        var newBind = new Binding();
-        //        var keys = new List<Key>();
-        //        for (var k = 0; k < random.Next(1, 3); k++)
-        //        {
-        //            keys.Add((Key)random.Next(0, 348));
-        //        }
-        //        newBind.MainCombination = keys.ToArray();
-
-        //        keys.Clear();
-        //        for (var k = 0; k < random.Next(1, 3); k++)
-        //        {
-        //            keys.Add((Key)random.Next(0, 348));
-        //        }
-        //        newBind.SecondaryCombination = keys.ToArray();
-
-        //        const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-        //        var res = new StringBuilder();
-        //        var length = random.Next(3, 5);
-        //        while (0 < length--)
-        //        {
-        //            res.Append(valid[random.Next(valid.Length)]);
-        //        }
-        //        newBind.Tag = res.ToString();
-        //        bindings.Add(newBind);
-        //    }
-
-        //    return bindings;
-        //}
-
         private string _current = "default";
 
         private IInputManager _inputManager;
@@ -64,14 +21,20 @@ namespace Fluint.Implementation.Input
         private readonly Dictionary<string, List<Binding>> _bindingsDictionary;
         private readonly IConfigurationManager _configurationManager;
 
-        // private Binding _lastReleased;
-
         public event Action<InputState, Binding> BindingStateUpdated;
 
         public void Load(IInputManager inputManager)
         {
             _inputManager = inputManager;
-            _inputManager.Keyboard += InputManager_Keyboard;
+
+            // TODO: This needs fixing asap
+            // I've went ahead an disabled this shit
+            // we'll have to see how to fix
+            //  |
+            //  |
+            //  V
+
+            //_inputManager.Keyboard += InputManager_Keyboard;
         }
 
         private void InputManager_Keyboard(InputState arg1, Key arg2)
@@ -82,18 +45,6 @@ namespace Fluint.Implementation.Input
             {
                 var currentBinding = current[i];
                 var state = GetState(currentBinding);
-
-                // this code is used to prevent false negatives in bindings, but it doesn't work.
-                //if (state == InputState.Release)
-                //{
-                //    if (currentBinding == _lastReleased)
-                //    {
-                //        _lastReleased = null;
-                //        continue;
-                //    }
-
-                //    _lastReleased = currentBinding;
-                //}
 
                 BindingStateUpdated?.Invoke(state, currentBinding);
             }
@@ -195,7 +146,7 @@ namespace Fluint.Implementation.Input
             var count = bindings.Count;
             for (var i = 0; i < count; i++)
             {
-                // looping through all of the bindinds and checking if any key is pressed.
+                // looping through all of the bindings and checking if any key is pressed.
                 var current = bindings[i];
                 if (current.Tag == bindName)
                 {

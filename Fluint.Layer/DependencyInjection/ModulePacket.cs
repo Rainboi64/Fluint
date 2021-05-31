@@ -1,7 +1,5 @@
-﻿using Fluint.Layer.Miscellaneous;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace Fluint.Layer.DependencyInjection
@@ -31,7 +29,7 @@ namespace Fluint.Layer.DependencyInjection
             }
         }
 
-        private object Get(Type type)
+        public object FetchAndCreateInstance(Type type)
         {
             if (type == typeof(ModulePacket)) return this;
             if (_mappings.Where(x => x.Key.Name == type.Name).Any())
@@ -63,7 +61,7 @@ namespace Fluint.Layer.DependencyInjection
 
             foreach (var item in parameters)
             {
-                resolvedParameters.Add(Get(item.ParameterType));
+                resolvedParameters.Add(FetchAndCreateInstance(item.ParameterType));
             }
             return Activator.CreateInstance(target, resolvedParameters.ToArray());
         }

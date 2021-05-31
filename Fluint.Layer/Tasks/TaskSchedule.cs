@@ -1,19 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Fluint.Layer.Tasks
+﻿namespace Fluint.Layer.Tasks
 {
     public enum TaskSchedule
     {
         Startup,
-        
-        // Renderer Related
-        RendererReady,
-        PreRender,
-        PostRender,
-        RendererDisposing,
 
-        Background,
+        // Window Related
+        WindowReady,
+        WindowUpdate,
+        WindowRender,
+        WindowDisposing,
+        WindowResize,
+        WindowEnterText,
+        WindowMouseScroll,
+
+        // Multi-threaded
+        Background, 
     }
 }

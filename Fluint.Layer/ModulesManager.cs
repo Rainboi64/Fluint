@@ -94,14 +94,14 @@ namespace Fluint.Layer
         /// <summary>
         /// Loads the modules inside the file using System.Reflection
         /// </summary>
-        /// <param name="pluginFolder">The path of the folder to be loaded.</param>
-        public void LoadFolder(string pluginFolder)
+        /// <param name="modulesfolder">The path of the folder to be loaded.</param>
+        public void LoadFolder(string modulesfolder)
         {
             var dllCount = 0;
-            // Load the DLLs from the Plugins directory
-            if (Directory.Exists(pluginFolder))
+            // Load the DLLs from the modules directory
+            if (Directory.Exists(modulesfolder))
             {
-                var files = Directory.GetFiles(pluginFolder);
+                var files = Directory.GetFiles(modulesfolder);
                 foreach (var file in files)
                 {
                     // only loads *.dll
@@ -118,6 +118,10 @@ namespace Fluint.Layer
                         }
                     }
                 }
+            }
+            else
+            {
+                throw new ArgumentException("module folder not found");
             }
 
             var watch = new Stopwatch();
@@ -169,7 +173,7 @@ namespace Fluint.Layer
             watch.Stop();
 
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
-            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} module from {dllCount} DLL in {pluginFolder} in {watch.ElapsedMilliseconds}ms. Instance Fingerprint: {GetHashCode()}");
+            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} module from {dllCount} DLL in {modulesfolder} in {watch.ElapsedMilliseconds}ms. Instance Fingerprint: {GetHashCode()}");
         }
     }
 }

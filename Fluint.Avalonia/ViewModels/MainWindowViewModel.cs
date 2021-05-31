@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Dock.Model;
+using Dock.Model.Core;
 using ReactiveUI;
 
 namespace Fluint.Avalonia.ViewModels

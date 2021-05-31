@@ -2,6 +2,7 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Dock.Model;
+using Dock.Model.Core;
 using Fluint.Avalonia.Models;
 using Fluint.Avalonia.ViewModels;
 using Fluint.Avalonia.Views;
@@ -59,7 +60,6 @@ namespace Fluint.Avalonia
                 {
                     if (layout is IDock dock)
                     {
-                        dock.Close();
                     }
                 };
 
@@ -69,7 +69,7 @@ namespace Fluint.Avalonia
                 {
                     if (layout is IDock dock)
                     {
-                        dock.Close();
+                        
                     }
                 };
             }

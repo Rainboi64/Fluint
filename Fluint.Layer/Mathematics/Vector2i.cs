@@ -32,5 +32,15 @@ namespace Fluint.Layer.Mathematics
         {
             return obj is Vector2i && Equals((Vector2i)obj);
         }
+
+        public static bool operator ==(Vector2i left, Vector2i right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Vector2i left, Vector2i right)
+        {
+            return !(left == right);
+        }
     }
 }

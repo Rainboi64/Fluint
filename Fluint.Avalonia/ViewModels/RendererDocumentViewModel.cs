@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Dock.Model.Controls;
+using Dock.Model.Core;
+using Dock.Model.ReactiveUI.Controls;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;

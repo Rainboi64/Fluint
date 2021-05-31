@@ -12,7 +12,7 @@ namespace Fluint.Engine.GL46.Graphics
 {
     public class Canvas : ICanvas
     {
-        public Color[] Pixels { get; }
+        public Color[] Pixels { get; private set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
 
@@ -25,6 +25,7 @@ namespace Fluint.Engine.GL46.Graphics
         {
             Width = width;
             Height = height;
+            Pixels = new Color[width * height];
         }
 
         public ITexture CreateCopyTexture()

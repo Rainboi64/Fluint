@@ -10,6 +10,9 @@ using Fluint.Avalonia.Models;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Graphics;
 using Fluint.Avalonia.Views;
+using Dock.Model.ReactiveUI;
+using Dock.Model.Core;
+using Dock.Model.ReactiveUI.Controls;
 
 namespace Fluint.Avalonia
 {
@@ -28,7 +31,7 @@ namespace Fluint.Avalonia
             _packet = packet;
         }
 
-        public override IDock CreateLayout()
+        public override IRootDock CreateLayout()
         {
 
             var a = new RendererDocumentViewModel(_packet)

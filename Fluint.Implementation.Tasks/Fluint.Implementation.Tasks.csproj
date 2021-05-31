@@ -49,6 +49,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
     <ProjectReference Include="..\Fluint.SDK\Fluint.SDK.csproj" />
   </ItemGroup>

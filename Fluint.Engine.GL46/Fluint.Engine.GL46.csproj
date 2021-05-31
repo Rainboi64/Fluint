@@ -52,9 +52,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="glfw-net" Version="3.3.1" />
-    <PackageReference Include="OpenTK" Version="4.5.0" />
+    <Compile Remove="Graphics\Native\GLFW\GLFWNative.cs" />
+    <Compile Remove="Graphics\Native\Windows\Win32.cs" />
+    <Compile Remove="Graphics\Native\Windows\WindowsBindingContext.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ImGui.NET.Docking" Version="1.75.0" />
+    <PackageReference Include="OpenTK" Version="4.6.4" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,6 +75,11 @@
     <None Update="Shaders\shader.vert">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Graphics\Native\GLFW\" />
+    <Folder Include="Graphics\Native\Windows\" />
   </ItemGroup>
 
 </Project>

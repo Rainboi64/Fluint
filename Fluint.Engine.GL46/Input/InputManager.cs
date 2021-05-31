@@ -1,57 +1,27 @@
-﻿using Fluint.Layer.Graphics;
+﻿using System;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
-using OpenTK.Windowing.Desktop;
-using System;
+using Fluint.Layer.Windowing;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace Fluint.Engine.GL46.Input
 {
     public class InputManager : IInputManager
     {
-        NativeWindow _nativeWindow;
+        KeyboardState _nativeKeyboard;
+        MouseState _nativeMouse;
 
-        public event Action<InputState, Key> Keyboard;
-        public event Action<InputState, MouseButton> MouseButton;
-
-        public void Load(IBindingContext bindingContext)
+        public void Load(IWindowProvider windowProvider)
         {
-            _nativeWindow = (NativeWindow)bindingContext.NativeContext;
-            _nativeWindow.MouseDown += NativeWindow_MouseDown;
-            _nativeWindow.MouseUp += NativeWindow_MouseUp;
-            _nativeWindow.KeyDown += NativeWindow_KeyDown;
-            _nativeWindow.KeyUp += NativeWindow_KeyUp;
-        }
-
-        private void NativeWindow_MouseUp(OpenTK.Windowing.Common.MouseButtonEventArgs obj)
-        {
-            MouseButton?.Invoke(InputState.Release, (MouseButton)obj.Button);
-        }
-
-        private void NativeWindow_MouseDown(OpenTK.Windowing.Common.MouseButtonEventArgs obj)
-        {
-            MouseButton?.Invoke(InputState.Press, (MouseButton)obj.Button);
-        }
-
-        private void NativeWindow_KeyUp(OpenTK.Windowing.Common.KeyboardKeyEventArgs obj)
-        {
-            Keyboard?.Invoke(InputState.Release, (Key)obj.Key);
-        }
-
-        private void NativeWindow_KeyDown(OpenTK.Windowing.Common.KeyboardKeyEventArgs obj)
-        {
-            var newState = InputState.Press;
-            if (obj.IsRepeat)
-            {
-                newState = InputState.Repeat;
-            }
-            Keyboard?.Invoke(newState, (Key)obj.Key);
+            _nativeKeyboard = (KeyboardState)windowProvider.NativeKeyboardObject;
+            _nativeMouse = (MouseState)windowProvider.NativeMouseObject;
         }
 
         public InputState State(Key key)
         {
-            if (_nativeWindow.KeyboardState.IsKeyDown((OpenTK.Windowing.GraphicsLibraryFramework.Keys)key))
+            if (_nativeKeyboard.IsKeyDown((Keys)key))
             {
-                if (_nativeWindow.KeyboardState.WasKeyDown((OpenTK.Windowing.GraphicsLibraryFramework.Keys)key))
+                if (_nativeKeyboard.WasKeyDown((Keys)key))
                 {
                     return InputState.Repeat;
                 }
@@ -60,11 +30,55 @@ namespace Fluint.Engine.GL46.Input
             return InputState.Release;
         }
 
-        unsafe Point IInputManager.GetMouseLocation
+        public bool IsKeyPressed(Key key)
         {
-            get => new((int)_nativeWindow.MousePosition.X, (int)_nativeWindow.MousePosition.Y);
-            set => _nativeWindow.MousePosition = new(value.X, value.Y);
+            return _nativeKeyboard.IsKeyPressed((Keys)key);
         }
 
+        public bool IsKeyReleased(Key key)
+        {
+            return _nativeKeyboard.IsKeyReleased((Keys)key);
+        }
+
+        public bool WasKeyPressed(Key key)
+        {
+            return _nativeKeyboard.WasKeyDown((Keys)key);
+        }
+
+        public InputState State(Layer.Input.MouseButton button)
+        {
+            if (_nativeMouse.IsButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button))
+            {
+                if (_nativeMouse.WasButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button))
+                {
+                    return InputState.Repeat;
+                }
+                return InputState.Press;
+            }
+            return InputState.Release;
+        }
+
+        public bool IsMouseButtonPressed(Layer.Input.MouseButton button)
+        {
+            return _nativeMouse.IsButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button);
+        }
+
+        public bool IsMouseButtonReleased(Layer.Input.MouseButton button)
+        {
+            return !_nativeMouse.WasButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button);
+        }
+
+        public bool WasMouseButtonPressed(Layer.Input.MouseButton button)
+        {
+            return _nativeMouse.WasButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button);
+        }
+
+        unsafe Vector2 IInputManager.MouseLocation
+        {
+            get => OpenTKHelper.Vector2(_nativeMouse.Position);
+            set => throw new NotImplementedException();
+        }
+        public Vector2 LastMouseLocation { get => OpenTKHelper.Vector2(_nativeMouse.PreviousPosition); }
+        public Vector2 MouseMovementDelta { get => OpenTKHelper.Vector2(_nativeMouse.Delta); }
     }
 }

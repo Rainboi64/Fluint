@@ -3,6 +3,7 @@ using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.Tasks;
+using OpenTK.Graphics.OpenGL4;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -12,12 +13,15 @@ namespace Fluint.Engine.GL46
 {
     public class EngineTask : ITask
     {
-        public TaskSchedule Schedule => TaskSchedule.Startup;
+        public TaskSchedule Schedule => TaskSchedule.WindowReady;
 
-        public void Start()
+        public int Priority => 1;
+
+        public void Start(TaskArgs args)
         {
             ConsoleHelper.WriteEmbeddedColorLine($"Started [blue]OpenGL46[/blue] Engine Task");
-            // var DebugObject = new Debug();
+            ConsoleHelper.WriteEmbeddedColorLine($"Running [magenta]OpenGL {GL.GetString(StringName.Version)}[/magenta] Shader: [yellow]{GL.GetString(StringName.ShadingLanguageVersion)}[/yellow]");
+            Debug.EnableOGLDebugSystem();
         }
     }
 }

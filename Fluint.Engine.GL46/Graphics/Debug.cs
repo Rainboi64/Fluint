@@ -5,24 +5,15 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using OpenTK.Graphics.OpenGL4;
-using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Engine.GL46.Graphics
 {
     public class Debug
     {
-        //private static ILogger _logger;
-
-        /// <summary>
-        /// Enables The call-back of GL errors to be displayed in Console.
-        /// </summary>
-        public Debug()
+        public static void EnableOGLDebugSystem()
         {
             GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
             GL.Enable(EnableCap.DebugOutput);
@@ -41,9 +32,13 @@ namespace Fluint.Engine.GL46.Graphics
             var messageString = Marshal.PtrToStringAnsi(message, length);
 
             if (type == DebugType.DebugTypeError)
-                Console.WriteLine($"OpenGL Debug System: {severity} {type} | {messageString}");
+            {
+                ConsoleHelper.WriteEmbeddedColorLine($"[red]OGL46[/red]:[green]{severity}[/green]|[yellow]{type}[/yellow]:\n{messageString}");
+            }
             else
-                Console.WriteLine($"OpenGL Debug System: {severity} {type} | {messageString}");
+            {
+                ConsoleHelper.WriteEmbeddedColorLine($"[red]OGL46[/red]:[green]{severity}[/green]|[yellow]{type}[/yellow]:\n{messageString}");
+            }
         }
     }
 }
