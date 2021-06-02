@@ -46,7 +46,7 @@ namespace Fluint.Layer.DependencyInjection
                 return GetSingleton(type);
             }
 
-            if (type is IEnumerable<IModule>)
+            if (type == typeof(IEnumerable<IModule>))
             {
                 return GetInstances();
             }
