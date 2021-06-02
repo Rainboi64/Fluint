@@ -83,9 +83,9 @@ namespace Fluint.Engine.GL46
         public Camera(ModulePacket packet)
         {
             _packet = packet;
-            _vertexLayout = _packet.New<IVertexLayout<PositionNormalUVTIDVertex>>();
-            _renderer3D = _packet.New<IRenderer3D<PositionNormalUVTIDVertex>>();
-            _shader = _packet.New<IShader>();
+            _vertexLayout = _packet.CreateScoped<IVertexLayout<PositionNormalUVTIDVertex>>();
+            _renderer3D = _packet.CreateScoped<IRenderer3D<PositionNormalUVTIDVertex>>();
+            _shader = _packet.CreateScoped<IShader>();
             _shader.LoadSource("", "");
         }
 

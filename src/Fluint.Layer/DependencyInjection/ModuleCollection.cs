@@ -6,20 +6,11 @@ namespace Fluint.Layer.DependencyInjection
 {
     public class ModuleCollection
     {
-        private ModulePacket _modulePacket;
-        public ModulePacket ModulePacket
-        {
-            get
-            {
-                if (_modulePacket is null) _modulePacket = GenerateModulePacket();
-                return _modulePacket;
-            }
-        }
+        private readonly Dictionary<Type, Type> _mappings = new();
+        private readonly Dictionary<Type, Type> _singletonMappings = new();
+        private readonly List<Type> _instances = new();
 
-        private readonly Dictionary<Type, Type> _mappings = new Dictionary<Type, Type>();
-        private readonly Dictionary<Type, Type> _singletonMappings = new Dictionary<Type, Type>();
-        private readonly List<Type> _instances = new List<Type>();
-        private ModulePacket GenerateModulePacket()
+        public ModulePacket GenerateModulePacket()
         {
             return new ModulePacket(_mappings, _singletonMappings, _instances);
         }

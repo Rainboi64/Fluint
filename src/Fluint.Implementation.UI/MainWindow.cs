@@ -38,21 +38,21 @@ namespace Fluint.Implementation.UI
                 ghost.OnLoad();
             }
 
-            var container = _packet.GetScoped<IContainer>();
+            var container = _packet.CreateScoped<IContainer>();
             container.Begin("Main Container");
             container.Title = "Main lol";
 
-            var textInput = _packet.GetScoped<ITextBox>();
+            var textInput = _packet.CreateScoped<ITextBox>();
             textInput.Begin("Textbox");
 
-            var button = _packet.GetScoped<IButton>();
+            var button = _packet.CreateScoped<IButton>();
             button.Begin("Main Button");
             button.Text = "Press me!";
             button.OnClick = () => { Console.WriteLine(textInput.Text); };
 
             container.Children.Add(button);
 
-            var helloLabel = _packet.GetScoped<ITextLabel>();
+            var helloLabel = _packet.CreateScoped<ITextLabel>();
             helloLabel.Begin("HelloLabel");
             helloLabel.Text = "Hello!";
             container.Children.Add(helloLabel);
@@ -134,7 +134,7 @@ namespace Fluint.Implementation.UI
         {
             _provider = provider;
 
-            InputManager = _packet.GetScoped<IInputManager>();
+            InputManager = _packet.CreateScoped<IInputManager>();
             InputManager.Load(provider);
         }
         public void Enqueue(Action action)

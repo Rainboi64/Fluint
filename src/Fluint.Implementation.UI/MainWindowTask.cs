@@ -18,7 +18,7 @@ namespace Fluint.Implementation.UI
 
         public void Start(TaskArgs args)
         {
-            var provider = _packet.GetScoped<IWindowProvider>();
+            var provider = _packet.CreateScoped<IWindowProvider>();
             provider.Adopt<MainWindow>();
             provider.Start();
         }

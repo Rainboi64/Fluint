@@ -84,7 +84,7 @@ namespace Fluint.Engine.GL46
 
         private void Cache()
         {
-            _cachedRenderable3D = _packet.New<IRenderable3D<PositionNormalUVTIDVertex>>();
+            _cachedRenderable3D = _packet.CreateScoped<IRenderable3D<PositionNormalUVTIDVertex>>();
             _cachedRenderable3D.Packet = CreatePacket(_material);
             _cachedRenderable3D.Indices = _indexArray;
             _cachedRenderable3D.Vertices = _vertexArray;

@@ -24,7 +24,7 @@ namespace Fluint.Implementation.IO
             var scene = context.ImportFile(fileName);
             foreach (var mesh in scene.Meshes)
             {
-                var newMesh = _packet.New<IMesh>();
+                var newMesh = _packet.CreateScoped<IMesh>();
                 var indices = new List<uint>();
                 var vertex = new List<PositionNormalUVTIDVertex>();
                 foreach(var face in mesh.Faces)

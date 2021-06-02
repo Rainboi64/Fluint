@@ -82,40 +82,32 @@ using System.Diagnostics;
 namespace Fluint.Layer
 {
     // only used in implementation
-    public class ModulesManager
+    public static class ModulesManager
     {
-        public ModuleCollection ModuleCollection { get; private set; }
-
-        public ModulesManager()
-        {
-            ModuleCollection = new ModuleCollection();
-        }
-
         /// <summary>
         /// Loads the modules inside the file using System.Reflection
         /// </summary>
         /// <param name="modulesfolder">The path of the folder to be loaded.</param>
-        public void LoadFolder(string modulesfolder)
+        public static ModuleCollection LoadFolder(string modulesfolder)
         {
-            var dllCount = 0;
+            var loadingWatch = new Stopwatch();
+            loadingWatch.Start();
+
+            var assemblies = new List<Assembly>();
+
             // Load the DLLs from the modules directory
             if (Directory.Exists(modulesfolder))
             {
-                var files = Directory.GetFiles(modulesfolder);
+                var files = Directory.GetFiles(modulesfolder).Where(x => x.EndsWith(".dll"));
                 foreach (var file in files)
                 {
-                    // only loads *.dll
-                    if (file.EndsWith(".dll"))
+                    try
                     {
-                        try
-                        {
-                            var assembly = Assembly.LoadFrom(Path.GetFullPath(file));
-                            dllCount++;
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex);
-                        }
+                        assemblies.Add(Assembly.LoadFrom(file));
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
                     }
                 }
             }
@@ -124,18 +116,14 @@ namespace Fluint.Layer
                 throw new ArgumentException("module folder not found");
             }
 
-            var watch = new Stopwatch();
-            watch.Start();
+            loadingWatch.Stop();
 
-            // Fetch all types that implement the interface IModule and are a class
-            //var types = AppDomain.CurrentDomain.GetAssemblies()
-            //    .SelectMany(a => a.GetTypes())
-            //    .Where(p => typeof(IModule).IsAssignableFrom(p) && p.IsClass)
-            //    .ToArray();
+            var sortingWatch = new Stopwatch();
+
+            sortingWatch.Start();
 
             var types = new List<Type>();
-
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var assembly in assemblies)
             {
                 foreach (var type in assembly.GetTypes())
                 {
@@ -149,18 +137,13 @@ namespace Fluint.Layer
             var table = new ConsoleTable();
             table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode"});
 
+            var moduleCollection = new ModuleCollection();
+
             foreach (var type in types)
             {
+                Type parent = null;
 
-                //var parent = type.GetInterfaces()
-                //    .Where(x => x.GetInterfaces()
-                //    .FirstOrDefault() == typeof(IModule))
-                //    .FirstOrDefault();
-
-                var parent = typeof(IModule);
-
-                var interfaces = type.GetInterfaces();
-                foreach (var ParentInterface in interfaces)
+                foreach (var ParentInterface in type.GetInterfaces())
                 {
                     if (ParentInterface != typeof(IModule) && ParentInterface.IsAssignableTo(typeof(IModule)))
                     {
@@ -173,23 +156,25 @@ namespace Fluint.Layer
                 switch (initializationMethod)
                 {
                     case InitializationMethod.Scoped:
-                        ModuleCollection.MapScoped(parent, type);
+                        moduleCollection.MapScoped(parent, type);
                         table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Scoped");
                         break;
                     case InitializationMethod.Singleton:
-                        ModuleCollection.MapSingleton(parent, type);
+                        moduleCollection.MapSingleton(parent, type);
                         table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Singleton");
                         break;
                     case InitializationMethod.Instanced:
-                        ModuleCollection.AddInstanced(type);
+                        moduleCollection.AddInstanced(type);
                         table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Instanced");
                         break;
                 }
             }
-            watch.Stop();
+            sortingWatch.Stop();
 
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
-            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Count} module from {dllCount} DLL in {modulesfolder} in {watch.ElapsedMilliseconds}ms. Instance Fingerprint: {GetHashCode()}");
+            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Count} module from {assemblies.Count} DLL in {modulesfolder}. Loading:{sortingWatch.ElapsedMilliseconds}ms, Sorting: {loadingWatch.ElapsedMilliseconds}ms. Instance Fingerprint: {moduleCollection.GetHashCode()}");
+           
+            return moduleCollection;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Fluint.SDK
         private readonly IParser _parser;
         public SDKBase(ModulePacket packet) 
         {
-            _parser = packet.GetScoped<IParser>();
+            _parser = packet.CreateScoped<IParser>();
         }
 
         public void Execute(string command, string[] args)

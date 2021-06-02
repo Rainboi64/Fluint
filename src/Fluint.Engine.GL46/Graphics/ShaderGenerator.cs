@@ -49,7 +49,7 @@ namespace Fluint.Engine.GL46.Graphics
 
         private IShader CreateShader()
         {
-            var shader = _packet.GetScoped<IShader>();
+            var shader = _packet.CreateScoped<IShader>();
 
             // Vertex Shader stuff.
 

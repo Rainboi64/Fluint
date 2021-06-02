@@ -13,12 +13,10 @@ namespace Fluint.Runtime
         {
             ConsoleHelper.WriteEmbeddedColorLine($"\n[red]Welcome to Fluint.[/red]\nStart-line called at {DateTime.Now} Called by {Assembly.GetCallingAssembly()}\nRunning in {Assembly.GetExecutingAssembly()}\n");
          
-            var modulesManager = new ModulesManager();
-            modulesManager.LoadFolder(@".\modules");
-            var collection = modulesManager.ModuleCollection;
-            var packet = collection.ModulePacket;
+            var collection = ModulesManager.LoadFolder(@".\modules");
+            var packet = collection.GenerateModulePacket();
 
-            var taskManager = packet.GetScoped<ITaskManager>();
+            var taskManager = packet.CreateScoped<ITaskManager>();
             taskManager.Invoke(TaskSchedule.Startup, null);
             taskManager.Invoke(TaskSchedule.Background, null);
 

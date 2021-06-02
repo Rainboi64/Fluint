@@ -20,7 +20,7 @@ namespace Fluint.Engine.GL46.Windowing
             })
         {
             _packet = packet;
-            _taskManager = packet.GetScoped<ITaskManager>();
+            _taskManager = packet.CreateScoped<ITaskManager>();
             FrameQueue = new Queue<Action>();
         }
 

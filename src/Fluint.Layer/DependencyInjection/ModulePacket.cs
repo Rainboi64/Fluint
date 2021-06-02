@@ -31,15 +31,27 @@ namespace Fluint.Layer.DependencyInjection
 
         public object FetchAndCreateInstance(Type type)
         {
-            if (type == typeof(ModulePacket)) return this;
-            if (_mappings.Where(x => x.Key.Name == type.Name).Any())
+            if (type == typeof(ModulePacket))
             {
-                Console.WriteLine($"Found: {type.Name}");
-                return GetScoped(type);
+                return this;
             }
-            if (_singletonMappings.ContainsKey(type)) return GetSingleton(type);
-            if (type == typeof(IEnumerable<IModule>)) return GetInstances();
-            return CreateInstance(type, type.GetGenericArguments());
+
+            if (_mappings.ContainsKey(type))
+            {
+                return CreateScoped(type);
+            }
+
+            if (_singletonMappings.ContainsKey(type))
+            {
+                return GetSingleton(type);
+            }
+
+            if (type is IEnumerable<IModule>)
+            {
+                return GetInstances();
+            }
+
+            return CreateInstance(type);
         }
 
         public object CreateInstance(Type target)
@@ -57,7 +69,7 @@ namespace Fluint.Layer.DependencyInjection
                 target = target.MakeGenericType(generics);
             }
 
-            List<object> resolvedParameters = new List<object>();
+            var resolvedParameters = new List<object>();
 
             foreach (var item in parameters)
             {
@@ -68,28 +80,18 @@ namespace Fluint.Layer.DependencyInjection
 
         private Type ResolveType(Type type) 
         {
-            // 😂🤣 WHO DID THIS 🤣😂
-            if (_mappings.Where(x => x.Key.Name == type.Name).Any())
-            {
-                foreach (var pair in _mappings)
-                {
-                    if (pair.Key.Name == type.Name)
-                    {
-                        return pair.Value;
-                    }
-                }
-            }
-            return type;
+           // 😂🤣 WHO DID THIS 🤣😂
+           foreach (var pair in _mappings)
+           {
+               if (pair.Key.Name == type.Name)
+               {
+                   return pair.Value;
+               }
+           }
+           return type;
         }
 
-        private Type ResolveTypeWithoutCheck(Type type)
-        {
-            // 😂🤣 WHO DID THIS 🤣😂
-            
-            return _mappings.Where((x) => x.Key.Name == type.Name).FirstOrDefault().Value;
-        }
-
-        private object GetScoped(Type type)
+        private object CreateScoped(Type type)
         {
             return CreateInstance(ResolveType(type), type.GetGenericArguments());
         }
@@ -99,16 +101,10 @@ namespace Fluint.Layer.DependencyInjection
             return _singletonMappings[type];
         }
 
-        public T New<T>() where T : IModule
+        public T CreateScoped<T>() where T : IModule
         {
             var type = typeof(T);
-            return (T)CreateInstance(ResolveTypeWithoutCheck(type), type.GetGenericArguments());
-        }
-
-        public T GetScoped<T>() where T : IModule
-        {
-            var type = typeof(T);
-            return (T)GetScoped(type);
+            return (T)CreateScoped(type);
         }
 
         public T GetSingleton<T>() where T : IModule 

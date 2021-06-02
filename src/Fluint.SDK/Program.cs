@@ -1,10 +1,5 @@
 ﻿using Fluint.Layer;
-using Fluint.Layer.Runtime;
 using System;
-using System.Linq;
-using Fluint.Layer.Diagnostics;
-using Fluint.Layer.SDK;
-using Fluint.Layer.Configuration;
 
 namespace Fluint.SDK
 {
@@ -14,11 +9,8 @@ namespace Fluint.SDK
         {
             Console.Title = "Fluint SDK";
             Console.WriteLine("Started Fluint SDK.");
-            ModulesManager modulesManager = new ModulesManager();
             Console.WriteLine("Loading './modules'");
-            modulesManager.LoadFolder("modules");
-
-            var packet = modulesManager.ModuleCollection.ModulePacket;
+            var packet = ModulesManager.LoadFolder("modules").GenerateModulePacket();
             new SDKBase(packet).Listen();
         }
     }
