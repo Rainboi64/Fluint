@@ -9,7 +9,6 @@ namespace Fluint.SDK
         {
             Console.Title = "Fluint SDK";
             Console.WriteLine("Started Fluint SDK.");
-            Console.WriteLine("Loading './modules'");
             var packet = ModulesManager.LoadFolder("modules").GenerateModulePacket();
             new SDKBase(packet).Listen();
         }
