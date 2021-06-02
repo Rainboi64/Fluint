@@ -9,6 +9,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using System.Collections.Generic;
 using Fluint.Layer.Input;
 using MouseButton = Fluint.Layer.Input.MouseButton;
+using System.Runtime.InteropServices;
 
 namespace Fluint.Engine.GL46.ImGuiImpl
 {
@@ -46,6 +47,7 @@ namespace Fluint.Engine.GL46.ImGuiImpl
 
             ImGui.SetCurrentContext(context);
             var io = ImGui.GetIO();
+
             io.Fonts.AddFontDefault();
 
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
@@ -275,8 +277,6 @@ void main()
                     var newSize = (int)Math.Max(_vertexBufferSize * 1.5f, vertexSize);
                     GL.NamedBufferData(_vertexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _vertexBufferSize = newSize;
-
-                    Console.WriteLine($"Resized dear imgui vertex buffer to new size {_vertexBufferSize}");
                 }
 
                 var indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
@@ -285,8 +285,6 @@ void main()
                     var newSize = (int)Math.Max(_indexBufferSize * 1.5f, indexSize);
                     GL.NamedBufferData(_indexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _indexBufferSize = newSize;
-
-                    Console.WriteLine($"Resized dear imgui index buffer to new size {_indexBufferSize}");
                 }
             }
 
@@ -333,7 +331,7 @@ void main()
 
                 for (var cmd_i = 0; cmd_i < cmd_list.CmdBuffer.Size; cmd_i++)
                 {
-                    ImDrawCmdPtr pcmd = cmd_list.CmdBuffer[cmd_i];
+                    var pcmd = cmd_list.CmdBuffer[cmd_i];
                     if (pcmd.UserCallback != IntPtr.Zero)
                     {
                         throw new NotImplementedException();

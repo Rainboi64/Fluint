@@ -86,6 +86,7 @@ namespace Fluint.Engine.GL46
             _vertexLayout = _packet.New<IVertexLayout<PositionNormalUVTIDVertex>>();
             _renderer3D = _packet.New<IRenderer3D<PositionNormalUVTIDVertex>>();
             _shader = _packet.New<IShader>();
+            _shader.LoadSource("", "");
         }
 
         public void Submit(IScene scene)
@@ -93,7 +94,7 @@ namespace Fluint.Engine.GL46
             _renderer3D.Begin(_vertexLayout, _shader);
 
             var length = scene.Count;
-            for ( int i = 0; i < length; i++)
+            for (var i = 0; i < length; i++)
             {
                 var rendererComponent = scene[i].RenderComponent.Load();
                 _renderer3D.Submit(rendererComponent);

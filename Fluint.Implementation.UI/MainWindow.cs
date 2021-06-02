@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Engine;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 using ImGuiNET;
 
@@ -14,6 +16,7 @@ namespace Fluint.Implementation.UI
         public MainWindow(ModulePacket packet)
         {
             _packet = packet;
+            Controls = new List<IGuiComponent>();
             _ghosts = new List<IGhost>();
         }
 
@@ -24,6 +27,7 @@ namespace Fluint.Implementation.UI
         public Vector2i Size { get => _provider.WindowSize; set => _provider.WindowSize = value; }
         public Vector2i Location { get => _provider.WindowLocation; set => _provider.WindowLocation = value; }
         public IInputManager InputManager { get; private set; }
+        public ICollection<IGuiComponent> Controls { get; }
 
         private IWindowProvider _provider;
 
@@ -33,6 +37,30 @@ namespace Fluint.Implementation.UI
             {
                 ghost.OnLoad();
             }
+
+            var container = _packet.GetScoped<IContainer>();
+            container.Begin("Main Container");
+            container.Title = "Main lol";
+
+            var textInput = _packet.GetScoped<ITextBox>();
+            textInput.Begin("Textbox");
+
+            var button = _packet.GetScoped<IButton>();
+            button.Begin("Main Button");
+            button.Text = "Press me!";
+            button.OnClick = () => { Console.WriteLine(textInput.Text); };
+
+            container.Children.Add(button);
+
+            var helloLabel = _packet.GetScoped<ITextLabel>();
+            helloLabel.Begin("HelloLabel");
+            helloLabel.Text = "Hello!";
+            container.Children.Add(helloLabel);
+
+            container.Children.Add(textInput);
+
+            Controls.Add(container);
+
 
             //TODO: Window stuff!
         }
@@ -49,11 +77,6 @@ namespace Fluint.Implementation.UI
 
         public void OnRender(double delay)
         {
-
-            ImGui.DockSpaceOverViewport();
-
-            
-
             foreach (var ghost in _ghosts)
             {
                 ghost.OnRender(delay);
@@ -68,6 +91,12 @@ namespace Fluint.Implementation.UI
             {
                 ghost.OnUpdate(delay);
             }
+
+            foreach (var control in Controls)
+            {
+                control.Tick();
+            }
+            ImGui.ShowDemoWindow();
 
             //TODO: Window stuff!
         }

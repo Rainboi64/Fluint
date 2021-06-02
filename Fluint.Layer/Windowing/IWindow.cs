@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.UI;
 
 namespace Fluint.Layer.Windowing
 {
@@ -12,6 +13,9 @@ namespace Fluint.Layer.Windowing
     public interface IWindow : IModule
     {
         public IInputManager InputManager { get; }
+
+        public ICollection<IGuiComponent> Controls { get; }
+
         public string Title { get; set; }
         public Vector2i Size { get; set; }
         public Vector2i Location { get; set; }

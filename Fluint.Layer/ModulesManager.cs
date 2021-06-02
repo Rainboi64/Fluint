@@ -127,18 +127,22 @@ namespace Fluint.Layer
             var watch = new Stopwatch();
             watch.Start();
 
-            var interfaceType = typeof(IModule);
             // Fetch all types that implement the interface IModule and are a class
-            var types = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(a => GetTypes(a))
-                .Where(p => interfaceType.IsAssignableFrom(p) && p.IsClass)
-                .ToArray();
+            //var types = AppDomain.CurrentDomain.GetAssemblies()
+            //    .SelectMany(a => a.GetTypes())
+            //    .Where(p => typeof(IModule).IsAssignableFrom(p) && p.IsClass)
+            //    .ToArray();
 
-            static IEnumerable<Type> GetTypes(Assembly a)
+            var types = new List<Type>();
+
+            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                foreach (var type in a.GetTypes())
-                { 
-                    yield return type;
+                foreach (var type in assembly.GetTypes())
+                {
+                    if (typeof(IModule).IsAssignableFrom(type) && type.IsClass)
+                    {
+                        types.Add(type);
+                    }
                 }
             }
 
@@ -146,12 +150,24 @@ namespace Fluint.Layer
             table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode"});
 
             foreach (var type in types)
-            { 
+            {
 
-                var parent = type.GetInterfaces()
-                    .Where(x => x.GetInterfaces()
-                    .FirstOrDefault() == interfaceType)
-                    .FirstOrDefault();
+                //var parent = type.GetInterfaces()
+                //    .Where(x => x.GetInterfaces()
+                //    .FirstOrDefault() == typeof(IModule))
+                //    .FirstOrDefault();
+
+                var parent = typeof(IModule);
+
+                var interfaces = type.GetInterfaces();
+                foreach (var ParentInterface in interfaces)
+                {
+                    if (ParentInterface != typeof(IModule) && ParentInterface.IsAssignableTo(typeof(IModule)))
+                    {
+                        parent = ParentInterface;
+                        break;
+                    }
+                }
 
                 var initializationMethod = parent.GetCustomAttribute<InitializationAttribute>().InitializationMethod;
                 switch (initializationMethod)
@@ -173,7 +189,7 @@ namespace Fluint.Layer
             watch.Stop();
 
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
-            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Length} module from {dllCount} DLL in {modulesfolder} in {watch.ElapsedMilliseconds}ms. Instance Fingerprint: {GetHashCode()}");
+            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Count} module from {dllCount} DLL in {modulesfolder} in {watch.ElapsedMilliseconds}ms. Instance Fingerprint: {GetHashCode()}");
         }
     }
 }
