@@ -3,18 +3,19 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <Configurations>Debug;Release;Debug With Modules Setup</Configurations>
+    <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
     <Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">
-    <OutputPath>$(SolutionDir)output\$(Platform)</OutputPath>
+    <OutputPath>$(SolutionDir)output\debug\$(Platform)</OutputPath>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release With Modules Setup|$(Platform)'">
+    <OutputPath>$(SolutionDir)output\release\$(Platform)</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
     
   <ItemGroup>
     <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj">

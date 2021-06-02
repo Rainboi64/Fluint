@@ -8,7 +8,7 @@ namespace Fluint.Layer
     public sealed class FluintStarter
     {
         public const string ManifestFile = @".\StartupManifest.json";
-        public const string DefaultModulesFolder = @".\modules\";
+        public const string DefaultModulesFolder = @".\base\";
 
         public static StartupManifest GetManifest()
         {
