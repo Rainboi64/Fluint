@@ -1,4 +1,10 @@
-﻿#define Target_Windows
+﻿//
+// CommandList.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+#define Target_Windows
 
 using Fluint.Layer.Graphics;
 using System;

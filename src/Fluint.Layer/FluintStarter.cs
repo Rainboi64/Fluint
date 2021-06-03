@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// FluintStarter.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using System.Text.Json;
 using Fluint.Layer.Tasks;
 using System.IO;

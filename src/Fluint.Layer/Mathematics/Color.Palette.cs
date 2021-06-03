@@ -1,4 +1,10 @@
-﻿namespace Fluint.Layer.Mathematics
+﻿//
+// Color.Palette.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+namespace Fluint.Layer.Mathematics
 {
     /// <summary>
     /// List of predefined <see cref="DXPlayground.Mathematics.Color"/>.

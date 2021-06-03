@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Localization;
+﻿//
+// LocalizationManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Localization;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

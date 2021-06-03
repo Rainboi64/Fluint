@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Engine;
+﻿//
+// IImporter.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Engine;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,3 +1,9 @@
+//
+// Command.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
 /**
  * @author Yaman Alhalabi <yamanalhalabi2@gmail.com>
  * @file A data type for enabling graphic api behavoir, needs to be passed to ICommandParser

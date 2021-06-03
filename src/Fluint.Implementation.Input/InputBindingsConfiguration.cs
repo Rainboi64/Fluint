@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Configuration;
+﻿//
+// InputBindingsConfiguration.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Configuration;
 using Fluint.Layer.Input;
 using System;
 using System.Collections.Generic;

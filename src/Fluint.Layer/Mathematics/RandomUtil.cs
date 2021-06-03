@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// RandomUtil.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 
 namespace Fluint.Layer.Mathematics
 {

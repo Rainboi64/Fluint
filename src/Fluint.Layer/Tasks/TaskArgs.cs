@@ -1,4 +1,10 @@
-﻿namespace Fluint.Layer.Tasks
+﻿//
+// TaskArgs.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+namespace Fluint.Layer.Tasks
 {
     public class TaskArgs
     {

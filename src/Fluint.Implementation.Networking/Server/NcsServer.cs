@@ -1,4 +1,10 @@
-﻿/**
+﻿//
+// NcsServer.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+/**
  * @author Yaman Alhalabi <yamanalhalabi2@gmail.com>
  * @file inner server using NetCoreServer
  * @desc Created on 2020-12-11 7:50:07 pm

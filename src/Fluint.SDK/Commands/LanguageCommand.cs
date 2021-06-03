@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Diagnostics;
+﻿//
+// LanguageCommand.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Localization;
 using Fluint.Layer.SDK;
 using System;

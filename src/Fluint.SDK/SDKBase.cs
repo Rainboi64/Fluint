@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Diagnostics;
+﻿//
+// SDKBase.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.SDK;
 using Fluint.SDK.Commands;

@@ -1,16 +1,8 @@
-﻿// -------------------------------------------------------------------------
-// IShaderGenerationCode.cs
+﻿//
+// IShaderGenerationModule.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
-// Description:
-// This is an instanced module to that's used to provide code to the 
-// IShaderGenerator.
-//
-// References:
-// 1. https://ep.liu.se/ecp/013/005/ecp01305.pdf
-//
-// -------------------------------------------------------------------------
 
 namespace Fluint.Layer.Graphics
 {

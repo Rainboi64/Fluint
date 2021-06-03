@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.DependencyInjection;
+﻿//
+// MainWindowTask.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Tasks;
 using Fluint.Layer.Windowing;
 

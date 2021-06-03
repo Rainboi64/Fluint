@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// ExitCommand.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using Fluint.Layer;
 using Fluint.Layer.SDK;
 

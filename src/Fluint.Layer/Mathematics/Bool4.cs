@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// Bool4.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

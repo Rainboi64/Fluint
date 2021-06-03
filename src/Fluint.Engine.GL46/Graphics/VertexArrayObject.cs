@@ -1,7 +1,7 @@
-﻿// 
+﻿//
 // VertexArrayObject.cs
 //
-// Copyright (C) 2020 Yaman Alhalabi
+// Copyright (C) 2021 Yaman Alhalabi
 //
 
 using OpenTK.Graphics.OpenGL4;

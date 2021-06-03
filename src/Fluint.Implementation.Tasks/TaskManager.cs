@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.DependencyInjection;
+﻿//
+// TaskManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Tasks;
 using System;
 using System.Collections.Generic;

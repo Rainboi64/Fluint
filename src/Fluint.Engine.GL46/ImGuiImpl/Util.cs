@@ -1,4 +1,10 @@
-﻿using System.Diagnostics.Contracts;
+﻿//
+// Util.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System.Diagnostics.Contracts;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using OpenTK.Graphics.OpenGL4;

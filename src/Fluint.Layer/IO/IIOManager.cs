@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Engine;
+﻿//
+// IIOManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Engine;
 
 namespace Fluint.Layer.IO
 {

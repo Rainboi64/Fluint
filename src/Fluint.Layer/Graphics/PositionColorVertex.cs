@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Mathematics;
+﻿//
+// PositionColorVertex.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Mathematics;
 using System.Runtime.InteropServices;
 
 namespace Fluint.Layer.Graphics

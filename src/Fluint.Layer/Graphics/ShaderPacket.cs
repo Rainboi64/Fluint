@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿//
+// ShaderPacket.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Fluint.Layer.Graphics

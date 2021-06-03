@@ -1,4 +1,10 @@
-﻿using System.Globalization;
+﻿//
+// Half.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 

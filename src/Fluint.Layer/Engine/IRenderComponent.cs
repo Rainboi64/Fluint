@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Graphics;
+﻿//
+// IRenderComponent.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Text;

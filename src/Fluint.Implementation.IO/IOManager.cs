@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.DependencyInjection;
+﻿//
+// IOManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Engine;
 using Fluint.Layer.IO;
 using System;

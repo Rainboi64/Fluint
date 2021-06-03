@@ -1,7 +1,7 @@
 ﻿//
-//Basic3DRenderer.cs
-// (Lmao, see previous commit)
-// Copyright (C) 2020 Yaman Alhalabi
+// Basic3DRenderer.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
 //
 
 using OpenTK.Graphics.OpenGL4;

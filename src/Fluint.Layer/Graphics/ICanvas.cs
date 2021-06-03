@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// ICanvas.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Graphics

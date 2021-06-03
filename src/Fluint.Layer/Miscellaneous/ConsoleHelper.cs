@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// ConsoleHelper.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using System.Text.RegularExpressions;
 
 namespace Fluint.Layer.Miscellaneous

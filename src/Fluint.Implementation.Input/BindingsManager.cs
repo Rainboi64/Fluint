@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Configuration;
+﻿//
+// BindingsManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Input;
 using System;

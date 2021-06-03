@@ -1,4 +1,10 @@
-﻿using OpenTK;
+﻿//
+// MacBindingContext.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using OpenTK;
 using System;
 using System.Collections.Generic;
 using System.Text;

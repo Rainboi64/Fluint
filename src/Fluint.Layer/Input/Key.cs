@@ -1,8 +1,7 @@
 ﻿//
-// Keys.cs
+// Key.cs
 //
-// Copyright (C) 2020 Yaman Alhalabi
-// Fuck you jake.
+// Copyright (C) 2021 Yaman Alhalabi
 //
 
 using System;

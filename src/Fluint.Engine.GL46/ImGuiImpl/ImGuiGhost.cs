@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// ImGuiGhost.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using ImGuiNET;
 using Fluint.Layer.Windowing;
 using Fluint.Engine.GL46.Graphics;

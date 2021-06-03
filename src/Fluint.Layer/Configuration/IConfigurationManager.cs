@@ -1,4 +1,10 @@
-﻿using System.Runtime.InteropServices;
+﻿//
+// IConfigurationManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System.Runtime.InteropServices;
 namespace Fluint.Layer.Configuration
 {
     /// <summary>

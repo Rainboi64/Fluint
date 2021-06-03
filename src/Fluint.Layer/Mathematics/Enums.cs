@@ -1,4 +1,10 @@
-﻿namespace Fluint.Layer.Mathematics
+﻿//
+// Enums.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+namespace Fluint.Layer.Mathematics
 {
     /// <summary>
     /// Describes the type of angle.

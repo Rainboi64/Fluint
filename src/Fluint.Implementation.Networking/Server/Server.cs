@@ -1,4 +1,10 @@
-﻿/**
+﻿//
+// Server.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+/**
  * @author Yaman Alhalabi <yamanalhalabi2@gmail.com>
  * @file The standard implementation for the server class in Fluint.Layer
  * @desc Created on 2020-12-11 7:50:10 pm

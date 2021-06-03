@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// ConsoleTitleTask.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using System.Diagnostics;
 using System.Threading;
 using Fluint.Layer.Tasks;

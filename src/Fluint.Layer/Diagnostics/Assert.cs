@@ -1,4 +1,10 @@
-﻿using System.Diagnostics;
+﻿//
+// Assert.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System.Diagnostics;
 
 namespace Fluint.Layer.Diagnostics
 {

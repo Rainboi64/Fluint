@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.UI;
+﻿//
+// FontManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.UI;
 using ImGuiNET;
 
 namespace Fluint.Implementation.UI

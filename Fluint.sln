@@ -90,6 +90,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Runtime", "src\Fluin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.UI", "src\Fluint.Implementation.UI\Fluint.Implementation.UI.csproj", "{8AAC67D2-59C9-40A9-801D-7B30441024C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC2C0228-7B7D-4426-9A34-C94F766F4FFA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug With Modules Setup|Any CPU = Debug With Modules Setup|Any CPU

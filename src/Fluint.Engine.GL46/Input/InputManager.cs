@@ -1,4 +1,10 @@
-﻿using System;
+﻿//
+// InputManager.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using System;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.Windowing;

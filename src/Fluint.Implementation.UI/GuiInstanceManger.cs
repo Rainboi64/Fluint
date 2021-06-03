@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.UI;
+﻿//
+// GuiInstanceManger.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 
 namespace Fluint.Implementation.UI

@@ -1,4 +1,10 @@
-﻿using Fluint.Layer.Graphics;
+﻿//
+// ISceneObject.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,10 @@
-﻿using Fluint.Layer;
+﻿//
+// Parser.cs
+//
+// Copyright (C) 2021 Yaman Alhalabi
+//
+
+using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Miscellaneous;
