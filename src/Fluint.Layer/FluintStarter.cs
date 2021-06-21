@@ -13,8 +13,8 @@ namespace Fluint.Layer
 {
     public sealed class FluintStarter
     {
-        public const string ManifestFile = @".\StartupManifest.json";
-        public const string DefaultModulesFolder = @".\base\";
+        public const string ManifestFile = @"StartupManifest.json";
+        public const string DefaultModulesFolder = @"base";
 
         public static StartupManifest GetManifest()
         {
@@ -29,7 +29,7 @@ namespace Fluint.Layer
                 Console.WriteLine($"Manifest file not fount, creating at {ManifestFile}");
                 manifest = new StartupManifest()
                 {
-                    ActiveFolder = DefaultModulesFolder
+                    ActiveFolder = AppDomain.CurrentDomain.BaseDirectory + DefaultModulesFolder
                 };
                 var jsonData = JsonSerializer.Serialize(manifest, new JsonSerializerOptions() { WriteIndented = true });
                 File.WriteAllText(ManifestFile, jsonData);

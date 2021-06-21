@@ -47,7 +47,7 @@ namespace Fluint.Layer
             }
             else
             {
-                throw new ArgumentException("module folder not found");
+                throw new ArgumentException($"module folder \"{modulesfolder}\" not found");
             }
 
             loadingWatch.Stop();
