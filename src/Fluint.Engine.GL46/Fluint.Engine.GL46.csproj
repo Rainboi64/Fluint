@@ -70,13 +70,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Graphics\Native\GLFW\GLFWNative.cs" />
-    <Compile Remove="Graphics\Native\Windows\Win32.cs" />
-    <Compile Remove="Graphics\Native\Windows\WindowsBindingContext.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="ImGui.NET.Docking" Version="1.75.0" />
+    <PackageReference Include="ImGui.NET" Version="1.78.0" />
     <PackageReference Include="OpenTK" Version="4.6.4" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />

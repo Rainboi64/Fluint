@@ -38,7 +38,7 @@ namespace Fluint.Engine.GL46.Input
 
         public bool IsKeyPressed(Key key)
         {
-            return _nativeKeyboard.IsKeyPressed((Keys)key);
+            return _nativeKeyboard.IsKeyDown((Keys)key);
         }
 
         public bool IsKeyReleased(Key key)

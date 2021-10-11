@@ -35,6 +35,7 @@ namespace Fluint.Implementation.UI
         public IInputManager InputManager { get; private set; }
         public ICollection<IGuiComponent> Controls { get; }
 
+        private ITextLabel helloLabel;
         private IWindowProvider _provider;
 
         public void OnLoad()
@@ -44,28 +45,31 @@ namespace Fluint.Implementation.UI
                 ghost.OnLoad();
             }
 
-            var container = _packet.CreateScoped<IContainer>();
-            container.Begin("Main Container");
-            container.Title = "Main lol";
+            // var container = _packet.CreateScoped<IContainer>();
+            // container.Begin("Main Container");
+            // container.Title = "Main lol";
 
-            var textInput = _packet.CreateScoped<ITextBox>();
-            textInput.Begin("Textbox");
+            // var textInput = _packet.CreateScoped<ITextBox>();
+            // textInput.Begin("Textbox");
 
-            var button = _packet.CreateScoped<IButton>();
-            button.Begin("Main Button");
-            button.Text = "Press me!";
-            button.OnClick = () => { Console.WriteLine(textInput.Text); };
+            // var button = _packet.CreateScoped<IButton>();
+            // button.Begin("Press me!");
+            // button.Text = "XD";
+            // button.OnClick = () => { Console.WriteLine("please"); };
 
-            container.Children.Add(button);
+            // container.Children.Add(button);
 
-            var helloLabel = _packet.CreateScoped<ITextLabel>();
-            helloLabel.Begin("HelloLabel");
-            helloLabel.Text = "Hello!";
-            container.Children.Add(helloLabel);
 
-            container.Children.Add(textInput);
+            // helloLabel
+            //     = _packet.CreateScoped<ITextLabel>();
+            // helloLabel.Begin("HelloLabel");
 
-            Controls.Add(container);
+            // helloLabel.Text = "Hello!";
+            // container.Children.Add(helloLabel);
+
+            // container.Children.Add(textInput);
+
+            // Controls.Add(container);
 
 
             //TODO: Window stuff!
@@ -83,6 +87,8 @@ namespace Fluint.Implementation.UI
 
         public void OnRender(double delay)
         {
+            // helloLabel.Text = InputManager.MouseLocation.ToString() + "\n" + InputManager.IsKeyPressed(Key.Space) + "\n" + InputManager.IsMouseButtonPressed(MouseButton.Right);
+
             foreach (var ghost in _ghosts)
             {
                 ghost.OnRender(delay);
@@ -102,7 +108,7 @@ namespace Fluint.Implementation.UI
             {
                 control.Tick();
             }
-            ImGui.ShowDemoWindow();
+            
 
             //TODO: Window stuff!
         }

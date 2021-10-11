@@ -12,7 +12,6 @@ using System.Collections;
 using System.Collections.Generic;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL4;
-using Fluint.Engine.GL46.Graphics.Native;
 
 namespace Fluint.Engine.GL46.Graphics
 {

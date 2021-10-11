@@ -70,7 +70,7 @@ namespace Fluint.Engine.GL46.ImGuiImpl
 
             BitmapData data = image.LockBits(new Rectangle(0, 0, Width, Height),
                 ImageLockMode.ReadOnly, global::System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-
+            
             GL.TextureSubImage2D(GLTexture, 0, 0, 0, Width, Height, PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
             Util.CheckGLError("SubImage");
 
@@ -146,7 +146,7 @@ namespace Fluint.Engine.GL46.ImGuiImpl
             GL.TextureParameter(GLTexture, TextureParameterName.TextureMinLod, min);
             GL.TextureParameter(GLTexture, TextureParameterName.TextureMaxLod, max);
         }
-
+        
         public void SetWrap(TextureCoordinate coord, TextureWrapMode mode)
         {
             GL.TextureParameter(GLTexture, (TextureParameterName)coord, (int)mode);

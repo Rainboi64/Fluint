@@ -90,7 +90,7 @@ namespace Fluint.Engine.GL46.Windowing
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
-            GL.ClearColor(OpenTKHelper.Color4(Color.DarkSlateGray));
+            GL.ClearColor(OpenTKHelper.Color4(Color.Teal));
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
             _taskManager.Invoke(TaskSchedule.WindowRender, new TaskArgs(Client));
