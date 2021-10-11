@@ -37,6 +37,7 @@ namespace Fluint.Implementation.UI
 
         private ITextLabel helloLabel;
         private IWindowProvider _provider;
+        private uint _dockspace = 0;
 
         public void OnLoad()
         {
@@ -45,31 +46,31 @@ namespace Fluint.Implementation.UI
                 ghost.OnLoad();
             }
 
-            // var container = _packet.CreateScoped<IContainer>();
-            // container.Begin("Main Container");
-            // container.Title = "Main lol";
+            var container = _packet.CreateScoped<IContainer>();
+            container.Begin("Main Container");
+            container.Title = "Main lol";
 
-            // var textInput = _packet.CreateScoped<ITextBox>();
-            // textInput.Begin("Textbox");
+            var textInput = _packet.CreateScoped<ITextBox>();
+            textInput.Begin("Textbox");
 
-            // var button = _packet.CreateScoped<IButton>();
-            // button.Begin("Press me!");
-            // button.Text = "XD";
-            // button.OnClick = () => { Console.WriteLine("please"); };
+            var button = _packet.CreateScoped<IButton>();
+            button.Begin("Press me!");
+            button.Text = "XD";
+            button.OnClick = () => { Console.WriteLine("please"); };
 
-            // container.Children.Add(button);
+            container.Children.Add(button);
 
 
-            // helloLabel
-            //     = _packet.CreateScoped<ITextLabel>();
-            // helloLabel.Begin("HelloLabel");
+            helloLabel
+                = _packet.CreateScoped<ITextLabel>();
+            helloLabel.Begin("HelloLabel");
 
-            // helloLabel.Text = "Hello!";
-            // container.Children.Add(helloLabel);
+            helloLabel.Text = "Hello!";
+            container.Children.Add(helloLabel);
 
-            // container.Children.Add(textInput);
+            container.Children.Add(textInput);
 
-            // Controls.Add(container);
+            Controls.Add(container);
 
 
             //TODO: Window stuff!
@@ -87,7 +88,9 @@ namespace Fluint.Implementation.UI
 
         public void OnRender(double delay)
         {
-            // helloLabel.Text = InputManager.MouseLocation.ToString() + "\n" + InputManager.IsKeyPressed(Key.Space) + "\n" + InputManager.IsMouseButtonPressed(MouseButton.Right);
+            helloLabel.Text = InputManager.MouseLocation.ToString() + "\n"
+            + InputManager.IsKeyPressed(Key.Space) + "\n"
+            + InputManager.IsMouseButtonPressed(MouseButton.Right);
 
             foreach (var ghost in _ghosts)
             {
@@ -108,7 +111,7 @@ namespace Fluint.Implementation.UI
             {
                 control.Tick();
             }
-            
+            ImGui.DockSpace(_dockspace);
 
             //TODO: Window stuff!
         }
