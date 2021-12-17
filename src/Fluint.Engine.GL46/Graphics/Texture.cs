@@ -6,6 +6,7 @@
 
 using System;
 using Fluint.Layer.Graphics;
+using Fluint.Layer.Mathematics;
 using OpenTK.Graphics.OpenGL4;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -17,29 +18,28 @@ namespace Fluint.Engine.GL46.Graphics
     {
         public string Filename { get; private set; }
         public int Handle { get; private set; }
-        public int Height { get; private set; }
-        public int Width { get; private set; }
         public Layer.Mathematics.Color[] Pixels { get; private set; }
+
+        public Vector2i Size { get; set; }
 
         public Texture() { }
 
         public Texture(int width, int height, Layer.Mathematics.Color[] pixels)
         {
             Pixels = pixels;
-            Width = width;
-            Height = height;
+            Size = new Vector2i(width, height);
 
             Handle = GL.GenTexture();
 
             Bind();
             SetupTextureFilters();
+            Upload();
             Unbind();
         }
 
         public Texture(int width, int height)
         {
-            Width = width;
-            Height = height;
+            Size = new Vector2i(width, height);
 
             Handle = GL.GenTexture();
 
@@ -50,8 +50,13 @@ namespace Fluint.Engine.GL46.Graphics
 
         private static void SetupTextureFilters()
         {
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.LinearMipmapLinear);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
+            
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapS, (int)TextureWrapMode.Repeat);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureWrapT, (int)TextureWrapMode.Repeat);
+
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Nearest);
+            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Nearest);
+
         }
 
         public Texture(string filename)
@@ -80,16 +85,15 @@ namespace Fluint.Engine.GL46.Graphics
 
             SetupTextureFilters();
 
-            Width = img.Width;
-            Height = img.Height;
+            Size = new Vector2i(img.Width, img.Height);
 
-            Pixels = new Layer.Mathematics.Color[Width * Height];
+            Pixels = new Layer.Mathematics.Color[img.Width * img.Height];
 
             img.Mutate(x => x.Flip(FlipMode.Vertical));
 
-            for (var x = 0; x < Width; x++)
+            for (var x = 0; x < img.Width; x++)
             {
-                for (var y = 0; y < Height; y++)
+                for (var y = 0; y < img.Height; y++)
                 {
                     // I could use some bit-hack magicary in here.
                     // It would also be wise to use System.Drawing.
@@ -124,7 +128,7 @@ namespace Fluint.Engine.GL46.Graphics
 
         public int ConvertIndex(int x, int y)
         {
-            return x + Width * y;
+            return x + Size.X * y;
         }
 
         public void Upload()
@@ -133,8 +137,8 @@ namespace Fluint.Engine.GL46.Graphics
                 TextureTarget.Texture2D,
                 0,
                 PixelInternalFormat.Rgba,
-                Width,
-                Height,
+                Size.X,
+                Size.Y,
                 0,
                 PixelFormat.Rgba,
                 PixelType.UnsignedByte,

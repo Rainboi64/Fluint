@@ -21,6 +21,7 @@ namespace Fluint.Layer.Engine
         Matrix ViewMatrix { get; set; }
         ProjectionMode ProjectionMode { get; set; }
         Viewport Viewport { get; set; }
+        IFramebuffer Framebuffer { get; }
 
         void Submit(IScene scene);
         void Render();

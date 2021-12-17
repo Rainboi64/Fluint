@@ -91,10 +91,4 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Graphics\Native\GLFW\" />
-    <Folder Include="Graphics\Native\Windows\" />
-  </ItemGroup>
-
 </Project>

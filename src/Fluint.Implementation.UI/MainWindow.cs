@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Engine;
+using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
@@ -35,10 +36,13 @@ namespace Fluint.Implementation.UI
         public IInputManager InputManager { get; private set; }
         public ICollection<IGuiComponent> Controls { get; }
 
-        private ITextLabel helloLabel;
         private IWindowProvider _provider;
-        private uint _dockspace = 0;
 
+        private float _time = 0;
+        private ITextureView _textureView;
+        private ICanvas _canvas;
+
+        private ITextureView _cameraView;
         public void OnLoad()
         {
             foreach (var ghost in _ghosts)
@@ -46,33 +50,20 @@ namespace Fluint.Implementation.UI
                 ghost.OnLoad();
             }
 
-            var container = _packet.CreateScoped<IContainer>();
-            container.Begin("Main Container");
-            container.Title = "Main lol";
+            _textureView = _packet.CreateScoped<ITextureView>();
+            _cameraView = _packet.CreateScoped<ITextureView>();
 
-            var textInput = _packet.CreateScoped<ITextBox>();
-            textInput.Begin("Textbox");
+            _canvas = _packet.CreateScoped<ICanvas>();
+           
+            _canvas.InitializeCanvas(512, 512);
 
-            var button = _packet.CreateScoped<IButton>();
-            button.Begin("Press me!");
-            button.Text = "XD";
-            button.OnClick = () => { Console.WriteLine("please"); };
+            _textureView.Begin("Canvas View");
+            _cameraView.Begin("Camera View");
 
-            container.Children.Add(button);
-
-
-            helloLabel
-                = _packet.CreateScoped<ITextLabel>();
-            helloLabel.Begin("HelloLabel");
-
-            helloLabel.Text = "Hello!";
-            container.Children.Add(helloLabel);
-
-            container.Children.Add(textInput);
-
-            Controls.Add(container);
-
-
+            _textureView.Texture = _canvas.CreateBoundTexture();
+            
+            Controls.Add(_textureView);
+            Controls.Add(_cameraView);
             //TODO: Window stuff!
         }
 
@@ -88,10 +79,6 @@ namespace Fluint.Implementation.UI
 
         public void OnRender(double delay)
         {
-            helloLabel.Text = InputManager.MouseLocation.ToString() + "\n"
-            + InputManager.IsKeyPressed(Key.Space) + "\n"
-            + InputManager.IsMouseButtonPressed(MouseButton.Right);
-
             foreach (var ghost in _ghosts)
             {
                 ghost.OnRender(delay);
@@ -102,6 +89,7 @@ namespace Fluint.Implementation.UI
 
         public void OnUpdate(double delay)
         {
+            _time += (float)delay;
             foreach (var ghost in _ghosts)
             {
                 ghost.OnUpdate(delay);
@@ -111,7 +99,14 @@ namespace Fluint.Implementation.UI
             {
                 control.Tick();
             }
-            ImGui.DockSpace(_dockspace);
+            
+            _canvas.Clear();
+
+            _canvas.DrawCircle(new Vector2i(256 + (int)(24f * Math.Cos(_time)), 256), (int)Math.Abs(128f * Math.Sin(_time)), Color.Red);
+
+            _textureView.Texture.Bind();
+            _textureView.Texture.Upload();
+            _textureView.Texture.Unbind();
 
             //TODO: Window stuff!
         }

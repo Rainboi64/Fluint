@@ -72,12 +72,14 @@ namespace Fluint.Engine.GL46
 
         public ProjectionMode ProjectionMode { get; set; } = ProjectionMode.Prespective;
 
+        public IFramebuffer Framebuffer => throw new System.NotImplementedException();
         private Matrix _viewMatrix = Matrix.Identity;
         private Matrix _projectionMatrix = Matrix.Identity;
         private Vector3 _translation = new Vector3(0);
         private Quaternion _rotation = Quaternion.Identity;
         private Vector3 _scale = new Vector3(1);
         private Viewport _viewport;
+        private IFramebuffer _framebuffer;
 
         private readonly ModulePacket _packet;
 
@@ -92,11 +94,14 @@ namespace Fluint.Engine.GL46
             _vertexLayout = _packet.CreateScoped<IVertexLayout<PositionNormalUVTIDVertex>>();
             _renderer3D = _packet.CreateScoped<IRenderer3D<PositionNormalUVTIDVertex>>();
             _shader = _packet.CreateScoped<IShader>();
+            _framebuffer = _packet.CreateScoped<IFramebuffer>();
             _shader.LoadSource("", "");
         }
 
         public void Submit(IScene scene)
         {
+            _framebuffer.Create(new Vector2i(_viewport.Width, _viewport.Height));
+
             _renderer3D.Begin(_vertexLayout, _shader);
 
             var length = scene.Count;
@@ -112,7 +117,9 @@ namespace Fluint.Engine.GL46
             _renderer3D.ViewMatrix = _viewMatrix;
             _renderer3D.ProjectionMatrix = _projectionMatrix;
 
+            _framebuffer.Bind();
             _renderer3D.Flush();
+            _framebuffer.Unbind();
         }
     }
 }

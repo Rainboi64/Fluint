@@ -14,13 +14,12 @@ namespace Fluint.Layer.Graphics
     [Initialization(InitializationMethod.Scoped)]
     public interface ITexture : IModule, IDisposable
     {
-        public void Bind();
-        public void Unbind();
-        public int Width { get; }
-        public int Height { get; }
-        public Color[] Pixels { get; }
-        public int ConvertIndex(int x, int y);
-        public void Upload();
-        public void LoadFromFile(string fileName);
+        int Handle { get; }
+        void Bind();
+        void Unbind();
+        Vector2i Size { get; }
+        Color[] Pixels { get; }
+        int ConvertIndex(int x, int y);
+        void Upload();
     }
 }

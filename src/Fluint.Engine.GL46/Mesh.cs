@@ -48,7 +48,6 @@ namespace Fluint.Engine.GL46
         private IRenderable3D<PositionNormalUVTIDVertex> _cachedRenderable3D;
 
         private readonly ModulePacket _packet;
-
         private Material _material;
         private PositionNormalUVTIDVertex[] _vertexArray;
         private uint[] _indexArray;

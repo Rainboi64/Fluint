@@ -8,11 +8,14 @@ using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Graphics
 {
-    public interface IFrameBuffer
+    [Initialization(InitializationMethod.Scoped)]
+    public interface IFramebuffer : IModule
     {
-        public void Fetch();
-
-
-        
+        Vector2i Size { get; } 
+        int Handle { get; }
+        void Create(Vector2i size);
+        void Bind();
+        void Unbind();
+        ITexture GetTexture();
     }
 }

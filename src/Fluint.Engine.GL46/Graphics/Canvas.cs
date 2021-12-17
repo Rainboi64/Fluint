@@ -5,21 +5,22 @@
 //
 
 using System;
+using System.Collections.Generic;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
-using SixLabors.ImageSharp.PixelFormats;
 
 namespace Fluint.Engine.GL46.Graphics
 {
     public class Canvas : ICanvas
     {
         public Color[] Pixels { get; private set; }
+        private List<int> _editedPixels = new List<int>();
         public int Width { get; private set; }
         public int Height { get; private set; }
 
         public int ConvertIndex(int x, int y)
         {
-            return x + Width * (Height - y - 1);
+            return x + Width * (y - 1);
         }
 
         public void InitializeCanvas(int width, int height)
@@ -41,10 +42,20 @@ namespace Fluint.Engine.GL46.Graphics
             return new Texture(Width, Height, Pixels);
         }
 
+        public void Clear()
+        {
+            foreach (var pixel in _editedPixels)
+            {
+                Pixels[pixel] = new Color(0);
+            }
+            _editedPixels.Clear();
+        }
+
         public void Set(int x, int y, Color color)
         {
             if (x > 0 && x < Width && y > 0 && y < Height)
             {
+                _editedPixels.Add(ConvertIndex(x, y));
                 Pixels[ConvertIndex(x, y)] = color;
             }
         }
@@ -53,6 +64,7 @@ namespace Fluint.Engine.GL46.Graphics
         {
             if (x > 0 && x < Width && y > 0 && y < Height)
             {
+                _editedPixels.Add(ConvertIndex(x, y));
                 Pixels[ConvertIndex(x, y)] = color.Invoke(new Vector2i(x, y));
             }
         }
@@ -94,6 +106,11 @@ namespace Fluint.Engine.GL46.Graphics
                 Set(location.X - y, location.Y + x, color);
                 Set(location.X + y, location.Y + x, color);
                 Set(location.X + x, location.Y + y, color);
+                 
+                Set(location.X + x, location.Y - y, color);
+                Set(location.X + y, location.Y - x, color);
+                Set(location.X - y, location.Y - x, color);
+                Set(location.X - x, location.Y - y, color);
                 if (p < 0)
                 {
                     p += 4 * x++ + 6;

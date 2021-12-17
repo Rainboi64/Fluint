@@ -91,7 +91,7 @@ namespace Fluint.Engine.GL46.ImGuiImpl
 
             RecreateFontDeviceTexture();
 
-            string VertexSource = @"#version 460 core
+            string VertexSource = @"#version 450 core
 
 uniform mat4 projection_matrix;
 
@@ -108,7 +108,7 @@ void main()
     color = in_color;
     texCoord = in_texCoord;
 }";
-            string FragmentSource = @"#version 460 core
+            string FragmentSource = @"#version 450 core
 
 uniform sampler2D in_fontTexture;
 
@@ -184,8 +184,6 @@ void main()
             _frameBegun = true;
 
             ImGui.NewFrame();
-            ImGui.ShowDemoWindow();
-
         }
 
         /// <summary>

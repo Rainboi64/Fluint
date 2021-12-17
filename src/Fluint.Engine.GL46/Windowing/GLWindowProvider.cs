@@ -22,9 +22,10 @@ namespace Fluint.Engine.GL46.Windowing
         public GLWindowProvider(ModulePacket packet) :
             base(GameWindowSettings.Default, new NativeWindowSettings()
             {
-                Size = new OpenTK.Mathematics.Vector2i(1600, 900), APIVersion = new Version(4, 6)
+                Size = new OpenTK.Mathematics.Vector2i(1600, 900), APIVersion = new Version(4, 5)
             })
         {
+            VSync = VSyncMode.On;
             _packet = packet;
             _taskManager = packet.CreateScoped<ITaskManager>();
             FrameQueue = new Queue<Action>();
@@ -90,7 +91,7 @@ namespace Fluint.Engine.GL46.Windowing
 
         protected override void OnRenderFrame(FrameEventArgs args)
         {
-            GL.ClearColor(OpenTKHelper.Color4(Color.Teal));
+            GL.ClearColor(OpenTKHelper.Color4(new Color(24, 24, 24, 255)));
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
             _taskManager.Invoke(TaskSchedule.WindowRender, new TaskArgs(Client));
