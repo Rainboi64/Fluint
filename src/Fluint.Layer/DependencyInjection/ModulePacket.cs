@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Fluint.Layer.DependencyInjection
 {
@@ -16,8 +15,12 @@ namespace Fluint.Layer.DependencyInjection
         private readonly Dictionary<Type, Type> _mappings;
         private readonly Dictionary<Type, IModule> _singletonMappings;
         private readonly List<IModule> _instances;
-        public ModulePacket(Dictionary<Type, Type> mappings, Dictionary<Type, Type> singletonMappings, List<Type> instances)
+
+        public IRuntime CurrentRuntime { get; }
+
+        public ModulePacket(IRuntime runtime, Dictionary<Type, Type> mappings, Dictionary<Type, Type> singletonMappings, List<Type> instances)
         {
+            CurrentRuntime = runtime;
             _mappings = mappings;
 
             _singletonMappings = new Dictionary<Type, IModule>();
@@ -71,7 +74,7 @@ namespace Fluint.Layer.DependencyInjection
             var parameters = constructor.GetParameters();
 
             if (target.ContainsGenericParameters)
-            { 
+            {
                 target = target.MakeGenericType(generics);
             }
 
@@ -84,17 +87,17 @@ namespace Fluint.Layer.DependencyInjection
             return Activator.CreateInstance(target, resolvedParameters.ToArray());
         }
 
-        private Type ResolveType(Type type) 
+        private Type ResolveType(Type type)
         {
-           // 😂🤣 WHO DID THIS 🤣😂
-           foreach (var pair in _mappings)
-           {
-               if (pair.Key.Name == type.Name)
-               {
-                   return pair.Value;
-               }
-           }
-           return type;
+            // 😂🤣 WHO DID THIS 🤣😂
+            foreach (var pair in _mappings)
+            {
+                if (pair.Key.Name == type.Name)
+                {
+                    return pair.Value;
+                }
+            }
+            return type;
         }
 
         private object CreateScoped(Type type)
@@ -113,13 +116,13 @@ namespace Fluint.Layer.DependencyInjection
             return (T)CreateScoped(type);
         }
 
-        public T GetSingleton<T>() where T : IModule 
+        public T GetSingleton<T>() where T : IModule
         {
             var type = typeof(T);
             return (T)GetSingleton(type);
         }
 
-        public IEnumerable<IModule> GetInstances() 
+        public IEnumerable<IModule> GetInstances()
         {
             return _instances;
         }

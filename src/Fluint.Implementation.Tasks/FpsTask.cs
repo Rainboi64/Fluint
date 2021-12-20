@@ -37,8 +37,9 @@ namespace Fluint.Implementation.Tasks
                 _fps = _framesRendered;
                 _framesRendered = 0;
                 _lastTime = DateTime.Now;
+
+                window.Title = $"Fluint FPS: {_fps}";
             }
-            window.Title = $"Fluint FPS: {_fps}";
         }
     }
 }

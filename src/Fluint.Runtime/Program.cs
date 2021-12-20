@@ -5,8 +5,10 @@
 //
 
 using System;
+using System.IO;
 using Fluint.Layer;
-using Fluint.Layer.Miscellaneous;
+using Fluint.Layer.Runtime;
+using Fluint.Layer.SDK;
 
 namespace Fluint.Runtime
 {
@@ -14,8 +16,12 @@ namespace Fluint.Runtime
     {
         static void Main(string[] args)
         {
-            ConsoleHelper.WriteEmbeddedColorLine($"\n[red]Welcome to Fluint.[/red]\nStart-line called at {DateTime.Now}");
-            FluintStarter.Start();
+            var moduleDirectiory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "base");
+            var manager = new InstanceManager(new StartupManifest(args, moduleDirectiory));
+
+            manager.CreateInstance<FluintInstance>();
+            manager.CreateInstance<SDKInstance>();
+            manager.StartAll();
         }
     }
 }

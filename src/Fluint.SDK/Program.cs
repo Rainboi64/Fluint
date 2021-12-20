@@ -13,10 +13,7 @@ namespace Fluint.SDK
     {
         static void Main(string[] args)
         {
-            Console.Title = "Fluint SDK";
-            Console.WriteLine("Started Fluint SDK.");
-            var packet = ModulesManager.LoadFolder("base").GenerateModulePacket();
-            new SDKBase(packet).Listen();
+
         }
     }
 }

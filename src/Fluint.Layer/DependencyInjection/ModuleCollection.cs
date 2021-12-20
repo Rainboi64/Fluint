@@ -16,9 +16,9 @@ namespace Fluint.Layer.DependencyInjection
         private readonly Dictionary<Type, Type> _singletonMappings = new();
         private readonly List<Type> _instances = new();
 
-        public ModulePacket GenerateModulePacket()
+        public ModulePacket GenerateModulePacket(IRuntime runtime)
         {
-            return new ModulePacket(_mappings, _singletonMappings, _instances);
+            return new ModulePacket(runtime, _mappings, _singletonMappings, _instances);
         }
 
         public void MapScoped(Type abstraction, Type implementation)
@@ -53,7 +53,7 @@ namespace Fluint.Layer.DependencyInjection
             var implementationType = typeof(Implementation);
             MapSingleton(abstractionType, implementationType);
         }
-        public void AddInstanced<InstancedType>() 
+        public void AddInstanced<InstancedType>()
         {
             var instancedType = typeof(InstancedType);
             AddInstanced(instancedType);
