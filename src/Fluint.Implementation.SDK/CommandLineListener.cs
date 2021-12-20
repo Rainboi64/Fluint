@@ -14,6 +14,8 @@ namespace Fluint.Implementation.SDK
         private readonly IParser _parser;
         private List<ICommand> _commands;
 
+        private List<string> _history = new List<string>();
+
         public CommandLineListener(ModulePacket packet)
         {
             _commands = packet.GetInstances().OfType<ICommand>().ToList();
@@ -29,86 +31,77 @@ namespace Fluint.Implementation.SDK
         {
             while (true)
             {
-                var builder = new StringBuilder();
-                var newLine = false;
-
-                var prompt = "> ";
-
-                var commandDone = false;
-                var commandLength = 0;
-
-                while (!newLine)
-                {
-                    var left = Console.CursorLeft;
-                    var top = Console.CursorTop;
-
-                    Console.SetCursorPosition(prompt.Length + builder.Length, top);
-                    var current = Console.ReadKey(false);
-                    switch (current.Key)
-                    {
-                        case ConsoleKey.Enter:
-                            newLine = true;
-                            continue;
-
-                        case ConsoleKey.Spacebar:
-                            if (!commandDone)
-                            {
-                                commandLength = builder.Length;
-                                commandDone = true;
-                            }
-                            break;
-
-                        case ConsoleKey.Backspace:
-                            if (builder.Length > 0)
-                            {
-                                if (builder.Length - commandLength <= 0)
-                                {
-                                    commandDone = false;
-                                }
-                                builder.Length--;
-                            }
-                            break;
-                    }
-
-
-                    if (!char.IsAscii(current.KeyChar) && !char.IsSymbol(current.KeyChar) && !char.IsLetterOrDigit(current.KeyChar) && !char.IsWhiteSpace(current.KeyChar)) continue;
-
-                    builder.Append(current.KeyChar.ToString());
-                    if (!commandDone)
-                    {
-                        var valid = GetLikelyCommands(builder.ToString()).Count > 0;
-                        WritePrompt(0, top, "> ", valid);
-                    }
-                }
-
-                var (command, arguments) = Parse(builder.ToString());
-                Execute(command, arguments);
+                var command = ReadLine();
+                Call(command);
             }
+
         }
 
-        private void RemoveLastChar()
+        private string ReadLine()
         {
-            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-            Console.Write(' ');
-            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+            var buffer = new StringBuilder();
+
+            // TODO: Added a system similar to GNU ReadLine
+
+            buffer.Append(Console.ReadLine());
+
+            return buffer.ToString();
         }
 
-        private void WritePrompt(int left, int top, string prompt, bool valid)
+        private void Call(string input)
         {
-            Console.SetCursorPosition(left, top);
-            ConsoleHelper.Write(prompt, valid ? ConsoleColor.White : ConsoleColor.DarkRed);
+            AddToHistory(input);
+
+            var (command, arguments) = Parse(input);
+            Execute(command, arguments);
         }
 
+        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
         private (string command, string[] arguments) Parse(string input)
         {
-            var command = string.Empty;
-            var arguments = new List<string>();
+            bool inQuotes = false;
 
-            var segments = input.Split(' ');
+            var segments = Split(input, c =>
+            {
+                if (c == '\"')
+                    inQuotes = !inQuotes;
 
-            command = segments.FirstOrDefault();
+                return !inQuotes && c == ' ';
+            })
+            .Select(arg => TrimMatchingQuotes(arg.Trim(), '\"'))
+            .Where(arg => !string.IsNullOrEmpty(arg));
+
+            var command = segments.FirstOrDefault();
+            var arguments = segments.Skip(1);
 
             return (command, arguments.ToArray());
+        }
+
+        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
+        public static IEnumerable<string> Split(string str, Func<char, bool> controller)
+        {
+            var nextPiece = 0;
+
+            for (int c = 0; c < str.Length; c++)
+            {
+                if (controller(str[c]))
+                {
+                    yield return str.Substring(nextPiece, c - nextPiece);
+                    nextPiece = c + 1;
+                }
+            }
+
+            yield return str.Substring(nextPiece);
+        }
+
+        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
+        public static string TrimMatchingQuotes(string input, char quote)
+        {
+            if ((input.Length >= 2) &&
+                (input[0] == quote) && (input[input.Length - 1] == quote))
+                return input.Substring(1, input.Length - 2);
+
+            return input;
         }
 
         private List<ICommand> GetLikelyCommands(string command)
@@ -116,34 +109,15 @@ namespace Fluint.Implementation.SDK
             return _commands.Where((x) => x.Command.StartsWith(command)).ToList();
         }
 
-        private string GetCommandHelp(ICommand command)
+        private void AddToHistory(string input)
         {
-            return command
-                .GetType()
-                .GetCustomAttributes(false)?
-                .OfType<ModuleAttribute>()
-                .FirstOrDefault()?.Description;
+            _history.Add(input);
         }
 
-        private static IList<string> CutCommandRecomendations(List<ICommand> commands, string input)
-        {
-            return commands.Select((x) => x.Command.Remove(0, input.Length))
-            .ToList();
-        }
-
-        public static void ClearLastLine(int lineLength)
-        {
-            Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write(new string(' ', lineLength));
-            Console.SetCursorPosition(0, Console.CursorTop);
-        }
-
-        public static void ClearCurrentConsoleLine()
-        {
-            int currentLineCursor = Console.CursorTop;
-            Console.SetCursorPosition(0, Console.CursorTop);
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, currentLineCursor);
-        }
+        private ModuleAttribute GetCommandAttributes(ICommand command) => command
+            .GetType()
+            .GetCustomAttributes(false)?
+            .OfType<ModuleAttribute>()
+            .FirstOrDefault();
     }
 }
