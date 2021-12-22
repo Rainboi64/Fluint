@@ -14,6 +14,8 @@ namespace Fluint.Implementation.SDK
         private readonly IParser _parser;
         private List<ICommand> _commands;
 
+        private Dictionary<string, Action> _keyActions = new Dictionary<string, Action>();
+
         private List<string> _history = new List<string>();
 
         public CommandLineListener(ModulePacket packet)
@@ -39,13 +41,25 @@ namespace Fluint.Implementation.SDK
 
         private string ReadLine()
         {
-            var buffer = new StringBuilder();
+            var keyHandler = new ConsoleKeyHandler(_history);
 
-            // TODO: Added a system similar to GNU ReadLine
+            while (true)
+            {
+                var keyInfo = Console.ReadKey(true);
+                if (keyInfo.Key == ConsoleKey.Enter)
+                    break;
 
-            buffer.Append(Console.ReadLine());
+                keyHandler.Handle(keyInfo);
+            }
 
-            return buffer.ToString();
+            var text = keyHandler.GetText();
+
+            if (string.IsNullOrWhiteSpace(text)) text = default;
+
+            Console.WriteLine();
+
+            _history.Add(text);
+            return text;
         }
 
         private void Call(string input)
