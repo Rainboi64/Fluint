@@ -30,7 +30,6 @@ namespace Fluint.Layer.DependencyInjection
                 var key = pair.Key;
                 var value = (IModule)CreateInstance(pair.Value);
                 _singletonMappings[key] = value;
-                Console.WriteLine($"Singletons[{key}] = {value}");
             }
 
             _instances = new List<IModule>();
