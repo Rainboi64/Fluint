@@ -5,10 +5,9 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
+using System.Reflection;
 using Serilog;
-using Serilog.Core;
 using ILogger = Fluint.Layer.Diagnostics.ILogger;
 
 namespace Fluint.Implementation.Diagnostics
@@ -17,10 +16,15 @@ namespace Fluint.Implementation.Diagnostics
     {
         public SerilogLogger()
         {
+            var exePath = Path.GetDirectoryName(
+                     Assembly.GetExecutingAssembly().Location);
+
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
-                .WriteTo.File("./logs/log-.log", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
+            
+            Log.Information("Started Logging System");
         }
 
         public void Information(string messageTemplate)
