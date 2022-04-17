@@ -14,11 +14,19 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using System.Collections.Generic;
 using Fluint.Layer.Input;
 using MouseButton = Fluint.Layer.Input.MouseButton;
+using Fluint.Layer.Diagnostics;
 
 namespace Fluint.Engine.GL46.ImGuiImpl
 {
     public class ImGuiGhost : IGhost
     {
+        private readonly ILogger _logger;
+
+        public ImGuiGhost(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         private IWindow _possessedWindow;
         private bool _frameBegun;
 
@@ -288,7 +296,7 @@ void main()
                     GL.NamedBufferData(_vertexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _vertexBufferSize = newSize;
 
-                    Console.WriteLine($"Resized dear imgui vertex buffer to new size {_vertexBufferSize}");
+                    _logger.Information($"[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost", _vertexBufferSize);
                 }
 
                 int indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
@@ -298,7 +306,7 @@ void main()
                     GL.NamedBufferData(_indexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _indexBufferSize = newSize;
 
-                    Console.WriteLine($"Resized dear imgui index buffer to new size {_indexBufferSize}");
+                    _logger.Information($"[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost", _indexBufferSize);
                 }
             }
 

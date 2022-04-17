@@ -33,8 +33,7 @@ namespace Fluint.Engine.GL46
 
         public void Start(TaskArgs args)
         {
-            _logger.Information("Started {0} Engine Task", "OpenGL46");
-            _logger.Information("Running OpenGL {0} Shader: {1}", GL.GetString(StringName.Version), GL.GetString(StringName.ShadingLanguageVersion));
+            _logger.Information("[{0}] Running OpenGL {1} Shader: {2}", "OpenGL46", GL.GetString(StringName.Version), GL.GetString(StringName.ShadingLanguageVersion));
             
             GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
             GL.Enable(EnableCap.DebugOutput);
@@ -55,11 +54,11 @@ namespace Fluint.Engine.GL46
 
             if (type == DebugType.DebugTypeError)
             {
-                _logger.Error("OGL46 Debugger [{0}]:[{1}]: \n{2}", severity, type, messageString);
+                _logger.Error("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
             }
             else
             {
-               _logger.Information("OGL46 Debugger [{0}]:[{1}]: \n{2}", severity, type, messageString);
+               _logger.Information("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
             }
         }
     }

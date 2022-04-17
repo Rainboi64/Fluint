@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Engine;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
@@ -20,9 +20,12 @@ namespace Fluint.Implementation.UI
     public class MainWindow : IWindow
     {
         private readonly ModulePacket _packet;
-        public MainWindow(ModulePacket packet)
+        private readonly ILogger _logger;
+        public MainWindow(ModulePacket packet, ILogger logger)
         {
             _packet = packet;
+            _logger = logger;
+
             Controls = new List<IGuiComponent>();
             _ghosts = new List<IGhost>();
         }
@@ -47,6 +50,7 @@ namespace Fluint.Implementation.UI
         {
             foreach (var ghost in _ghosts)
             {
+                _logger.Information("[{0}] Loading Ghost: {1}", this.Title, ghost.ToString());
                 ghost.OnLoad();
             }
 
@@ -64,7 +68,6 @@ namespace Fluint.Implementation.UI
             
             Controls.Add(_textureView);
             Controls.Add(_cameraView);
-            //TODO: Window stuff!
         }
 
         public void OnStart()
@@ -130,6 +133,7 @@ namespace Fluint.Implementation.UI
 
             //TODO: Window stuff!
         }
+
         public void OnMouseWheelMoved(Vector2 offset)
         {
             foreach (var ghost in _ghosts)
@@ -147,6 +151,7 @@ namespace Fluint.Implementation.UI
             InputManager = _packet.CreateScoped<IInputManager>();
             InputManager.Load(provider);
         }
+
         public void Enqueue(Action action)
         {
             _provider.FrameQueue.Enqueue(action);
@@ -154,7 +159,11 @@ namespace Fluint.Implementation.UI
 
         public void AdoptGhost<Ghost>() where Ghost : IGhost
         {
-            var ghost = (IGhost)_packet.FetchAndCreateInstance(typeof(Ghost));
+            var ghostType = typeof(Ghost);
+            _logger.Information("[{0}] Adopting Ghost {1}", this.Title, ghostType.Name);
+
+            var ghost = (IGhost)_packet.FetchAndCreateInstance(ghostType);
+
             ghost.SetPossessed(this);
             _ghosts.Add(ghost);
         }

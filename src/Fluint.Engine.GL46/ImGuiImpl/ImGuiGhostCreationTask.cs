@@ -19,7 +19,6 @@ namespace Fluint.Engine.GL46.ImGuiImpl
         {
             var window = args.Invoker as IWindow;
             window.AdoptGhost<ImGuiGhost>();
-            Console.WriteLine("ImGuiGhost Adopted");
         }
     }
 }
