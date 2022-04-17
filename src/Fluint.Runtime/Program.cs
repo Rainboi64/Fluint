@@ -6,6 +6,7 @@
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Fluint.Layer;
 using Fluint.Layer.Runtime;
 using Fluint.Layer.SDK;
@@ -42,10 +43,20 @@ namespace Fluint.Runtime
 
             ConsoleHelper.WriteWrappedHeader($"Good {timeName} {username}! Kickstarting base");
             var moduleDirectiory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "base");
-            var manager = new InstanceManager(new StartupManifest(args, moduleDirectiory));
+            
+            var manifest = new StartupManifest(args, moduleDirectiory);
+            var manager = new InstanceManager(manifest);
 
             manager.CreateInstance<FluintInstance>();
-            manager.CreateInstance<SDKInstance>();
+
+            // Create an SDK attached to the fluint instance.
+            Task.Run(() => 
+            {
+                var sdk = new SDKInstance();
+                sdk.Create(1, manifest, manager.Instances[0].Packet, null);    
+                sdk.Start();
+            });
+            
             manager.StartAll();
         }
     }

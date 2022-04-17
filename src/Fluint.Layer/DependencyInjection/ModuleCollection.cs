@@ -23,12 +23,12 @@ namespace Fluint.Layer.DependencyInjection
 
         public void MapScoped(Type abstraction, Type implementation)
         {
-            _mappings.Add(abstraction, implementation);
+            _mappings[abstraction] = implementation;
         }
 
         public void MapSingleton(Type abstraction, Type implementation)
         {
-            _singletonMappings.Add(abstraction, implementation);
+            _singletonMappings[abstraction] = implementation;
         }
 
         public void AddInstanced(Type instanced)

@@ -24,11 +24,13 @@ namespace Fluint.Layer.DependencyInjection
             _mappings = mappings;
 
             _singletonMappings = new Dictionary<Type, IModule>();
+            
             foreach (var pair in singletonMappings)
             {
                 var key = pair.Key;
                 var value = (IModule)CreateInstance(pair.Value);
-                _singletonMappings.Add(key, value);
+                _singletonMappings[key] = value;
+                Console.WriteLine($"Singletons[{key}] = {value}");
             }
 
             _instances = new List<IModule>();
