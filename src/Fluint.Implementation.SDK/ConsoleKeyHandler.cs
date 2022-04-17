@@ -30,7 +30,6 @@ namespace Fluint.Implementation.SDK
         private void FillReactionDictionary()
         {
             _reactions = new Dictionary<string, Action>();
-
             _reactions["LeftArrow"] = MoveLeft;
             _reactions["RightArrow"] = MoveRight;
             _reactions["Home"] = MoveToStart;
