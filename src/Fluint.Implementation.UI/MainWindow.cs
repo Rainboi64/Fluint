@@ -93,16 +93,24 @@ namespace Fluint.Implementation.UI
         public void OnUpdate(double delay)
         {
             _time += (float)delay;
+            ImGui.StyleColorsClassic();
             foreach (var ghost in _ghosts)
             {
                 ghost.OnUpdate(delay);
             }
 
+            ImGui.DockSpaceOverViewport(ImGui.GetWindowViewport());
+
             foreach (var control in Controls)
             {
                 control.Tick();
             }
-            
+
+
+            ImGui.ShowDemoWindow();
+
+            ImGui.End();
+
             _canvas.Clear();
 
             _canvas.DrawCircle(new Vector2i(256 + (int)(24f * Math.Cos(_time)), 256), (int)Math.Abs(128f * Math.Sin(_time)), Color.Red);

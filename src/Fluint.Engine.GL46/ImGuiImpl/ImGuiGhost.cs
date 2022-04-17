@@ -296,7 +296,7 @@ void main()
                     GL.NamedBufferData(_vertexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _vertexBufferSize = newSize;
 
-                    _logger.Information($"[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost", _vertexBufferSize);
+                    _logger.Information("[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost", _vertexBufferSize);
                 }
 
                 int indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
@@ -306,7 +306,7 @@ void main()
                     GL.NamedBufferData(_indexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _indexBufferSize = newSize;
 
-                    _logger.Information($"[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost", _indexBufferSize);
+                    _logger.Information("[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost", _indexBufferSize);
                 }
             }
 
