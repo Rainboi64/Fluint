@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.UI;
 using ImGuiNET;
@@ -12,8 +13,12 @@ namespace Fluint.Implementation.UI
         public string Name { get; private set; }
         public ICollection<IGuiComponent> Children { get; }
         public ITexture Texture { get; set; }
-        public TextureView()
+
+        private readonly ILogger _logger;
+
+        public TextureView(ILogger logger)
         {
+            _logger = logger;
         }
 
         public void Begin(string name)
@@ -28,7 +33,10 @@ namespace Fluint.Implementation.UI
                 ImGui.Begin($"{Name}###{Title}");
                 ImGui.Image(new IntPtr(Texture.Handle), new System.Numerics.Vector2(Texture.Size.X, Texture.Size.Y));
                 ImGui.End();
+
+                return;
             }
+            _logger.Warning("[{0}] Texture is null", "TextureView");
         }
     }
 }

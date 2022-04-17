@@ -43,6 +43,7 @@ namespace Fluint.Implementation.UI
 
         private float _time = 0;
         private ITextureView _textureView;
+        private IViewport _viewport;
         private ICanvas _canvas;
 
         private ITextureView _cameraView;
@@ -56,6 +57,7 @@ namespace Fluint.Implementation.UI
 
             _textureView = _packet.CreateScoped<ITextureView>();
             _cameraView = _packet.CreateScoped<ITextureView>();
+            _viewport = _packet.CreateScoped<IViewport>();
 
             _canvas = _packet.CreateScoped<ICanvas>();
            
@@ -63,9 +65,11 @@ namespace Fluint.Implementation.UI
 
             _textureView.Begin("Canvas View");
             _cameraView.Begin("Camera View");
+            _viewport.Begin("Viewport");
 
             _textureView.Texture = _canvas.CreateBoundTexture();
-            
+
+            Controls.Add(_viewport);
             Controls.Add(_textureView);
             Controls.Add(_cameraView);
         }

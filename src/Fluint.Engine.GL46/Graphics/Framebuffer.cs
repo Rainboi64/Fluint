@@ -8,6 +8,12 @@ namespace Fluint.Engine.GL46.Graphics
 {
     public class Framebuffer : IFramebuffer
     {
+        private readonly ILogger _logger;
+        public Framebuffer(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public int Handle { get; private set; }
         public Vector2i Size { get; private set; }
         private Texture _texture;
@@ -20,7 +26,8 @@ namespace Fluint.Engine.GL46.Graphics
 
             if(GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) != FramebufferErrorCode.FramebufferComplete)
             {
-                throw new EngineAPIException("GL46", "Couldn't Create Framebuffer");
+                _logger.Error("[{0}] Error creating framebuffer", "OpenGL46");
+                // throw new EngineAPIException("GL46", "Couldn't Create Framebuffer");
             }
         }
 
