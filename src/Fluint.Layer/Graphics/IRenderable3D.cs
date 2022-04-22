@@ -10,12 +10,26 @@ using Fluint.Layer.Mathematics;
 namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
-    public interface IRenderable3D<VertexType> : IModule where VertexType : struct
+    public interface IRenderable3D<TVertexType> : IModule where TVertexType : struct
     {
+        public uint[] Indices
+        {
+            get;
+            set;
+        }
 
-        public uint[] Indices { get; set; }
-        public VertexType[] Vertices { get; set; }
-        public ShaderPacket Packet { get; set; }
+        public TVertexType[] Vertices
+        {
+            get;
+            set;
+        }
+
+        public ShaderPacket Packet
+        {
+            get;
+            set;
+        }
+
         public Matrix ModelMatrix
         {
             get;
@@ -27,16 +41,17 @@ namespace Fluint.Layer.Graphics
             get;
             set;
         }
+
         public Vector3 Scale
         {
             get;
             set;
         }
+
         public Quaternion Rotation
         {
             get;
             set;
         }
-
     }
 }

@@ -4,35 +4,45 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using OpenTK.Graphics.OpenGL4;
 using System;
+using OpenTK.Graphics.OpenGL4;
 
 namespace Fluint.Engine.GL46.Graphics
 {
     public class Buffer
     {
-        public int Handle { get; set; }
-        public BufferTarget BufferType { get; set; }
+        //Disposing Code
 
-        public Buffer(BufferTarget BufferType)
+        private bool _disposedValue;
+
+        public Buffer(BufferTarget bufferType)
         {
-            this.BufferType = BufferType;
+            BufferType = bufferType;
             Handle = GL.GenBuffer();
         }
 
-        public void Bind() 
+        public int Handle
+        {
+            get;
+            set;
+        }
+
+        public BufferTarget BufferType
+        {
+            get;
+            set;
+        }
+
+        public void Bind()
         {
             GL.BindBuffer(BufferType, Handle);
         }
 
-        public void Unbind() 
+        public void Unbind()
         {
             GL.BindBuffer(BufferType, 0);
         }
 
-        //Disposing Code
-
-        private bool _disposedValue;
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposedValue)
@@ -42,6 +52,7 @@ namespace Fluint.Engine.GL46.Graphics
                 _disposedValue = true;
             }
         }
+
         public void Dispose()
         {
             Unbind();

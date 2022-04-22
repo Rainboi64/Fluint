@@ -12,12 +12,22 @@ namespace Fluint.Layer.Graphics
     [Initialization(InitializationMethod.Scoped)]
     public interface ICanvas : IModule
     {
-        void InitializeCanvas(int width, int Height);
-        
-        Color[] Pixels { get; }
+        Color[] Pixels
+        {
+            get;
+        }
 
-        int Width { get; }
-        int Height { get; }
+        int Width
+        {
+            get;
+        }
+
+        int Height
+        {
+            get;
+        }
+
+        void InitializeCanvas(int width, int height);
 
         int ConvertIndex(int x, int y);
 

@@ -5,18 +5,19 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
-    public interface IVertexLayout<VertexType> : IModule, IDisposable where VertexType : struct
+    public interface IVertexLayout<TVertexType> : IModule, IDisposable where TVertexType : struct
     {
         /// <summary>
         /// Gets the size of the vertex.
         /// </summary>
-        int VertexSize { get; }
+        int VertexSize
+        {
+            get;
+        }
 
         /// <summary>
         /// Calculates the vertex size.
@@ -27,7 +28,7 @@ namespace Fluint.Layer.Graphics
         /// To be called before enabling the layout.
         /// </summary>
         void Load();
-        
+
         /// <summary>
         /// To enable the layout.
         /// </summary>

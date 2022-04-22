@@ -78,12 +78,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
+    <ProjectReference Include="..\Fluint.Engine.GL\Fluint.Engine.GL.csproj"/>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="fonts\default.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Shaders\shader.frag">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

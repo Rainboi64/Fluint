@@ -13,10 +13,25 @@ namespace Fluint.Engine.GL46.Graphics
 {
     public class Canvas : ICanvas
     {
-        public Color[] Pixels { get; private set; }
         private List<int> _editedPixels = new List<int>();
-        public int Width { get; private set; }
-        public int Height { get; private set; }
+
+        public Color[] Pixels
+        {
+            get;
+            private set;
+        }
+
+        public int Width
+        {
+            get;
+            private set;
+        }
+
+        public int Height
+        {
+            get;
+            private set;
+        }
 
         public int ConvertIndex(int x, int y)
         {
@@ -48,6 +63,7 @@ namespace Fluint.Engine.GL46.Graphics
             {
                 Pixels[pixel] = new Color(0);
             }
+
             _editedPixels.Clear();
         }
 
@@ -60,34 +76,9 @@ namespace Fluint.Engine.GL46.Graphics
             }
         }
 
-        private void Set(int x, int y, Func<Vector2i, Color> color)
-        {
-            if (x > 0 && x < Width && y > 0 && y < Height)
-            {
-                _editedPixels.Add(ConvertIndex(x, y));
-                Pixels[ConvertIndex(x, y)] = color.Invoke(new Vector2i(x, y));
-            }
-        }
-
         public Color Get(int x, int y)
         {
             return Pixels[ConvertIndex(x, y)];
-        }
-
-        private void FastDrawLine(Color color, int sx, int ex, int ny)
-        {
-            for (var i = sx; i <= ex; i++)
-            {
-                Set(i, ny, color);
-            }
-        }
-
-        private void FastDrawLine(Func<Vector2i, Color> color, int sx, int ex, int ny)
-        {
-            for (var i = sx; i <= ex; i++)
-            {
-                Set(i, ny, color.Invoke(new Vector2i(i, ny)));
-            }
         }
 
         public void DrawCircle(Vector2i location, int radius, Color color)
@@ -106,7 +97,7 @@ namespace Fluint.Engine.GL46.Graphics
                 Set(location.X - y, location.Y + x, color);
                 Set(location.X + y, location.Y + x, color);
                 Set(location.X + x, location.Y + y, color);
-                 
+
                 Set(location.X + x, location.Y - y, color);
                 Set(location.X + y, location.Y - x, color);
                 Set(location.X - y, location.Y - x, color);
@@ -229,347 +220,16 @@ namespace Fluint.Engine.GL46.Graphics
 
         public void DrawFilledTriangle(Vector2i v1, Vector2i v2, Vector2i v3, Color color)
         {
-            static void SWAP(ref int x, ref int y)
+            static void Swap(ref int x, ref int y)
             {
                 var t = x;
                 x = y;
                 y = t;
-            };
-
-            int t1x, t2x, y, minx, maxx, t1xp, t2xp;
-
-            var changed1 = false;
-            var changed2 = false;
-
-            int signx1, signx2, dx1, dy1, dx2, dy2;
-            int e1, e2;
-
-            // Sort vertices
-            if (v1.Y > v2.Y) 
-            {
-                SWAP(ref v1.Y, ref v2.Y);
-                SWAP(ref v1.X, ref v2.X);
             }
 
-            if (v1.Y > v3.Y)
-            {
-                SWAP(ref v1.Y, ref v3.Y);
-                SWAP(ref v1.X, ref v3.X);
-            }
-            
-            if (v2.Y > v3.Y)
-            { 
-                SWAP(ref v2.Y, ref v3.Y); 
-                SWAP(ref v2.X, ref v3.X);
-            }
+            ;
 
-            t1x = t2x = v1.X; y = v1.Y;   // Starting points
-            dx1 = v2.X - v1.X;
-
-            if (dx1 < 0)
-            {
-                dx1 = -dx1; signx1 = -1;
-            }
-            else
-            {
-                signx1 = 1;
-            }
-
-            dy1 = v2.Y - v1.Y;
-
-            dx2 = v3.X - v1.X;
-            if (dx2 < 0)
-            {
-                dx2 = -dx2; signx2 = -1;
-            }
-            else
-            {
-                signx2 = 1;
-            }
-
-            dy2 = v3.Y - v1.Y;
-
-            if (dy1 > dx1)
-            {
-                // swap values
-                SWAP(ref dx1, ref dy1);
-                changed1 = true;
-            }
-            if (dy2 > dx2)
-            {
-                // swap values
-                SWAP(ref dy2, ref dx2);
-                changed2 = true;
-            }
-
-            e2 = dx2 >> 1;
-            // Flat top, just process the second half
-            if (v1.Y == v2.Y)
-            {
-                goto next;
-            }
-
-            e1 = dx1 >> 1;
-
-            for (var i = 0; i < dx1;)
-            {
-                t1xp = 0; t2xp = 0;
-
-                if (t1x < t2x)
-                {
-                    minx = t1x; maxx = t2x;
-                }
-                else
-                {
-                    minx = t2x; maxx = t1x;
-                }
-
-                // process first line until y value is about to change
-                while (i < dx1)
-                {
-                    i++;
-                    e1 += dy1;
-                    while (e1 >= dx1)
-                    {
-                        e1 -= dx1;
-                        if (changed1)
-                        {
-                            t1xp = signx1;//t1x += signx1;
-                        }
-                        else
-                        {
-                            goto next1;
-                        }
-                    }
-                    if (changed1)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        t1x += signx1;
-                    }
-                }
-                // Move line
-                next1:
-                // process second line until y value is about to change
-                while (true)
-                {
-                    e2 += dy2;
-                    while (e2 >= dx2)
-                    {
-                        e2 -= dx2;
-                        if (changed2)
-                        {
-                            t2xp = signx2;//t2x += signx2;
-                        }
-                        else
-                        {
-                            goto next2;
-                        }
-                    }
-                    if (changed2)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        t2x += signx2;
-                    }
-                }
-                next2:
-                if (minx > t1x)
-                {
-                    minx = t1x;
-                }
-
-                if (minx > t2x)
-                {
-                    minx = t2x;
-                }
-
-                if (maxx < t1x)
-                {
-                    maxx = t1x;
-                }
-
-                if (maxx < t2x)
-                {
-                    maxx = t2x;
-                }
-
-                // Draw line from min to max points found on the y
-                FastDrawLine(color, minx, maxx, y);
-                // Now increase y
-                if (!changed1)
-                {
-                    t1x += signx1;
-                }
-
-                t1x += t1xp;
-                if (!changed2)
-                {
-                    t2x += signx2;
-                }
-
-                t2x += t2xp;
-                y += 1;
-                if (y == v2.Y)
-                {
-                    break;
-                }
-            }
-            next:
-            // Second half
-            dx1 = v3.X - v2.X;
-            if (dx1 < 0)
-            {
-                dx1 = -dx1; signx1 = -1;
-            }
-            else
-            {
-                signx1 = 1;
-            }
-
-            dy1 = v3.Y - v2.Y;
-            t1x = v2.X;
-
-            if (dy1 > dx1)
-            {
-                // swap values
-                SWAP(ref dy1, ref dx1);
-                changed1 = true;
-            }
-            else
-            {
-                changed1 = false;
-            }
-
-            e1 = dx1 >> 1;
-
-            for (var i = 0; i <= dx1; i++)
-            {
-                t1xp = 0; t2xp = 0;
-                if (t1x < t2x)
-                {
-                    minx = t1x; maxx = t2x;
-                }
-                else
-                {
-                    minx = t2x; maxx = t1x;
-                }
-                // process first line until y value is about to change
-                while (i < dx1)
-                {
-                    e1 += dy1;
-                    while (e1 >= dx1)
-                    {
-                        e1 -= dx1;
-                        if (changed1)
-                        {
-                            t1xp = signx1;
-                            break;
-                        }
-                        //t1x += signx1;
-                        else
-                        {
-                            goto next3;
-                        }
-                    }
-
-                    if (changed1)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        t1x += signx1;
-                    }
-
-                    if (i < dx1)
-                    {
-                        i++;
-                    }
-                }
-                next3:
-                // process second line until y value is about to change
-                while (t2x != v3.X)
-                {
-                    e2 += dy2;
-                    while (e2 >= dx2)
-                    {
-                        e2 -= dx2;
-                        if (changed2)
-                        {
-                            t2xp = signx2;
-                        }
-                        else
-                        {
-                            goto next4;
-                        }
-                    }
-                    if (changed2)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        t2x += signx2;
-                    }
-                }
-                next4:
-
-                if (minx > t1x)
-                {
-                    minx = t1x;
-                }
-
-                if (minx > t2x)
-                {
-                    minx = t2x;
-                }
-
-                if (maxx < t1x)
-                {
-                    maxx = t1x;
-                }
-
-                if (maxx < t2x)
-                {
-                    maxx = t2x;
-                }
-
-                FastDrawLine(color, minx, maxx, y);
-                if (!changed1)
-                {
-                    t1x += signx1;
-                }
-
-                t1x += t1xp;
-                if (!changed2)
-                {
-                    t2x += signx2;
-                }
-
-                t2x += t2xp;
-                y += 1;
-                if (y > v3.Y)
-                {
-                    return;
-                }
-            }
-        }
-
-        public void DrawFilledTriangle(Vector2i v1, Vector2i v2, Vector2i v3, Func<Vector2i, Color> color)
-        {
-            static void SWAP(ref int x, ref int y)
-            {
-                var t = x;
-                x = y;
-                y = t;
-            };
-
-            int t1x, t2x, y, minx, maxx, t1xp, t2xp;
+            int t1X, t2X, y, minx, maxx, t1Xp, t2Xp;
 
             var changed1 = false;
             var changed2 = false;
@@ -580,28 +240,30 @@ namespace Fluint.Engine.GL46.Graphics
             // Sort vertices
             if (v1.Y > v2.Y)
             {
-                SWAP(ref v1.Y, ref v2.Y);
-                SWAP(ref v1.X, ref v2.X);
+                Swap(ref v1.Y, ref v2.Y);
+                Swap(ref v1.X, ref v2.X);
             }
 
             if (v1.Y > v3.Y)
             {
-                SWAP(ref v1.Y, ref v3.Y);
-                SWAP(ref v1.X, ref v3.X);
+                Swap(ref v1.Y, ref v3.Y);
+                Swap(ref v1.X, ref v3.X);
             }
 
             if (v2.Y > v3.Y)
             {
-                SWAP(ref v2.Y, ref v3.Y);
-                SWAP(ref v2.X, ref v3.X);
+                Swap(ref v2.Y, ref v3.Y);
+                Swap(ref v2.X, ref v3.X);
             }
 
-            t1x = t2x = v1.X; y = v1.Y;   // Starting points
+            t1X = t2X = v1.X;
+            y = v1.Y; // Starting points
             dx1 = v2.X - v1.X;
 
             if (dx1 < 0)
             {
-                dx1 = -dx1; signx1 = -1;
+                dx1 = -dx1;
+                signx1 = -1;
             }
             else
             {
@@ -613,7 +275,8 @@ namespace Fluint.Engine.GL46.Graphics
             dx2 = v3.X - v1.X;
             if (dx2 < 0)
             {
-                dx2 = -dx2; signx2 = -1;
+                dx2 = -dx2;
+                signx2 = -1;
             }
             else
             {
@@ -625,13 +288,14 @@ namespace Fluint.Engine.GL46.Graphics
             if (dy1 > dx1)
             {
                 // swap values
-                SWAP(ref dx1, ref dy1);
+                Swap(ref dx1, ref dy1);
                 changed1 = true;
             }
+
             if (dy2 > dx2)
             {
                 // swap values
-                SWAP(ref dy2, ref dx2);
+                Swap(ref dy2, ref dx2);
                 changed2 = true;
             }
 
@@ -646,15 +310,18 @@ namespace Fluint.Engine.GL46.Graphics
 
             for (var i = 0; i < dx1;)
             {
-                t1xp = 0; t2xp = 0;
+                t1Xp = 0;
+                t2Xp = 0;
 
-                if (t1x < t2x)
+                if (t1X < t2X)
                 {
-                    minx = t1x; maxx = t2x;
+                    minx = t1X;
+                    maxx = t2X;
                 }
                 else
                 {
-                    minx = t2x; maxx = t1x;
+                    minx = t2X;
+                    maxx = t1X;
                 }
 
                 // process first line until y value is about to change
@@ -667,22 +334,24 @@ namespace Fluint.Engine.GL46.Graphics
                         e1 -= dx1;
                         if (changed1)
                         {
-                            t1xp = signx1;//t1x += signx1;
+                            t1Xp = signx1; //t1x += signx1;
                         }
                         else
                         {
                             goto next1;
                         }
                     }
+
                     if (changed1)
                     {
                         break;
                     }
                     else
                     {
-                        t1x += signx1;
+                        t1X += signx1;
                     }
                 }
+
                 // Move line
                 next1:
                 // process second line until y value is about to change
@@ -694,41 +363,43 @@ namespace Fluint.Engine.GL46.Graphics
                         e2 -= dx2;
                         if (changed2)
                         {
-                            t2xp = signx2;//t2x += signx2;
+                            t2Xp = signx2; //t2x += signx2;
                         }
                         else
                         {
                             goto next2;
                         }
                     }
+
                     if (changed2)
                     {
                         break;
                     }
                     else
                     {
-                        t2x += signx2;
+                        t2X += signx2;
                     }
                 }
+
                 next2:
-                if (minx > t1x)
+                if (minx > t1X)
                 {
-                    minx = t1x;
+                    minx = t1X;
                 }
 
-                if (minx > t2x)
+                if (minx > t2X)
                 {
-                    minx = t2x;
+                    minx = t2X;
                 }
 
-                if (maxx < t1x)
+                if (maxx < t1X)
                 {
-                    maxx = t1x;
+                    maxx = t1X;
                 }
 
-                if (maxx < t2x)
+                if (maxx < t2X)
                 {
-                    maxx = t2x;
+                    maxx = t2X;
                 }
 
                 // Draw line from min to max points found on the y
@@ -736,28 +407,30 @@ namespace Fluint.Engine.GL46.Graphics
                 // Now increase y
                 if (!changed1)
                 {
-                    t1x += signx1;
+                    t1X += signx1;
                 }
 
-                t1x += t1xp;
+                t1X += t1Xp;
                 if (!changed2)
                 {
-                    t2x += signx2;
+                    t2X += signx2;
                 }
 
-                t2x += t2xp;
+                t2X += t2Xp;
                 y += 1;
                 if (y == v2.Y)
                 {
                     break;
                 }
             }
+
             next:
             // Second half
             dx1 = v3.X - v2.X;
             if (dx1 < 0)
             {
-                dx1 = -dx1; signx1 = -1;
+                dx1 = -dx1;
+                signx1 = -1;
             }
             else
             {
@@ -765,12 +438,12 @@ namespace Fluint.Engine.GL46.Graphics
             }
 
             dy1 = v3.Y - v2.Y;
-            t1x = v2.X;
+            t1X = v2.X;
 
             if (dy1 > dx1)
             {
                 // swap values
-                SWAP(ref dy1, ref dx1);
+                Swap(ref dy1, ref dx1);
                 changed1 = true;
             }
             else
@@ -782,15 +455,19 @@ namespace Fluint.Engine.GL46.Graphics
 
             for (var i = 0; i <= dx1; i++)
             {
-                t1xp = 0; t2xp = 0;
-                if (t1x < t2x)
+                t1Xp = 0;
+                t2Xp = 0;
+                if (t1X < t2X)
                 {
-                    minx = t1x; maxx = t2x;
+                    minx = t1X;
+                    maxx = t2X;
                 }
                 else
                 {
-                    minx = t2x; maxx = t1x;
+                    minx = t2X;
+                    maxx = t1X;
                 }
+
                 // process first line until y value is about to change
                 while (i < dx1)
                 {
@@ -800,7 +477,7 @@ namespace Fluint.Engine.GL46.Graphics
                         e1 -= dx1;
                         if (changed1)
                         {
-                            t1xp = signx1;
+                            t1Xp = signx1;
                             break;
                         }
                         //t1x += signx1;
@@ -816,7 +493,7 @@ namespace Fluint.Engine.GL46.Graphics
                     }
                     else
                     {
-                        t1x += signx1;
+                        t1X += signx1;
                     }
 
                     if (i < dx1)
@@ -824,9 +501,10 @@ namespace Fluint.Engine.GL46.Graphics
                         i++;
                     }
                 }
+
                 next3:
                 // process second line until y value is about to change
-                while (t2x != v3.X)
+                while (t2X != v3.X)
                 {
                     e2 += dy2;
                     while (e2 >= dx2)
@@ -834,57 +512,414 @@ namespace Fluint.Engine.GL46.Graphics
                         e2 -= dx2;
                         if (changed2)
                         {
-                            t2xp = signx2;
+                            t2Xp = signx2;
                         }
                         else
                         {
                             goto next4;
                         }
                     }
+
                     if (changed2)
                     {
                         break;
                     }
                     else
                     {
-                        t2x += signx2;
+                        t2X += signx2;
                     }
                 }
+
                 next4:
 
-                if (minx > t1x)
+                if (minx > t1X)
                 {
-                    minx = t1x;
+                    minx = t1X;
                 }
 
-                if (minx > t2x)
+                if (minx > t2X)
                 {
-                    minx = t2x;
+                    minx = t2X;
                 }
 
-                if (maxx < t1x)
+                if (maxx < t1X)
                 {
-                    maxx = t1x;
+                    maxx = t1X;
                 }
 
-                if (maxx < t2x)
+                if (maxx < t2X)
                 {
-                    maxx = t2x;
+                    maxx = t2X;
                 }
 
                 FastDrawLine(color, minx, maxx, y);
                 if (!changed1)
                 {
-                    t1x += signx1;
+                    t1X += signx1;
                 }
 
-                t1x += t1xp;
+                t1X += t1Xp;
                 if (!changed2)
                 {
-                    t2x += signx2;
+                    t2X += signx2;
                 }
 
-                t2x += t2xp;
+                t2X += t2Xp;
+                y += 1;
+                if (y > v3.Y)
+                {
+                    return;
+                }
+            }
+        }
+
+        public void DrawFilledTriangle(Vector2i v1, Vector2i v2, Vector2i v3, Func<Vector2i, Color> color)
+        {
+            static void Swap(ref int x, ref int y)
+            {
+                var t = x;
+                x = y;
+                y = t;
+            }
+
+            ;
+
+            int t1X, t2X, y, minx, maxx, t1Xp, t2Xp;
+
+            var changed1 = false;
+            var changed2 = false;
+
+            int signx1, signx2, dx1, dy1, dx2, dy2;
+            int e1, e2;
+
+            // Sort vertices
+            if (v1.Y > v2.Y)
+            {
+                Swap(ref v1.Y, ref v2.Y);
+                Swap(ref v1.X, ref v2.X);
+            }
+
+            if (v1.Y > v3.Y)
+            {
+                Swap(ref v1.Y, ref v3.Y);
+                Swap(ref v1.X, ref v3.X);
+            }
+
+            if (v2.Y > v3.Y)
+            {
+                Swap(ref v2.Y, ref v3.Y);
+                Swap(ref v2.X, ref v3.X);
+            }
+
+            t1X = t2X = v1.X;
+            y = v1.Y; // Starting points
+            dx1 = v2.X - v1.X;
+
+            if (dx1 < 0)
+            {
+                dx1 = -dx1;
+                signx1 = -1;
+            }
+            else
+            {
+                signx1 = 1;
+            }
+
+            dy1 = v2.Y - v1.Y;
+
+            dx2 = v3.X - v1.X;
+            if (dx2 < 0)
+            {
+                dx2 = -dx2;
+                signx2 = -1;
+            }
+            else
+            {
+                signx2 = 1;
+            }
+
+            dy2 = v3.Y - v1.Y;
+
+            if (dy1 > dx1)
+            {
+                // swap values
+                Swap(ref dx1, ref dy1);
+                changed1 = true;
+            }
+
+            if (dy2 > dx2)
+            {
+                // swap values
+                Swap(ref dy2, ref dx2);
+                changed2 = true;
+            }
+
+            e2 = dx2 >> 1;
+            // Flat top, just process the second half
+            if (v1.Y == v2.Y)
+            {
+                goto next;
+            }
+
+            e1 = dx1 >> 1;
+
+            for (var i = 0; i < dx1;)
+            {
+                t1Xp = 0;
+                t2Xp = 0;
+
+                if (t1X < t2X)
+                {
+                    minx = t1X;
+                    maxx = t2X;
+                }
+                else
+                {
+                    minx = t2X;
+                    maxx = t1X;
+                }
+
+                // process first line until y value is about to change
+                while (i < dx1)
+                {
+                    i++;
+                    e1 += dy1;
+                    while (e1 >= dx1)
+                    {
+                        e1 -= dx1;
+                        if (changed1)
+                        {
+                            t1Xp = signx1; //t1x += signx1;
+                        }
+                        else
+                        {
+                            goto next1;
+                        }
+                    }
+
+                    if (changed1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        t1X += signx1;
+                    }
+                }
+
+                // Move line
+                next1:
+                // process second line until y value is about to change
+                while (true)
+                {
+                    e2 += dy2;
+                    while (e2 >= dx2)
+                    {
+                        e2 -= dx2;
+                        if (changed2)
+                        {
+                            t2Xp = signx2; //t2x += signx2;
+                        }
+                        else
+                        {
+                            goto next2;
+                        }
+                    }
+
+                    if (changed2)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        t2X += signx2;
+                    }
+                }
+
+                next2:
+                if (minx > t1X)
+                {
+                    minx = t1X;
+                }
+
+                if (minx > t2X)
+                {
+                    minx = t2X;
+                }
+
+                if (maxx < t1X)
+                {
+                    maxx = t1X;
+                }
+
+                if (maxx < t2X)
+                {
+                    maxx = t2X;
+                }
+
+                // Draw line from min to max points found on the y
+                FastDrawLine(color, minx, maxx, y);
+                // Now increase y
+                if (!changed1)
+                {
+                    t1X += signx1;
+                }
+
+                t1X += t1Xp;
+                if (!changed2)
+                {
+                    t2X += signx2;
+                }
+
+                t2X += t2Xp;
+                y += 1;
+                if (y == v2.Y)
+                {
+                    break;
+                }
+            }
+
+            next:
+            // Second half
+            dx1 = v3.X - v2.X;
+            if (dx1 < 0)
+            {
+                dx1 = -dx1;
+                signx1 = -1;
+            }
+            else
+            {
+                signx1 = 1;
+            }
+
+            dy1 = v3.Y - v2.Y;
+            t1X = v2.X;
+
+            if (dy1 > dx1)
+            {
+                // swap values
+                Swap(ref dy1, ref dx1);
+                changed1 = true;
+            }
+            else
+            {
+                changed1 = false;
+            }
+
+            e1 = dx1 >> 1;
+
+            for (var i = 0; i <= dx1; i++)
+            {
+                t1Xp = 0;
+                t2Xp = 0;
+                if (t1X < t2X)
+                {
+                    minx = t1X;
+                    maxx = t2X;
+                }
+                else
+                {
+                    minx = t2X;
+                    maxx = t1X;
+                }
+
+                // process first line until y value is about to change
+                while (i < dx1)
+                {
+                    e1 += dy1;
+                    while (e1 >= dx1)
+                    {
+                        e1 -= dx1;
+                        if (changed1)
+                        {
+                            t1Xp = signx1;
+                            break;
+                        }
+                        //t1x += signx1;
+                        else
+                        {
+                            goto next3;
+                        }
+                    }
+
+                    if (changed1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        t1X += signx1;
+                    }
+
+                    if (i < dx1)
+                    {
+                        i++;
+                    }
+                }
+
+                next3:
+                // process second line until y value is about to change
+                while (t2X != v3.X)
+                {
+                    e2 += dy2;
+                    while (e2 >= dx2)
+                    {
+                        e2 -= dx2;
+                        if (changed2)
+                        {
+                            t2Xp = signx2;
+                        }
+                        else
+                        {
+                            goto next4;
+                        }
+                    }
+
+                    if (changed2)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        t2X += signx2;
+                    }
+                }
+
+                next4:
+
+                if (minx > t1X)
+                {
+                    minx = t1X;
+                }
+
+                if (minx > t2X)
+                {
+                    minx = t2X;
+                }
+
+                if (maxx < t1X)
+                {
+                    maxx = t1X;
+                }
+
+                if (maxx < t2X)
+                {
+                    maxx = t2X;
+                }
+
+                FastDrawLine(color, minx, maxx, y);
+                if (!changed1)
+                {
+                    t1X += signx1;
+                }
+
+                t1X += t1Xp;
+                if (!changed2)
+                {
+                    t2X += signx2;
+                }
+
+                t2X += t2Xp;
                 y += 1;
                 if (y > v3.Y)
                 {
@@ -896,16 +931,27 @@ namespace Fluint.Engine.GL46.Graphics
         public void DrawLine(Vector2i start, Vector2i end, Color color)
         {
             int x, y, dx, dy, dx1, dy1, px, py, xe, ye, i;
-            dx = end.X - start.X; dy = end.Y - start.Y;
-            dx1 = Math.Abs(dx); dy1 = Math.Abs(dy);
-            px = 2 * dy1 - dx1; py = 2 * dx1 - dy1;
+            dx = end.X - start.X;
+            dy = end.Y - start.Y;
+            dx1 = Math.Abs(dx);
+            dy1 = Math.Abs(dy);
+            px = 2 * dy1 - dx1;
+            py = 2 * dx1 - dy1;
 
             if (dy1 <= dx1)
             {
                 if (dx >= 0)
-                { x = start.X; y = start.Y; xe = end.X; }
+                {
+                    x = start.X;
+                    y = start.Y;
+                    xe = end.X;
+                }
                 else
-                { x = end.X; y = end.Y; xe = start.X; }
+                {
+                    x = end.X;
+                    y = end.Y;
+                    xe = start.X;
+                }
 
                 Set(x, y, color);
 
@@ -921,6 +967,7 @@ namespace Fluint.Engine.GL46.Graphics
                         y = (dx < 0 && dy < 0) || (dx > 0 && dy > 0) ? y + 1 : y - 1;
                         px += 2 * (dy1 - dx1);
                     }
+
                     Set(x, y, color);
                 }
             }
@@ -928,11 +975,15 @@ namespace Fluint.Engine.GL46.Graphics
             {
                 if (dy >= 0)
                 {
-                    x = start.X; y = start.Y; ye = end.Y;
+                    x = start.X;
+                    y = start.Y;
+                    ye = end.Y;
                 }
                 else
                 {
-                    x = end.X; y = end.Y; ye = start.Y;
+                    x = end.X;
+                    y = end.Y;
+                    ye = start.Y;
                 }
 
                 Set(x, y, color);
@@ -949,6 +1000,7 @@ namespace Fluint.Engine.GL46.Graphics
                         x = (dx < 0 && dy < 0) || (dx > 0 && dy > 0) ? x + 1 : x - 1;
                         py += 2 * (dx1 - dy1);
                     }
+
                     Set(x, y, color);
                 }
             }
@@ -957,16 +1009,27 @@ namespace Fluint.Engine.GL46.Graphics
         public void DrawLine(Vector2i start, Vector2i end, Func<Vector2i, Color> color)
         {
             int x, y, dx, dy, dx1, dy1, px, py, xe, ye, i;
-            dx = end.X - start.X; dy = end.Y - start.Y;
-            dx1 = Math.Abs(dx); dy1 = Math.Abs(dy);
-            px = 2 * dy1 - dx1; py = 2 * dx1 - dy1;
+            dx = end.X - start.X;
+            dy = end.Y - start.Y;
+            dx1 = Math.Abs(dx);
+            dy1 = Math.Abs(dy);
+            px = 2 * dy1 - dx1;
+            py = 2 * dx1 - dy1;
 
             if (dy1 <= dx1)
             {
                 if (dx >= 0)
-                { x = start.X; y = start.Y; xe = end.X; }
+                {
+                    x = start.X;
+                    y = start.Y;
+                    xe = end.X;
+                }
                 else
-                { x = end.X; y = end.Y; xe = start.X; }
+                {
+                    x = end.X;
+                    y = end.Y;
+                    xe = start.X;
+                }
 
                 Set(x, y, color);
 
@@ -982,18 +1045,23 @@ namespace Fluint.Engine.GL46.Graphics
                         y = (dx < 0 && dy < 0) || (dx > 0 && dy > 0) ? y + 1 : y - 1;
                         px += 2 * (dy1 - dx1);
                     }
+
                     Set(x, y, color);
                 }
             }
             else
             {
                 if (dy >= 0)
-                { 
-                    x = start.X; y = start.Y; ye = end.Y;
+                {
+                    x = start.X;
+                    y = start.Y;
+                    ye = end.Y;
                 }
                 else
                 {
-                    x = end.X; y = end.Y; ye = start.Y;
+                    x = end.X;
+                    y = end.Y;
+                    ye = start.Y;
                 }
 
                 Set(x, y, color);
@@ -1010,6 +1078,7 @@ namespace Fluint.Engine.GL46.Graphics
                         x = (dx < 0 && dy < 0) || (dx > 0 && dy > 0) ? x + 1 : x - 1;
                         py += 2 * (dx1 - dy1);
                     }
+
                     Set(x, y, color);
                 }
             }
@@ -1064,6 +1133,7 @@ namespace Fluint.Engine.GL46.Graphics
                     DrawLine(points[i], points[0], color);
                     return;
                 }
+
                 DrawLine(points[i], points[i + 1], color);
             }
         }
@@ -1079,6 +1149,7 @@ namespace Fluint.Engine.GL46.Graphics
                     DrawLine(points[i], points[0], color);
                     return;
                 }
+
                 DrawLine(points[i], points[i + 1], color);
             }
         }
@@ -1095,6 +1166,31 @@ namespace Fluint.Engine.GL46.Graphics
             DrawLine(v1, v2, color);
             DrawLine(v2, v3, color);
             DrawLine(v3, v1, color);
+        }
+
+        private void Set(int x, int y, Func<Vector2i, Color> color)
+        {
+            if (x > 0 && x < Width && y > 0 && y < Height)
+            {
+                _editedPixels.Add(ConvertIndex(x, y));
+                Pixels[ConvertIndex(x, y)] = color.Invoke(new Vector2i(x, y));
+            }
+        }
+
+        private void FastDrawLine(Color color, int sx, int ex, int ny)
+        {
+            for (var i = sx; i <= ex; i++)
+            {
+                Set(i, ny, color);
+            }
+        }
+
+        private void FastDrawLine(Func<Vector2i, Color> color, int sx, int ex, int ny)
+        {
+            for (var i = sx; i <= ex; i++)
+            {
+                Set(i, ny, color.Invoke(new Vector2i(i, ny)));
+            }
         }
     }
 }

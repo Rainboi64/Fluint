@@ -6,12 +6,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
-using System.Diagnostics;
 
 namespace Fluint.Layer
 {
@@ -69,7 +69,7 @@ namespace Fluint.Layer
             }
 
             var table = new ConsoleTable();
-            table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode"});
+            table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode" });
 
             var moduleCollection = new ModuleCollection();
 
@@ -77,11 +77,11 @@ namespace Fluint.Layer
             {
                 Type parent = null;
 
-                foreach (var ParentInterface in type.GetInterfaces())
+                foreach (var parentInterface in type.GetInterfaces())
                 {
-                    if (ParentInterface != typeof(IModule) && ParentInterface.IsAssignableTo(typeof(IModule)))
+                    if (parentInterface != typeof(IModule) && parentInterface.IsAssignableTo(typeof(IModule)))
                     {
-                        parent = ParentInterface;
+                        parent = parentInterface;
                         break;
                     }
                 }
@@ -91,23 +91,28 @@ namespace Fluint.Layer
                 {
                     case InitializationMethod.Scoped:
                         moduleCollection.MapScoped(parent, type);
-                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Scoped");
+                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
+                            "Scoped");
                         break;
                     case InitializationMethod.Singleton:
                         moduleCollection.MapSingleton(parent, type);
-                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Singleton");
+                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
+                            "Singleton");
                         break;
                     case InitializationMethod.Instanced:
                         moduleCollection.AddInstanced(type);
-                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location), "Instanced");
+                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
+                            "Instanced");
                         break;
                 }
             }
+
             sortingWatch.Stop();
 
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
-            ConsoleHelper.WriteWrappedHeader($"Loaded {types.Count} module from {assemblies.Count} DLL in \"{modulesfolder}\". Loading:{sortingWatch.ElapsedMilliseconds}ms, Sorting: {loadingWatch.ElapsedMilliseconds}ms. Instance Fingerprint: {moduleCollection.GetHashCode()}");
-           
+            ConsoleHelper.WriteWrappedHeader(
+                $"Loaded {types.Count} module from {assemblies.Count} DLL in \"{modulesfolder}\". Loading:{sortingWatch.ElapsedMilliseconds}ms, Sorting: {loadingWatch.ElapsedMilliseconds}ms. Instance Fingerprint: {moduleCollection.GetHashCode()}");
+
             return moduleCollection;
         }
     }

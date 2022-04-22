@@ -11,19 +11,19 @@ namespace Fluint.Layer.Graphics
     /// <summary>
     /// A data structure to be loaded into buffers, contains position, normal, UV, TextureID.
     /// </summary>
-    public struct PositionNormalUVTIDVertex
+    public struct PositionNormalUvtidVertex
     {
         public readonly Vector3 Position;
         public readonly Vector3 Normal;
-        public readonly Vector2 UV;
-        public readonly uint TID;
+        public readonly Vector2 Uv;
+        public readonly uint Tid;
 
-        public PositionNormalUVTIDVertex(Vector3 position, Vector3 normal, Vector2 uv, uint tid) 
+        public PositionNormalUvtidVertex(Vector3 position, Vector3 normal, Vector2 uv, uint tid)
         {
             Position = position;
             Normal = normal;
-            UV = uv;
-            TID = tid;
+            Uv = uv;
+            Tid = tid;
         }
     }
 }

@@ -4,24 +4,22 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using Fluint.Engine.GL46.Graphics;
-using Fluint.Layer.Configuration;
+using System;
+using System.Runtime.InteropServices;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
-using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.Tasks;
 using OpenTK.Graphics.OpenGL4;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Fluint.Engine.GL46
 {
     public class EngineTask : ITask
     {
-        private static ILogger _logger; 
+        private static ILogger _logger;
+
+
+        private static readonly DebugProc DebugProcCallback = DebugCallback;
+
         public EngineTask(ModulePacket packet)
         {
             _logger = packet.GetSingleton<ILogger>();
@@ -39,13 +37,11 @@ namespace Fluint.Engine.GL46
             _logger.Debug("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
             _logger.Debug("[{0}] Extensions: {1}", "OpenGL46", GL.GetString(StringName.Extensions));
 
-            GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
+            GL.DebugMessageCallback(DebugProcCallback, IntPtr.Zero);
             GL.Enable(EnableCap.DebugOutput);
             GL.Enable(EnableCap.DebugOutputSynchronous);
         }
 
-
-        private static readonly DebugProc _debugProcCallback = DebugCallback;
         private static void DebugCallback(DebugSource source,
             DebugType type,
             int id,
@@ -62,7 +58,7 @@ namespace Fluint.Engine.GL46
             }
             else
             {
-               _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
+                _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
             }
         }
     }

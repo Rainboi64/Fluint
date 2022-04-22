@@ -4,25 +4,27 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using Fluint.Layer.Engine;
-using Fluint.Layer.IO;
-using Assimp;
 using System.Collections.Generic;
-using Fluint.Layer.Graphics;
-using Fluint.Layer.Mathematics;
+using Assimp;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Engine;
+using Fluint.Layer.Graphics;
+using Fluint.Layer.IO;
+using Fluint.Layer.Mathematics;
 
 namespace Fluint.Implementation.IO
 {
     public class AssimpImporter : IImporter
     {
         private readonly ModulePacket _packet;
+
         public AssimpImporter(ModulePacket packet)
         {
             _packet = packet;
         }
 
         public string[] FileExtenstions => new[] { "obj", "stl" };
+
         public unsafe IMesh[] Import(string fileName)
         {
             var newMeshes = new List<IMesh>();
@@ -32,8 +34,8 @@ namespace Fluint.Implementation.IO
             {
                 var newMesh = _packet.CreateScoped<IMesh>();
                 var indices = new List<uint>();
-                var vertex = new List<PositionNormalUVTIDVertex>();
-                foreach(var face in mesh.Faces)
+                var vertex = new List<PositionNormalUvtidVertex>();
+                foreach (var face in mesh.Faces)
                 {
                     indices.AddRange((IEnumerable<uint>)face.Indices);
                 }
@@ -42,8 +44,10 @@ namespace Fluint.Implementation.IO
                 {
                     var vertice = mesh.Vertices[i];
                     var normal = mesh.Normals[i];
-                    vertex.Add(new PositionNormalUVTIDVertex(*(Vector3*)&vertice, *(Vector3*)&normal, new Vector2(0), 0));
+                    vertex.Add(
+                        new PositionNormalUvtidVertex(*(Vector3*)&vertice, *(Vector3*)&normal, new Vector2(0), 0));
                 }
+
                 newMesh.VertexArray = vertex;
                 newMesh.IndexArray = indices;
                 newMesh.ModelMatrix = Matrix.Identity;
@@ -52,6 +56,7 @@ namespace Fluint.Implementation.IO
 
                 newMeshes.Add(newMesh);
             }
+
             return newMeshes.ToArray();
         }
     }

@@ -4,6 +4,7 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using System;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Engine;
 using Fluint.Layer.Graphics;
@@ -13,6 +14,30 @@ namespace Fluint.Engine.GL46
 {
     public class Camera : ICamera
     {
+        private readonly ModulePacket _packet;
+
+        private readonly IRenderer3D<PositionNormalUvtidVertex> _renderer3D;
+        private readonly IShader _shader;
+        private readonly IVertexLayout<PositionNormalUvtidVertex> _vertexLayout;
+        private IFramebuffer _framebuffer;
+        private Matrix _projectionMatrix = Matrix.Identity;
+        private Quaternion _rotation = Quaternion.Identity;
+        private Vector3 _scale = new Vector3(1);
+        private Vector3 _translation = new Vector3(0);
+        private Matrix _viewMatrix = Matrix.Identity;
+        private Viewport _viewport;
+
+        // initialization my man 😎
+        public Camera(ModulePacket packet)
+        {
+            _packet = packet;
+            _vertexLayout = _packet.CreateScoped<IVertexLayout<PositionNormalUvtidVertex>>();
+            _renderer3D = _packet.CreateScoped<IRenderer3D<PositionNormalUvtidVertex>>();
+            _shader = _packet.CreateScoped<IShader>();
+            _framebuffer = _packet.CreateScoped<IFramebuffer>();
+            _shader.LoadSource("", "");
+        }
+
         public Vector3 Translation
         {
             get => _translation;
@@ -28,12 +53,13 @@ namespace Fluint.Engine.GL46
             get => _rotation;
             set
             {
-               _viewMatrix = Matrix.Scaling(_scale) * Matrix.RotationQuaternion(value) * Matrix.Translation(_translation);
+                _viewMatrix = Matrix.Scaling(_scale) * Matrix.RotationQuaternion(value) *
+                              Matrix.Translation(_translation);
             }
         }
 
         public Vector3 Scale
-        { 
+        {
             get => _scale;
             set
             {
@@ -61,42 +87,24 @@ namespace Fluint.Engine.GL46
                 switch (ProjectionMode)
                 {
                     case ProjectionMode.Orthogonal:
-                        _projectionMatrix = Matrix.OrthoRH(_viewport.Width, _viewport.Height, _viewport.MinDepth, _viewport.MaxDepth);
+                        _projectionMatrix = Matrix.OrthoRH(_viewport.Width, _viewport.Height, _viewport.MinDepth,
+                            _viewport.MaxDepth);
                         break;
                     case ProjectionMode.Prespective:
-                        _projectionMatrix = Matrix.PerspectiveRH(_viewport.Width, _viewport.Height, _viewport.MinDepth, _viewport.MaxDepth);
+                        _projectionMatrix = Matrix.PerspectiveRH(_viewport.Width, _viewport.Height, _viewport.MinDepth,
+                            _viewport.MaxDepth);
                         break;
                 }
             }
         }
 
-        public ProjectionMode ProjectionMode { get; set; } = ProjectionMode.Prespective;
-
-        public IFramebuffer Framebuffer => throw new System.NotImplementedException();
-        private Matrix _viewMatrix = Matrix.Identity;
-        private Matrix _projectionMatrix = Matrix.Identity;
-        private Vector3 _translation = new Vector3(0);
-        private Quaternion _rotation = Quaternion.Identity;
-        private Vector3 _scale = new Vector3(1);
-        private Viewport _viewport;
-        private IFramebuffer _framebuffer;
-
-        private readonly ModulePacket _packet;
-
-        private readonly IRenderer3D<PositionNormalUVTIDVertex> _renderer3D;
-        private readonly IShader _shader;
-        private readonly IVertexLayout<PositionNormalUVTIDVertex> _vertexLayout;
-
-        // initialization my man 😎
-        public Camera(ModulePacket packet)
+        public ProjectionMode ProjectionMode
         {
-            _packet = packet;
-            _vertexLayout = _packet.CreateScoped<IVertexLayout<PositionNormalUVTIDVertex>>();
-            _renderer3D = _packet.CreateScoped<IRenderer3D<PositionNormalUVTIDVertex>>();
-            _shader = _packet.CreateScoped<IShader>();
-            _framebuffer = _packet.CreateScoped<IFramebuffer>();
-            _shader.LoadSource("", "");
-        }
+            get;
+            set;
+        } = ProjectionMode.Prespective;
+
+        public IFramebuffer Framebuffer => throw new NotImplementedException();
 
         public void Submit(IScene scene)
         {

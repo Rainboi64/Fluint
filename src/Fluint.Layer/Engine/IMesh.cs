@@ -4,11 +4,8 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using Fluint.Layer.Graphics;
-using Fluint.Layer.Mathematics;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Fluint.Layer.Graphics;
 
 namespace Fluint.Layer.Engine
 {
@@ -20,7 +17,16 @@ namespace Fluint.Layer.Engine
     /// <typeparam name="VertexType"></typeparam>
     public interface IMesh : IRenderComponent, ISceneObject, IModule
     {
-        IEnumerable<PositionNormalUVTIDVertex> VertexArray { get; set; }
-        IEnumerable<uint> IndexArray { get; set; }
+        IEnumerable<PositionNormalUvtidVertex> VertexArray
+        {
+            get;
+            set;
+        }
+
+        IEnumerable<uint> IndexArray
+        {
+            get;
+            set;
+        }
     }
 }

@@ -6,15 +6,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Fluint.Layer.DependencyInjection
 {
     public class ModuleCollection
     {
+        private readonly List<Type> _instances = new();
         private readonly Dictionary<Type, Type> _mappings = new();
         private readonly Dictionary<Type, Type> _singletonMappings = new();
-        private readonly List<Type> _instances = new();
 
         public ModulePacket GenerateModulePacket(IRuntime runtime)
         {
@@ -36,28 +35,28 @@ namespace Fluint.Layer.DependencyInjection
             _instances.Add(instanced);
         }
 
-        public void MapScoped<Abstraction, Implementation>()
-            where Abstraction : IModule
-            where Implementation : IModule
+        public void MapScoped<TAbstraction, TImplementation>()
+            where TAbstraction : IModule
+            where TImplementation : IModule
         {
-            var abstractionType = typeof(Abstraction);
-            var implementationType = typeof(Implementation);
+            var abstractionType = typeof(TAbstraction);
+            var implementationType = typeof(TImplementation);
             MapScoped(abstractionType, implementationType);
         }
 
-        public void MapSingleton<Abstraction, Implementation>()
-            where Abstraction : IModule
-            where Implementation : IModule
+        public void MapSingleton<TAbstraction, TImplementation>()
+            where TAbstraction : IModule
+            where TImplementation : IModule
         {
-            var abstractionType = typeof(Abstraction);
-            var implementationType = typeof(Implementation);
+            var abstractionType = typeof(TAbstraction);
+            var implementationType = typeof(TImplementation);
             MapSingleton(abstractionType, implementationType);
         }
-        public void AddInstanced<InstancedType>()
+
+        public void AddInstanced<TInstancedType>()
         {
-            var instancedType = typeof(InstancedType);
+            var instancedType = typeof(TInstancedType);
             AddInstanced(instancedType);
         }
-
     }
 }

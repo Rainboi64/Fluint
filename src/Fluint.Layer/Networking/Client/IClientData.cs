@@ -12,11 +12,17 @@ namespace Fluint.Layer.Networking.Client
         /// <summary>
         /// The username of the client.
         /// </summary>
-        string Username { get; }
+        string Username
+        {
+            get;
+        }
 
         /// <summary>
         /// The Identifying ID of the client.
         /// </summary>
-        int GUID { get; }
+        int Guid
+        {
+            get;
+        }
     }
 }

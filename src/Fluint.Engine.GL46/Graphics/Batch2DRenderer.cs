@@ -5,8 +5,6 @@
 //
 
 using System;
-using OpenTK;
-using OpenTK.Graphics.OpenGL4;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
 
@@ -14,10 +12,10 @@ namespace Fluint.Engine.GL46.Graphics.Renderers
 {
     public struct VertexData2D
     {
-       public Vector3 Vector;
-       public Vector4 Color;
-       public Vector2 UV;
-       public float TID;
+        public Vector3 Vector;
+        public Vector4 Color;
+        public Vector2 Uv;
+        public float Tid;
     }
 
     public class Batch2DRenderer : IRenderer2D

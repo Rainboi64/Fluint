@@ -5,9 +5,6 @@
 //
 
 using Fluint.Layer.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fluint.Layer.Engine
 {
@@ -17,14 +14,18 @@ namespace Fluint.Layer.Engine
     public interface IRenderComponent
     {
         /// <summary>
+        /// the defualt material for the component.
+        /// </summary>
+        Material Material
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// This functions is used to render the component.
         /// please don't call outside the renderer....
         /// </summary>
-        IRenderable3D<PositionNormalUVTIDVertex> Load();
-
-        /// <summary>
-        /// the defualt material for the component.
-        /// </summary>
-        Material Material { get; set; }
+        IRenderable3D<PositionNormalUvtidVertex> Load();
     }
 }

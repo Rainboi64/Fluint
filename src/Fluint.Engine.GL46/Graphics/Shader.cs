@@ -19,6 +19,9 @@ namespace Fluint.Engine.GL46.Graphics
     {
         private readonly Dictionary<string, int> _nameLocationCache;
 
+        // Dispose Code
+        private bool _disposedValue;
+
         private int _handle;
 
         public Shader()
@@ -55,22 +58,8 @@ namespace Fluint.Engine.GL46.Graphics
         }
 
         public void Disable()
-        {   
-            GL.UseProgram(0);
-        }
-
-        // last implementation was cursed. I seroiusly don't know what the fuccc
-        public int GetUniformLocation(string Name)
         {
-            // If address isn't in cache. add it and return.
-            if (!_nameLocationCache.ContainsKey(Name))
-            {
-                var value = GL.GetUniformLocation(_handle, Name);
-                _nameLocationCache.Add(Name, value);
-                return value;
-            } 
-            // otherwise just return cached
-            return _nameLocationCache[Name];
+            GL.UseProgram(0);
         }
 
         public void LoadSource(string vertexShaderSource, string pixelShaderSource)
@@ -107,93 +96,6 @@ namespace Fluint.Engine.GL46.Graphics
             GL.DetachShader(_handle, fragmentShader);
             GL.DeleteShader(fragmentShader);
             GL.DeleteShader(vertexShader);
-        }
-
-        public void Uniform1(string Name, int a)
-        {
-            GL.Uniform1(GetUniformLocation(Name), a);
-        }
-
-        public void Uniform1(string Name, float a)
-        {
-            GL.Uniform1(GetUniformLocation(Name), a);
-        }
-
-        public void Uniform1(string Name, double a)
-        {
-            GL.Uniform1(GetUniformLocation(Name), a);
-        }
-
-        public void Uniform2(string name, double a, double b)
-        {
-            GL.Uniform2(GetUniformLocation(name), a, b);
-        }
-
-        public void Uniform2(string name, int a, int b)
-        {
-            GL.Uniform2(GetUniformLocation(name), a, b);
-        }
-
-        public void Uniform2(string name, float a, float b)
-        {
-            GL.Uniform2(GetUniformLocation(name), a, b);
-        }
-
-        public void Uniform2(string name, Vector2 a)
-        {
-            GL.Uniform2(GetUniformLocation(name), OpenTKHelper.Vector2(a));
-        }
-
-        public void Uniform3(string name, int a, int b, int c)
-        {
-            GL.Uniform3(GetUniformLocation(name), a, b, c);
-        }
-
-        public void Uniform3(string name, double a, double b, double c)
-        {
-            GL.Uniform3(GetUniformLocation(name), a, b, c);
-        }
-
-        public void Uniform3(string name, float a, float b, float c)
-        {
-            GL.Uniform3(GetUniformLocation(name), a, b, c);
-        }
-
-        public void Uniform3(string name, Vector3 a)
-        {
-            GL.Uniform3(GetUniformLocation(name), OpenTKHelper.Vector3(a));
-        }
-
-        public void Uniform4(string name, int a, int b, int c, int d)
-        {
-            GL.Uniform4(GetUniformLocation(name), a, b, c, d);
-        }
-
-        public void Uniform4(string name, double a, double b, double c, double d)
-        {
-            GL.Uniform4(GetUniformLocation(name), a, b, c, d);
-        }
-
-        public void Uniform4(string name, float a, float b, float c, float d)
-        {
-            GL.Uniform4(GetUniformLocation(name), a, b, c, d);
-        }
-
-        public void Uniform4(string name, Vector4 a)
-        {
-            GL.Uniform4(GetUniformLocation(name), OpenTKHelper.Vector4(a));
-        }
-
-        public void UniformMat3(string Name, Matrix3x3 a, bool Transpose = true)
-        {
-            var matrix = OpenTKHelper.Matrix3(a);
-            GL.UniformMatrix3(GetUniformLocation(Name), Transpose, ref matrix);
-        }
-
-        public void UniformMat4(string Name, Matrix a, bool Transpose = true)
-        {
-            var matrix = OpenTKHelper.Matrix4(a);
-            GL.UniformMatrix4(GetUniformLocation(Name), Transpose, ref matrix);
         }
 
         public void SetModelMatrix(Matrix matrix)
@@ -257,8 +159,107 @@ namespace Fluint.Engine.GL46.Graphics
             }
         }
 
-        // Dispose Code
-        private bool _disposedValue;
+        // last implementation was cursed. I seroiusly don't know what the fuccc
+        public int GetUniformLocation(string name)
+        {
+            // If address isn't in cache. add it and return.
+            if (!_nameLocationCache.ContainsKey(name))
+            {
+                var value = GL.GetUniformLocation(_handle, name);
+                _nameLocationCache.Add(name, value);
+                return value;
+            }
+
+            // otherwise just return cached
+            return _nameLocationCache[name];
+        }
+
+        public void Uniform1(string name, int a)
+        {
+            GL.Uniform1(GetUniformLocation(name), a);
+        }
+
+        public void Uniform1(string name, float a)
+        {
+            GL.Uniform1(GetUniformLocation(name), a);
+        }
+
+        public void Uniform1(string name, double a)
+        {
+            GL.Uniform1(GetUniformLocation(name), a);
+        }
+
+        public void Uniform2(string name, double a, double b)
+        {
+            GL.Uniform2(GetUniformLocation(name), a, b);
+        }
+
+        public void Uniform2(string name, int a, int b)
+        {
+            GL.Uniform2(GetUniformLocation(name), a, b);
+        }
+
+        public void Uniform2(string name, float a, float b)
+        {
+            GL.Uniform2(GetUniformLocation(name), a, b);
+        }
+
+        public void Uniform2(string name, Vector2 a)
+        {
+            GL.Uniform2(GetUniformLocation(name), OpenTkHelper.Vector2(a));
+        }
+
+        public void Uniform3(string name, int a, int b, int c)
+        {
+            GL.Uniform3(GetUniformLocation(name), a, b, c);
+        }
+
+        public void Uniform3(string name, double a, double b, double c)
+        {
+            GL.Uniform3(GetUniformLocation(name), a, b, c);
+        }
+
+        public void Uniform3(string name, float a, float b, float c)
+        {
+            GL.Uniform3(GetUniformLocation(name), a, b, c);
+        }
+
+        public void Uniform3(string name, Vector3 a)
+        {
+            GL.Uniform3(GetUniformLocation(name), OpenTkHelper.Vector3(a));
+        }
+
+        public void Uniform4(string name, int a, int b, int c, int d)
+        {
+            GL.Uniform4(GetUniformLocation(name), a, b, c, d);
+        }
+
+        public void Uniform4(string name, double a, double b, double c, double d)
+        {
+            GL.Uniform4(GetUniformLocation(name), a, b, c, d);
+        }
+
+        public void Uniform4(string name, float a, float b, float c, float d)
+        {
+            GL.Uniform4(GetUniformLocation(name), a, b, c, d);
+        }
+
+        public void Uniform4(string name, Vector4 a)
+        {
+            GL.Uniform4(GetUniformLocation(name), OpenTkHelper.Vector4(a));
+        }
+
+        public void UniformMat3(string name, Matrix3x3 a, bool transpose = true)
+        {
+            var matrix = OpenTkHelper.Matrix3(a);
+            GL.UniformMatrix3(GetUniformLocation(name), transpose, ref matrix);
+        }
+
+        public void UniformMat4(string name, Matrix a, bool transpose = true)
+        {
+            var matrix = OpenTkHelper.Matrix4(a);
+            GL.UniformMatrix4(GetUniformLocation(name), transpose, ref matrix);
+        }
 
         protected virtual void Dispose(bool disposing)
         {

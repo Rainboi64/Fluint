@@ -6,9 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
@@ -18,15 +15,40 @@ namespace Fluint.Layer.Windowing
     [Initialization(InitializationMethod.Scoped)]
     public interface IWindow : IModule
     {
-        public IInputManager InputManager { get; }
+        public IInputManager InputManager
+        {
+            get;
+        }
 
-        public ICollection<IGuiComponent> Controls { get; }
+        public ICollection<IGuiComponent> Controls
+        {
+            get;
+        }
 
-        public string Title { get; set; }
-        public Vector2i Size { get; set; }
-        public Vector2i Location { get; set; }
+        public string Title
+        {
+            get;
+            set;
+        }
 
-        public bool VSync { get; set; }
+        public Vector2i Size
+        {
+            get;
+            set;
+        }
+
+        public Vector2i Location
+        {
+            get;
+            set;
+        }
+
+        public bool VSync
+        {
+            get;
+            set;
+        }
+
         public void OnLoad();
         public void OnRender(double delay);
         public void OnUpdate(double delay);
@@ -35,7 +57,7 @@ namespace Fluint.Layer.Windowing
         public void OnTextReceived(int unicode, string data);
         public void OnResize(int width, int height);
 
-        public void AdoptGhost<Ghost>() where Ghost : IGhost;
+        public void AdoptGhost<TGhost>() where TGhost : IGhost;
 
         /// <summary>
         /// to be used to render on frames.

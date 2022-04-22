@@ -3,7 +3,7 @@ using Fluint.Layer.Runtime;
 
 namespace Fluint.Layer.SDK
 {
-    public class SDKInstance : IRuntime
+    public class SdkInstance : IRuntime
     {
         public void Create(int id, StartupManifest manifest, ModulePacket packet, InstanceManager parent)
         {
@@ -13,11 +13,29 @@ namespace Fluint.Layer.SDK
             Manifest = manifest;
         }
 
-        public int Id { get; private set; }
+        public int Id
+        {
+            get;
+            private set;
+        }
 
-        public InstanceManager Parent { get; private set; }
-        public StartupManifest Manifest { get; private set; }
-        public ModulePacket Packet { get; private set; }
+        public InstanceManager Parent
+        {
+            get;
+            private set;
+        }
+
+        public StartupManifest Manifest
+        {
+            get;
+            private set;
+        }
+
+        public ModulePacket Packet
+        {
+            get;
+            private set;
+        }
 
         public void Start()
         {
@@ -26,7 +44,6 @@ namespace Fluint.Layer.SDK
 
         public void Kill()
         {
-
         }
     }
 }

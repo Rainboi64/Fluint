@@ -8,9 +8,9 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Fluint.Layer;
+using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.Runtime;
 using Fluint.Layer.SDK;
-using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Runtime
 {
@@ -43,21 +43,21 @@ namespace Fluint.Runtime
 
             var moduleDirectiory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "base");
 
-            ConsoleHelper.WriteEmbeddedColorLine($"Good {timeName} [blue]{username}[/blue] Welcome to [red]Fluint[/red].\nKickstarting module directory [green]\"{moduleDirectiory}\"[/green]");
-            
+            ConsoleHelper.WriteEmbeddedColorLine(
+                $"Good {timeName} [blue]{username}[/blue] Welcome to [red]Fluint[/red].\nKickstarting module directory [green]\"{moduleDirectiory}\"[/green]");
+
             var manifest = new StartupManifest(args, moduleDirectiory);
             var manager = new InstanceManager(manifest);
 
             manager.CreateInstance<FluintInstance>();
 
             // Create an SDK attached to the fluint instance.
-            Task.Run(() => 
-            {
-                var sdk = new SDKInstance();
-                sdk.Create(1, manifest, manager.Instances[0].Packet, null);    
+            Task.Run(() => {
+                var sdk = new SdkInstance();
+                sdk.Create(1, manifest, manager.Instances[0].Packet, null);
                 sdk.Start();
             });
-            
+
             manager.StartAll();
         }
     }

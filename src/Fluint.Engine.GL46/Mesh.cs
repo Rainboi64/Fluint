@@ -4,13 +4,10 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Engine;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fluint.Engine.GL46
 {
@@ -19,38 +16,12 @@ namespace Fluint.Engine.GL46
     /// </summary>
     public class Mesh
     {
-        public IEnumerable<PositionNormalUVTIDVertex> VertexArray
-        {
-            get => _vertexArray;
-            set
-            {
-                _vertexArray = (PositionNormalUVTIDVertex[])value;
-                Cache();
-            }
-        }
-        public IEnumerable<uint> IndexArray
-        {
-            get => _indexArray; set
-            { 
-                _indexArray = (uint[])value;
-                Cache();
-            }
-        }
-        public Material Material {
-            get => _material;
-            set
-            {
-                _material = value;
-                Cache();
-            }
-        }
-
-        private IRenderable3D<PositionNormalUVTIDVertex> _cachedRenderable3D;
-
         private readonly ModulePacket _packet;
-        private Material _material;
-        private PositionNormalUVTIDVertex[] _vertexArray;
+
+        private IRenderable3D<PositionNormalUvtidVertex> _cachedRenderable3D;
         private uint[] _indexArray;
+        private Material _material;
+        private PositionNormalUvtidVertex[] _vertexArray;
 
         public Mesh(ModulePacket packet)
         {
@@ -59,11 +30,40 @@ namespace Fluint.Engine.GL46
             Cache();
         }
 
+        public IEnumerable<PositionNormalUvtidVertex> VertexArray
+        {
+            get => _vertexArray;
+            set
+            {
+                _vertexArray = (PositionNormalUvtidVertex[])value;
+                Cache();
+            }
+        }
+
+        public IEnumerable<uint> IndexArray
+        {
+            get => _indexArray;
+            set
+            {
+                _indexArray = (uint[])value;
+                Cache();
+            }
+        }
+
+        public Material Material
+        {
+            get => _material;
+            set
+            {
+                _material = value;
+                Cache();
+            }
+        }
+
         private ShaderPacket CreatePacket(Material material)
         {
             // this is one thicc boi
-            var packet = new List<ShaderObject>
-            {
+            var packet = new List<ShaderObject> {
                 new ShaderObject(ShaderObjectType.Texture, material.Diffuse, "diffuse_map"),
                 new ShaderObject(ShaderObjectType.Texture, material.Specular, "specular_map"),
                 new ShaderObject(ShaderObjectType.Texture, material.Ambient, "ambient_map"),
@@ -89,14 +89,14 @@ namespace Fluint.Engine.GL46
 
         private void Cache()
         {
-            _cachedRenderable3D = _packet.CreateScoped<IRenderable3D<PositionNormalUVTIDVertex>>();
+            _cachedRenderable3D = _packet.CreateScoped<IRenderable3D<PositionNormalUvtidVertex>>();
             _cachedRenderable3D.Packet = CreatePacket(_material);
             _cachedRenderable3D.Indices = _indexArray;
             _cachedRenderable3D.Vertices = _vertexArray;
             _cachedRenderable3D.ModelMatrix = Matrix.Identity;
         }
 
-        public IRenderable3D<PositionNormalUVTIDVertex> Load()
+        public IRenderable3D<PositionNormalUvtidVertex> Load()
         {
             return _cachedRenderable3D;
         }

@@ -5,20 +5,22 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
     public interface IBindingContext : IModule, IDisposable
     {
+        object NativeContext
+        {
+            get;
+        }
+
         void InitializeContext(BindingContextSettings settings);
-        void Resize(int Width, int Height);
+        void Resize(int width, int height);
         void PreRender();
         void PostRender();
         void MakeCurrent();
         void SwapBuffers();
-        object NativeContext { get; }
     }
 }

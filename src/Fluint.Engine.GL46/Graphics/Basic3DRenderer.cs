@@ -4,28 +4,37 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using OpenTK.Graphics.OpenGL4;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
+using OpenTK.Graphics.OpenGL4;
 
 namespace Fluint.Engine.GL46.Graphics
 {
-    public class Basic3DRenderer<VertexType> : IRenderer3D<VertexType> where VertexType : struct
+    public class Basic3DRenderer<TVertexType> : IRenderer3D<TVertexType> where TVertexType : struct
     {
-        private Renderable3D<VertexType>[] _renderables;
-        private IVertexLayout<VertexType> _layout;
+        private IVertexLayout<TVertexType> _layout;
+        private Matrix _projectionMatrix = Matrix.Identity;
+        private Renderable3D<TVertexType>[] _renderables;
         private IShader _shader;
         private Matrix _viewMatrix = Matrix.Identity;
-        private Matrix _projectionMatrix = Matrix.Identity;
 
-        public Matrix ViewMatrix { get => _viewMatrix; set => _viewMatrix = value; }
-        public Matrix ProjectionMatrix { get => _projectionMatrix; set => _projectionMatrix = value; }
+        public Matrix ViewMatrix
+        {
+            get => _viewMatrix;
+            set => _viewMatrix = value;
+        }
+
+        public Matrix ProjectionMatrix
+        {
+            get => _projectionMatrix;
+            set => _projectionMatrix = value;
+        }
 
         public void Load()
         {
         }
 
-        public void Begin(IVertexLayout<VertexType> layout, IShader shader)
+        public void Begin(IVertexLayout<TVertexType> layout, IShader shader)
         {
             _shader = shader;
             _layout = layout;
@@ -39,7 +48,7 @@ namespace Fluint.Engine.GL46.Graphics
         public void Flush()
         {
             _shader.Enable();
- 
+
             _shader.SetViewMatrix(_viewMatrix);
             _shader.SetProjectionMatrix(_projectionMatrix);
 
@@ -61,13 +70,13 @@ namespace Fluint.Engine.GL46.Graphics
         /// <summary>
         /// Submits Renderables
         /// </summary>
-        public void Submit(IRenderable3D<VertexType> renderable)
+        public void Submit(IRenderable3D<TVertexType> renderable)
         {
             // array concatenation
             var length = _renderables.Length;
 
             // create new array
-            var newRenderables = new Renderable3D<VertexType>[length + 1];
+            var newRenderables = new Renderable3D<TVertexType>[length + 1];
 
             // copy old values
             newRenderables.CopyTo(_renderables, 0);

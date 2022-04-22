@@ -9,13 +9,15 @@ using System.Text.RegularExpressions;
 
 namespace Fluint.Layer.Miscellaneous
 {
-
     /// <summary>
     /// Shameless steal!
     /// https://gist.github.com/RickStrahl/52c9ee43bd2723bcdf7bf4d24b029768
     /// </summary>
     public class ConsoleHelper
     {
+        private static readonly Lazy<Regex> ColorBlockRegEx = new(
+            () => new Regex("\\[(?<color>.*?)\\](?<text>[^[]*)\\[/\\k<color>\\]", RegexOptions.IgnoreCase),
+            isThreadSafe: true);
 
         /// <summary>
         /// WriteLine with color
@@ -26,7 +28,7 @@ namespace Fluint.Layer.Miscellaneous
         {
             if (color.HasValue)
             {
-                var oldColor = System.Console.ForegroundColor;
+                var oldColor = Console.ForegroundColor;
                 if (color == oldColor)
                     Console.WriteLine(text);
                 else
@@ -72,7 +74,7 @@ namespace Fluint.Layer.Miscellaneous
         {
             if (color.HasValue)
             {
-                var oldColor = System.Console.ForegroundColor;
+                var oldColor = Console.ForegroundColor;
                 if (color == oldColor)
                     Console.Write(text);
                 else
@@ -121,9 +123,9 @@ namespace Fluint.Layer.Miscellaneous
         /// <param name="headerColor">Color for header text (yellow)</param>
         /// <param name="dashColor">Color for dashes (gray)</param>
         public static void WriteWrappedHeader(string headerText,
-                                                char wrapperChar = '-',
-                                                ConsoleColor headerColor = ConsoleColor.Yellow,
-                                                ConsoleColor dashColor = ConsoleColor.DarkGray)
+            char wrapperChar = '-',
+            ConsoleColor headerColor = ConsoleColor.Yellow,
+            ConsoleColor dashColor = ConsoleColor.DarkGray)
         {
             if (string.IsNullOrEmpty(headerText))
                 return;
@@ -134,10 +136,6 @@ namespace Fluint.Layer.Miscellaneous
             WriteLine(headerText, headerColor);
             WriteLine(line, dashColor);
         }
-
-        private static readonly Lazy<Regex> colorBlockRegEx = new Lazy<Regex>(
-            () => new Regex("\\[(?<color>.*?)\\](?<text>[^[]*)\\[/\\k<color>\\]", RegexOptions.IgnoreCase),
-            isThreadSafe: true);
 
         /// <summary>
         /// Allows a string to be written with embedded color values using:
@@ -166,7 +164,7 @@ namespace Fluint.Layer.Miscellaneous
 
             while (true)
             {
-                var match = colorBlockRegEx.Value.Match(text);
+                var match = ColorBlockRegEx.Value.Match(text);
                 if (match.Length < 1)
                 {
                     Write(text, baseTextColor);

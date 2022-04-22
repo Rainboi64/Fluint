@@ -33,10 +33,10 @@ namespace Fluint.Implementation.Configuration
             }
             else if(FileExists(typeof(T)))
             {
-                var jsonData = File.ReadAllText(GenerateTypeLocation(typeof(T)));
-                var obj = JsonConvert.DeserializeObject<T>(jsonData, new Newtonsoft.Json.Converters.StringEnumConverter());
-                _configs.Add(obj);
-                return obj;
+               var jsonData = File.ReadAllText(GenerateTypeLocation(typeof(T)));
+               var obj = JsonConvert.DeserializeObject<T>(jsonData, new Newtonsoft.Json.Converters.StringEnumConverter());
+               _configs.Add(obj);
+               return obj;
             }
             else
             {

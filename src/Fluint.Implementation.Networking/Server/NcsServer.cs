@@ -10,6 +10,7 @@
  * @desc Created on 2020-12-11 7:50:07 pm
  * @copyright Panic Factory (C) 2020 
  */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,31 +26,36 @@ namespace Fluint.Implementation.Networking.Server
 {
     internal class NcsServer : TcpServer
     {
-        public event EventHandler<ClientConnectedEventArgs> ClientConnected;
-        public event EventHandler<ClientDisconnectedEventArgs> ClientDisconnected;
         // public event EventHandler<ClientSentDataEventArgs> ClientSentData;
 
         private readonly ILogger _logger;
         private readonly List<NetworkPacket> _packetsToSend = new List<NetworkPacket>();
         private readonly IEnumerable<IServerTask> _tasks;
 
-        public NcsServer(IPAddress address, int port, IEnumerable<IServerTask> tasks, ILogger logger) : base(address, port)
+        public NcsServer(IPAddress address, int port, IEnumerable<IServerTask> tasks, ILogger logger) : base(address,
+            port)
         {
             _logger = logger;
             _tasks = tasks;
         }
 
-        protected override TcpSession CreateSession() { return new ServerTcpSession(this); }
+        public event EventHandler<ClientConnectedEventArgs> ClientConnected;
+        public event EventHandler<ClientDisconnectedEventArgs> ClientDisconnected;
+
+        protected override TcpSession CreateSession()
+        {
+            return new ServerTcpSession(this);
+        }
 
         protected override void OnConnected(TcpSession session)
         {
-            _logger.Error($"[INTERNAL] Connection established with client GUID #{ session.Id }.");
+            _logger.Error($"[INTERNAL] Connection established with client GUID #{session.Id}.");
             base.OnConnected(session);
         }
 
         protected override void OnStarted()
         {
-            _logger.Error($"[INTERNAL] Internal Server with GUID #{ this.Id } started.");
+            _logger.Error($"[INTERNAL] Internal Server with GUID #{this.Id} started.");
             base.OnStarted();
         }
 
@@ -65,7 +71,7 @@ namespace Fluint.Implementation.Networking.Server
                 var session = (ServerTcpSession)sessionPair.Value;
                 foreach (var packet in session.PacketsReceived)
                 {
-                    foreach (var task in _tasks.Where(x => x.TaskID == packet.Task))
+                    foreach (var task in _tasks.Where(x => x.TaskId == packet.Task))
                     {
                         var taskHelper = new ServerTaskHelper();
                         taskHelper.ClientConnected += ClientConnected;
@@ -74,7 +80,6 @@ namespace Fluint.Implementation.Networking.Server
                         task.Do(ref iTaskHelper);
                         _packetsToSend.AddRange(iTaskHelper.PacketsToMultiCast);
                     }
-
                 }
 
                 foreach (var packet in _packetsToSend)
@@ -84,5 +89,4 @@ namespace Fluint.Implementation.Networking.Server
             }
         }
     }
-
 }

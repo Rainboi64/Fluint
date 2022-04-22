@@ -95,6 +95,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Engine.GL", "src\Fluint.Engine.GL\Fluint.Engine.GL.csproj", "{A91A6563-22C0-49D8-B71A-BB34B342204F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug With Modules Setup|Any CPU = Debug With Modules Setup|Any CPU
@@ -783,6 +785,30 @@ Global
 		{8AAC67D2-59C9-40A9-801D-7B30441024C3}.Release|x64.Build.0 = Release|Any CPU
 		{8AAC67D2-59C9-40A9-801D-7B30441024C3}.Release|x86.ActiveCfg = Release|Any CPU
 		{8AAC67D2-59C9-40A9-801D-7B30441024C3}.Release|x86.Build.0 = Release|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug With Modules Setup|Any CPU.ActiveCfg = Debug With Modules Setup|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug With Modules Setup|Any CPU.Build.0 = Debug With Modules Setup|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug With Modules Setup|x64.ActiveCfg = Debug With Modules Setup|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug With Modules Setup|x64.Build.0 = Debug With Modules Setup|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug With Modules Setup|x86.ActiveCfg = Debug With Modules Setup|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug With Modules Setup|x86.Build.0 = Debug With Modules Setup|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug|x64.ActiveCfg = Debug|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug|x64.Build.0 = Debug|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug|x86.ActiveCfg = Debug|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Debug|x86.Build.0 = Debug|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release With Modules Setup|Any CPU.ActiveCfg = Release With Modules Setup|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release With Modules Setup|Any CPU.Build.0 = Release With Modules Setup|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release With Modules Setup|x64.ActiveCfg = Release With Modules Setup|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release With Modules Setup|x64.Build.0 = Release With Modules Setup|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release With Modules Setup|x86.ActiveCfg = Release With Modules Setup|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release With Modules Setup|x86.Build.0 = Release With Modules Setup|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x64.ActiveCfg = Release|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x64.Build.0 = Release|x64
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x86.ActiveCfg = Release|x86
+		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -814,6 +840,7 @@ Global
 		{E7BA4B81-95BE-435D-A872-5C75BD9A4E9F} = {B9E73B85-FC70-491D-AE3F-75D488D92425}
 		{B0C5FBE6-BEE7-4F67-8667-12E65F342FD3} = {30AF5CF4-9DEC-4D16-9CA9-F26E40412BC8}
 		{8AAC67D2-59C9-40A9-801D-7B30441024C3} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
+		{A91A6563-22C0-49D8-B71A-BB34B342204F} = {6F2AE0B1-9C7D-4B2E-ADEC-E858052CD406}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {448C7179-E7AE-4470-97E2-A32117E7168A}

@@ -4,23 +4,23 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Engine;
-using Fluint.Layer.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Engine;
+using Fluint.Layer.IO;
 
 namespace Fluint.Implementation.IO
 {
-    public class IOManager : IIOManager
+    public class IoManager : IIoManager
     {
-        private readonly ModulePacket _packet;
         private readonly List<IExporter> _exporters;
         private readonly List<IImporter> _importers;
+        private readonly ModulePacket _packet;
 
-        public IOManager(ModulePacket packet)
+        public IoManager(ModulePacket packet)
         {
             _packet = packet;
             _exporters = (List<IExporter>)_packet.GetInstances().OfType<IExporter>();
@@ -55,6 +55,7 @@ namespace Fluint.Implementation.IO
                     return importer.Import(fileName);
                 }
             }
+
             throw new ArgumentException($"could not import file type: {format}");
         }
 
@@ -65,6 +66,7 @@ namespace Fluint.Implementation.IO
             {
                 formats.AddRange(exporter.FileExtenstions);
             }
+
             return formats.ToArray();
         }
 
@@ -75,6 +77,7 @@ namespace Fluint.Implementation.IO
             {
                 formats.AddRange(importer.FileExtenstions);
             }
+
             return formats.ToArray();
         }
     }
