@@ -30,13 +30,13 @@ namespace Fluint.Layer.Runtime
 
         public void Start()
         {
-            _logger.Information("[{0}:{1}] Starting Instance", "Fluint", Id);
-            _logger.Information("[{0}:{1}] OS: Description - {@OSDescription}", "Fluint", Id, RuntimeInformation.OSDescription);
-            _logger.Information("[{0}:{1}] OS: Architecture - {@OSArchitecture}", "Fluint", Id, RuntimeInformation.OSArchitecture);
+            _logger.Debug("[{0}:{1}] Starting Instance", "Fluint", Id);
+            _logger.Debug("[{0}:{1}] OS: Description - {@OSDescription}", "Fluint", Id, RuntimeInformation.OSDescription);
+            _logger.Debug("[{0}:{1}] OS: Architecture - {@OSArchitecture}", "Fluint", Id, RuntimeInformation.OSArchitecture);
 
-            _logger.Information("[{0}:{1}] .NET: Framework - {@FrameworkDescription}", "Fluint", Id, RuntimeInformation.FrameworkDescription);
-            _logger.Information("[{0}:{1}] .NET: Runtime Identifier - {@RuntimeIdentifier}", "Fluint", Id, RuntimeInformation.RuntimeIdentifier);
-            _logger.Information("[{0}:{1}] .NET: Process Architecture - {@ProcessArchitecture}", "Fluint", Id, RuntimeInformation.ProcessArchitecture);
+            _logger.Debug("[{0}:{1}] .NET: Framework - {@FrameworkDescription}", "Fluint", Id, RuntimeInformation.FrameworkDescription);
+            _logger.Debug("[{0}:{1}] .NET: Runtime Identifier - {@RuntimeIdentifier}", "Fluint", Id, RuntimeInformation.RuntimeIdentifier);
+            _logger.Debug("[{0}:{1}] .NET: Process Architecture - {@ProcessArchitecture}", "Fluint", Id, RuntimeInformation.ProcessArchitecture);
 
             TaskManager.Invoke(TaskSchedule.Startup, null);
             TaskManager.Invoke(TaskSchedule.Background, null);

@@ -80,6 +80,19 @@ namespace Fluint.Engine.GL46.ImGuiImpl
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
 
+            var style = ImGui.GetStyle();
+
+            style.WindowBorderSize = 1.0f;
+            style.PopupBorderSize = 0.0f;
+            style.FrameRounding = 0.0f;
+            style.PopupRounding = 0.0f;
+            style.WindowRounding = 0.0f;
+            style.ScrollbarRounding = 0.0f;
+            style.GrabRounding = 0.0f;
+            style.ChildBorderSize = 0.0f;
+            style.TabBorderSize = 2.0f;
+            style.AntiAliasedLinesUseTex = false;
+
             CreateDeviceResources();
             SetKeyMappings();
 
@@ -311,7 +324,7 @@ void main()
                     GL.NamedBufferData(_vertexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _vertexBufferSize = newSize;
 
-                    _logger.Information("[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost", _vertexBufferSize);
+                    _logger.Debug("[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost", _vertexBufferSize);
                 }
 
                 int indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
@@ -321,7 +334,7 @@ void main()
                     GL.NamedBufferData(_indexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _indexBufferSize = newSize;
 
-                    _logger.Information("[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost", _indexBufferSize);
+                    _logger.Debug("[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost", _indexBufferSize);
                 }
             }
 

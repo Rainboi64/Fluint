@@ -25,6 +25,7 @@ namespace Fluint.Implementation.Diagnostics
                 .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
+
             Log.Information("[{0}] Intialized Logger", "SerilogLogger");
         }
 

@@ -62,7 +62,7 @@ namespace Fluint.Engine.GL46
             }
             else
             {
-               _logger.Information("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
+               _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
             }
         }
     }
