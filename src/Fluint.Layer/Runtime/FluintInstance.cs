@@ -1,4 +1,6 @@
+using System.Runtime.InteropServices;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Tasks;
 
 namespace Fluint.Layer.Runtime
@@ -12,8 +14,11 @@ namespace Fluint.Layer.Runtime
             Id = id;
             Manifest = manifest;
 
+            _logger = Packet.GetSingleton<ILogger>();
             TaskManager = Packet.CreateScoped<ITaskManager>();
         }
+
+        private ILogger _logger;
 
         public int Id { get; private set; }
 
@@ -25,6 +30,14 @@ namespace Fluint.Layer.Runtime
 
         public void Start()
         {
+            _logger.Information("[{0}:{1}] Starting Instance", "Fluint", Id);
+            _logger.Information("[{0}:{1}] OS: Description - {@OSDescription}", "Fluint", Id, RuntimeInformation.OSDescription);
+            _logger.Information("[{0}:{1}] OS: Architecture - {@OSArchitecture}", "Fluint", Id, RuntimeInformation.OSArchitecture);
+
+            _logger.Information("[{0}:{1}] .NET: Framework - {@FrameworkDescription}", "Fluint", Id, RuntimeInformation.FrameworkDescription);
+            _logger.Information("[{0}:{1}] .NET: Runtime Identifier - {@RuntimeIdentifier}", "Fluint", Id, RuntimeInformation.RuntimeIdentifier);
+            _logger.Information("[{0}:{1}] .NET: Process Architecture - {@ProcessArchitecture}", "Fluint", Id, RuntimeInformation.ProcessArchitecture);
+
             TaskManager.Invoke(TaskSchedule.Startup, null);
             TaskManager.Invoke(TaskSchedule.Background, null);
         }
