@@ -20,10 +20,10 @@ namespace Fluint.Implementation.Diagnostics
                      Assembly.GetExecutingAssembly().Location);
 
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
+                .WriteTo.Console(theme: Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Literate)
                 .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
-            
+                
             Log.Information("[{0}] Intialized Logger", "SerilogLogger");
         }
 
