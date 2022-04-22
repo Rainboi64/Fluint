@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Configuration;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.Tasks;
 using Fluint.Layer.UI;
@@ -20,22 +21,25 @@ namespace Fluint.Engine.GL46.Windowing
 {
     public class GLWindowProvider : GameWindow, IWindowProvider
     {
-        public GLWindowProvider(ModulePacket packet, ILogger logger, ITaskManager taskManager) :
+        public GLWindowProvider(ModulePacket packet, ILogger logger, ITaskManager taskManager, IConfigurationManager configurationManager) :
             base(GameWindowSettings.Default, new NativeWindowSettings()
             {
                 Size = new OpenTK.Mathematics.Vector2i(1600, 900), APIVersion = new Version(4, 5)
             })
         {
-            VSync = VSyncMode.On;
             _packet = packet;
             _taskManager =taskManager;
             _logger = logger;
+            _configurationManager = configurationManager;
+
+            VSync = VSyncMode.On;            
             FrameQueue = new Queue<Action>();
         }
 
         private readonly ModulePacket _packet;
         private readonly ITaskManager _taskManager;
         private readonly ILogger _logger;
+        private readonly IConfigurationManager _configurationManager;
 
         public IWindow Client { get; private set; }
         
@@ -72,6 +76,9 @@ namespace Fluint.Engine.GL46.Windowing
 
         protected override void OnLoad()
         {
+            var config = _configurationManager.Get<WindowConfiguration>().VSync;
+            WindowVSync = config;
+
             _taskManager.Invoke(TaskSchedule.WindowReady, new TaskArgs(Client));
 
             Client.OnLoad();

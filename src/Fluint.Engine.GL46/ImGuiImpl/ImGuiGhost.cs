@@ -5,6 +5,7 @@
 //
 
 using System;
+using System.IO;
 using ImGuiNET;
 using Fluint.Layer.Windowing;
 using System.Runtime.CompilerServices;
@@ -15,16 +16,19 @@ using System.Collections.Generic;
 using Fluint.Layer.Input;
 using MouseButton = Fluint.Layer.Input.MouseButton;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Configuration;
 
 namespace Fluint.Engine.GL46.ImGuiImpl
 {
     public class ImGuiGhost : IGhost
     {
         private readonly ILogger _logger;
+        private readonly IConfigurationManager _configurationManager;
 
-        public ImGuiGhost(ILogger logger)
+        public ImGuiGhost(ILogger logger, IConfigurationManager configurationManager)
         {
             _logger = logger;
+            _configurationManager = configurationManager;
         }
 
         private IWindow _possessedWindow;
@@ -52,6 +56,8 @@ namespace Fluint.Engine.GL46.ImGuiImpl
 
         public void OnLoad()
         {
+            var config = _configurationManager.Get<ImGuiConfiguration>();
+
             _windowWidth = _possessedWindow.Size.X;
             _windowHeight = _possessedWindow.Size.Y;
 
@@ -60,7 +66,16 @@ namespace Fluint.Engine.GL46.ImGuiImpl
             ImGui.SetCurrentContext(context);
             var io = ImGui.GetIO();
 
-            io.Fonts.AddFontDefault();
+            // io.Fonts.AddFontDefault();
+            foreach(var font in config.Fonts)
+            {
+                if(!File.Exists(font.FontPath))
+                {
+                    _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiGhost", font.FontPath, font.FontSize);
+                }
+
+                io.Fonts.AddFontFromFileTTF(font.FontPath, font.FontSize);
+            }   
 
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;

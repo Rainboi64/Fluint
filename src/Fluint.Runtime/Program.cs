@@ -20,20 +20,20 @@ namespace Fluint.Runtime
         {
             if (time.TimeOfDay.TotalHours < 12)
             {
-                return "Morning";
+                return "morning";
             }
 
             if (time.TimeOfDay.TotalHours < 17)
             {
-                return "Afternoon";
+                return "afternoon";
             }
 
             if (time.TimeOfDay.TotalHours > 17)
             {
-                return "Evening";
+                return "evening";
             }
 
-            return "Day";
+            return "day";
         }
 
         static void Main(string[] args)
@@ -41,8 +41,9 @@ namespace Fluint.Runtime
             var timeName = GetTimeOfDayName(DateTime.Now);
             var username = Environment.UserName;
 
-            ConsoleHelper.WriteWrappedHeader($"Good {timeName} {username}! Kickstarting base");
             var moduleDirectiory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "base");
+
+            ConsoleHelper.WriteEmbeddedColorLine($"Good {timeName} [blue]{username}[/blue] Welcome to [red]Fluint[/red].\nKickstarting module directory [green]\"{moduleDirectiory}\"[/green]");
             
             var manifest = new StartupManifest(args, moduleDirectiory);
             var manager = new InstanceManager(manifest);

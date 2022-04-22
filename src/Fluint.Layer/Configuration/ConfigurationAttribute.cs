@@ -5,30 +5,23 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fluint.Layer.Configuration
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Class)]
     public class ConfigurationAttribute : Attribute
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public ConfigurationVisibility Visibility { get; set; }
-        public ConfigurationAttribute(string title, string description, ConfigurationVisibility visibility)
+        public string Location { get; set; }
+
+        public ConfigurationAttribute(string title, string description, string location)
         {
             Title = title;
             Description = description;
-            Visibility = visibility;
+            Location = location;
         }
-        public ConfigurationAttribute(string title, string description)
-        {
-            Title = title;
-            Description = description;
-            Visibility = ConfigurationVisibility.Visible;
-        }
+        public ConfigurationAttribute(string title, string description) : this(title, description, "") { }
+        public ConfigurationAttribute(string location) : this("", "", location) { }
     }
 }
