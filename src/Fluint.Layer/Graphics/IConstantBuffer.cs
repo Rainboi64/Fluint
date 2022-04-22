@@ -8,5 +8,6 @@ namespace Fluint.Layer.Graphics
 {
     public interface IConstantBuffer
     {
+        void UpdateBuffer<T>(T constants) where T : struct;
     }
 }

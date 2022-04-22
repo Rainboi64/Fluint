@@ -4,12 +4,12 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-
 namespace Fluint.Layer.Graphics
 {
-    public interface IIndexBuffer : IDisposable
+    public enum CullMode
     {
-        bool Is16Bit { get; }
+        None,
+        Front,
+        Back
     }
 }

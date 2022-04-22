@@ -6,7 +6,10 @@
 
 namespace Fluint.Layer.Graphics
 {
-    public class PrimitiveTopology
+    public enum PrimitiveTopology
     {
+        TriangleList,
+        LineList,
+        NotAssigned
     }
 }
