@@ -33,12 +33,11 @@ namespace Fluint.Engine.GL46
 
         public void Start(TaskArgs args)
         {
-
-            _logger.Information("[{0}] OpenGL Version: {1}", "OpenGL46", GL.GetString(StringName.Version));
-            _logger.Information("[{0}] Version: {1}", "OpenGL46", GL.GetString(StringName.ShadingLanguageVersion));
-            _logger.Information("[{0}] Renderer: {1}", "OpenGL46", GL.GetString(StringName.Renderer));
-            _logger.Information("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
-
+            _logger.Debug("[{0}] OpenGL Version: {1}", "OpenGL46", GL.GetString(StringName.Version));
+            _logger.Debug("[{0}] Version: {1}", "OpenGL46", GL.GetString(StringName.ShadingLanguageVersion));
+            _logger.Debug("[{0}] Renderer: {1}", "OpenGL46", GL.GetString(StringName.Renderer));
+            _logger.Debug("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
+            _logger.Debug("[{0}] Extensions: {1}", "OpenGL46", GL.GetString(StringName.Extensions));
 
             GL.DebugMessageCallback(_debugProcCallback, IntPtr.Zero);
             GL.Enable(EnableCap.DebugOutput);

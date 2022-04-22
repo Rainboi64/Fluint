@@ -79,6 +79,8 @@ namespace Fluint.Engine.GL46.Windowing
             var config = _configurationManager.Get<WindowConfiguration>().VSync;
             WindowVSync = config;
 
+            _logger.Debug("[{0}] Loaded", "OpenTK Window");
+
             _taskManager.Invoke(TaskSchedule.WindowReady, new TaskArgs(Client));
 
             Client.OnLoad();
@@ -117,12 +119,16 @@ namespace Fluint.Engine.GL46.Windowing
             _taskManager.Invoke(TaskSchedule.WindowMouseScroll, new TaskArgs(e.OffsetY));
             Client.OnMouseWheelMoved(OpenTKHelper.Vector2(e.Offset));
 
+            _logger.Debug("[{0}] Scrolled Delta: {1}", "OpenTK Window", e.Offset);
+
             base.OnMouseWheel(e);
         }
 
         protected override void OnResize(ResizeEventArgs e)
         {
             GL.Viewport(0, 0, e.Width, e.Height);
+
+            _logger.Debug("[{0}] Resized to ({1}, {2})", "OpenTK Window", e.Width, e.Height);
 
             _taskManager.Invoke(TaskSchedule.WindowResize, new TaskArgs(Client));
             Client.OnResize(e.Width, e.Height);
@@ -134,6 +140,8 @@ namespace Fluint.Engine.GL46.Windowing
         {
             _taskManager.Invoke(TaskSchedule.WindowEnterText, new TaskArgs(new object[] { e.Unicode }, Client));
             Client.OnTextReceived(e.Unicode, e.AsString);
+
+            _logger.Debug("[{0}] Text Input: {1}", "OpenTK Window", e.AsString);
 
             base.OnTextInput(e);
         }
