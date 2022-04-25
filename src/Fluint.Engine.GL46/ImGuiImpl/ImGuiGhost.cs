@@ -5,49 +5,52 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.IO;
-using ImGuiNET;
-using Fluint.Layer.Windowing;
 using System.Runtime.CompilerServices;
+using Fluint.Layer.Configuration;
+using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Input;
+using Fluint.Layer.Windowing;
+using ImGuiNET;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
-using System.Collections.Generic;
-using Fluint.Layer.Input;
 using MouseButton = Fluint.Layer.Input.MouseButton;
-using Fluint.Layer.Diagnostics;
-using Fluint.Layer.Configuration;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Fluint.Engine.GL46.ImGuiImpl
 {
     public class ImGuiGhost : IGhost
     {
-        private readonly ILogger _logger;
         private readonly IConfigurationManager _configurationManager;
+        private readonly ILogger _logger;
+
+        readonly List<char> PressedChars = new List<char>();
+
+        private ImGuiTexture _fontTexture;
+        private bool _frameBegun;
+        private int _indexBuffer;
+        private int _indexBufferSize;
+
+        private IWindow _possessedWindow;
+
+
+        private Vector2 _scaleFactor = Vector2.One;
+        private ImGuiShader _shader;
+
+        private int _vertexArray;
+        private int _vertexBuffer;
+        private int _vertexBufferSize;
+        private int _windowHeight;
+
+        private int _windowWidth;
 
         public ImGuiGhost(ILogger logger, IConfigurationManager configurationManager)
         {
             _logger = logger;
             _configurationManager = configurationManager;
         }
-
-        private IWindow _possessedWindow;
-        private bool _frameBegun;
-
-        private int _vertexArray;
-        private int _vertexBuffer;
-        private int _vertexBufferSize;
-        private int _indexBuffer;
-        private int _indexBufferSize;
-
-        private ImGuiTexture _fontTexture;
-        private ImGuiShader _shader;
-        
-        private int _windowWidth;
-        private int _windowHeight;
-
-
-        private System.Numerics.Vector2 _scaleFactor = System.Numerics.Vector2.One;
 
         public void SetPossessed(in IWindow possessor)
         {
@@ -67,15 +70,16 @@ namespace Fluint.Engine.GL46.ImGuiImpl
             var io = ImGui.GetIO();
 
             // io.Fonts.AddFontDefault();
-            foreach(var font in config.Fonts)
+            foreach (var font in config.Fonts)
             {
-                if(!File.Exists(font.FontPath))
+                if (!File.Exists(font.FontPath))
                 {
-                    _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiGhost", font.FontPath, font.FontSize);
+                    _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiGhost",
+                        font.FontPath, font.FontSize);
                 }
 
                 io.Fonts.AddFontFromFileTTF(font.FontPath, font.FontSize);
-            }   
+            }
 
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
@@ -93,6 +97,53 @@ namespace Fluint.Engine.GL46.ImGuiImpl
         {
             _windowWidth = width;
             _windowHeight = height;
+        }
+
+        /// <summary>
+        /// Renders the ImGui draw list data.
+        /// This method requires a <see cref="GraphicsDevice"/> because it may create new DeviceBuffers if the size of vertex
+        /// or index data has increased beyond the capacity of the existing buffers.
+        /// A <see cref="CommandList"/> is needed to submit drawing and resource update commands.
+        /// </summary>
+        public void OnRender(double delay)
+        {
+            if (_frameBegun)
+            {
+                _frameBegun = false;
+                ImGui.Render();
+                RenderImDrawData(ImGui.GetDrawData());
+            }
+        }
+
+        /// <summary>
+        /// Updates ImGui input and IO configuration state.
+        /// </summary>
+        public void OnUpdate(double delay)
+        {
+            if (_frameBegun)
+            {
+                ImGui.Render();
+            }
+
+            SetPerFrameImGuiData((float)delay);
+            UpdateImGuiInput(_possessedWindow.InputManager);
+
+            _frameBegun = true;
+
+            ImGui.NewFrame();
+        }
+
+        public void OnMouseWheelMoved(Layer.Mathematics.Vector2 offset)
+        {
+            var io = ImGui.GetIO();
+
+            io.MouseWheelH = offset.X;
+            io.MouseWheel = offset.Y;
+        }
+
+        public void OnTextReceived(int unicode, string data)
+        {
+            PressedChars.Add((char)unicode);
         }
 
         public void DestroyDeviceObjects()
@@ -161,6 +212,7 @@ void main()
             GL.VertexArrayAttribBinding(_vertexArray, 2, 0);
             GL.VertexArrayAttribFormat(_vertexArray, 2, 4, VertexAttribType.UnsignedByte, true, 16);
         }
+
         public void RecreateFontDeviceTexture()
         {
             ImGuiIOPtr io = ImGui.GetIO();
@@ -169,44 +221,10 @@ void main()
             _fontTexture = new ImGuiTexture("ImGui Text Atlas", width, height, pixels);
             _fontTexture.SetMagFilter(TextureMagFilter.Linear);
             _fontTexture.SetMinFilter(TextureMinFilter.Linear);
-            
-            io.Fonts.SetTexID((IntPtr)_fontTexture.GLTexture);
+
+            io.Fonts.SetTexID((IntPtr)_fontTexture.GlTexture);
 
             io.Fonts.ClearTexData();
-        }
-
-        /// <summary>
-        /// Renders the ImGui draw list data.
-        /// This method requires a <see cref="GraphicsDevice"/> because it may create new DeviceBuffers if the size of vertex
-        /// or index data has increased beyond the capacity of the existing buffers.
-        /// A <see cref="CommandList"/> is needed to submit drawing and resource update commands.
-        /// </summary>
-        public void OnRender(double delay)
-        {
-            if (_frameBegun)
-            {
-                _frameBegun = false;
-                ImGui.Render();
-                RenderImDrawData(ImGui.GetDrawData());
-            }
-        }
-
-        /// <summary>
-        /// Updates ImGui input and IO configuration state.
-        /// </summary>
-        public void OnUpdate(double delay)
-        {
-            if (_frameBegun)
-            {
-                ImGui.Render();
-            }
-
-            SetPerFrameImGuiData((float)delay);
-            UpdateImGuiInput(_possessedWindow.InputManager);
-
-            _frameBegun = true;
-
-            ImGui.NewFrame();
         }
 
         /// <summary>
@@ -216,14 +234,12 @@ void main()
         private void SetPerFrameImGuiData(float deltaSeconds)
         {
             ImGuiIOPtr io = ImGui.GetIO();
-            io.DisplaySize = new System.Numerics.Vector2(
+            io.DisplaySize = new Vector2(
                 _windowWidth / _scaleFactor.X,
                 _windowHeight / _scaleFactor.Y);
             io.DisplayFramebufferScale = _scaleFactor;
             io.DeltaTime = deltaSeconds; // DeltaTime is in seconds.
         }
-
-        readonly List<char> PressedChars = new List<char>();
 
         private void UpdateImGuiInput(IInputManager inputManager)
         {
@@ -233,7 +249,7 @@ void main()
             io.MouseDown[1] = inputManager.IsMouseButtonPressed(MouseButton.Right);
             io.MouseDown[2] = inputManager.IsMouseButtonPressed(MouseButton.Middle);
 
-            io.MousePos = new System.Numerics.Vector2(inputManager.MouseLocation.X, inputManager.MouseLocation.Y);
+            io.MousePos = new Vector2(inputManager.MouseLocation.X, inputManager.MouseLocation.Y);
 
             foreach (Keys key in Enum.GetValues(typeof(Keys)))
             {
@@ -241,6 +257,7 @@ void main()
                 {
                     continue;
                 }
+
                 io.KeysDown[(int)key] = inputManager.IsKeyPressed((Key)key);
             }
 
@@ -248,25 +265,13 @@ void main()
             {
                 io.AddInputCharacter(c);
             }
+
             PressedChars.Clear();
 
             io.KeyCtrl = inputManager.IsKeyPressed(Key.LeftControl) || inputManager.IsKeyPressed(Key.RightControl);
             io.KeyAlt = inputManager.IsKeyPressed(Key.LeftAlt) || inputManager.IsKeyPressed(Key.RightAlt);
             io.KeyShift = inputManager.IsKeyPressed(Key.LeftShift) || inputManager.IsKeyPressed(Key.RightShift);
             io.KeySuper = inputManager.IsKeyPressed(Key.LeftSuper) || inputManager.IsKeyPressed(Key.RightSuper);
-        }
-
-        public void OnMouseWheelMoved(Layer.Mathematics.Vector2 offset)
-        {
-            var io = ImGui.GetIO();
-
-            io.MouseWheelH = offset.X;
-            io.MouseWheel = offset.Y;
-        }
-
-        public void OnTextReceived(int unicode, string data)
-        {
-            PressedChars.Add((char)unicode);
         }
 
         private static void SetKeyMappings()
@@ -311,7 +316,8 @@ void main()
                     GL.NamedBufferData(_vertexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _vertexBufferSize = newSize;
 
-                    _logger.Information("[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost", _vertexBufferSize);
+                    _logger.Information("[{0}] Resized dear imgui vertex buffer to new size {1}", "ImGuiGhost",
+                        _vertexBufferSize);
                 }
 
                 int indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
@@ -321,7 +327,8 @@ void main()
                     GL.NamedBufferData(_indexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _indexBufferSize = newSize;
 
-                    _logger.Information("[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost", _indexBufferSize);
+                    _logger.Information("[{0}] Resized dear imgui index buffer to new size {1}", "ImGuiGhost",
+                        _indexBufferSize);
                 }
             }
 
@@ -355,8 +362,10 @@ void main()
             {
                 ImDrawListPtr cmd_list = draw_data.CmdListsRange[n];
 
-                GL.NamedBufferSubData(_vertexBuffer, IntPtr.Zero, cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>(), cmd_list.VtxBuffer.Data);
-                GL.NamedBufferSubData(_indexBuffer, IntPtr.Zero, cmd_list.IdxBuffer.Size * sizeof(ushort), cmd_list.IdxBuffer.Data);
+                GL.NamedBufferSubData(_vertexBuffer, IntPtr.Zero, cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>(),
+                    cmd_list.VtxBuffer.Data);
+                GL.NamedBufferSubData(_indexBuffer, IntPtr.Zero, cmd_list.IdxBuffer.Size * sizeof(ushort),
+                    cmd_list.IdxBuffer.Data);
 
                 int vtx_offset = 0;
                 int idx_offset = 0;
@@ -375,20 +384,24 @@ void main()
 
                         // We do _windowHeight - (int)clip.W instead of (int)clip.Y because gl has flipped Y when it comes to these coordinates
                         var clip = pcmd.ClipRect;
-                        GL.Scissor((int)clip.X, _windowHeight - (int)clip.W, (int)(clip.Z - clip.X), (int)(clip.W - clip.Y));
+                        GL.Scissor((int)clip.X, _windowHeight - (int)clip.W, (int)(clip.Z - clip.X),
+                            (int)(clip.W - clip.Y));
 
                         if ((io.BackendFlags & ImGuiBackendFlags.RendererHasVtxOffset) != 0)
                         {
-                            GL.DrawElementsBaseVertex(PrimitiveType.Triangles, (int)pcmd.ElemCount, DrawElementsType.UnsignedShort, (IntPtr)(idx_offset * sizeof(ushort)), vtx_offset);
+                            GL.DrawElementsBaseVertex(PrimitiveType.Triangles, (int)pcmd.ElemCount,
+                                DrawElementsType.UnsignedShort, (IntPtr)(idx_offset * sizeof(ushort)), vtx_offset);
                         }
                         else
                         {
-                            GL.DrawElements(BeginMode.Triangles, (int)pcmd.ElemCount, DrawElementsType.UnsignedShort, (int)pcmd.IdxOffset * sizeof(ushort));
+                            GL.DrawElements(BeginMode.Triangles, (int)pcmd.ElemCount, DrawElementsType.UnsignedShort,
+                                (int)pcmd.IdxOffset * sizeof(ushort));
                         }
                     }
 
                     idx_offset += (int)pcmd.ElemCount;
                 }
+
                 vtx_offset += cmd_list.VtxBuffer.Size;
             }
 
@@ -404,6 +417,5 @@ void main()
             _fontTexture.Dispose();
             _shader.Dispose();
         }
-
     }
 }
