@@ -9,7 +9,7 @@ using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.ImGuiImpl
+namespace Fluint.Graphics.API.GL46.ImGuiImpl
 {
     static class Util
     {
@@ -39,7 +39,7 @@ namespace Fluint.Engine.GL46.ImGuiImpl
         public static void CreateTexture(TextureTarget target, string name, out int texture)
         {
             GL.CreateTextures(target, 1, out texture);
-            LabelObject(ObjectLabelIdentifier.Texture, texture, $"Texture: {name}");
+            LabelObject(ObjectLabelIdentifier.Texture, texture, $"GL46Texture: {name}");
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

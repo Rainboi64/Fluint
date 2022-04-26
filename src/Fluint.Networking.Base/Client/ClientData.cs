@@ -6,7 +6,7 @@
 
 using Fluint.Layer.Networking.Client;
 
-namespace Fluint.Implementation.Networking.Client
+namespace Fluint.Networking.Base.Client
 {
     public class ClientData : IClientData
     {

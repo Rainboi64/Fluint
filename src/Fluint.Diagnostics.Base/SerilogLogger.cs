@@ -8,9 +8,10 @@ using System;
 using System.IO;
 using System.Reflection;
 using Serilog;
+using Serilog.Sinks.SystemConsole.Themes;
 using ILogger = Fluint.Layer.Diagnostics.ILogger;
 
-namespace Fluint.Implementation.Diagnostics
+namespace Fluint.Diagnostics.Base
 {
     public class SerilogLogger : ILogger
     {
@@ -21,7 +22,7 @@ namespace Fluint.Implementation.Diagnostics
 
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
-                .WriteTo.Console(theme: Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme.Literate)
+                .WriteTo.Console(theme: AnsiConsoleTheme.Literate)
                 .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 

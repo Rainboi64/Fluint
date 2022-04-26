@@ -35,9 +35,6 @@ namespace Fluint.Layer.Graphics
         void Set(int x, int y, Color color);
         Color Get(int x, int y);
 
-        ITexture CreateCopyTexture();
-        ITexture CreateBoundTexture();
-
         void DrawShape(Color color, params Vector2i[] points);
         void DrawShape(Func<Vector2i, Color> color, params Vector2i[] points);
 

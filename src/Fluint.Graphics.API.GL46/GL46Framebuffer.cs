@@ -5,14 +5,14 @@ using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.Graphics
+namespace Fluint.Graphics.API.GL46
 {
-    public class Framebuffer : IFramebuffer
+    public class GL46Framebuffer : IFramebuffer
     {
         private readonly ILogger _logger;
-        private Texture _texture;
+        private GL46Texture _gl46Texture;
 
-        public Framebuffer(ILogger logger)
+        public GL46Framebuffer(ILogger logger)
         {
             _logger = logger;
         }
@@ -34,20 +34,20 @@ namespace Fluint.Engine.GL46.Graphics
             Size = size;
             Handle = GL.GenFramebuffer();
             GL.BindFramebuffer(FramebufferTarget.Framebuffer, Handle);
-            _texture = new Texture(Size.X, Size.Y);
+            _gl46Texture = new GL46Texture(Size.X, Size.Y);
 
             if (GL.CheckFramebufferStatus(FramebufferTarget.Framebuffer) != FramebufferErrorCode.FramebufferComplete)
             {
                 _logger.Error("[{0}] Error creating framebuffer", "OpenGL46");
-                // throw new EngineAPIException("GL46", "Couldn't Create Framebuffer");
+                // throw new EngineAPIException("GL46", "Couldn't Create GL46Framebuffer");
             }
         }
 
         public ITexture GetTexture()
         {
             GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0,
-                TextureTarget.Texture2D, _texture.Handle, 0);
-            return _texture;
+                TextureTarget.Texture2D, _gl46Texture.Handle, 0);
+            return _gl46Texture;
         }
 
         public void Bind()
@@ -66,7 +66,7 @@ namespace Fluint.Engine.GL46.Graphics
             GC.SuppressFinalize(this);
         }
 
-        ~Framebuffer()
+        ~GL46Framebuffer()
         {
             Dispose(false);
         }
@@ -81,7 +81,7 @@ namespace Fluint.Engine.GL46.Graphics
             ReleaseUnmanagedResources();
             if (disposing)
             {
-                _texture?.Dispose();
+                _gl46Texture?.Dispose();
             }
         }
     }

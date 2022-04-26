@@ -4,7 +4,7 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Implementation.Networking.Client
+namespace Fluint.Networking.Base.Client
 {
     internal class Client
     {

@@ -1,6 +1,6 @@
 using Fluint.Layer.DependencyInjection;
 
-namespace Fluint.Engine.GL46.PrimitiveMeshes
+namespace Fluint.Graphics.Base.PrimitiveMeshes
 {
     public class Cube : Mesh
     {

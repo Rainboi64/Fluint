@@ -10,7 +10,7 @@ using Fluint.Layer.Networking;
 using Fluint.Layer.Networking.Client;
 using Fluint.Layer.Networking.Server;
 
-namespace Fluint.Implementation.Networking.Server
+namespace Fluint.Networking.Base.Server
 {
     public class ServerTaskHelper : IServerTaskHelper
     {

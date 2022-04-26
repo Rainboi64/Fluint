@@ -6,7 +6,7 @@ using Fluint.Layer.Graphics;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.Implementation.UI
+namespace Fluint.SDK.Base.UI
 {
     public class TextureView : ITextureView
     {

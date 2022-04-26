@@ -11,7 +11,7 @@ using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 using Fluint.Layer.UI;
 
-namespace Fluint.Engine.GLCommon.Commands
+namespace Fluint.Graphics.API.GLCommon.Commands
 {
     [Module("VSync Toggle Command", "Toggles the virtual sync of the main window", "type the command to toggle vsync")]
     public class VSync : ICommand

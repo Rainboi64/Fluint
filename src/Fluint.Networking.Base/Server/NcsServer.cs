@@ -22,7 +22,7 @@ using Fluint.Layer.Networking.Server;
 using NetCoreServer;
 using Newtonsoft.Json;
 
-namespace Fluint.Implementation.Networking.Server
+namespace Fluint.Networking.Base.Server
 {
     internal class NcsServer : TcpServer
     {

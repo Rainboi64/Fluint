@@ -6,7 +6,7 @@
 
 using Fluint.Layer.Networking.Server;
 
-namespace Fluint.Implementation.Networking.Server
+namespace Fluint.Networking.Base.Server
 {
     public class ServerData : IServerData
     {

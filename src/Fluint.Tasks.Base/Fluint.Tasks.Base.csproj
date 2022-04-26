@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
-    <RootNamespace>Fluint.Implementation.Tasks</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">
@@ -73,6 +72,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
-    <ProjectReference Include="..\Fluint.SDK\Fluint.SDK.csproj" />
   </ItemGroup>
 </Project>

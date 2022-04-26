@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.Implementation.UI
+namespace Fluint.SDK.Base.UI
 {
     public class TextBox : ITextBox
     {

@@ -10,7 +10,7 @@ using System.Drawing.Imaging;
 using OpenTK.Graphics.OpenGL4;
 using PixelFormat = System.Drawing.Imaging.PixelFormat;
 
-namespace Fluint.Engine.GL46.ImGuiImpl
+namespace Fluint.Graphics.API.GL46.ImGuiImpl
 {
     public enum TextureCoordinate
     {

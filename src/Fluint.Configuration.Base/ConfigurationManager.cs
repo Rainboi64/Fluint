@@ -12,8 +12,9 @@ using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace Fluint.Implementation.Configuration
+namespace Fluint.Configuration.Base
 {
     public class ConfigurationManager : IConfigurationManager
     {
@@ -36,7 +37,7 @@ namespace Fluint.Implementation.Configuration
             {
                 var jsonData = File.ReadAllText(GenerateTypeLocation(typeof(T)));
                 var obj = JsonConvert.DeserializeObject<T>(jsonData,
-                    new Newtonsoft.Json.Converters.StringEnumConverter());
+                    new StringEnumConverter());
                 _configs.Add(obj);
                 return obj;
             }
@@ -89,7 +90,7 @@ namespace Fluint.Implementation.Configuration
         private void GenerateJSONFile(IConfiguration config)
         {
             var jsonData = JsonConvert.SerializeObject(config, Formatting.Indented,
-                new Newtonsoft.Json.Converters.StringEnumConverter());
+                new StringEnumConverter());
 
             GetLocation(config.GetType(), out var location);
             Directory.CreateDirectory(@$"./configs/{location}");

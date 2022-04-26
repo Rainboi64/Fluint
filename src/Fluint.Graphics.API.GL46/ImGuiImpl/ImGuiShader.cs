@@ -9,7 +9,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.ImGuiImpl
+namespace Fluint.Graphics.API.GL46.ImGuiImpl
 {
     struct UniformFieldInfo
     {

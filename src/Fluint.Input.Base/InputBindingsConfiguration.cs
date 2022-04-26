@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.Input;
 
-namespace Fluint.Implementation.Input
+namespace Fluint.Input.Base
 {
     public struct InputBindingsConfiguration : IConfiguration
     {

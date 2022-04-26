@@ -4,16 +4,11 @@
         <TargetFramework>net6.0</TargetFramework>
         <Platforms>AnyCPU;x64;x86</Platforms>
         <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
-        <RootNamespace>Fluint.Engine.GLCommon</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="OpenTK" Version="4.6.4"/>
         <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Remove="OpenGLCommand.cs~"/>
     </ItemGroup>
 
     <PropertyGroup>

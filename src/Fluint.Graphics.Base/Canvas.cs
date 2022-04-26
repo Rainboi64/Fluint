@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Engine.GL46.Graphics
+namespace Fluint.Graphics.Base
 {
     public class Canvas : ICanvas
     {
@@ -47,17 +47,17 @@ namespace Fluint.Engine.GL46.Graphics
             Pixels = new Color[width * height];
         }
 
-        public ITexture CreateCopyTexture()
-        {
-            var texture = new Texture(Width, Height);
-            Array.Copy(Pixels, texture.Pixels, Pixels.Length);
-            return texture;
-        }
-
-        public ITexture CreateBoundTexture()
-        {
-            return new Texture(Width, Height, Pixels);
-        }
+        // public ITexture CreateCopyTexture()
+        // {
+        //     var texture = new Texture(Width, Height);
+        //     Array.Copy(Pixels, texture.Pixels, Pixels.Length);
+        //     return texture;
+        // }
+        //
+        // public ITexture CreateBoundTexture()
+        // {
+        //     return new Texture(Width, Height, Pixels);
+        // }
 
         public void Clear()
         {

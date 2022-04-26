@@ -11,7 +11,7 @@ using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Tasks;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GLCommon
+namespace Fluint.Graphics.API.GLCommon
 {
     public class EngineTask : ITask
     {

@@ -6,12 +6,11 @@
 
 using System;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Engine;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Engine.GL46
+namespace Fluint.Graphics.Base
 {
     public class Camera : ICamera
     {

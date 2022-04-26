@@ -19,4 +19,8 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
+    </ItemGroup>
+
 </Project>

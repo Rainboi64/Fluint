@@ -15,7 +15,7 @@ using Vector2i = OpenTK.Mathematics.Vector2i;
 using Vector3 = OpenTK.Mathematics.Vector3;
 using Vector4 = OpenTK.Mathematics.Vector4;
 
-namespace Fluint.Engine.GLCommon;
+namespace Fluint.Graphics.API.GLCommon;
 
 /// <summary>
 ///     Converts some math stuff.

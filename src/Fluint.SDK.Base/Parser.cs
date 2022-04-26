@@ -12,7 +12,7 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 
-namespace Fluint.Implementation.SDK
+namespace Fluint.SDK.Base
 {
     public class Parser : IParser
     {

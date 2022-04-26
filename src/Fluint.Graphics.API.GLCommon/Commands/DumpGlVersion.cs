@@ -10,7 +10,7 @@ using Fluint.Layer.SDK;
 using Fluint.Layer.UI;
 using OpenTK.Graphics.OpenGL;
 
-namespace Fluint.Engine.GLCommon.Commands;
+namespace Fluint.Graphics.API.GLCommon.Commands;
 
 [Module("Dump opengl information", "prints opengl runtime data to information buffer",
     "prints opengl runtime data to information buffer")]

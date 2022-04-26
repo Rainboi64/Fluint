@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 using Fluint.Layer.Graphics.API;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.Graphics;
+namespace Fluint.Graphics.API.GL46;
 
 public class GL46ConstantBuffer : IConstantBuffer
 {

@@ -3,7 +3,7 @@ using Fluint.Layer.Graphics.API;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 
-namespace Fluint.Engine.GLCommon;
+namespace Fluint.Graphics.API.GLCommon;
 
 public class OpenGlCommand
 {

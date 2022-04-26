@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-namespace Fluint.Layer.Engine
+namespace Fluint.Layer.Graphics
 {
     [Initialization(InitializationMethod.Scoped)]
     public interface IScene : IList<ISceneObject>, IModule

@@ -5,7 +5,7 @@
 
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.Graphics;
+namespace Fluint.Graphics.API.GLCommon;
 
 public readonly struct GLVertexAttribute
 {

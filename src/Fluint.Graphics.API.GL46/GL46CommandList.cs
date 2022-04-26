@@ -1,25 +1,25 @@
 ﻿//
-// CommandList.cs
+// GL46CommandList.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
 using System;
 using System.Collections.Generic;
-using Fluint.Engine.GLCommon;
+using Fluint.Graphics.API.GLCommon;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.Graphics;
+namespace Fluint.Graphics.API.GL46;
 
-internal class CommandList : ICommandList
+internal class GL46CommandList : ICommandList
 {
     private readonly List<OpenGlCommand> _commandList;
     private int _currentInputLayout;
     private PrimitiveType _currentPrimitiveType = PrimitiveType.Triangles;
 
-    public CommandList()
+    public GL46CommandList()
     {
         _commandList = new List<OpenGlCommand>();
     }

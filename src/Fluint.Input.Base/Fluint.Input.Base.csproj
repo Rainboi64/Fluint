@@ -4,7 +4,6 @@
     <TargetFramework>net6.0</TargetFramework>
     <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
     <Platforms>AnyCPU;x64</Platforms>
-    <RootNamespace>Fluint.Implementation.Input</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">

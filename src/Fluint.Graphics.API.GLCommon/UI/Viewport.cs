@@ -5,7 +5,7 @@ using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
 
-namespace Fluint.Engine.GLCommon.UI;
+namespace Fluint.Graphics.API.GLCommon.UI;
 
 public class Viewport : IViewport
 {

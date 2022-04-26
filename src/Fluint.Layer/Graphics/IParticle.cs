@@ -4,7 +4,7 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Engine
+namespace Fluint.Layer.Graphics
 {
     public interface IParticle : IRenderComponent
     {

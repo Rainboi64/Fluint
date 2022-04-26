@@ -12,7 +12,7 @@ using Fluint.Layer.Networking;
 using NetCoreServer;
 using Newtonsoft.Json;
 
-namespace Fluint.Implementation.Networking.Server
+namespace Fluint.Networking.Base.Server
 {
     internal class ServerTcpSession : TcpSession
     {

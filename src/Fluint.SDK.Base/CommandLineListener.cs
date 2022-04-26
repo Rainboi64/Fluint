@@ -5,14 +5,13 @@ using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.SDK;
 
-namespace Fluint.Implementation.SDK
+namespace Fluint.SDK.Base
 {
     public class CommandLineListener : ICommandLineListener
     {
+        private readonly List<ICommand> _commands;
+        private readonly List<string> _history = new();
         private readonly IParser _parser;
-        private List<ICommand> _commands;
-
-        private List<string> _history = new List<string>();
 
         private Dictionary<string, Action> _keyActions = new Dictionary<string, Action>();
 
@@ -74,7 +73,9 @@ namespace Fluint.Implementation.SDK
 
             var segments = Split(input, c => {
                     if (c == '\"')
+                    {
                         inQuotes = !inQuotes;
+                    }
 
                     return !inQuotes && c == ' ';
                 })

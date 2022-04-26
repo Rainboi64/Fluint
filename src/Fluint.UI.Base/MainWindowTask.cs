@@ -8,7 +8,7 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Tasks;
 using Fluint.Layer.Windowing;
 
-namespace Fluint.Implementation.UI
+namespace Fluint.SDK.Base.UI
 {
     public class MainWindowTask : ITask
     {

@@ -18,7 +18,7 @@ using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using Vector2i = OpenTK.Mathematics.Vector2i;
 
-namespace Fluint.Engine.GLCommon.Windowing;
+namespace Fluint.Graphics.API.GLCommon.Windowing;
 
 public class GlWindowProvider : GameWindow, IWindowProvider
 {

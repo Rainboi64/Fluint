@@ -11,7 +11,7 @@ using Fluint.Layer.Windowing;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using MouseButton = Fluint.Layer.Input.MouseButton;
 
-namespace Fluint.Engine.GLCommon.Input;
+namespace Fluint.Graphics.API.GLCommon.Input;
 
 public class InputManager : IInputManager
 {

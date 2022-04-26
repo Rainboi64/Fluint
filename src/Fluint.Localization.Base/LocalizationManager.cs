@@ -9,7 +9,7 @@ using System.IO;
 using Fluint.Layer.Localization;
 using Newtonsoft.Json;
 
-namespace Fluint.Implementation.Localization
+namespace Fluint.Localization.Base
 {
     public class LocalizationManager : ILocalizationManager
     {
@@ -19,7 +19,6 @@ namespace Fluint.Implementation.Localization
 
         private Dictionary<string, string> _records = new Dictionary<string, string>();
 
-        //TODO: add error handling
         public string ActiveLanguage
         {
             get => _activeLanguage;

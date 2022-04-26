@@ -4,10 +4,9 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 
-namespace Fluint.Layer.Engine
+namespace Fluint.Layer.Graphics
 {
     /// <summary>
     /// Contains data to be able to render stuff.

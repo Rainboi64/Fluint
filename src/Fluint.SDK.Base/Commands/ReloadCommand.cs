@@ -8,7 +8,7 @@ using System;
 using Fluint.Layer;
 using Fluint.Layer.SDK;
 
-namespace Fluint.Implementation.SDK.Commands
+namespace Fluint.SDK.Base.Commands
 {
     [Module("Reload Command", "Restarts Fluint instance", "enter this command to restart the application")]
     public class ReloadCommand : ICommand

@@ -7,7 +7,7 @@
 using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 
-namespace Fluint.Implementation.UI
+namespace Fluint.SDK.Base.UI
 {
     public class GuiInstanceManger : IGuiInstanceManager
     {

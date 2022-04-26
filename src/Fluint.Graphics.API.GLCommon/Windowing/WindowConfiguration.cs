@@ -1,6 +1,6 @@
 using Fluint.Layer.Configuration;
 
-namespace Fluint.Engine.GLCommon.Windowing;
+namespace Fluint.Graphics.API.GLCommon.Windowing;
 
 [Configuration("Window Configuration", "A Configuration for the OpenGL46 window provider.", "OpenGL46")]
 public class WindowConfiguration : IConfiguration

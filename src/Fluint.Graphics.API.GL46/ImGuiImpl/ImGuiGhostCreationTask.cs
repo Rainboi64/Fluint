@@ -7,7 +7,7 @@
 using Fluint.Layer.Tasks;
 using Fluint.Layer.Windowing;
 
-namespace Fluint.Engine.GL46.ImGuiImpl
+namespace Fluint.Graphics.API.GL46.ImGuiImpl
 {
     public class ImGuiGhostCreationTask : ITask
     {

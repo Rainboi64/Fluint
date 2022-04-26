@@ -7,7 +7,7 @@ using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Engine.GL46.Graphics;
+namespace Fluint.Graphics.API.GL46;
 
 public class GL46Pipeline : IPipeline
 {

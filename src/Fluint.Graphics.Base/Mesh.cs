@@ -10,11 +10,8 @@ using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Engine.GL46
+namespace Fluint.Graphics.Base
 {
-    /// <summary>
-    /// Me in the future please add caching manually
-    /// </summary>
     public class Mesh
     {
         private readonly ModulePacket _packet;
@@ -82,8 +79,6 @@ namespace Fluint.Engine.GL46
                 new ShaderObject(ShaderObjectType.Vector4, material.SpecularColor, "specular"),
                 new ShaderObject(ShaderObjectType.Vector4, material.EmissiveColor, "emissive"),
             };
-
-            // I think I might be considering doing a shaderpack manifest. 🤔
 
             return new ShaderPacket(packet, "material");
         }

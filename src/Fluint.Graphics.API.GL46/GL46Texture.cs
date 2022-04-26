@@ -1,5 +1,5 @@
 ﻿//
-// Texture.cs
+// GL46Texture.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
@@ -12,17 +12,17 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Color = Fluint.Layer.Mathematics.Color;
 
-namespace Fluint.Engine.GL46.Graphics
+namespace Fluint.Graphics.API.GL46
 {
-    public class Texture : ITexture
+    public class GL46Texture : ITexture
     {
         private string _filename;
 
-        public Texture()
+        public GL46Texture()
         {
         }
 
-        public Texture(int width, int height, Color[] pixels)
+        public GL46Texture(int width, int height, Color[] pixels)
         {
             Pixels = pixels;
             Size = new Vector2i(width, height);
@@ -35,7 +35,7 @@ namespace Fluint.Engine.GL46.Graphics
             Unbind();
         }
 
-        public Texture(int width, int height)
+        public GL46Texture(int width, int height)
         {
             Size = new Vector2i(width, height);
 
@@ -46,7 +46,7 @@ namespace Fluint.Engine.GL46.Graphics
             Unbind();
         }
 
-        public Texture(string filename)
+        public GL46Texture(string filename)
         {
             LoadFromFile(filename);
         }
@@ -147,9 +147,9 @@ namespace Fluint.Engine.GL46.Graphics
             Upload();
         }
 
-        public static implicit operator int(Texture textureView)
+        public static implicit operator int(GL46Texture gl46TextureView)
         {
-            return textureView.Handle;
+            return gl46TextureView.Handle;
         }
     }
 }

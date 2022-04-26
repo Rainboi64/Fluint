@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fluint.Implementation.SDK
+namespace Fluint.SDK.Base
 {
     public class ConsoleKeyHandler
     {

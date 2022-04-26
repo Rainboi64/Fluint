@@ -1,6 +1,6 @@
 using Fluint.Layer.Configuration;
 
-namespace Fluint.Engine.GL46.ImGuiImpl
+namespace Fluint.Graphics.API.GL46.ImGuiImpl
 {
     [Configuration("Window Configuration", "A Configuration for the OpenGL46 window provider.", "OpenGL46")]
     public class ImGuiConfiguration : IConfiguration

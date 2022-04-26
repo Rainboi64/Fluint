@@ -7,12 +7,12 @@
 using System.Collections.Generic;
 using Assimp;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Engine;
+using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.IO;
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Implementation.IO
+namespace Fluint.IO.Base
 {
     public class AssimpImporter : IImporter
     {

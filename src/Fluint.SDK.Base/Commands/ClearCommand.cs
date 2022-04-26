@@ -8,7 +8,7 @@ using System;
 using Fluint.Layer;
 using Fluint.Layer.SDK;
 
-namespace Fluint.Implementation.SDK.Commands
+namespace Fluint.SDK.Base.Commands
 {
     [Module("Clear Command", "Clears the sdk text", "enter the command to clean console window.")]
     public class ClearCommand : ICommand

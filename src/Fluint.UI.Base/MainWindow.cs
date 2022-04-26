@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
-using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
@@ -17,7 +16,7 @@ using Fluint.Layer.Windowing;
 using ImGuiNET;
 using Vector4 = System.Numerics.Vector4;
 
-namespace Fluint.Implementation.UI;
+namespace Fluint.SDK.Base.UI;
 
 public class MainWindow : IWindow
 {
@@ -26,10 +25,8 @@ public class MainWindow : IWindow
     private readonly List<IGhost> _ghosts;
     private readonly ILogger _logger;
     private readonly ModulePacket _packet;
-    private ICanvas _canvas;
 
     private IWindowProvider _provider;
-    private ITextureView _textureView;
 
     private float _time;
 
@@ -80,6 +77,8 @@ public class MainWindow : IWindow
 
     public void OnLoad()
     {
+        Title = "Fluint";
+
         foreach (var ghost in _ghosts)
         {
             _logger.Information("[{0}] Loading Ghost: {1}", Title, ghost.ToString());
@@ -89,18 +88,6 @@ public class MainWindow : IWindow
         var style = ImGui.GetStyle();
 
         SetStyleFromConfig(style);
-
-        _textureView = _packet.CreateScoped<ITextureView>();
-
-        _canvas = _packet.CreateScoped<ICanvas>();
-
-        _canvas.InitializeCanvas(512, 512);
-
-        _textureView.Begin("Canvas View");
-
-        _textureView.Texture = _canvas.CreateBoundTexture();
-
-        Controls.Add(_textureView);
     }
 
     public void OnStart()
@@ -142,15 +129,6 @@ public class MainWindow : IWindow
         ImGui.ShowDemoWindow();
 
         ImGui.End();
-
-        _canvas.Clear();
-
-        _canvas.DrawCircle(new Vector2i(256 + (int)(24f * Math.Cos(_time)), 256),
-            (int)Math.Abs(128f * Math.Sin(_time)), Color.Red);
-
-        _textureView.Texture.Bind();
-        _textureView.Texture.Upload();
-        _textureView.Texture.Unbind();
 
         //TODO: Window stuff!
     }

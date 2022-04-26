@@ -9,10 +9,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Engine;
+using Fluint.Layer.Graphics;
 using Fluint.Layer.IO;
 
-namespace Fluint.Implementation.IO
+namespace Fluint.IO.Base
 {
     public class IoManager : IIoManager
     {

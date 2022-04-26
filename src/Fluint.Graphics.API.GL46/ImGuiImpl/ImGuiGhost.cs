@@ -19,7 +19,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using MouseButton = Fluint.Layer.Input.MouseButton;
 using Vector2 = System.Numerics.Vector2;
 
-namespace Fluint.Engine.GL46.ImGuiImpl
+namespace Fluint.Graphics.API.GL46.ImGuiImpl
 {
     public class ImGuiGhost : IGhost
     {
@@ -103,7 +103,7 @@ namespace Fluint.Engine.GL46.ImGuiImpl
         /// Renders the ImGui draw list data.
         /// This method requires a <see cref="GraphicsDevice"/> because it may create new DeviceBuffers if the size of vertex
         /// or index data has increased beyond the capacity of the existing buffers.
-        /// A <see cref="CommandList"/> is needed to submit drawing and resource update commands.
+        /// A <see cref="GL46CommandList"/> is needed to submit drawing and resource update commands.
         /// </summary>
         public void OnRender(double delay)
         {

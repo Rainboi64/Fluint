@@ -11,7 +11,7 @@ using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Input;
 
-namespace Fluint.Implementation.Input
+namespace Fluint.Input.Base
 {
     public class BindingsManager : IBindingsManager
     {
@@ -49,7 +49,7 @@ namespace Fluint.Implementation.Input
             _inputManager = inputManager;
 
             // TODO: This needs fixing asap
-            // I've went ahead an disabled this shit
+            // I've went ahead and disabled this shit
             // we'll have to see how to fix
             //  |
             //  |
@@ -77,19 +77,21 @@ namespace Fluint.Implementation.Input
                 var currentState = _inputManager.State(binding.MainCombination[i]);
 
                 // if state isn't the current state.
-                if (currentState != state)
+                if (currentState == state)
                 {
-                    // only change if the new one is release.
-                    if (currentState == InputState.Release)
-                    {
-                        state = InputState.Release;
-                    }
+                    continue;
+                }
 
-                    // current input implementation doesn't support it for multiple keybinds.
-                    if (state == InputState.Press && currentState == InputState.Repeat)
-                    {
-                        state = InputState.Repeat;
-                    }
+                // only change if the new one is release.
+                if (currentState == InputState.Release)
+                {
+                    state = InputState.Release;
+                }
+
+                // current input implementation doesn't support it for multiple keybinds.
+                if (state == InputState.Press && currentState == InputState.Repeat)
+                {
+                    state = InputState.Repeat;
                 }
             }
 
