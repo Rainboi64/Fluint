@@ -86,7 +86,15 @@ namespace Fluint.Layer
                     }
                 }
 
-                var initializationMethod = parent.GetCustomAttribute<InitializationAttribute>().InitializationMethod;
+                var initializationMethod = parent.GetCustomAttribute<InitializationAttribute>()?.InitializationMethod;
+
+                if (initializationMethod is null)
+                {
+                    ConsoleHelper.WriteWarning(
+                        $"[MODULE MANAGER WARNING]: Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
+                    initializationMethod = InitializationMethod.Scoped;
+                }
+
                 switch (initializationMethod)
                 {
                     case InitializationMethod.Scoped:

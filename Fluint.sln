@@ -5,40 +5,40 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Layer", "src\Fluint.Layer\Fluint.Layer.csproj", "{F1C06963-E944-4823-B939-2D6F4854DB6E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Engine.GL46", "src\Fluint.Engine.GL46\Fluint.Engine.GL46.csproj", "{1DB141C1-2F42-4406-B6A9-B480E7341A7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Graphics.API.GL46", "src\Fluint.Graphics.API.GL46\Fluint.Graphics.API.GL46.csproj", "{1DB141C1-2F42-4406-B6A9-B480E7341A7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Engine.D3D11", "src\Fluint.Engine.D3D11\Fluint.Engine.D3D11.csproj", "{673CF773-5404-4C22-B5FE-EA4B3A97B1A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Graphics.API.D3D11", "src\Fluint.Graphics.API.D3D11\Fluint.Graphics.API.D3D11.csproj", "{673CF773-5404-4C22-B5FE-EA4B3A97B1A6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EngineAPIs", "EngineAPIs", "{6F2AE0B1-9C7D-4B2E-ADEC-E858052CD406}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphicsAPIs", "GraphicsAPIs", "{6F2AE0B1-9C7D-4B2E-ADEC-E858052CD406}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Engine.D3D12", "src\Fluint.Engine.D3D12\Fluint.Engine.D3D12.csproj", "{9740214C-2C4F-4608-B31A-350F794CC763}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Graphics.API.D3D12", "src\Fluint.Graphics.API.D3D12\Fluint.Graphics.API.D3D12.csproj", "{9740214C-2C4F-4608-B31A-350F794CC763}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Engine.GL33", "src\Fluint.Engine.GL33\Fluint.Engine.GL33.csproj", "{6F43CE40-292C-453C-9A9E-7FFEB7D8B969}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Graphics.API.GL33", "src\Fluint.Graphics.API.GL33\Fluint.Graphics.API.GL33.csproj", "{6F43CE40-292C-453C-9A9E-7FFEB7D8B969}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Engine.VK", "src\Fluint.Engine.VK\Fluint.Engine.VK.csproj", "{821A3162-8C9B-4FAE-B1E4-AC1F62468B5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Graphics.API.VK", "src\Fluint.Graphics.API.VK\Fluint.Graphics.API.VK.csproj", "{821A3162-8C9B-4FAE-B1E4-AC1F62468B5C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.SDK", "src\Fluint.SDK\Fluint.SDK.csproj", "{18EF63A7-098C-4C71-9A00-4487223708AD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{57CDC538-88CF-4533-BA9D-BE41E5004050} = {57CDC538-88CF-4533-BA9D-BE41E5004050}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implementations", "{AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BaseImplementations", "BaseImplementations", "{AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Tasks", "src\Fluint.Implementation.Tasks\Fluint.Implementation.Tasks.csproj", "{49D0F24C-F8C7-4D47-B1BE-FAB890354B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Tasks.Base", "src\Fluint.Tasks.Base\Fluint.Tasks.Base.csproj", "{49D0F24C-F8C7-4D47-B1BE-FAB890354B68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Diagnostics", "src\Fluint.Implementation.Diagnostics\Fluint.Implementation.Diagnostics.csproj", "{24FAC640-6218-49E2-AAD8-24AFDE4D1B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Diagnostics.Base", "src\Fluint.Diagnostics.Base\Fluint.Diagnostics.Base.csproj", "{24FAC640-6218-49E2-AAD8-24AFDE4D1B23}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.SDK", "src\Fluint.Implementation.SDK\Fluint.Implementation.SDK.csproj", "{57CDC538-88CF-4533-BA9D-BE41E5004050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.SDK.Base", "src\Fluint.SDK.Base\Fluint.SDK.Base.csproj", "{57CDC538-88CF-4533-BA9D-BE41E5004050}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.IO", "src\Fluint.Implementation.IO\Fluint.Implementation.IO.csproj", "{6F5C1735-69F0-476E-AF8A-F54A3C8CDECC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.IO.Base", "src\Fluint.IO.Base\Fluint.IO.Base.csproj", "{6F5C1735-69F0-476E-AF8A-F54A3C8CDECC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Localization", "src\Fluint.Implementation.Localization\Fluint.Implementation.Localization.csproj", "{F48FE8E9-BB03-44C5-82CF-240EA2723FCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Localization.Base", "src\Fluint.Localization.Base\Fluint.Localization.Base.csproj", "{F48FE8E9-BB03-44C5-82CF-240EA2723FCC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Networking", "src\Fluint.Implementation.Networking\Fluint.Implementation.Networking.csproj", "{40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Networking.Base", "src\Fluint.Networking.Base\Fluint.Networking.Base.csproj", "{40CCD215-8B0F-43EA-A5BE-4D0F6B5897E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Configuration", "src\Fluint.Implementation.Configuration\Fluint.Implementation.Configuration.csproj", "{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Configuration.Base", "src\Fluint.Configuration.Base\Fluint.Configuration.Base.csproj", "{C3D906E0-4CF2-4DA3-8970-0F95D0CA2A7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.Input", "src\Fluint.Implementation.Input\Fluint.Implementation.Input.csproj", "{A1696D37-C974-49CA-B486-3736254443AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Input.Base", "src\Fluint.Input.Base\Fluint.Input.Base.csproj", "{A1696D37-C974-49CA-B486-3736254443AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6E5F9DD2-83BD-4231-B86F-FE85214E0F30}"
 EndProject
@@ -88,14 +88,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Runtime", "src\Fluin
 		{F48FE8E9-BB03-44C5-82CF-240EA2723FCC} = {F48FE8E9-BB03-44C5-82CF-240EA2723FCC}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Implementation.UI", "src\Fluint.Implementation.UI\Fluint.Implementation.UI.csproj", "{8AAC67D2-59C9-40A9-801D-7B30441024C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.UI.Base", "src\Fluint.UI.Base\Fluint.UI.Base.csproj", "{8AAC67D2-59C9-40A9-801D-7B30441024C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC2C0228-7B7D-4426-9A34-C94F766F4FFA}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Engine.GL", "src\Fluint.Engine.GL\Fluint.Engine.GL.csproj", "{A91A6563-22C0-49D8-B71A-BB34B342204F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Graphics.API.GLCommon", "src\Fluint.Graphics.API.GLCommon\Fluint.Graphics.API.GLCommon.csproj", "{A91A6563-22C0-49D8-B71A-BB34B342204F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Graphics.API.Metal", "src\Fluint.Graphics.API.Metal\Fluint.Graphics.API.Metal.csproj", "{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -809,6 +811,30 @@ Global
 		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x64.Build.0 = Release|x64
 		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x86.ActiveCfg = Release|x86
 		{A91A6563-22C0-49D8-B71A-BB34B342204F}.Release|x86.Build.0 = Release|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug With Modules Setup|Any CPU.ActiveCfg = Debug With Modules Setup|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug With Modules Setup|Any CPU.Build.0 = Debug With Modules Setup|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug With Modules Setup|x64.ActiveCfg = Debug With Modules Setup|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug With Modules Setup|x64.Build.0 = Debug With Modules Setup|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug With Modules Setup|x86.ActiveCfg = Debug With Modules Setup|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug With Modules Setup|x86.Build.0 = Debug With Modules Setup|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug|x64.ActiveCfg = Debug|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug|x64.Build.0 = Debug|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug|x86.ActiveCfg = Debug|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Debug|x86.Build.0 = Debug|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release With Modules Setup|Any CPU.ActiveCfg = Release With Modules Setup|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release With Modules Setup|Any CPU.Build.0 = Release With Modules Setup|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release With Modules Setup|x64.ActiveCfg = Release With Modules Setup|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release With Modules Setup|x64.Build.0 = Release With Modules Setup|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release With Modules Setup|x86.ActiveCfg = Release With Modules Setup|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release With Modules Setup|x86.Build.0 = Release With Modules Setup|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release|x64.ActiveCfg = Release|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release|x64.Build.0 = Release|x64
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release|x86.ActiveCfg = Release|x86
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -841,6 +867,9 @@ Global
 		{B0C5FBE6-BEE7-4F67-8667-12E65F342FD3} = {30AF5CF4-9DEC-4D16-9CA9-F26E40412BC8}
 		{8AAC67D2-59C9-40A9-801D-7B30441024C3} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 		{A91A6563-22C0-49D8-B71A-BB34B342204F} = {6F2AE0B1-9C7D-4B2E-ADEC-E858052CD406}
+		{26BF48ED-2FD8-4C59-8FC8-317F83F7186B} = {6F2AE0B1-9C7D-4B2E-ADEC-E858052CD406}
+		{6F2AE0B1-9C7D-4B2E-ADEC-E858052CD406} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
+		{30AF5CF4-9DEC-4D16-9CA9-F26E40412BC8} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {448C7179-E7AE-4470-97E2-A32117E7168A}

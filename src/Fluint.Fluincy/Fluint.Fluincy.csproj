@@ -87,7 +87,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fluint.Implementation.Configuration\Fluint.Implementation.Configuration.csproj" />
+    <ProjectReference Include="..\Fluint.Configuration.Base\Fluint.Configuration.Base.csproj"/>
     <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
   </ItemGroup>
 </Project>
