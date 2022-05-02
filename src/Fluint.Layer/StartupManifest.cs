@@ -6,5 +6,6 @@
 
 namespace Fluint.Layer
 {
-    public readonly record struct StartupManifest(string[] CommandLineArguments, string ModulesDirectory);
+    public readonly record struct StartupManifest(string[] CommandLineArguments, string ModulesDirectory,
+        string VersionDetails);
 }

@@ -95,8 +95,9 @@ namespace Fluint.SDK.Base
                 .Select(arg => TrimMatchingQuotes(arg.Trim(), '\"'))
                 .Where(arg => !string.IsNullOrEmpty(arg));
 
-            var command = segments.FirstOrDefault();
-            var arguments = segments.Skip(1);
+            var segmentArray = segments as string[] ?? segments.ToArray();
+            var command = segmentArray.FirstOrDefault();
+            var arguments = segmentArray.Skip(1);
 
             return (command, arguments.ToArray());
         }
