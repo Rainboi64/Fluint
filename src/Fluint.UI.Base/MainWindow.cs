@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
@@ -121,9 +122,9 @@ public class MainWindow : IWindow
 
         ImGui.DockSpaceOverViewport(ImGui.GetWindowViewport());
 
-        foreach (var control in Controls)
+        for (var i = 0; i < Controls.Count; i++)
         {
-            control.Tick();
+            Controls.ElementAt(i).Tick();
         }
 
         ImGui.ShowDemoWindow();

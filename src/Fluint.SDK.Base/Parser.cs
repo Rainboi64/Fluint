@@ -16,63 +16,105 @@ namespace Fluint.SDK.Base
 {
     public class Parser : IParser
     {
-        public IList<ICommand> Commands;
+        private readonly IList<ICommand> _commands;
 
         public Parser(ModulePacket packet)
         {
-            Commands = packet.GetInstances().OfType<ICommand>().ToList();
+            _commands = packet.GetInstances()
+                .OfType<ICommand>()
+                .ToList();
         }
 
         public void Parse(string command, string[] args)
         {
-            var commands = Commands.Where(x => x.Command == command);
+            var commandObject = GetCommandByString(command);
 
-            if (commands.Any())
+            if (commandObject is not null)
             {
-                commands.FirstOrDefault().Do(args);
+                commandObject.Do(args);
             }
-            else if (command == "help")
-                Help(args[0]);
-            else if (command == "list")
-                List();
             else
-                ConsoleHelper.WriteEmbeddedColorLine(
-                    $"'[blue]{command}[/blue]' couldn't be recognized as valid internal, or external command module.\nto see available commands try running '[blue]list[/blue]'");
+            {
+                switch (command)
+                {
+                    case "help":
+                        Help(GetCommandByString(args.FirstOrDefault()));
+                        break;
+                    case "list":
+                        List();
+                        break;
+                    default:
+                        ConsoleHelper.WriteEmbeddedColorLine(
+                            $"'[blue]{command}[/blue]' is not recognized as a [red]Fluint[/red] command module.\n" +
+                            "to see available commands try running '[blue]list[/blue]'");
+                        break;
+                }
+            }
         }
 
         public void Add(ICommand command)
         {
-            Commands.Add(command);
+            _commands.Add(command);
+        }
+
+        private ICommand GetCommandByString(string command)
+        {
+            foreach (var item in _commands)
+            {
+                if (item.Command == command.ToLower())
+                {
+                    return item;
+                }
+            }
+
+            return null;
         }
 
         private void List()
         {
             var table = new ConsoleTable();
+
             table.AddColumn(new[] { "Command", "Name", "Description" });
-            foreach (var consoleCommand in Commands)
+            foreach (var consoleCommand in _commands)
             {
-                var commandAttribute = consoleCommand.GetType().GetCustomAttributes(false).OfType<ModuleAttribute>()
+                var commandAttribute = consoleCommand.GetType()
+                    .GetCustomAttributes(false)
+                    .OfType<ModuleAttribute>()
                     .FirstOrDefault();
-                table.AddRow($"'{consoleCommand.Command}'", commandAttribute.ModuleName, commandAttribute.Description);
+
+                table.AddRow($"'{consoleCommand.Command}'", commandAttribute?.ModuleName,
+                    commandAttribute?.Description);
             }
 
             Console.WriteLine($"\n{table.ToMarkDownString()}");
         }
 
-        private void Help(string command)
+        private static void Help(ICommand command)
         {
-            var specifiedCommand = Commands.Where(x => x.Command == command);
-            if (specifiedCommand.Any())
+            if (command is null)
             {
-                var commandAttribute = specifiedCommand.FirstOrDefault()
-                    .GetType().GetCustomAttributes(false)
-                    .OfType<ModuleAttribute>()
-                    .FirstOrDefault();
-                Console.WriteLine(commandAttribute.Help);
+                Console.WriteLine("The help command requires a second argument as command.");
+                return;
             }
-            else
+
+            var attribute = command
+                .GetType()
+                .GetCustomAttributes(typeof(ModuleAttribute), false)
+                .FirstOrDefault() as ModuleAttribute;
+
+            if (attribute is null)
             {
+                Console.WriteLine("This command does not offer help");
+                return;
             }
+
+            if (attribute.Help is null)
+            {
+                Console.WriteLine("This command does not offer help");
+                return;
+            }
+
+            Console.WriteLine(attribute.Help);
         }
     }
 }

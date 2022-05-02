@@ -26,8 +26,7 @@ namespace Fluint.Diagnostics.Base
                 .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-
-            Log.Information("[{0}] Intialized Logger", "SerilogLogger");
+            Log.Information("[{Name}] Intialized Logger", "SerilogLogger");
         }
 
         public void Information(string messageTemplate)
@@ -40,9 +39,23 @@ namespace Fluint.Diagnostics.Base
             Log.Information(messageTemplate, propertyValue);
         }
 
+        public void Information(string messageTemplate, object first)
+        {
+            Log.Information(messageTemplate, first);
+        }
+
+        public void Information(string messageTemplate, object first, object second)
+        {
+            Log.Information(messageTemplate, first.ToString(), second.ToString());
+        }
+
+        public void Information(string messageTemplate, object first, object second, object third)
+        {
+            Log.Information(messageTemplate, first.ToString(), second.ToString(), third.ToString());
+        }
+
         public void Information(Exception exception, string messageTemplate)
         {
-            Log.Information(exception, messageTemplate);
         }
 
         public void Information(Exception exception, string messageTemplate, params object[] propertyValue)
@@ -90,6 +103,21 @@ namespace Fluint.Diagnostics.Base
             Log.Warning(exception, messageTemplate, propertyValue);
         }
 
+        public void Warning(string messageTemplate, object first)
+        {
+            Log.Warning(messageTemplate, first);
+        }
+
+        public void Warning(string messageTemplate, object first, object second)
+        {
+            Log.Warning(messageTemplate, first, second);
+        }
+
+        public void Warning(string messageTemplate, object first, object second, object third)
+        {
+            Log.Warning(messageTemplate, first, second, third);
+        }
+
         public void Error(string messageTemplate)
         {
             Log.Error(messageTemplate);
@@ -110,6 +138,56 @@ namespace Fluint.Diagnostics.Base
             Log.Error(exception, messageTemplate, propertyValue);
         }
 
+        public void Error(string messageTemplate, object first)
+        {
+            Log.Error(messageTemplate, first);
+        }
+
+        public void Error(string messageTemplate, object first, object second)
+        {
+            Log.Error(messageTemplate, first, second);
+        }
+
+        public void Error(string messageTemplate, object first, object second, object third)
+        {
+            Log.Error(messageTemplate, first, second, third);
+        }
+
+        public void Verbose(string messageTemplate)
+        {
+            Log.Verbose(messageTemplate);
+        }
+
+        public void Verbose(string messageTemplate, params object[] propertyValue)
+        {
+            Log.Verbose(messageTemplate, propertyValue);
+        }
+
+        public void Verbose(Exception exception, string messageTemplate)
+        {
+            Log.Verbose(exception, messageTemplate);
+        }
+
+        public void Verbose(Exception exception, string messageTemplate, params object[] propertyValue)
+        {
+            Log.Verbose(exception, messageTemplate, propertyValue);
+        }
+
+        public void Verbose(string messageTemplate, object first)
+        {
+            Log.Verbose(messageTemplate, first);
+        }
+
+        public void Verbose(string messageTemplate, object first, object second)
+        {
+            Log.Verbose(messageTemplate, first, second);
+        }
+
+        public void Verbose(string messageTemplate, object first, object second, object third)
+        {
+            Log.Verbose(messageTemplate, first, second, third);
+        }
+
         public void Fatal(string messageTemplate)
         {
             Log.Fatal(messageTemplate);
@@ -128,6 +206,21 @@ namespace Fluint.Diagnostics.Base
         public void Fatal(Exception exception, string messageTemplate, params object[] propertyValue)
         {
             Log.Fatal(exception, messageTemplate, propertyValue);
+        }
+
+        public void Fatal(string messageTemplate, object first)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Fatal(string messageTemplate, object first, object second)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Fatal(string messageTemplate, object first, object second, object third)
+        {
+            throw new NotImplementedException();
         }
     }
 }

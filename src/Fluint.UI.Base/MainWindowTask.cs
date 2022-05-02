@@ -21,7 +21,7 @@ namespace Fluint.SDK.Base.UI
 
         public int Priority => 1;
 
-        public TaskSchedule Schedule => TaskSchedule.Background;
+        public TaskSchedule Schedule => TaskSchedule.Startup;
 
         public void Start(TaskArgs args)
         {

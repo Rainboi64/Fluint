@@ -145,6 +145,12 @@ namespace Fluint.Layer.Miscellaneous
         /// <param name="baseTextColor">Base text color</param>
         public static void WriteEmbeddedColorLine(string text, ConsoleColor? baseTextColor = null)
         {
+            WriteEmbeddedColor(text, baseTextColor);
+            Console.WriteLine();
+        }
+
+        public static void WriteEmbeddedColor(string text, ConsoleColor? baseTextColor = null)
+        {
             if (baseTextColor == null)
                 baseTextColor = Console.ForegroundColor;
 
@@ -183,9 +189,8 @@ namespace Fluint.Layer.Miscellaneous
                 // remainder of string
                 text = text.Substring(match.Index + match.Value.Length);
             }
-
-            Console.WriteLine();
         }
+
 
         /// <summary>
         /// Write a Success Line - green

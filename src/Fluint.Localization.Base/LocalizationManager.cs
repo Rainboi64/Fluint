@@ -13,11 +13,11 @@ namespace Fluint.Localization.Base
 {
     public class LocalizationManager : ILocalizationManager
     {
-        public const string LanguagesFolder = "langs";
+        private const string LanguagesFolder = "langs";
 
         private string _activeLanguage;
 
-        private Dictionary<string, string> _records = new Dictionary<string, string>();
+        private Dictionary<string, string> _records = new();
 
         public string ActiveLanguage
         {
@@ -25,10 +25,10 @@ namespace Fluint.Localization.Base
             set
             {
                 _activeLanguage = value;
-                if (File.Exists(@$"{LanguagesFolder}\{ActiveLanguage}.json"))
+                if (File.Exists($"{LanguagesFolder}/{ActiveLanguage}.json"))
                 {
                     _records = JsonConvert.DeserializeObject<Dictionary<string, string>>(
-                        File.ReadAllText(@$"{LanguagesFolder}\{ActiveLanguage}.json"));
+                        File.ReadAllText($"{LanguagesFolder}/{ActiveLanguage}.json"));
                 }
             }
         }
@@ -36,18 +36,22 @@ namespace Fluint.Localization.Base
         public void CreateRecord(string recordName, string recordData)
         {
             if (!_records.ContainsKey(recordName))
+            {
                 _records.Add(recordName, recordData);
+            }
             else
+            {
                 _records[recordName] = recordData;
-            Directory.CreateDirectory(@$"{LanguagesFolder}\");
-            File.WriteAllText(@$"{LanguagesFolder}\{ActiveLanguage}.json",
+            }
+
+            Directory.CreateDirectory(@$"./{LanguagesFolder}/");
+            File.WriteAllText($"./{LanguagesFolder}/{ActiveLanguage}.json",
                 JsonConvert.SerializeObject(_records, Formatting.Indented));
         }
 
         public string Fetch(string recordName)
         {
-            if (_records.ContainsKey(recordName)) return _records[recordName];
-            return recordName;
+            return _records.ContainsKey(recordName) ? _records[recordName] : recordName;
         }
 
         public string[] FetchLanguages()

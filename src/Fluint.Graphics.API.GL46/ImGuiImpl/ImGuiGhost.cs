@@ -24,6 +24,8 @@ namespace Fluint.Graphics.API.GL46.ImGuiImpl
     public class ImGuiGhost : IGhost
     {
         private readonly IConfigurationManager _configurationManager;
+
+        private readonly Array _keys = Enum.GetValues(typeof(Keys));
         private readonly ILogger _logger;
 
         private readonly List<char> _pressedChars = new();
@@ -251,14 +253,14 @@ void main()
 
             io.MousePos = new Vector2(inputManager.MouseLocation.X, inputManager.MouseLocation.Y);
 
-            foreach (Keys key in Enum.GetValues(typeof(Keys)))
+            for (var i = 0; i < _keys.Length; i++)
             {
-                if (key == Keys.Unknown)
+                if ((Keys)i == Keys.Unknown)
                 {
                     continue;
                 }
 
-                io.KeysDown[(int)key] = inputManager.IsKeyPressed((Key)key);
+                io.KeysDown[i] = inputManager.IsKeyPressed((Key)i);
             }
 
             foreach (var c in _pressedChars)

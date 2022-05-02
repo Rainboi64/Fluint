@@ -18,12 +18,12 @@ namespace Fluint.Layer.Mathematics
     public struct BoundingFrustum : IEquatable<BoundingFrustum>
     {
         private Matrix pMatrix;
-        private Plane  pNear;
-        private Plane  pFar;
-        private Plane  pLeft;
-        private Plane  pRight;
-        private Plane  pTop;
-        private Plane  pBottom;
+        private Plane pNear;
+        private Plane pFar;
+        private Plane pLeft;
+        private Plane pRight;
+        private Plane pTop;
+        private Plane pBottom;
 
         /// <summary>
         /// Gets or sets the Matrix that describes this bounding frustum.
@@ -40,6 +40,7 @@ namespace Fluint.Layer.Mathematics
                 GetPlanesFromMatrix(ref pMatrix, out pNear, out pFar, out pLeft, out pRight, out pTop, out pBottom);
             }
         }
+
         /// <summary>
         /// Gets the near plane of the BoundingFrustum.
         /// </summary>
@@ -50,6 +51,7 @@ namespace Fluint.Layer.Mathematics
                 return pNear;
             }
         }
+
         /// <summary>
         /// Gets the far plane of the BoundingFrustum.
         /// </summary>
@@ -60,6 +62,7 @@ namespace Fluint.Layer.Mathematics
                 return pFar;
             }
         }
+
         /// <summary>
         /// Gets the left plane of the BoundingFrustum.
         /// </summary>
@@ -70,6 +73,7 @@ namespace Fluint.Layer.Mathematics
                 return pLeft;
             }
         }
+
         /// <summary>
         /// Gets the right plane of the BoundingFrustum.
         /// </summary>
@@ -80,6 +84,7 @@ namespace Fluint.Layer.Mathematics
                 return pRight;
             }
         }
+
         /// <summary>
         /// Gets the top plane of the BoundingFrustum.
         /// </summary>
@@ -90,6 +95,7 @@ namespace Fluint.Layer.Mathematics
                 return pTop;
             }
         }
+
         /// <summary>
         /// Gets the bottom plane of the BoundingFrustum.
         /// </summary>
@@ -151,7 +157,7 @@ namespace Fluint.Layer.Mathematics
         /// </returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is BoundingFrustum))
+            if (!(obj is BoundingFrustum))
                 return false;
 
             var strongValue = (BoundingFrustum)obj;
@@ -206,7 +212,8 @@ namespace Fluint.Layer.Mathematics
             }
         }
 
-        private static void GetPlanesFromMatrix(ref Matrix matrix, out Plane near, out Plane far, out Plane left, out Plane right, out Plane top, out Plane bottom)
+        private static void GetPlanesFromMatrix(ref Matrix matrix, out Plane near, out Plane far, out Plane left,
+            out Plane right, out Plane top, out Plane bottom)
         {
             //http://www.chadvernon.com/blog/resources/directx9/frustum-culling/
 
@@ -257,9 +264,12 @@ namespace Fluint.Layer.Mathematics
         {
             //P = -d1 * N2xN3 / N1.N2xN3 - d2 * N3xN1 / N2.N3xN1 - d3 * N1xN2 / N3.N1xN2 
             Vector3 v =
-                -p1.D * Vector3.Cross(p2.Normal, p3.Normal) / Vector3.Dot(p1.Normal, Vector3.Cross(p2.Normal, p3.Normal))
-                - p2.D * Vector3.Cross(p3.Normal, p1.Normal) / Vector3.Dot(p2.Normal, Vector3.Cross(p3.Normal, p1.Normal))
-                - p3.D * Vector3.Cross(p1.Normal, p2.Normal) / Vector3.Dot(p3.Normal, Vector3.Cross(p1.Normal, p2.Normal));
+                -p1.D * Vector3.Cross(p2.Normal, p3.Normal) /
+                Vector3.Dot(p1.Normal, Vector3.Cross(p2.Normal, p3.Normal))
+                - p2.D * Vector3.Cross(p3.Normal, p1.Normal) /
+                Vector3.Dot(p2.Normal, Vector3.Cross(p3.Normal, p1.Normal))
+                - p3.D * Vector3.Cross(p1.Normal, p2.Normal) /
+                Vector3.Dot(p3.Normal, Vector3.Cross(p1.Normal, p2.Normal));
 
             return v;
         }
@@ -275,7 +285,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="zfar">The zfar.</param>
         /// <param name="aspect">The aspect.</param>
         /// <returns>The bounding frustum calculated from perspective camera</returns>
-        public static BoundingFrustum FromCamera(Vector3 cameraPos, Vector3 lookDir, Vector3 upDir, float fov, float znear, float zfar, float aspect)
+        public static BoundingFrustum FromCamera(Vector3 cameraPos, Vector3 lookDir, Vector3 upDir, float fov,
+            float znear, float zfar, float aspect)
         {
             //http://knol.google.com/k/view-frustum
 
@@ -314,10 +325,12 @@ namespace Fluint.Layer.Mathematics
             result.pTop.Normalize();
             result.pBottom.Normalize();
 
-            result.pMatrix = Matrix.LookAtLH(cameraPos, cameraPos + lookDir * 10, upDir) * Matrix.PerspectiveFovLH(fov, aspect, znear, zfar);
+            result.pMatrix = Matrix.LookAtLH(cameraPos, cameraPos + lookDir * 10, upDir) *
+                             Matrix.PerspectiveFovLH(fov, aspect, znear, zfar);
 
             return result;
         }
+
         /// <summary>
         /// Creates a new frustum relaying on perspective camera parameters
         /// </summary>
@@ -325,7 +338,8 @@ namespace Fluint.Layer.Mathematics
         /// <returns>The bounding frustum from camera params</returns>
         public static BoundingFrustum FromCamera(FrustumCameraParams cameraParams)
         {
-            return FromCamera(cameraParams.Position, cameraParams.LookAtDir, cameraParams.UpDir, cameraParams.FOV, cameraParams.ZNear, cameraParams.ZFar, cameraParams.AspectRatio);
+            return FromCamera(cameraParams.Position, cameraParams.LookAtDir, cameraParams.UpDir, cameraParams.FOV,
+                cameraParams.ZNear, cameraParams.ZFar, cameraParams.AspectRatio);
         }
 
         /// <summary>
@@ -359,14 +373,14 @@ namespace Fluint.Layer.Mathematics
         /// <returns>The 8 corners of the frustum</returns>
         public void GetCorners(Vector3[] corners)
         {
-            corners[0] = Get3PlanesInterPoint(ref pNear, ref  pBottom, ref  pRight);    //Near1
-            corners[1] = Get3PlanesInterPoint(ref pNear, ref  pTop, ref  pRight);       //Near2
-            corners[2] = Get3PlanesInterPoint(ref pNear, ref  pTop, ref  pLeft);        //Near3
-            corners[3] = Get3PlanesInterPoint(ref pNear, ref  pBottom, ref  pLeft);     //Near3
-            corners[4] = Get3PlanesInterPoint(ref pFar, ref  pBottom, ref  pRight);    //Far1
-            corners[5] = Get3PlanesInterPoint(ref pFar, ref  pTop, ref  pRight);       //Far2
-            corners[6] = Get3PlanesInterPoint(ref pFar, ref  pTop, ref  pLeft);        //Far3
-            corners[7] = Get3PlanesInterPoint(ref pFar, ref  pBottom, ref  pLeft);     //Far3
+            corners[0] = Get3PlanesInterPoint(ref pNear, ref pBottom, ref pRight); //Near1
+            corners[1] = Get3PlanesInterPoint(ref pNear, ref pTop, ref pRight); //Near2
+            corners[2] = Get3PlanesInterPoint(ref pNear, ref pTop, ref pLeft); //Near3
+            corners[3] = Get3PlanesInterPoint(ref pNear, ref pBottom, ref pLeft); //Near3
+            corners[4] = Get3PlanesInterPoint(ref pFar, ref pBottom, ref pRight); //Far1
+            corners[5] = Get3PlanesInterPoint(ref pFar, ref pTop, ref pRight); //Far2
+            corners[6] = Get3PlanesInterPoint(ref pFar, ref pTop, ref pLeft); //Far3
+            corners[7] = Get3PlanesInterPoint(ref pFar, ref pBottom, ref pLeft); //Far3
         }
 
         /// <summary>
@@ -391,7 +405,7 @@ namespace Fluint.Layer.Mathematics
         /// Checks whether a point lay inside, intersects or lay outside the frustum.
         /// </summary>
         /// <param name="point">The point.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(ref Vector3 point)
         {
             var result = PlaneIntersectionType.Front;
@@ -400,13 +414,26 @@ namespace Fluint.Layer.Mathematics
             {
                 switch (i)
                 {
-                    case 0: planeResult = pNear.Intersects(ref point); break;
-                    case 1: planeResult = pFar.Intersects(ref point); break;
-                    case 2: planeResult = pLeft.Intersects(ref point); break;
-                    case 3: planeResult = pRight.Intersects(ref point); break;
-                    case 4: planeResult = pTop.Intersects(ref point); break;
-                    case 5: planeResult = pBottom.Intersects(ref point); break;
+                    case 0:
+                        planeResult = pNear.Intersects(ref point);
+                        break;
+                    case 1:
+                        planeResult = pFar.Intersects(ref point);
+                        break;
+                    case 2:
+                        planeResult = pLeft.Intersects(ref point);
+                        break;
+                    case 3:
+                        planeResult = pRight.Intersects(ref point);
+                        break;
+                    case 4:
+                        planeResult = pTop.Intersects(ref point);
+                        break;
+                    case 5:
+                        planeResult = pBottom.Intersects(ref point);
+                        break;
                 }
+
                 switch (planeResult)
                 {
                     case PlaneIntersectionType.Back:
@@ -416,6 +443,7 @@ namespace Fluint.Layer.Mathematics
                         break;
                 }
             }
+
             switch (result)
             {
                 case PlaneIntersectionType.Intersecting: return ContainmentType.Intersects;
@@ -427,7 +455,7 @@ namespace Fluint.Layer.Mathematics
         /// Checks whether a point lay inside, intersects or lay outside the frustum.
         /// </summary>
         /// <param name="point">The point.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(Vector3 point)
         {
             return Contains(ref point);
@@ -437,7 +465,7 @@ namespace Fluint.Layer.Mathematics
         /// Checks whether a group of points lay totally inside the frustum (Contains), or lay partially inside the frustum (Intersects), or lay outside the frustum (Disjoint).
         /// </summary>
         /// <param name="points">The points.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(Vector3[] points)
         {
             var containsAny = false;
@@ -455,6 +483,7 @@ namespace Fluint.Layer.Mathematics
                         break;
                 }
             }
+
             if (containsAny)
             {
                 if (containsAll)
@@ -465,17 +494,19 @@ namespace Fluint.Layer.Mathematics
             else
                 return ContainmentType.Disjoint;
         }
+
         /// <summary>
         /// Checks whether a group of points lay totally inside the frustum (Contains), or lay partially inside the frustum (Intersects), or lay outside the frustum (Disjoint).
         /// </summary>
         /// <param name="points">The points.</param>
-        /// <param name="result">Type of the containment.</param>
+        /// <param name="result">Stage of the containment.</param>
         public void Contains(Vector3[] points, out ContainmentType result)
         {
             result = Contains(points);
         }
 
-        private void GetBoxToPlanePVertexNVertex(ref BoundingBox box, ref Vector3 planeNormal, out Vector3 p, out Vector3 n)
+        private void GetBoxToPlanePVertexNVertex(ref BoundingBox box, ref Vector3 planeNormal, out Vector3 p,
+            out Vector3 n)
         {
             p = box.Minimum;
             if (planeNormal.X >= 0)
@@ -498,7 +529,7 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and a bounding box.
         /// </summary>
         /// <param name="box">The box.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(ref BoundingBox box)
         {
             Plane plane;
@@ -513,6 +544,7 @@ namespace Fluint.Layer.Mathematics
                 if (Collision.PlaneIntersectsPoint(ref plane, ref n) == PlaneIntersectionType.Back)
                     result = ContainmentType.Intersects;
             }
+
             return result;
         }
 
@@ -520,7 +552,7 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and a bounding box.
         /// </summary>
         /// <param name="box">The box.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(BoundingBox box)
         {
             return Contains(ref box);
@@ -530,16 +562,17 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and a bounding box.
         /// </summary>
         /// <param name="box">The box.</param>
-        /// <param name="result">Type of the containment.</param>
+        /// <param name="result">Stage of the containment.</param>
         public void Contains(ref BoundingBox box, out ContainmentType result)
         {
             result = Contains(ref box);
         }
+
         /// <summary>
         /// Determines the intersection relationship between the frustum and a bounding sphere.
         /// </summary>
         /// <param name="sphere">The sphere.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(ref BoundingSphere sphere)
         {
             var result = PlaneIntersectionType.Front;
@@ -548,13 +581,26 @@ namespace Fluint.Layer.Mathematics
             {
                 switch (i)
                 {
-                    case 0: planeResult = pNear.Intersects(ref sphere); break;
-                    case 1: planeResult = pFar.Intersects(ref sphere); break;
-                    case 2: planeResult = pLeft.Intersects(ref sphere); break;
-                    case 3: planeResult = pRight.Intersects(ref sphere); break;
-                    case 4: planeResult = pTop.Intersects(ref sphere); break;
-                    case 5: planeResult = pBottom.Intersects(ref sphere); break;
+                    case 0:
+                        planeResult = pNear.Intersects(ref sphere);
+                        break;
+                    case 1:
+                        planeResult = pFar.Intersects(ref sphere);
+                        break;
+                    case 2:
+                        planeResult = pLeft.Intersects(ref sphere);
+                        break;
+                    case 3:
+                        planeResult = pRight.Intersects(ref sphere);
+                        break;
+                    case 4:
+                        planeResult = pTop.Intersects(ref sphere);
+                        break;
+                    case 5:
+                        planeResult = pBottom.Intersects(ref sphere);
+                        break;
                 }
+
                 switch (planeResult)
                 {
                     case PlaneIntersectionType.Back:
@@ -564,6 +610,7 @@ namespace Fluint.Layer.Mathematics
                         break;
                 }
             }
+
             switch (result)
             {
                 case PlaneIntersectionType.Intersecting: return ContainmentType.Intersects;
@@ -575,7 +622,7 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and a bounding sphere.
         /// </summary>
         /// <param name="sphere">The sphere.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public ContainmentType Contains(BoundingSphere sphere)
         {
             return Contains(ref sphere);
@@ -585,16 +632,17 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and a bounding sphere.
         /// </summary>
         /// <param name="sphere">The sphere.</param>
-        /// <param name="result">Type of the containment.</param>
+        /// <param name="result">Stage of the containment.</param>
         public void Contains(ref BoundingSphere sphere, out ContainmentType result)
         {
             result = Contains(ref sphere);
         }
+
         /// <summary>
         /// Determines the intersection relationship between the frustum and another bounding frustum.
         /// </summary>
         /// <param name="frustum">The frustum.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public bool Contains(ref BoundingFrustum frustum)
         {
             return Contains(frustum.GetCorners()) != ContainmentType.Disjoint;
@@ -604,7 +652,7 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and another bounding frustum.
         /// </summary>
         /// <param name="frustum">The frustum.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public bool Contains(BoundingFrustum frustum)
         {
             return Contains(ref frustum);
@@ -614,7 +662,7 @@ namespace Fluint.Layer.Mathematics
         /// Determines the intersection relationship between the frustum and another bounding frustum.
         /// </summary>
         /// <param name="frustum">The frustum.</param>
-        /// <param name="result">Type of the containment.</param>
+        /// <param name="result">Stage of the containment.</param>
         public void Contains(ref BoundingFrustum frustum, out bool result)
         {
             result = Contains(frustum.GetCorners()) != ContainmentType.Disjoint;
@@ -624,11 +672,12 @@ namespace Fluint.Layer.Mathematics
         /// Checks whether the current BoundingFrustum intersects a BoundingSphere.
         /// </summary>
         /// <param name="sphere">The sphere.</param>
-        /// <returns>Type of the containment</returns>
+        /// <returns>Stage of the containment</returns>
         public bool Intersects(ref BoundingSphere sphere)
         {
             return Contains(ref sphere) != ContainmentType.Disjoint;
         }
+
         /// <summary>
         /// Checks whether the current BoundingFrustum intersects a BoundingSphere.
         /// </summary>
@@ -638,6 +687,7 @@ namespace Fluint.Layer.Mathematics
         {
             result = Contains(ref sphere) != ContainmentType.Disjoint;
         }
+
         /// <summary>
         /// Checks whether the current BoundingFrustum intersects a BoundingBox.
         /// </summary>
@@ -647,6 +697,7 @@ namespace Fluint.Layer.Mathematics
         {
             return Contains(ref box) != ContainmentType.Disjoint;
         }
+
         /// <summary>
         /// Checks whether the current BoundingFrustum intersects a BoundingBox.
         /// </summary>
@@ -675,6 +726,7 @@ namespace Fluint.Layer.Mathematics
         {
             return PlaneIntersectsPoints(ref plane, GetCorners());
         }
+
         /// <summary>
         /// Checks whether the current BoundingFrustum intersects the specified Plane.
         /// </summary>
@@ -728,6 +780,7 @@ namespace Fluint.Layer.Mathematics
         {
             return Intersects(ref ray, out var inDist, out var outDist);
         }
+
         /// <summary>
         /// Checks whether the current BoundingFrustum intersects the specified Ray.
         /// </summary>
@@ -743,7 +796,8 @@ namespace Fluint.Layer.Mathematics
                 for (int i = 0; i < 6; i++)
                 {
                     var plane = GetPlane(i);
-                    if (Collision.RayIntersectsPlane(ref ray, ref plane, out float distance) && distance < nearstPlaneDistance)
+                    if (Collision.RayIntersectsPlane(ref ray, ref plane, out float distance) &&
+                        distance < nearstPlaneDistance)
                     {
                         nearstPlaneDistance = distance;
                     }
@@ -811,11 +865,14 @@ namespace Fluint.Layer.Mathematics
             {
                 float pointDist = Collision.DistancePlanePoint(ref ioFrustrum.pTop, ref points[i]);
                 pointDist = Math.Max(pointDist, Collision.DistancePlanePoint(ref ioFrustrum.pBottom, ref points[i]));
-                pointDist = Math.Max(pointDist, Collision.DistancePlanePoint(ref ioFrustrum.pLeft, ref points[i]) * horizontalToVerticalMapping);
-                pointDist = Math.Max(pointDist, Collision.DistancePlanePoint(ref ioFrustrum.pRight, ref points[i]) * horizontalToVerticalMapping);
+                pointDist = Math.Max(pointDist,
+                    Collision.DistancePlanePoint(ref ioFrustrum.pLeft, ref points[i]) * horizontalToVerticalMapping);
+                pointDist = Math.Max(pointDist,
+                    Collision.DistancePlanePoint(ref ioFrustrum.pRight, ref points[i]) * horizontalToVerticalMapping);
 
                 maxPointDist = Math.Max(maxPointDist, pointDist);
             }
+
             return -maxPointDist / vSin;
         }
 
@@ -842,6 +899,7 @@ namespace Fluint.Layer.Mathematics
         {
             return GetZoomToExtentsShiftDistance(points) * pNear.Normal;
         }
+
         /// <summary>
         /// Get the vector shift which when added to camera position will do the effect of zoom to extents (zoom to fit) operation,
         /// so all the passed points will fit in the current view.

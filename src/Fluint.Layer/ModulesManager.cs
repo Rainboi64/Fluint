@@ -69,7 +69,7 @@ namespace Fluint.Layer
             }
 
             var table = new ConsoleTable();
-            table.AddColumn(new[] { "Type Name", "Type Parent", "Assembly", "Initialization Mode" });
+            table.AddColumn(new[] { "Stage Name", "Stage Parent", "Assembly", "Initialization Mode" });
 
             var moduleCollection = new ModuleCollection();
 

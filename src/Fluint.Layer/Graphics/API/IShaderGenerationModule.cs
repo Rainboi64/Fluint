@@ -9,7 +9,7 @@ namespace Fluint.Layer.Graphics.API
     [Initialization(InitializationMethod.Instanced)]
     public interface IShaderGenerationModule
     {
-        ShaderType Type
+        ShaderStage Stage
         {
             get;
         }

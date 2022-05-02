@@ -7,7 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
+using System.Threading.Tasks;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Tasks;
 
@@ -73,7 +73,9 @@ namespace Fluint.SDK.Base.Tasks
                 case TaskSchedule.Background:
                     foreach (var item in _backgroundTasks)
                     {
-                        new Thread(() => item.Start(args)).Start();
+                        Task.Run(() => {
+                            item.Start(args);
+                        });
                     }
 
                     break;

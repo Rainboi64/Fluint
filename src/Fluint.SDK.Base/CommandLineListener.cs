@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 
 namespace Fluint.SDK.Base
@@ -13,7 +15,10 @@ namespace Fluint.SDK.Base
         private readonly List<string> _history = new();
         private readonly IParser _parser;
 
+
         private Dictionary<string, Action> _keyActions = new Dictionary<string, Action>();
+
+        private string _prompt = "[magenta]λ[/magenta] ";
 
         public CommandLineListener(ModulePacket packet)
         {
@@ -39,6 +44,8 @@ namespace Fluint.SDK.Base
         {
             var keyHandler = new ConsoleKeyHandler(_history);
 
+            ConsoleHelper.WriteEmbeddedColor(_prompt);
+
             while (true)
             {
                 var keyInfo = Console.ReadKey(true);
@@ -60,14 +67,20 @@ namespace Fluint.SDK.Base
 
         private void Call(string input)
         {
+            var timer = new Stopwatch();
+            timer.Start();
+
             AddToHistory(input);
 
             var (command, arguments) = Parse(input);
             Execute(command, arguments);
+
+            timer.Stop();
+            _prompt = $"[magenta]λ[/magenta] [took [yellow]{timer.ElapsedMilliseconds / 1000f}s[/yellow]] ";
         }
 
         // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
-        private (string command, string[] arguments) Parse(string input)
+        public static (string command, string[] arguments) Parse(string input)
         {
             bool inQuotes = false;
 
