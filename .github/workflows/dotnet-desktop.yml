@@ -19,17 +19,16 @@ on:
 jobs:
 
   build:
-
     strategy:
       matrix:
         configuration: [Release With Modules Setup]
 
-    runs-on: windows-latest 
+    runs-on: windows-latest
     
     env:
-      Solution_Name: Fluint.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Wap_Project_Directory: Fluint\src\Fluint.Runtime   # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: Fluint\src\Fluint.Runtime.csproj                  # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+      Solution_Name: Fluint.sln                       
+      Wap_Project_Directory: Fluint\src\Fluint.Runtime   
+      Wap_Project_Path: Fluint\src\Fluint.Runtime.csproj                
 
     steps:
     - name: Checkout
@@ -42,11 +41,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
-
-    # Execute all unit tests in the solution
-    - name: Execute unit tests
+        
+    - name: Execute build
       run: dotnet build
