@@ -1,36 +1,34 @@
 // 
-// SleepCommand.cs
+// Sleep.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using System.Threading;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base.Commands;
+namespace Fluint.SDK.Base.Lambdas;
 
-public class SleepCommand : ICommand
+public class Sleep : ILambda
 {
     public string Command => "sleep";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         var length = args.Length;
         if (length != 1)
         {
-            Console.WriteLine(
+            return LambdaObject.Error(
                 "Invalid argument count, please supply the amount of milliseconds the thread will sleep for in the following format 'sleep {milliseconds}'.");
-            return;
         }
 
         if (!int.TryParse(args[0], out var duration))
         {
-            Console.WriteLine(
+            return LambdaObject.Error(
                 "Invalid argument count, please supply the amount of milliseconds the thread will sleep for in the following format 'sleep {milliseconds}'.");
-            return;
         }
 
         Thread.Sleep(duration);
+        return LambdaObject.Success;
     }
 }

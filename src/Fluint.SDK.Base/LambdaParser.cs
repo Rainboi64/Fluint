@@ -1,5 +1,5 @@
 ﻿//
-// Parser.cs
+// LambdaParser.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
@@ -14,50 +14,52 @@ using Fluint.Layer.SDK;
 
 namespace Fluint.SDK.Base
 {
-    public class Parser : IParser
+    public class LambdaParser : ILambdaParser
     {
-        private readonly IList<ICommand> _commands;
+        private readonly IList<ILambda> _commands;
 
-        public Parser(ModulePacket packet)
+        public LambdaParser(ModulePacket packet)
         {
             _commands = packet.GetInstances()
-                .OfType<ICommand>()
+                .OfType<ILambda>()
                 .ToList();
         }
 
-        public void Parse(string command, string[] args)
+        public LambdaObject Parse(string command, string[] args)
         {
+            if (command.StartsWith("#"))
+            {
+                return LambdaObject.Unknown;
+            }
+
             var commandObject = GetCommandByString(command);
 
             if (commandObject is not null)
             {
-                commandObject.Do(args);
+                return commandObject.Run(args);
             }
-            else
+
+            switch (command)
             {
-                switch (command)
-                {
-                    case "help":
-                        Help(GetCommandByString(args.FirstOrDefault()));
-                        break;
-                    case "list":
-                        List();
-                        break;
-                    default:
-                        ConsoleHelper.WriteEmbeddedColorLine(
-                            $"'[blue]{command}[/blue]' is not recognized as a [red]Fluint[/red] command module.\n" +
-                            "to see available commands try running '[blue]list[/blue]'");
-                        break;
-                }
+                case "help":
+                    Help(GetCommandByString(args.FirstOrDefault()));
+                    break;
+                case "list":
+                    List();
+                    break;
+                default:
+                    return LambdaObject.Error("Lambda not found");
             }
+
+            return LambdaObject.Unknown;
         }
 
-        public void Add(ICommand command)
+        public void Add(ILambda command)
         {
             _commands.Add(command);
         }
 
-        private ICommand GetCommandByString(string command)
+        private ILambda GetCommandByString(string command)
         {
             foreach (var item in _commands)
             {
@@ -89,7 +91,7 @@ namespace Fluint.SDK.Base
             Console.WriteLine($"\n{table.ToMarkDownString()}");
         }
 
-        private static void Help(ICommand command)
+        private static void Help(ILambda command)
         {
             if (command is null)
             {

@@ -11,32 +11,34 @@ namespace Fluint.Layer.DependencyInjection
 {
     public class ModulePacket
     {
+        public readonly Dictionary<Type, Type> ScopedMappings;
+        public readonly Dictionary<Type, IModule> SingletonMappings;
+        public readonly List<IModule> StaticModules;
 
-        private readonly Dictionary<Type, Type> _mappings;
-        private readonly Dictionary<Type, IModule> _singletonMappings;
-        private readonly List<IModule> _instances;
-
-        public IRuntime CurrentRuntime { get; }
-
-        public ModulePacket(IRuntime runtime, Dictionary<Type, Type> mappings, Dictionary<Type, Type> singletonMappings, List<Type> instances)
+        public ModulePacket(IRuntime runtime, Dictionary<Type, Type> scopedMappings,
+            Dictionary<Type, Type> singletonMappings, List<Type> instances)
         {
             CurrentRuntime = runtime;
-            _mappings = mappings;
+            ScopedMappings = scopedMappings;
 
-            _singletonMappings = new Dictionary<Type, IModule>();
-            
-            foreach (var pair in singletonMappings)
+            SingletonMappings = new Dictionary<Type, IModule>();
+
+            foreach (var (key, type) in singletonMappings)
             {
-                var key = pair.Key;
-                var value = (IModule)CreateInstance(pair.Value);
-                _singletonMappings[key] = value;
+                var value = (IModule)CreateInstance(type);
+                SingletonMappings[key] = value;
             }
 
-            _instances = new List<IModule>();
+            StaticModules = new List<IModule>();
             foreach (var type in instances)
             {
-                _instances.Add((IModule)CreateInstance(type));
+                StaticModules.Add((IModule)CreateInstance(type));
             }
+        }
+
+        public IRuntime CurrentRuntime
+        {
+            get;
         }
 
         public object FetchAndCreateInstance(Type type)
@@ -46,12 +48,12 @@ namespace Fluint.Layer.DependencyInjection
                 return this;
             }
 
-            if (_mappings.ContainsKey(type))
+            if (ScopedMappings.ContainsKey(type))
             {
                 return CreateScoped(type);
             }
 
-            if (_singletonMappings.ContainsKey(type))
+            if (SingletonMappings.ContainsKey(type))
             {
                 return GetSingleton(type);
             }
@@ -85,19 +87,20 @@ namespace Fluint.Layer.DependencyInjection
             {
                 resolvedParameters.Add(FetchAndCreateInstance(item.ParameterType));
             }
+
             return Activator.CreateInstance(target, resolvedParameters.ToArray());
         }
 
         private Type ResolveType(Type type)
         {
-            // 😂🤣 WHO DID THIS 🤣😂
-            foreach (var pair in _mappings)
+            foreach (var pair in ScopedMappings)
             {
                 if (pair.Key.Name == type.Name)
                 {
                     return pair.Value;
                 }
             }
+
             return type;
         }
 
@@ -108,7 +111,7 @@ namespace Fluint.Layer.DependencyInjection
 
         private object GetSingleton(Type type)
         {
-            return _singletonMappings[type];
+            return SingletonMappings[type];
         }
 
         public T CreateScoped<T>() where T : IModule
@@ -125,7 +128,7 @@ namespace Fluint.Layer.DependencyInjection
 
         public IEnumerable<IModule> GetInstances()
         {
-            return _instances;
+            return StaticModules;
         }
     }
 }

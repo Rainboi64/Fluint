@@ -1,5 +1,5 @@
 // 
-// ErrorCommand.cs
+// Error.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
@@ -7,25 +7,28 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base.Commands;
+namespace Fluint.SDK.Base.Lambdas;
 
-public class ErrorCommand : ICommand
+public class Error : ILambda
 {
     private readonly ModulePacket _packet;
 
-    public ErrorCommand(ModulePacket packet)
+    public Error(ModulePacket packet)
     {
         _packet = packet;
     }
 
     public string Command => "error";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         var logger = _packet.GetSingleton<ILogger>();
         foreach (var message in args)
         {
             logger.Error(message);
         }
+
+        return LambdaObject.Success;
+        ;
     }
 }

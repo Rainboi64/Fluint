@@ -14,7 +14,7 @@ namespace Fluint.Graphics.API.GLCommon.Commands;
 
 [Module("Dump opengl information", "prints opengl runtime data to information buffer",
     "prints opengl runtime data to information buffer")]
-public class DumpGlVersion : ICommand
+public class DumpGlVersion : ILambda
 {
     private readonly ModulePacket _packet;
 
@@ -25,17 +25,14 @@ public class DumpGlVersion : ICommand
 
     public string Command => "glversion";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         var logger = _packet.GetSingleton<ILogger>();
 
         var window = _packet.GetSingleton<IGuiInstanceManager>().MainWindow;
         if (window is null)
         {
-            logger.Error("[{0}] Couldn't Find Window; Instance Manager: {1}", "OpenGLCommon",
-                _packet.GetSingleton<IGuiInstanceManager>().MainWindow
-            );
-            return;
+            return LambdaObject.Error("Couldn't find window object");
         }
 
         window.Enqueue(() => {
@@ -45,5 +42,7 @@ public class DumpGlVersion : ICommand
             logger.Information("[{0}] Vendor: {1}", "OpenGLCommon", GL.GetString(StringName.Vendor));
             logger.Information("[{0}] Extensions: {1}", "OpenGLCommon", GL.GetString(StringName.Extensions));
         });
+
+        return LambdaObject.Success;
     }
 }

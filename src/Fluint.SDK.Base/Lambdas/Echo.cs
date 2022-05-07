@@ -1,22 +1,25 @@
 // 
-// EchoCommand.cs
+// Echo.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
 using System;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base.Commands;
+namespace Fluint.SDK.Base.Lambdas;
 
-public class EchoCommand : ICommand
+public class Echo : ILambda
 {
     public string Command => "echo";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         foreach (var item in args)
         {
             Console.WriteLine(item);
         }
+
+        return LambdaObject.Success;
+        ;
     }
 }

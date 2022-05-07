@@ -60,5 +60,6 @@ namespace Fluint.Layer.Windowing
 
         public void Adopt<TClient>() where TClient : IWindow;
         public void Start();
+        void Close();
     }
 }

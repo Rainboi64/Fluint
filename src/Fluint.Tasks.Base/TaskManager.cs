@@ -18,6 +18,8 @@ namespace Fluint.SDK.Base.Tasks
         private readonly ITask[] _backgroundTasks;
         private readonly ModulePacket _packet;
 
+        private readonly List<Task> _runningBackgroundTasks = new();
+
         private readonly ITask[] _startupTasks;
         private readonly IEnumerable<ITask> _tasks;
         private readonly ITask[] _windowDisposingTasks;
@@ -28,7 +30,6 @@ namespace Fluint.SDK.Base.Tasks
         private readonly ITask[] _windowResizeTasks;
         private readonly ITask[] _windowScrollTasks;
         private readonly ITask[] _windowUpdateTasks;
-
 
         public TaskManager(ModulePacket packet)
         {
@@ -73,9 +74,10 @@ namespace Fluint.SDK.Base.Tasks
                 case TaskSchedule.Background:
                     foreach (var item in _backgroundTasks)
                     {
-                        Task.Run(() => {
-                            item.Start(args);
-                        });
+                        _runningBackgroundTasks.Add(
+                            Task.Run(() => {
+                                item.Start(args);
+                            }));
                     }
 
                     break;
@@ -138,6 +140,14 @@ namespace Fluint.SDK.Base.Tasks
         public void Invoke(TaskSchedule schedule)
         {
             Invoke(schedule, new TaskArgs(this));
+        }
+
+        public void StopAll()
+        {
+            foreach (var task in _runningBackgroundTasks)
+            {
+                task.Dispose();
+            }
         }
     }
 }

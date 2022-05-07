@@ -1,14 +1,15 @@
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 using Fluint.Layer.DependencyInjection;
 
 namespace Fluint.Layer.Runtime
 {
     public class InstanceManager
     {
+        private ModuleCollection _collection;
 
         private Dictionary<int, IRuntime> _instances = new Dictionary<int, IRuntime>();
-        private ModuleCollection _collection;
         private StartupManifest _manifest;
 
         public InstanceManager(StartupManifest manifest)
@@ -43,7 +44,10 @@ namespace Fluint.Layer.Runtime
         {
             foreach (var instance in _instances.Values)
             {
-                instance.Start();
+                var thread = new Thread(() => {
+                    instance.Start();
+                });
+                thread.Start();
             }
         }
 

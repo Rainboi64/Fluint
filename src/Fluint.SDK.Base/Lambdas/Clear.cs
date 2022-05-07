@@ -1,5 +1,5 @@
 ﻿//
-// ClearCommand.cs
+// Clear.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
@@ -8,16 +8,17 @@ using System;
 using Fluint.Layer;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base.Commands
+namespace Fluint.SDK.Base.Lambdas
 {
     [Module("Clear Command", "Clears the sdk text", "enter the command to clean console window.")]
-    public class ClearCommand : ICommand
+    public class Clear : ILambda
     {
         public string Command => "clear";
 
-        public void Do(string[] args)
+        public LambdaObject Run(string[] args)
         {
             Console.Clear();
+            return LambdaObject.Success;
         }
     }
 }

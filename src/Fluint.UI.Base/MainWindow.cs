@@ -76,6 +76,11 @@ public class MainWindow : IWindow
         get;
     }
 
+    public void Close()
+    {
+        _provider.Close();
+    }
+
     public void OnLoad()
     {
         Title = "Fluint";

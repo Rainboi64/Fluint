@@ -1,5 +1,5 @@
 // 
-// VerboseCommand.cs
+// Warning.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
@@ -7,25 +7,27 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base.Commands;
+namespace Fluint.SDK.Base.Lambdas;
 
-public class VerboseCommand : ICommand
+public class Warning : ILambda
 {
     private readonly ModulePacket _packet;
 
-    public VerboseCommand(ModulePacket packet)
+    public Warning(ModulePacket packet)
     {
         _packet = packet;
     }
 
-    public string Command => "verbose";
+    public string Command => "warning";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         var logger = _packet.GetSingleton<ILogger>();
         foreach (var message in args)
         {
-            logger.Verbose(message);
+            logger.Warning(message);
         }
+
+        return LambdaObject.Success;
     }
 }

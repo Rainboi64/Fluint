@@ -49,6 +49,7 @@ namespace Fluint.Layer.Windowing
             set;
         }
 
+        public void Close();
         public void OnLoad();
         public void OnRender(double delay);
         public void OnUpdate(double delay);

@@ -1,9 +1,8 @@
 // 
-// LanguageCommand.cs
+// Language.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
-using System;
 using Fluint.Layer;
 using Fluint.Layer.Localization;
 using Fluint.Layer.SDK;
@@ -16,29 +15,27 @@ namespace Fluint.Localization.Base;
     "[record x y] places a record where 'x' is the record name, and 'y' is the record data. (needs to be loaded)\n" +
     "[load x] loads the language with the abbreviation 'x'. (note: loading a non-existing language will create one with the corresponding abbreviation)\n" +
     "[fetch x] prints the corresponding record data for the loaded language")]
-public class LanguageCommand : ICommand
+public class Language : ILambda
 {
     private readonly ILocalizationManager _localizationManager;
 
-    public LanguageCommand(ILocalizationManager localizationManager)
+    public Language(ILocalizationManager localizationManager)
     {
         _localizationManager = localizationManager;
     }
 
     public string Command => "language";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         if (args is null)
         {
-            Console.WriteLine("invalid argument try running 'help language'");
-            return;
+            return LambdaObject.Error("invalid argument try running 'help language'");
         }
 
         if (args.Length < 1)
         {
-            Console.WriteLine("invalid argument try running 'help language'");
-            return;
+            return LambdaObject.Error("invalid argument try running 'help language'");
         }
 
         switch (args[0].ToLower())
@@ -46,8 +43,7 @@ public class LanguageCommand : ICommand
             case "record":
                 if (args.Length < 3)
                 {
-                    Console.WriteLine("invalid argument try running 'help language'");
-                    return;
+                    return LambdaObject.Error("invalid argument try running 'help language'");
                 }
 
                 Record(args[1], args[2]);
@@ -58,16 +54,15 @@ public class LanguageCommand : ICommand
             case "fetch":
                 if (args.Length < 2)
                 {
-                    Console.WriteLine("invalid argument try running 'help language'");
-                    return;
+                    return LambdaObject.Error("invalid argument try running 'help language'");
                 }
 
-                Console.WriteLine(Fetch(args[1]));
-                break;
+                return new LambdaObject(Fetch(args[1]));
             default:
-                Console.WriteLine("invalid argument try running 'help language'");
-                break;
+                return LambdaObject.Error("invalid argument try running 'help language'");
         }
+
+        return LambdaObject.Failure;
     }
 
     private string Fetch(string key)

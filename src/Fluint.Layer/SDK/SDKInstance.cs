@@ -39,7 +39,20 @@ namespace Fluint.Layer.SDK
 
         public void Start()
         {
-            Packet.CreateScoped<ICommandLineListener>().Listen();
+            var listener = Packet.CreateScoped<ILambdaListener>();
+
+            if (Manifest.CommandLineArguments.Length > 1)
+            {
+                var parser = Packet.CreateScoped<ILambdaParser>();
+                foreach (var command in Manifest.CommandLineArguments)
+                {
+                    listener.Execute(command);
+                }
+
+                return;
+            }
+
+            listener.Listen();
         }
 
         public void Kill()

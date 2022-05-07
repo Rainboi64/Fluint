@@ -1,5 +1,5 @@
 // 
-// WarningCommand.cs
+// Debug.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
@@ -7,25 +7,27 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base.Commands;
+namespace Fluint.SDK.Base.Lambdas;
 
-public class WarningCommand : ICommand
+public class Debug : ILambda
 {
     private readonly ModulePacket _packet;
 
-    public WarningCommand(ModulePacket packet)
+    public Debug(ModulePacket packet)
     {
         _packet = packet;
     }
 
-    public string Command => "warning";
+    public string Command => "debug";
 
-    public void Do(string[] args)
+    public LambdaObject Run(string[] args)
     {
         var logger = _packet.GetSingleton<ILogger>();
         foreach (var message in args)
         {
-            logger.Warning(message);
+            logger.Information(message);
         }
+
+        return LambdaObject.Success;
     }
 }

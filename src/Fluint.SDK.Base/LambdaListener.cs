@@ -9,21 +9,24 @@ using Fluint.Layer.SDK;
 
 namespace Fluint.SDK.Base
 {
-    public class CommandLineListener : ICommandLineListener
+    public class LambdaListener : ILambdaListener
     {
-        private readonly List<ICommand> _commands;
+        private readonly List<ILambda> _commands;
         private readonly List<string> _history = new();
-        private readonly IParser _parser;
-
-
-        private Dictionary<string, Action> _keyActions = new Dictionary<string, Action>();
+        private readonly ILambdaParser _lambdaParser;
 
         private string _prompt = "[magenta]λ[/magenta] ";
 
-        public CommandLineListener(ModulePacket packet)
+        public LambdaListener(ModulePacket packet)
         {
-            _commands = packet.GetInstances().OfType<ICommand>().ToList();
-            _parser = packet.CreateScoped<IParser>();
+            _commands = packet.GetInstances().OfType<ILambda>().ToList();
+            _lambdaParser = packet.CreateScoped<ILambdaParser>();
+        }
+
+        public void Execute(string command)
+        {
+            var (onlyCommand, arguments) = Parse(command);
+            Execute(onlyCommand, arguments);
         }
 
         public void Listen()
@@ -35,9 +38,9 @@ namespace Fluint.SDK.Base
             }
         }
 
-        public void Execute(string command, string[] args)
+        public LambdaObject Execute(string command, string[] args)
         {
-            _parser.Parse(command.ToLower(), args);
+            return _lambdaParser.Parse(command.ToLower(), args);
         }
 
         private string ReadLine()
@@ -50,7 +53,9 @@ namespace Fluint.SDK.Base
             {
                 var keyInfo = Console.ReadKey(true);
                 if (keyInfo.Key == ConsoleKey.Enter)
+                {
                     break;
+                }
 
                 keyHandler.Handle(keyInfo);
             }
@@ -73,10 +78,18 @@ namespace Fluint.SDK.Base
             AddToHistory(input);
 
             var (command, arguments) = Parse(input);
-            Execute(command, arguments);
+            var response = Execute(command, arguments);
 
             timer.Stop();
-            _prompt = $"[magenta]λ[/magenta] [took [yellow]{timer.ElapsedMilliseconds / 1000f}s[/yellow]] ";
+
+            var lambdaColor = response.Status switch {
+                LambdaStatus.Success => "green",
+                LambdaStatus.Failure => "red",
+                _ => "yellow"
+            };
+
+            _prompt = $"[{lambdaColor}]λ[/{lambdaColor}] [took [yellow]{timer.ElapsedMilliseconds / 1000f}s[/yellow]] ";
+            Console.WriteLine(response.Data);
         }
 
         // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
@@ -129,7 +142,7 @@ namespace Fluint.SDK.Base
             return input;
         }
 
-        private List<ICommand> GetLikelyCommands(string command)
+        private List<ILambda> GetLikelyCommands(string command)
         {
             return _commands.Where((x) => x.Command.StartsWith(command)).ToList();
         }
@@ -139,10 +152,13 @@ namespace Fluint.SDK.Base
             _history.Add(input);
         }
 
-        private ModuleAttribute GetCommandAttributes(ICommand command) => command
-            .GetType()
-            .GetCustomAttributes(false)?
-            .OfType<ModuleAttribute>()
-            .FirstOrDefault();
+        private ModuleAttribute GetCommandAttributes(ILambda command)
+        {
+            return command
+                .GetType()
+                .GetCustomAttributes(false)?
+                .OfType<ModuleAttribute>()
+                .FirstOrDefault();
+        }
     }
 }

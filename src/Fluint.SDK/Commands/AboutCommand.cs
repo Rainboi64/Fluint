@@ -1,25 +1,24 @@
 ﻿//
-// AboutCommand.cs
+// About.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using Fluint.Layer.SDK;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+using Fluint.Layer;
+using Fluint.Layer.SDK;
 
 namespace Fluint.SDK.Commands
 {
-    [Layer.Module("About Command", "Returns info about the loaded assembly.", "Returns info about the loaded assembly, doesn't support arguments")]
-    public class AboutCommand : ICommand
+    [Module("About Command", "Returns info about the loaded assembly.",
+        "Returns info about the loaded assembly, doesn't support arguments")]
+    public class About : ILambda
     {
         public string Command => "about";
 
-        public void Do(string[] args)
+        public LambdaObject Run(string[] args)
         {
-            Console.WriteLine($"Working Assembly: {Assembly.GetExecutingAssembly().GetName()}");
+            return new LambdaObject($"Working Assembly: {Assembly.GetExecutingAssembly().GetName()}");
         }
     }
 }
