@@ -17,7 +17,7 @@ namespace Fluint.Graphics.API.GL46.ImGuiImpl
         public void Start(TaskArgs args)
         {
             var window = args.Invoker as IWindow;
-            window.AdoptGhost<ImGuiPuppet>();
+            window.Puppet<ImGuiPuppet>();
         }
     }
 }

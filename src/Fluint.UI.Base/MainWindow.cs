@@ -27,7 +27,7 @@ public class MainWindow : IWindow
     private readonly ModulePacket _packet;
 
     private IWindowProvider _provider;
-    
+
     public MainWindow(ModulePacket packet, ILogger logger, IConfigurationManager configurationManager)
     {
         _configurationManager = configurationManager;
@@ -38,18 +38,11 @@ public class MainWindow : IWindow
         _ghosts = new List<IPuppet>();
     }
 
-    public T SpawnControl<T>() where T : Control
-    {
-        var control = _packet.CreateInstance<T>();
-        
-        Enqueue((() => {
-            var name = $"{typeof(T).Name} : {control.GetHashCode()}";
-            control.Begin(name, this);
-            Controls.Add(name, control);
-        }));
-        
-        return control;
-    }
+
+    public event EventHandler Load;
+    public event EventHandler<RenderEvent> Render;
+    public event EventHandler<RenderEvent> Update;
+    public event EventHandler<ResizeEvent> Resize;
 
     public double FrameTime
     {
@@ -94,6 +87,19 @@ public class MainWindow : IWindow
         get;
     }
 
+    public T SpawnControl<T>() where T : Control
+    {
+        var control = _packet.CreateInstance<T>();
+
+        Enqueue(() => {
+            var name = $"{typeof(T).Name} : {control.GetHashCode()}";
+            control.Begin(name, this);
+            Controls.Add(name, control);
+        });
+
+        return control;
+    }
+
     public void Close()
     {
         _provider.Close();
@@ -112,12 +118,14 @@ public class MainWindow : IWindow
         var style = ImGui.GetStyle();
 
         SetStyleFromConfig(style);
-        
+
         var layouts = _packet.GetInstances<ILayout>();
         foreach (var layout in layouts)
         {
             layout.Initialize(this);
         }
+
+        Load?.Invoke(this, EventArgs.Empty);
     }
 
     public void OnStart()
@@ -126,8 +134,6 @@ public class MainWindow : IWindow
         {
             ghost.OnStart();
         }
-        
-        //TODO: Window stuff!
     }
 
     public void OnRender(double delay)
@@ -137,7 +143,7 @@ public class MainWindow : IWindow
             ghost.OnRender(delay);
         }
 
-        //TODO: Window stuff!
+        Render?.Invoke(this, new RenderEvent(delay));
     }
 
     public void OnUpdate(double delay)
@@ -155,11 +161,12 @@ public class MainWindow : IWindow
         {
             control.Tick();
         }
+
         ImGui.ShowDemoWindow();
-        
+
         ImGui.End();
 
-        //TODO: Window stuff!
+        Update?.Invoke(this, new RenderEvent(delay));
     }
 
     public void OnTextReceived(int unicode, string data)
@@ -179,7 +186,7 @@ public class MainWindow : IWindow
             ghost.OnResize(width, height);
         }
 
-        //TODO: Window stuff!
+        Resize?.Invoke(this, new ResizeEvent(new Vector2i(width, height)));
     }
 
     public void OnMouseWheelMoved(Vector2 offset)
@@ -205,7 +212,7 @@ public class MainWindow : IWindow
         _provider.FrameQueue.Enqueue(action);
     }
 
-    public void AdoptGhost<TGhost>() where TGhost : IPuppet
+    public void Puppet<TGhost>() where TGhost : IPuppet
     {
         var ghostType = typeof(TGhost);
         _logger.Verbose("[{0}] Adopting Ghost {1}", Title, ghostType.Name);
@@ -269,7 +276,6 @@ public class MainWindow : IWindow
         style.Colors[(int)ImGuiCol.PlotHistogram] = Color2Vector(theme.PlotHistogram);
         style.Colors[(int)ImGuiCol.PlotHistogramHovered] = Color2Vector(theme.PlotHistogramHovered);
         style.Colors[(int)ImGuiCol.TextSelectedBg] = Color2Vector(theme.TextSelectedBg);
-
     }
 
     private static Vector4 Color2Vector(Vector4 color)
