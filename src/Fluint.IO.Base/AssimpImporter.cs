@@ -37,7 +37,7 @@ namespace Fluint.IO.Base
                 var vertex = new List<PositionNormalUvtidVertex>();
                 foreach (var face in mesh.Faces)
                 {
-                    indices.AddRange((IEnumerable<uint>)face.Indices);
+                    indices.AddRange(face.Indices as IEnumerable<uint>);
                 }
 
                 for (var i = 0; i < mesh.VertexCount; i++)
@@ -48,9 +48,9 @@ namespace Fluint.IO.Base
                         new PositionNormalUvtidVertex(*(Vector3*)&vertice, *(Vector3*)&normal, new Vector2(0), 0));
                 }
 
-                newMesh.VertexArray = vertex;
-                newMesh.IndexArray = indices;
-                newMesh.ModelMatrix = Matrix.Identity;
+                // newMesh.VertexArray = vertex;
+                // newMesh.IndexArray = indices;
+                // newMesh.ModelMatrix = Matrix.Identity;
                 // TODO: copy material stuff.
                 // newMesh.Material = 
 

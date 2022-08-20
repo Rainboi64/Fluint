@@ -5,7 +5,6 @@
 
 namespace Fluint.Layer.Graphics;
 
-public interface IMesh
+public interface IMesh : IModule
 {
-    
 }
