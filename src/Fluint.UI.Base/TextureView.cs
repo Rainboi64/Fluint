@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Graphics;
+using Fluint.Layer.Graphics.API;
+using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
 using ImGuiNET;
+using Vector2 = System.Numerics.Vector2;
 
-namespace Fluint.SDK.Base.UI
+namespace Fluint.UI.Base
 {
     public class TextureView : ITextureView
     {
@@ -29,9 +31,10 @@ namespace Fluint.SDK.Base.UI
             private set;
         }
 
-        public ICollection<IGuiComponent> Children
+        public Vector2i Size
         {
             get;
+            set;
         }
 
         public ITexture Texture
@@ -50,7 +53,7 @@ namespace Fluint.SDK.Base.UI
             if (Texture is not null)
             {
                 ImGui.Begin($"{Name}###{Title}");
-                ImGui.Image(new IntPtr(Texture.Handle), new Vector2(Texture.Size.X, Texture.Size.Y));
+                ImGui.Image(new IntPtr(Texture.Handle), new Vector2(Size.X, Size.Y));   
                 ImGui.End();
 
                 return;

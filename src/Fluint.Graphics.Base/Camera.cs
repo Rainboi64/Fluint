@@ -5,7 +5,6 @@
 //
 
 using System;
-using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
@@ -14,87 +13,71 @@ namespace Fluint.Graphics.Base
 {
     public class Camera : ICamera
     {
-        private readonly ModulePacket _packet;
+        private const float PiOver4 = MathF.PI / 4.0f;
+        private const float PiOver2 = MathF.PI / 2.0f;
 
-        private readonly IRenderer3D<PositionNormalUvtidVertex> _renderer3D;
-        private readonly IShader _shader;
-        private readonly IVertexLayout<PositionNormalUvtidVertex> _vertexLayout;
-        private IFramebuffer _framebuffer;
-        private Matrix _projectionMatrix = Matrix.Identity;
-        private Quaternion _rotation = Quaternion.Identity;
-        private Vector3 _scale = new Vector3(1);
-        private Vector3 _translation = new Vector3(0);
-        private Matrix _viewMatrix = Matrix.Identity;
-        private Viewport _viewport;
+        private float _pitch;
+        private float _yaw = -PiOver2;
+        private float _fov = PiOver2;
 
-        // initialization my man 😎
-        public Camera(ModulePacket packet)
+        public Vector3 Position
         {
-            _packet = packet;
-            _vertexLayout = _packet.CreateScoped<IVertexLayout<PositionNormalUvtidVertex>>();
-            _renderer3D = _packet.CreateScoped<IRenderer3D<PositionNormalUvtidVertex>>();
-            _shader = _packet.CreateScoped<IShader>();
-            _framebuffer = _packet.CreateScoped<IFramebuffer>();
-            _shader.LoadSource("", "");
+            get;
+            set;
         }
 
-        public Vector3 Translation
+        public float AspectRatio
         {
-            get => _translation;
+            private get;
+            set;
+        }
+
+        public Vector3 Front
+        {
+            get;
+            private set;
+        } = -Vector3.UnitZ;
+
+        public Vector3 Up
+        {
+            get;
+            private set;
+        } = Vector3.UnitY;
+
+        public Vector3 Right
+        {
+            get;
+            private set;
+        } = Vector3.UnitX;
+
+        public float Pitch
+        {
+            get => MathUtil.RadiansToDegrees(_pitch);
             set
             {
-                _translation = value;
-                _viewMatrix.TranslationVector = value;
+                var angle = MathUtil.Clamp(value, -89f, 89f);
+                _pitch = MathUtil.DegreesToRadians(angle);
+                UpdateVectors();
             }
         }
 
-        public Quaternion Rotation
+        public float Yaw
         {
-            get => _rotation;
+            get => MathUtil.RadiansToDegrees(_yaw);
             set
             {
-                _viewMatrix = Matrix.Scaling(_scale) * Matrix.RotationQuaternion(value) *
-                              Matrix.Translation(_translation);
+                _yaw = MathUtil.DegreesToRadians(value);
+                UpdateVectors();
             }
         }
 
-        public Vector3 Scale
+        public float Fov
         {
-            get => _scale;
+            get => MathUtil.RadiansToDegrees(_fov);
             set
             {
-                _scale = value;
-                _viewMatrix.ScaleVector = value;
-            }
-        }
-
-        public Matrix ViewMatrix
-        {
-            get => _viewMatrix;
-            set
-            {
-                _viewMatrix = value;
-                _viewMatrix.Decompose(out _scale, out _rotation, out _translation);
-            }
-        }
-
-        public Viewport Viewport
-        {
-            get => _viewport;
-            set
-            {
-                _viewport = value;
-                switch (ProjectionMode)
-                {
-                    case ProjectionMode.Orthogonal:
-                        _projectionMatrix = Matrix.OrthoRH(_viewport.Width, _viewport.Height, _viewport.MinDepth,
-                            _viewport.MaxDepth);
-                        break;
-                    case ProjectionMode.Prespective:
-                        _projectionMatrix = Matrix.PerspectiveRH(_viewport.Width, _viewport.Height, _viewport.MinDepth,
-                            _viewport.MaxDepth);
-                        break;
-                }
+                var angle = MathUtil.Clamp(value, 1f, 45f);
+                _fov = MathUtil.DegreesToRadians(angle);
             }
         }
 
@@ -102,32 +85,34 @@ namespace Fluint.Graphics.Base
         {
             get;
             set;
-        } = ProjectionMode.Prespective;
-
-        public IFramebuffer Framebuffer => throw new NotImplementedException();
-
-        public void Submit(IScene scene)
-        {
-            _framebuffer.Create(new Vector2i(_viewport.Width, _viewport.Height));
-
-            _renderer3D.Begin(_vertexLayout, _shader);
-
-            var length = scene.Count;
-            for (var i = 0; i < length; i++)
-            {
-                var rendererComponent = scene[i].RenderComponent.Load();
-                _renderer3D.Submit(rendererComponent);
-            }
         }
 
-        public void Render()
+        public Matrix GetViewMatrix()
         {
-            _renderer3D.ViewMatrix = _viewMatrix;
-            _renderer3D.ProjectionMatrix = _projectionMatrix;
+            return Matrix.LookAtRH(Position, Position + Front, Up);
+        }
 
-            _framebuffer.Bind();
-            _renderer3D.Flush();
-            _framebuffer.Unbind();
+        public Matrix GetProjectionMatrix()
+        {
+            if (ProjectionMode == ProjectionMode.Orthogonal)
+            {
+                return Matrix.OrthoRH(750, 750, 0.01f, 100f);
+            }
+
+            return Matrix.PerspectiveFovRH(_fov, AspectRatio, 0.01f, 100f);
+        }
+
+        private void UpdateVectors()
+        {
+            var x = (float)Math.Cos(_pitch) * (float)Math.Cos(_yaw);
+            var y = (float)Math.Sin(_pitch);
+            var z = (float)Math.Cos(_pitch) * (float)Math.Sin(_yaw);
+
+            Front = new Vector3(x, y, z);
+            Vector3.Normalize(Front);
+
+            Right = Vector3.Normalize(Vector3.Cross(Front, Vector3.UnitY));
+            Up = Vector3.Normalize(Vector3.Cross(Right, Front));
         }
     }
 }

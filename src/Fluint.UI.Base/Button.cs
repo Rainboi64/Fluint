@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.SDK.Base.UI
+namespace Fluint.UI.Base
 {
     public class Button : IButton
     {
@@ -30,12 +30,7 @@ namespace Fluint.SDK.Base.UI
             get;
             set;
         }
-
-        public ICollection<IGuiComponent> Children
-        {
-            get;
-        }
-
+        
         public void Begin(string name)
         {
             Name = name;

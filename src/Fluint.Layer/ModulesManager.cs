@@ -57,13 +57,22 @@ namespace Fluint.Layer
             sortingWatch.Start();
 
             var types = new List<Type>();
+            var usefulAssemblies = new List<Assembly>();
+            
             foreach (var assembly in assemblies)
             {
                 foreach (var type in assembly.GetTypes())
                 {
-                    if (typeof(IModule).IsAssignableFrom(type) && type.IsClass)
+                    if (!typeof(IModule).IsAssignableFrom(type) || !type.IsClass)
                     {
-                        types.Add(type);
+                        continue;
+                    }
+
+                    types.Add(type);
+
+                    if (!usefulAssemblies.Contains(assembly))
+                    {
+                        usefulAssemblies.Add(assembly);
                     }
                 }
             }
@@ -72,7 +81,7 @@ namespace Fluint.Layer
             table.AddColumn(new[] { "Stage Name", "Stage Parent", "Assembly", "Initialization Mode" });
 
             var moduleCollection = new ModuleCollection();
-
+            
             foreach (var type in types)
             {
                 Type parent = null;
@@ -119,7 +128,7 @@ namespace Fluint.Layer
 
             ConsoleHelper.WriteInfo(table.ToMarkDownString());
             ConsoleHelper.WriteWrappedHeader(
-                $"Loaded {types.Count} module from {assemblies.Count} DLL in \"{modulesfolder}\". Loading:{sortingWatch.ElapsedMilliseconds}ms, Sorting: {loadingWatch.ElapsedMilliseconds}ms. Instance Fingerprint: {moduleCollection.GetHashCode()}");
+                $"Loaded {types.Count} module from {usefulAssemblies.Count} DLL in \"{modulesfolder}\". Loading:{sortingWatch.ElapsedMilliseconds}ms, Sorting: {loadingWatch.ElapsedMilliseconds}ms. Instance Fingerprint: {moduleCollection.GetHashCode()}");
 
             return moduleCollection;
         }

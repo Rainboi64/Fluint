@@ -20,4 +20,6 @@ public interface ISwapChain : IDisposable
     }
 
     void Present();
+    void Disconnect();
+    void Modify(SwapChainDescriptor descriptor);
 }

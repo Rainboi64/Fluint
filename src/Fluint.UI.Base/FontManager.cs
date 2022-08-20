@@ -7,7 +7,7 @@
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.SDK.Base.UI
+namespace Fluint.UI.Base
 {
     public class FontManager : IFontManager
     {

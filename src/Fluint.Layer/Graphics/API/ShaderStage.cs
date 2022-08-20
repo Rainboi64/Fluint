@@ -8,9 +8,10 @@ namespace Fluint.Layer.Graphics.API
 {
     public enum ShaderStage
     {
-        VertexShader,
-        PixelShader,
-        GeometryShader,
-        TesselationShader
+        Vertex,
+        Pixel,
+        Compute,
+        Geometry,
+        Tesselation
     }
 }

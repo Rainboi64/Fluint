@@ -5,6 +5,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Fluint.Layer;
 using Fluint.Layer.Miscellaneous;
@@ -22,6 +23,7 @@ public class Fluint
     {
         var timeName = GetTimeOfDayName(DateTime.Now);
         var username = Environment.UserName;
+        username = $"{username[0].ToString().ToUpper()}{new string(username.Skip(1).ToArray())}";
 
         var moduleDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, BaseFileLocation);
         ConsoleHelper.WriteEmbeddedColorLine(

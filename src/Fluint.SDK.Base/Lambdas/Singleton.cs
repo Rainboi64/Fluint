@@ -53,7 +53,6 @@ public class Singleton : ILambda
 
             case "property":
                 return new LambdaObject(GetParameter(args[2], result));
-                break;
 
             case "func":
                 var parameters = args.Skip(3).ToArray();

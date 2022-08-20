@@ -20,6 +20,7 @@ public class GL46InputLayout : IInputLayout
         _attributes = attributes;
 
         GL.CreateVertexArrays(1, out _handle);
+        GL.BindVertexArray(_handle);
         foreach (var attribute in _attributes)
         {
             GL.EnableVertexArrayAttrib(_handle, attribute.Index);

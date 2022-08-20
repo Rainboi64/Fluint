@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.SDK.Base.UI
+namespace Fluint.UI.Base
 {
     public class TextBox : ITextBox
     {
@@ -31,12 +31,7 @@ namespace Fluint.SDK.Base.UI
             get;
             private set;
         }
-
-        public ICollection<IGuiComponent> Children
-        {
-            get;
-        }
-
+        
         public string SideText
         {
             get;

@@ -71,22 +71,28 @@
 
   <ItemGroup>
     <PackageReference Include="ImGui.NET" Version="1.78.0" />
-    <PackageReference Include="OpenTK" Version="4.6.4" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
-    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+      <PackageReference Include="OpenTK" Version="4.6.4"/>
+      <PackageReference Include="SixLabors.ImageSharp" Version="2.1.1"/>
+      <PackageReference Include="System.Drawing.Common" Version="5.0.2"/>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj" />
-      <ProjectReference Include="..\Fluint.Graphics.API.GLCommon\Fluint.Graphics.API.GLCommon.csproj"/>
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
+        <ProjectReference Include="..\Fluint.Graphics.API.GLCommon\Fluint.Graphics.API.GLCommon.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="Shaders\shader.frag">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Shaders\shader.vert">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="Shaders\shader.frag">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Shaders\shader.vert">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="shaders\fragment.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="shaders\vertex.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 </Project>

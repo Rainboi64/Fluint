@@ -36,19 +36,20 @@ public class FpsTask : ITask
 
         var deltaTime = DateTime.Now - _lastTime;
 
-        if (!(deltaTime.TotalSeconds >= 5))
+        if (!(deltaTime.TotalSeconds >= 1))
         {
             return;
         }
 
-        _fps = _framesRendered / 5;
+        _fps = _framesRendered / 1;
         _framesRendered = 0;
         _lastTime = DateTime.Now;
 
         // one second has elapsed 
+        
         _logger ??= _packet.GetSingleton<ILogger>();
 
         var window = args.Invoker as IWindow;
-        _logger.Information("[{0}] {1} Average Fps: {2}", "FPSTask", window?.Title, _fps);
+        window.Title = "Fluint - FPS: " + _fps;
     }
 }

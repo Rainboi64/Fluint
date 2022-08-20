@@ -6,7 +6,11 @@
 
 namespace Fluint.Layer.Graphics.API
 {
-    public class BufferScope
+    public enum BufferScope
     {
+        VertexShader,
+        PixelShader,
+        Global,
+        NotAssigned
     }
 }

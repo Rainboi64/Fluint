@@ -8,7 +8,8 @@ using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Graphics.API;
 
-public interface IGraphicsFactory
+[Initialization(InitializationMethod.Scoped)]
+public interface IGraphicsFactory : IModule
 {
     IBlendState CreateBlendState(bool isBlendEnabled, Blend sourceBlend, Blend destinationBlend,
         BlendOperation blendOperation, Blend sourceAlphaBlend, Blend destinationAlphaBlend,
@@ -20,7 +21,7 @@ public interface IGraphicsFactory
 
     IDepthStencilState CreateDepthStencilState();
 
-    IPipeline CreatePipeline(IShader vertexShader, IShader pixelShader, IInputLayout inputLayout,
+    IPipeline CreatePipeline(Shader vertexShader, Shader pixelShader, IInputLayout inputLayout,
         IBlendState blendState, IDepthStencilState depthStencilState, IRasterizerState rasterizerState,
         Viewport viewport, PrimitiveTopology primitiveTopology);
 
@@ -30,10 +31,10 @@ public interface IGraphicsFactory
     ISampler CreateSampler(TextureAddressMode addressModeU, TextureAddressMode addressModeV, Filter filter,
         ComparisonFunction comparisonFunction);
 
-    IShader CreateShader(ShaderStage shaderStage, string shaderText, VertexType vertexType,
+    Shader CreateShader(ShaderStage shaderStage, string shaderText, VertexType vertexType,
         IEnumerable<(string, string)> macros);
 
-    IShader CreateShaderFromFile(ShaderStage shaderStage, string filePath, VertexType vertexType,
+    Shader CreateShaderFromFile(ShaderStage shaderStage, string filePath, VertexType vertexType,
         IEnumerable<(string, string)> macros);
 
     ISwapChain CreateSwapchain(SwapChainDescriptor swapChainDescriptor);

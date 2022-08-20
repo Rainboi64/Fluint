@@ -20,11 +20,17 @@ namespace Fluint.Layer.Windowing
             get;
         }
 
-        public ICollection<IGuiComponent> Controls
+        public IDictionary<string, IGuiComponent> Controls
         {
             get;
         }
 
+        T SpawnControl<T>() where T : Control;
+        public double FrameTime
+        {
+            get;
+        }
+        
         public string Title
         {
             get;
@@ -42,6 +48,11 @@ namespace Fluint.Layer.Windowing
             get;
             set;
         }
+        
+        public Vector2i ScreenSize
+        {
+            get;
+        }
 
         public bool VSync
         {
@@ -58,7 +69,7 @@ namespace Fluint.Layer.Windowing
         public void OnTextReceived(int unicode, string data);
         public void OnResize(int width, int height);
 
-        public void AdoptGhost<TGhost>() where TGhost : IGhost;
+        public void AdoptGhost<TGhost>() where TGhost : IPuppet;
 
         /// <summary>
         /// to be used to render on frames.

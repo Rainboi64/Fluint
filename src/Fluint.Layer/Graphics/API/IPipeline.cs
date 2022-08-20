@@ -50,6 +50,7 @@ namespace Fluint.Layer.Graphics.API
         Viewport Viewport
         {
             get;
+            set;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Fluint.Layer.Graphics.API
 {
     public class TextureView
     {
+        public int Handle;
         public TextureViewType Type
         {
             get;

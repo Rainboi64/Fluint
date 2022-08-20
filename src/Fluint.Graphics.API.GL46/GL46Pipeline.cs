@@ -65,6 +65,7 @@ public class GL46Pipeline : IPipeline
     public Viewport Viewport
     {
         get;
+        set;
     }
 
     public void Dispose()

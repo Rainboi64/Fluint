@@ -12,25 +12,45 @@ namespace Fluint.Layer.Graphics
     [Initialization(InitializationMethod.Scoped)]
     public interface ICamera : IModule
     {
-        Vector3 Translation
+        Vector3 Position
         {
             get;
             set;
         }
 
-        Quaternion Rotation
+        float AspectRatio
+        {
+            set;
+        }
+
+        Vector3 Front
+        {
+            get;
+        }
+        
+        Vector3 Up
+        {
+            get; 
+        }
+        
+        Vector3 Right
+        {
+            get;
+        }
+
+        float Pitch
         {
             get;
             set;
         }
-
-        Vector3 Scale
+        
+        float Yaw
         {
             get;
             set;
         }
-
-        Matrix ViewMatrix
+        
+        float Fov
         {
             get;
             set;
@@ -42,18 +62,7 @@ namespace Fluint.Layer.Graphics
             set;
         }
 
-        Viewport Viewport
-        {
-            get;
-            set;
-        }
-
-        IFramebuffer Framebuffer
-        {
-            get;
-        }
-
-        void Submit(IScene scene);
-        void Render();
+        Matrix GetViewMatrix();
+        Matrix GetProjectionMatrix();
     }
 }

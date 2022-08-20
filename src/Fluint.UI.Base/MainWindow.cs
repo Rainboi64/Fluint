@@ -6,7 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
@@ -17,28 +16,45 @@ using Fluint.Layer.Windowing;
 using ImGuiNET;
 using Vector4 = System.Numerics.Vector4;
 
-namespace Fluint.SDK.Base.UI;
+namespace Fluint.UI.Base;
 
 public class MainWindow : IWindow
 {
     private readonly IConfigurationManager _configurationManager;
 
-    private readonly List<IGhost> _ghosts;
+    private readonly List<IPuppet> _ghosts;
     private readonly ILogger _logger;
     private readonly ModulePacket _packet;
 
     private IWindowProvider _provider;
-
-    private float _time;
-
+    
     public MainWindow(ModulePacket packet, ILogger logger, IConfigurationManager configurationManager)
     {
         _configurationManager = configurationManager;
         _packet = packet;
         _logger = logger;
 
-        Controls = new List<IGuiComponent>();
-        _ghosts = new List<IGhost>();
+        Controls = new Dictionary<string, IGuiComponent>();
+        _ghosts = new List<IPuppet>();
+    }
+
+    public T SpawnControl<T>() where T : Control
+    {
+        var control = _packet.CreateInstance<T>();
+        
+        Enqueue((() => {
+            var name = $"{typeof(T).Name} : {control.GetHashCode()}";
+            control.Begin(name, this);
+            Controls.Add(name, control);
+        }));
+        
+        return control;
+    }
+
+    public double FrameTime
+    {
+        get;
+        private set;
     }
 
     public string Title
@@ -46,6 +62,8 @@ public class MainWindow : IWindow
         get => _provider.WindowTitle;
         set => _provider.WindowTitle = value;
     }
+
+    public Vector2i ScreenSize => _provider.ScreenSize;
 
     public bool VSync
     {
@@ -71,7 +89,7 @@ public class MainWindow : IWindow
         private set;
     }
 
-    public ICollection<IGuiComponent> Controls
+    public IDictionary<string, IGuiComponent> Controls
     {
         get;
     }
@@ -87,13 +105,19 @@ public class MainWindow : IWindow
 
         foreach (var ghost in _ghosts)
         {
-            _logger.Information("[{0}] Loading Ghost: {1}", Title, ghost.ToString());
+            _logger.Verbose("[{0}] Loading Ghost: {1}", Title, ghost.ToString());
             ghost.OnLoad();
         }
 
         var style = ImGui.GetStyle();
 
         SetStyleFromConfig(style);
+        
+        var layouts = _packet.GetInstances<ILayout>();
+        foreach (var layout in layouts)
+        {
+            layout.Initialize(this);
+        }
     }
 
     public void OnStart()
@@ -102,7 +126,7 @@ public class MainWindow : IWindow
         {
             ghost.OnStart();
         }
-
+        
         //TODO: Window stuff!
     }
 
@@ -118,7 +142,7 @@ public class MainWindow : IWindow
 
     public void OnUpdate(double delay)
     {
-        _time += (float)delay;
+        FrameTime = delay;
 
         foreach (var ghost in _ghosts)
         {
@@ -127,13 +151,12 @@ public class MainWindow : IWindow
 
         ImGui.DockSpaceOverViewport(ImGui.GetWindowViewport());
 
-        for (var i = 0; i < Controls.Count; i++)
+        foreach (var control in Controls.Values)
         {
-            Controls.ElementAt(i).Tick();
+            control.Tick();
         }
-
         ImGui.ShowDemoWindow();
-
+        
         ImGui.End();
 
         //TODO: Window stuff!
@@ -182,12 +205,12 @@ public class MainWindow : IWindow
         _provider.FrameQueue.Enqueue(action);
     }
 
-    public void AdoptGhost<TGhost>() where TGhost : IGhost
+    public void AdoptGhost<TGhost>() where TGhost : IPuppet
     {
         var ghostType = typeof(TGhost);
-        _logger.Information("[{0}] Adopting Ghost {1}", Title, ghostType.Name);
+        _logger.Verbose("[{0}] Adopting Ghost {1}", Title, ghostType.Name);
 
-        var ghost = (IGhost)_packet.FetchAndCreateInstance(ghostType);
+        var ghost = (IPuppet)_packet.FetchAndCreateInstance(ghostType);
 
         ghost.SetPossessed(this);
         _ghosts.Add(ghost);
@@ -247,7 +270,6 @@ public class MainWindow : IWindow
         style.Colors[(int)ImGuiCol.PlotHistogramHovered] = Color2Vector(theme.PlotHistogramHovered);
         style.Colors[(int)ImGuiCol.TextSelectedBg] = Color2Vector(theme.TextSelectedBg);
 
-        _configurationManager.Save();
     }
 
     private static Vector4 Color2Vector(Vector4 color)

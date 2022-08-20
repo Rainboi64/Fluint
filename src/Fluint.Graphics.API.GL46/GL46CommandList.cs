@@ -43,7 +43,12 @@ internal class GL46CommandList : ICommandList
 
     public void ClearRenderTarget(TextureView renderTarget, Color4 clearColor)
     {
-        throw new NotImplementedException();
+        var command = new OpenGlCommand {
+            Type = CommandType.ClearRenderTarget,
+            ClearColor = GLExtensions.Color4(clearColor)
+        };
+
+        _commandList.Add(command);
     }
 
     public void Clear()
@@ -149,7 +154,7 @@ internal class GL46CommandList : ICommandList
     {
         var command = new OpenGlCommand {
             Type = CommandType.SetPrimitiveTopology,
-            PrimitiveType = OpenTkHelper.PrimitiveType(primitiveTopology)
+            PrimitiveType = primitiveTopology.ToOpenTK()
         };
 
         _commandList.Add(command);
@@ -217,7 +222,7 @@ internal class GL46CommandList : ICommandList
     {
         var command = new OpenGlCommand {
             Type = CommandType.SetViewport,
-            Viewport = OpenTkHelper.Viewport(viewport)
+            Viewport = GLExtensions.Viewport(viewport)
         };
 
         _commandList.Add(command);
@@ -225,6 +230,7 @@ internal class GL46CommandList : ICommandList
 
     public void Submit()
     {
+
         foreach (var command in _commandList)
         {
             switch (command.Type)

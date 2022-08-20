@@ -12,12 +12,8 @@ namespace Fluint.Layer.Graphics.API
     [Initialization(InitializationMethod.Scoped)]
     public interface IShader : IModule, IDisposable
     {
-        void Enable();
-        void Disable();
-        void LoadPacket(ShaderPacket packet);
-        void SetModelMatrix(Matrix matrix);
-        void SetViewMatrix(Matrix matrix);
-        void SetProjectionMatrix(Matrix matrix);
-        void LoadSource(string vertexShaderSource, string pixelShaderSource);
+        IInputLayout InputLayout { get; }
+        void CompileFile(ShaderStage shaderStage, string filePath, VertexType vertexType);
+        void CompileString(ShaderStage shaderStage, string shaderText, VertexType vertexType);
     }
 }

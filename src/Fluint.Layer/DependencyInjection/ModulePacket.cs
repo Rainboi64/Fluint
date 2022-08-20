@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Fluint.Layer.DependencyInjection
 {
@@ -64,6 +65,12 @@ namespace Fluint.Layer.DependencyInjection
             }
 
             return CreateInstance(type);
+        }
+
+        
+        public T CreateInstance<T>()
+        {
+            return (T)CreateInstance(typeof(T));
         }
 
         public object CreateInstance(Type target)
@@ -129,6 +136,11 @@ namespace Fluint.Layer.DependencyInjection
         public IEnumerable<IModule> GetInstances()
         {
             return StaticModules;
+        }
+        
+        public IEnumerable<T> GetInstances<T>()
+        {
+            return StaticModules.OfType<T>();
         }
     }
 }

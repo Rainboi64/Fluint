@@ -4,11 +4,14 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Localization;
 using Fluint.Layer.Tasks;
+using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 
-namespace Fluint.SDK.Base.UI
+namespace Fluint.UI.Base
 {
     public class MainWindowTask : ITask
     {
@@ -25,7 +28,13 @@ namespace Fluint.SDK.Base.UI
 
         public void Start(TaskArgs args)
         {
+            var configurationManager = _packet.GetSingleton<IConfigurationManager>();
+            var uiConfiguration = configurationManager.Get<UIConfiguration>();
+
+            _packet.GetSingleton<ILocalizationManager>().ActiveLanguage = uiConfiguration.Language;
+            
             var provider = _packet.CreateScoped<IWindowProvider>();
+            
             provider.Adopt<MainWindow>();
             provider.Start();
         }

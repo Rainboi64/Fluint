@@ -4,7 +4,6 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.Windowing;
@@ -17,9 +16,11 @@ public class InputManager : IInputManager
 {
     private KeyboardState _nativeKeyboard;
     private MouseState _nativeMouse;
+    private IWindowProvider _windowProvider;
 
     public void Load(IWindowProvider windowProvider)
     {
+        _windowProvider = windowProvider;
         _nativeKeyboard = (KeyboardState)windowProvider.NativeKeyboardObject;
         _nativeMouse = (MouseState)windowProvider.NativeMouseObject;
     }
@@ -86,10 +87,10 @@ public class InputManager : IInputManager
 
     Vector2 IInputManager.MouseLocation
     {
-        get => OpenTkHelper.Vector2(_nativeMouse.Position);
-        set => throw new NotImplementedException();
+        get => GLExtensions.Vector2(_nativeMouse.Position);
+        set => _windowProvider.SetMouseLocation(value);
     }
 
-    public Vector2 LastMouseLocation => OpenTkHelper.Vector2(_nativeMouse.PreviousPosition);
-    public Vector2 MouseMovementDelta => OpenTkHelper.Vector2(_nativeMouse.Delta);
+    public Vector2 LastMouseLocation => GLExtensions.Vector2(_nativeMouse.PreviousPosition);
+    public Vector2 MouseMovementDelta => GLExtensions.Vector2(_nativeMouse.Delta);
 }

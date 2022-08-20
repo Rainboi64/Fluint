@@ -9,15 +9,13 @@ namespace Fluint.Graphics.API.GL46;
 
 internal class GL46TextureView : TextureView
 {
-    private readonly int _nativeGL46Texture;
-
     public GL46TextureView(GL46Texture gl46Texture)
     {
-        _nativeGL46Texture = gl46Texture;
+        Handle = gl46Texture;
     }
 
     public static implicit operator int(GL46TextureView textureView)
     {
-        return textureView._nativeGL46Texture;
+        return textureView.Handle;
     }
 }

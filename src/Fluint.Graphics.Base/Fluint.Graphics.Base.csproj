@@ -11,13 +11,17 @@
         <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">
+    <ItemGroup>
+        <Folder Include="PrimitiveMeshes"/>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Debug With Modules Setup'">
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <OutputPath>$(SolutionDir)output\debug\$(Platform)\base</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release With Modules Setup|$(Platform)'">
+    <PropertyGroup Condition="'$(Configuration)'=='Release With Modules Setup'">
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <OutputPath>$(SolutionDir)output\release\$(Platform)\base</OutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>

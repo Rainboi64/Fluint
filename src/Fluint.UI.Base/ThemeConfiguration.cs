@@ -1,9 +1,9 @@
 using System.Numerics;
 using Fluint.Layer.Configuration;
 
-namespace Fluint.SDK.Base.UI
+namespace Fluint.UI.Base
 {
-    [Configuration("Themes")]
+    [Configuration("Theme", "A Configuration for the theme of Fluint.", "UI")]
     public class ThemeConfiguration : IConfiguration
     {
         public ThemeConfiguration()

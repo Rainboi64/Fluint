@@ -29,6 +29,8 @@ namespace Fluint.Layer.Windowing
             get;
         }
 
+        public void SetMouseLocation(Vector2 location);
+
         public string WindowTitle
         {
             get;
@@ -51,6 +53,11 @@ namespace Fluint.Layer.Windowing
         {
             get;
             set;
+        }
+
+        public Vector2i ScreenSize
+        {
+            get;
         }
 
         public Queue<Action> FrameQueue

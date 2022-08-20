@@ -120,13 +120,15 @@ namespace Fluint.SDK.Base
         {
             var nextPiece = 0;
 
-            for (int c = 0; c < str.Length; c++)
+            for (var c = 0; c < str.Length; c++)
             {
-                if (controller(str[c]))
+                if (!controller(str[c]))
                 {
-                    yield return str.Substring(nextPiece, c - nextPiece);
-                    nextPiece = c + 1;
+                    continue;
                 }
+
+                yield return str.Substring(nextPiece, c - nextPiece);
+                nextPiece = c + 1;
             }
 
             yield return str.Substring(nextPiece);

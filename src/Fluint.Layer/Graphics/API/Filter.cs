@@ -7,6 +7,7 @@ namespace Fluint.Layer.Graphics.API;
 
 public enum Filter
 {
+    None,
     Nearest,
     Linear,
     Anisotropic

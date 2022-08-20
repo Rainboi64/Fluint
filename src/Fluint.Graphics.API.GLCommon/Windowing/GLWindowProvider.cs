@@ -16,6 +16,8 @@ using Fluint.Layer.Windowing;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
+using OpenTK.Windowing.GraphicsLibraryFramework;
+using Vector2 = Fluint.Layer.Mathematics.Vector2;
 using Vector2i = OpenTK.Mathematics.Vector2i;
 
 namespace Fluint.Graphics.API.GLCommon.Windowing;
@@ -31,14 +33,15 @@ public class GlWindowProvider : GameWindow, IWindowProvider
     public GlWindowProvider(ModulePacket packet, ILogger logger, ITaskManager taskManager,
         IConfigurationManager configurationManager) :
         base(GameWindowSettings.Default, new NativeWindowSettings {
-            Size = new Vector2i(1600, 900), APIVersion = new Version(4, 5)
+        APIVersion = new Version(4, 6),
+        Size = new Vector2i(1600, 900)
         })
     {
         _packet = packet;
         _taskManager = taskManager;
         _logger = logger;
         _configurationManager = configurationManager;
-
+ 
         VSync = VSyncMode.On;
         FrameQueue = new Queue<Action>();
     }
@@ -47,6 +50,11 @@ public class GlWindowProvider : GameWindow, IWindowProvider
     {
         get;
         private set;
+    }
+
+    public void SetMouseLocation(Vector2 location)
+    {
+        MousePosition = GLExtensions.Vector2(location);
     }
 
     public string WindowTitle
@@ -63,14 +71,26 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     public Layer.Mathematics.Vector2i WindowSize
     {
-        get => OpenTkHelper.Vector2I(Size);
-        set => Size = OpenTkHelper.Vector2I(value);
+        get => GLExtensions.Vector2I(Size);
+        set => Size = GLExtensions.Vector2I(value);
     }
 
     public Layer.Mathematics.Vector2i WindowLocation
     {
-        get => OpenTkHelper.Vector2I(Location);
-        set => Location = OpenTkHelper.Vector2I(value);
+        get => GLExtensions.Vector2I(Location);
+        set => Location = GLExtensions.Vector2I(value);
+    }
+
+    public Layer.Mathematics.Vector2i ScreenSize
+    {
+        get
+        {
+            unsafe
+            {
+                var videoMode = GLFW.GetVideoMode(CurrentMonitor.ToUnsafePtr<Monitor>());
+                return new Layer.Mathematics.Vector2i(videoMode->Width, videoMode->Height);
+            }
+        }
     }
 
     public Queue<Action> FrameQueue
@@ -95,13 +115,19 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         Client.SetProvider(this);
 
         instanceManager.Adopt(Client);
-        _logger.Information("[{1}] Adopted Client {0}", "OpenTK Window", Client.Title);
+        _logger.Verbose("[{1}] Adopted Client {0}", "OpenTK Window", Client.Title);
     }
 
     protected override void OnLoad()
     {
-        var config = _configurationManager.Get<WindowConfiguration>().VSync;
-        WindowVSync = config;
+        var config = _configurationManager.Get<WindowConfiguration>();
+
+        WindowVSync = config.VSync;
+        Size = GLExtensions.Vector2I(config.WindowSize);
+        WindowBorder = config.Resizable ? WindowBorder.Resizable : WindowBorder.Fixed;
+
+        RenderFrequency = config.FrameLimit;
+        UpdateFrequency = config.FrameLimit;
 
         _logger.Debug("[{0}] Loaded", "OpenTK Window");
 
@@ -127,7 +153,9 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     protected override void OnRenderFrame(FrameEventArgs args)
     {
-        GL.ClearColor(OpenTkHelper.Color4(new Color(24, 24, 24, 255)));
+        GL.Viewport(0, 0, WindowSize.X, WindowSize.Y);
+
+        GL.ClearColor(GLExtensions.Color4(new Color(24, 24, 24, 255)));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
         _taskManager.Invoke(TaskSchedule.WindowRender, new TaskArgs(Client));
@@ -141,7 +169,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
     protected override void OnMouseWheel(MouseWheelEventArgs e)
     {
         _taskManager.Invoke(TaskSchedule.WindowMouseScroll, new TaskArgs(e.OffsetY));
-        Client.OnMouseWheelMoved(OpenTkHelper.Vector2(e.Offset));
+        Client.OnMouseWheelMoved(GLExtensions.Vector2(e.Offset));
 
         _logger.Debug("[{0}] Scrolled Delta: {1}", "OpenTK Window", e.Offset);
 
