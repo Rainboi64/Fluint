@@ -14,21 +14,26 @@ namespace Fluint.Layer.Networking.Server
     /// </summary>
     public class ClientSentDataEventArgs : EventArgs
     {
-        
+        public ClientSentDataEventArgs(NetworkPacket data, ClientData client)
+        {
+            Data = data;
+            Client = client;
+        }
+
         /// <summary>
         /// The Data The client sent.
         /// </summary>
-        public NetworkPacket Data { get; }
+        public NetworkPacket Data
+        {
+            get;
+        }
 
         /// <summary>
         /// The data of the client who sent.
         /// </summary>
-        public IClientData Client { get; }
-
-        public ClientSentDataEventArgs(NetworkPacket data, IClientData client)
+        public ClientData Client
         {
-            Data = data;
-            Client = client;
+            get;
         }
     }
 }

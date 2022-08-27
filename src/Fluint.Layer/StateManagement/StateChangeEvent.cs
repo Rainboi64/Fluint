@@ -1,12 +1,10 @@
 // 
-// ReplicateAttribute.cs
+// StateChangeEvent.cs
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
-using System;
-
 namespace Fluint.Layer.StateManagement;
 
-public class ReplicateAttribute : Attribute
+public class StateChangeEvent
 {
 }

@@ -5,7 +5,6 @@
 //
 
 using System;
-using System.Collections.Generic;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
@@ -30,7 +29,7 @@ namespace Fluint.UI.Base
             get;
             set;
         }
-        
+
         public void Begin(string name)
         {
             Name = name;
@@ -38,7 +37,7 @@ namespace Fluint.UI.Base
 
         public void Tick()
         {
-            if (ImGui.Button($"{Name}###{Text}"))
+            if (ImGui.Button($"{Text}###{Name}"))
             {
                 OnClick?.Invoke();
             }

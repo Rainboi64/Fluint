@@ -11,7 +11,7 @@ namespace Fluint.Layer.Networking.Client
 {
     public class DisconnectedFromServerEventArgs : EventArgs
     {
-        public DisconnectedFromServerEventArgs(DisconnectionReason reason, IServerData serverInfo)
+        public DisconnectedFromServerEventArgs(DisconnectionReason reason, ServerData serverInfo)
         {
             Reason = reason;
             ServerInfo = serverInfo;
@@ -20,11 +20,17 @@ namespace Fluint.Layer.Networking.Client
         /// <summary>
         /// The reason the client disconnected.
         /// </summary>
-        public DisconnectionReason Reason { get; }
+        public DisconnectionReason Reason
+        {
+            get;
+        }
 
         /// <summary>
         /// The server disconnected from.
         /// </summary>
-        public IServerData ServerInfo { get; }
+        public ServerData ServerInfo
+        {
+            get;
+        }
     }
 }

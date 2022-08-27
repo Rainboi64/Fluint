@@ -29,6 +29,14 @@ public class GL46VertexBuffer : IVertexBuffer
         GL.DeleteBuffer(_handle);
     }
 
+    public void Initialize<T>(T[] vertices) where T : struct
+    {
+        VertexStride = Marshal.SizeOf<T>();
+        var size = vertices.Length * VertexStride;
+        Bind();
+        GL.BufferData(BufferTarget.ArrayBuffer, size, vertices, BufferUsageHint.DynamicDraw);
+    }
+
     public static IVertexBuffer Create<T>(T[] vertices) where T : struct
     {
         var buffer = new GL46VertexBuffer();
@@ -44,13 +52,6 @@ public class GL46VertexBuffer : IVertexBuffer
     public void Unbind()
     {
         GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
-    }
-
-    private void Initialize<T>(T[] vertices) where T : struct
-    {
-        VertexStride = Marshal.SizeOf<T>();
-        var size = vertices.Length * VertexStride;
-        GL.NamedBufferStorage(_handle, size, vertices, BufferStorageFlags.DynamicStorageBit);
     }
 
     public static implicit operator int(GL46VertexBuffer buffer)

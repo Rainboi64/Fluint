@@ -33,15 +33,15 @@ public class GlWindowProvider : GameWindow, IWindowProvider
     public GlWindowProvider(ModulePacket packet, ILogger logger, ITaskManager taskManager,
         IConfigurationManager configurationManager) :
         base(GameWindowSettings.Default, new NativeWindowSettings {
-        APIVersion = new Version(4, 6),
-        Size = new Vector2i(1600, 900)
+            APIVersion = new Version(4, 6),
+            Size = new Vector2i(1600, 900)
         })
     {
         _packet = packet;
         _taskManager = taskManager;
         _logger = logger;
         _configurationManager = configurationManager;
- 
+
         VSync = VSyncMode.On;
         FrameQueue = new Queue<Action>();
     }

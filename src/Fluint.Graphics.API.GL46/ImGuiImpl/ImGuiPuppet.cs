@@ -72,20 +72,34 @@ namespace Fluint.Graphics.API.GL46.ImGuiImpl
             ImGui.SetCurrentContext(context);
             var io = ImGui.GetIO();
 
-            // io.Fonts.AddFontDefault();
-            foreach (var font in config.Fonts)
+            unsafe
             {
-                if (!File.Exists(font.FontPath))
+                var builder =
+                    new ImFontGlyphRangesBuilderPtr(ImGuiNative.ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder());
+                builder.AddRanges(io.Fonts.GetGlyphRangesDefault());
+
+                builder.AddText(
+                    "Α α Β β Γ γ Δ δ Ε ε Ζ ζ Η η Θ θ Ι ι Κ κ Λ λ Μ μ Ν ν Ξ ξ Ο ο Π π Ρ ρ Σ σ ς Τ τ Υ υ Φ φ Χ χ Ψ ψ Ω ω");
+
+                builder.BuildRanges(out var ranges);
+
+                foreach (var font in config.Fonts)
                 {
-                    _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiPuppet",
-                        font.FontPath, font.FontSize);
+                    if (!File.Exists(font.FontPath))
+                    {
+                        _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiPuppet",
+                            font.FontPath, font.FontSize);
+                    }
+
+                    io.Fonts.AddFontFromFileTTF(font.FontPath, font.FontSize, null, ranges.Data);
                 }
 
-                io.Fonts.AddFontFromFileTTF(font.FontPath, font.FontSize);
+                io.Fonts.Build();
             }
 
             io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
             io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
+            io.ConfigWindowsMoveFromTitleBarOnly = true;
 
             CreateDeviceResources();
             SetKeyMappings();

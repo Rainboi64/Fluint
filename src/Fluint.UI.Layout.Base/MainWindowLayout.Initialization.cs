@@ -13,16 +13,19 @@ public partial class MainWindowLayout
     // MainMenu
     private IMainMenu _mainMenu;
 
-    private IMenuItem _mainMenuFileMenuItem;
+    private IMenuItem _mainMenuDebugItem;
+    private IMenuItem _mainMenuDebugMetricsItem;
+    private IMenuItem _mainMenuDebugUIDemoItem;
     private IMenuItem _mainMenuFileExitItem;
 
-    private IMenuItem _mainMenuWindowsItem;
-    private IMenuItem _mainMenuWindowsCameraItem;
-
-    private IMenuItem _mainMenuHelpMenuItem;
+    private IMenuItem _mainMenuFileMenuItem;
     private IMenuItem _mainMenuHelpAboutItem;
 
-    private IViewport _viewport;
+    private IMenuItem _mainMenuHelpMenuItem;
+    private IMenuItem _mainMenuToolsCameraItem;
+
+    private IMenuItem _mainMenuToolsItem;
+    private IMenuItem _mainMenuToolsToolboxItem;
 
     public void Initialize(IWindow window)
     {

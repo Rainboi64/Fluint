@@ -12,14 +12,21 @@ namespace Fluint.Layer.Graphics
     [Initialization(InitializationMethod.Scoped)]
     public interface ICamera : IModule
     {
+        public float Zoom
+        {
+            get;
+            set;
+        }
+
         Vector3 Position
         {
             get;
             set;
         }
 
-        float AspectRatio
+        ViewportF Viewport
         {
+            get;
             set;
         }
 
@@ -27,12 +34,12 @@ namespace Fluint.Layer.Graphics
         {
             get;
         }
-        
+
         Vector3 Up
         {
-            get; 
+            get;
         }
-        
+
         Vector3 Right
         {
             get;
@@ -43,13 +50,13 @@ namespace Fluint.Layer.Graphics
             get;
             set;
         }
-        
+
         float Yaw
         {
             get;
             set;
         }
-        
+
         float Fov
         {
             get;

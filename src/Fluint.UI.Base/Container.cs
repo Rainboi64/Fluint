@@ -14,6 +14,8 @@ namespace Fluint.UI.Base
 {
     public class Container : IContainer
     {
+        private readonly IDictionary<string, IGuiComponent> _children = new Dictionary<string, IGuiComponent>();
+
         public string Title
         {
             get;
@@ -26,19 +28,35 @@ namespace Fluint.UI.Base
             private set;
         }
 
+        public Vector2i Location
+        {
+            get;
+            private set;
+        }
+
         public string Name
         {
             get;
             private set;
         }
-        
+
+        public bool ScrollBar
+        {
+            get;
+            set;
+        } = true;
+
         public bool IsFocused
         {
             get;
             private set;
         }
 
-        private readonly IDictionary<string, IGuiComponent> _children = new Dictionary<string, IGuiComponent>();
+        public bool Resizable
+        {
+            get;
+            set;
+        } = true;
 
         public void Begin(string name)
         {
@@ -47,13 +65,30 @@ namespace Fluint.UI.Base
 
         public void Tick()
         {
-            ImGui.Begin($"{Title}###{Name}");
+            var flags = ImGuiWindowFlags.None;
+
+            if (!ScrollBar)
+            {
+                flags |= ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse |
+                         ImGuiWindowFlags.NoTitleBar;
+            }
+
+            if (!Resizable)
+            {
+                flags |= ImGuiWindowFlags.NoResize;
+            }
+
+            ImGui.Begin($"{Title}###{Name}", flags);
 
             var size = ImGui.GetWindowSize();
             Size = new Vector2i((int)size.X, (int)size.Y);
 
+
+            var location = ImGui.GetWindowPos();
+            Location = new Vector2i((int)location.X, (int)location.Y);
+
             IsFocused = ImGui.IsWindowFocused();
-            
+
             foreach (var item in _children.Values)
             {
                 item.Tick();
@@ -98,8 +133,9 @@ namespace Fluint.UI.Base
         }
 
         public int Count => _children.Count;
-        
+
         public bool IsReadOnly => false;
+
         public void Add(string key, IGuiComponent value)
         {
             _children.Add(key, value);
@@ -128,6 +164,6 @@ namespace Fluint.UI.Base
 
         public ICollection<string> Keys => _children.Keys;
 
-        public ICollection<IGuiComponent> Values=> _children.Values;
+        public ICollection<IGuiComponent> Values => _children.Values;
     }
 }

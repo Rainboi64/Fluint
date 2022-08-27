@@ -15,10 +15,16 @@ namespace Fluint.Graphics.Base
     {
         private const float PiOver4 = MathF.PI / 4.0f;
         private const float PiOver2 = MathF.PI / 2.0f;
+        private float _fov = PiOver2;
 
         private float _pitch;
         private float _yaw = -PiOver2;
-        private float _fov = PiOver2;
+
+        public float Zoom
+        {
+            get;
+            set;
+        }
 
         public Vector3 Position
         {
@@ -26,9 +32,9 @@ namespace Fluint.Graphics.Base
             set;
         }
 
-        public float AspectRatio
+        public ViewportF Viewport
         {
-            private get;
+            get;
             set;
         }
 
@@ -94,12 +100,16 @@ namespace Fluint.Graphics.Base
 
         public Matrix GetProjectionMatrix()
         {
+            Zoom = Math.Max(Zoom, Viewport.MinDepth);
             if (ProjectionMode == ProjectionMode.Orthogonal)
             {
-                return Matrix.OrthoRH(750, 750, 0.01f, 100f);
+                var x = Viewport.Width / 2.0f * Zoom;
+                var y = Viewport.Height / 2.0f * Zoom;
+
+                return Matrix.OrthoOffCenterRH(-x, x, -y, y, Viewport.MinDepth, Viewport.MaxDepth);
             }
 
-            return Matrix.PerspectiveFovRH(_fov, AspectRatio, 0.01f, 100f);
+            return Matrix.PerspectiveFovRH(_fov, Viewport.AspectRatio, Viewport.MinDepth, Viewport.MaxDepth);
         }
 
         private void UpdateVectors()

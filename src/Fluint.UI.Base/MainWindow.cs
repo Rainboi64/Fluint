@@ -11,6 +11,7 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.StateManagement;
 using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 using ImGuiNET;
@@ -25,11 +26,16 @@ public class MainWindow : IWindow
     private readonly List<IPuppet> _ghosts;
     private readonly ILogger _logger;
     private readonly ModulePacket _packet;
+    private readonly WorldState _worldState = new();
 
     private IWindowProvider _provider;
 
     public MainWindow(ModulePacket packet, ILogger logger, IConfigurationManager configurationManager)
     {
+        var stateManager = packet.GetSingleton<IStateManager>();
+        stateManager.InitializeStatefulContext(this);
+        stateManager.InitializeState<WorldState>(_worldState, this);
+
         _configurationManager = configurationManager;
         _packet = packet;
         _logger = logger;
@@ -162,8 +168,6 @@ public class MainWindow : IWindow
             control.Tick();
         }
 
-        ImGui.ShowDemoWindow();
-
         ImGui.End();
 
         Update?.Invoke(this, new RenderEvent(delay));
@@ -231,6 +235,7 @@ public class MainWindow : IWindow
 
         style.WindowPadding = Vector2Vector(theme.WindowPadding);
         style.WindowRounding = theme.WindowRounding;
+        style.TabRounding = theme.TabRounding;
         style.FramePadding = Vector2Vector(theme.FramePadding);
         style.FrameRounding = theme.FrameRounding;
         style.ItemSpacing = Vector2Vector(theme.ItemSpacing);
@@ -276,6 +281,7 @@ public class MainWindow : IWindow
         style.Colors[(int)ImGuiCol.PlotHistogram] = Color2Vector(theme.PlotHistogram);
         style.Colors[(int)ImGuiCol.PlotHistogramHovered] = Color2Vector(theme.PlotHistogramHovered);
         style.Colors[(int)ImGuiCol.TextSelectedBg] = Color2Vector(theme.TextSelectedBg);
+        style.Colors[(int)ImGuiCol.Separator] = Color2Vector(theme.Separator);
     }
 
     private static Vector4 Color2Vector(Vector4 color)

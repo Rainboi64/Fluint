@@ -85,6 +85,10 @@ public class InputManager : IInputManager
         return _nativeMouse.WasButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button);
     }
 
+    public Vector2 MouseScroll => GLExtensions.Vector2(_nativeMouse.Scroll);
+
+    public Vector2 MouseScrollDelta => GLExtensions.Vector2(_nativeMouse.ScrollDelta);
+
     Vector2 IInputManager.MouseLocation
     {
         get => GLExtensions.Vector2(_nativeMouse.Position);

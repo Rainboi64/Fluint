@@ -38,6 +38,7 @@ internal class GL46CommandList : ICommandList
             SetViewport(pipeline.Viewport);
             SetProgramPipeline((GL46Pipeline)pipeline);
             SetInputLayout(pipeline.InputLayout);
+            SetPrimitiveTopology(pipeline.PrimitiveTopology);
         }
     }
 
@@ -230,12 +231,16 @@ internal class GL46CommandList : ICommandList
 
     public void Submit()
     {
-
         foreach (var command in _commandList)
         {
             switch (command.Type)
             {
                 case CommandType.Begin:
+                    GL.Enable(EnableCap.DepthTest);
+                    GL.DepthFunc(DepthFunction.Less);
+                    GL.Enable(EnableCap.Blend);
+                    GL.Enable(EnableCap.LineSmooth);
+                    GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
                     break;
                 case CommandType.End:
                     GL.BindVertexArray(0);

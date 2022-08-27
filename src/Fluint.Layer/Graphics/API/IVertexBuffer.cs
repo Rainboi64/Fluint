@@ -14,4 +14,6 @@ public interface IVertexBuffer : IDisposable
     {
         get;
     }
+
+    void Initialize<T>(T[] vertices) where T : struct;
 }

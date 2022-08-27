@@ -14,21 +14,26 @@ namespace Fluint.Layer.Networking.Server
     /// </summary>
     public class ClientDisconnectedEventArgs : EventArgs
     {
+        public ClientDisconnectedEventArgs(ClientData client, DisconnectionReason reason)
+        {
+            Client = client;
+            Reason = reason;
+        }
 
         /// <summary>
         /// The reason the client disconnected.
         /// </summary>
-        public DisconnectionReason Reason { get; }
+        public DisconnectionReason Reason
+        {
+            get;
+        }
 
         /// <summary>
         /// The data of the client who disconnected.
         /// </summary>
-        public IClientData Client { get; }
-        
-        public ClientDisconnectedEventArgs(IClientData client, DisconnectionReason reason)
+        public ClientData Client
         {
-            Client = client;
-            Reason = reason;
+            get;
         }
     }
 }

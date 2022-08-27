@@ -245,12 +245,13 @@ namespace Fluint.Layer.Mathematics
             var nearPoint = new Vector3(x, y, 0);
             var farPoint = new Vector3(x, y, 1);
 
-            nearPoint = Vector3.Unproject(nearPoint, viewport.X, viewport.Y, viewport.Width, viewport.Height, viewport.MinDepth,
-                                        viewport.MaxDepth, worldViewProjection);
-            farPoint = Vector3.Unproject(farPoint, viewport.X, viewport.Y, viewport.Width, viewport.Height, viewport.MinDepth,
-                                        viewport.MaxDepth, worldViewProjection);
+            nearPoint = Vector3.Unproject(nearPoint, 0, 0, viewport.Width, viewport.Height, viewport.MinDepth,
+                viewport.MaxDepth, worldViewProjection);
+            farPoint = Vector3.Unproject(farPoint, 0, 0, viewport.Width, viewport.Height, viewport.MinDepth,
+                viewport.MaxDepth, worldViewProjection);
 
             Vector3 direction = farPoint - nearPoint;
+
             direction.Normalize();
 
             return new Ray(nearPoint, direction);
@@ -288,7 +289,8 @@ namespace Fluint.Layer.Mathematics
         /// </returns>
         public override string ToString()
         {
-            return string.Format(CultureInfo.CurrentCulture, "Position:{0} Direction:{1}", Position.ToString(), Direction.ToString());
+            return string.Format(CultureInfo.CurrentCulture, "Position:{0} Direction:{1}", Position.ToString(),
+                Direction.ToString());
         }
 
         /// <summary>
@@ -300,7 +302,8 @@ namespace Fluint.Layer.Mathematics
         /// </returns>
         public string ToString(string format)
         {
-            return string.Format(CultureInfo.CurrentCulture, "Position:{0} Direction:{1}", Position.ToString(format, CultureInfo.CurrentCulture),
+            return string.Format(CultureInfo.CurrentCulture, "Position:{0} Direction:{1}",
+                Position.ToString(format, CultureInfo.CurrentCulture),
                 Direction.ToString(format, CultureInfo.CurrentCulture));
         }
 
@@ -313,7 +316,8 @@ namespace Fluint.Layer.Mathematics
         /// </returns>
         public string ToString(IFormatProvider formatProvider)
         {
-            return string.Format(formatProvider, "Position:{0} Direction:{1}", Position.ToString(), Direction.ToString());
+            return string.Format(formatProvider, "Position:{0} Direction:{1}", Position.ToString(),
+                Direction.ToString());
         }
 
         /// <summary>
@@ -326,7 +330,8 @@ namespace Fluint.Layer.Mathematics
         /// </returns>
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            return string.Format(formatProvider, "Position:{0} Direction:{1}", Position.ToString(format, formatProvider),
+            return string.Format(formatProvider, "Position:{0} Direction:{1}",
+                Position.ToString(format, formatProvider),
                 Direction.ToString(format, formatProvider));
         }
 

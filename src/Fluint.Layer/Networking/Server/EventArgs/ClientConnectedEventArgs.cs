@@ -14,14 +14,17 @@ namespace Fluint.Layer.Networking.Server
     /// </summary>
     public class ClientConnectedEventArgs : EventArgs
     {
+        public ClientConnectedEventArgs(ClientData client)
+        {
+            Client = client;
+        }
+
         /// <summary>
         /// The data of the client who connected.
         /// </summary>
-        public IClientData Client { get; }
-
-        public ClientConnectedEventArgs(IClientData client) 
-        { 
-            Client = client;
+        public ClientData Client
+        {
+            get;
         }
     }
 }

@@ -4,11 +4,6 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.UI
@@ -16,12 +11,35 @@ namespace Fluint.Layer.UI
     [Initialization(InitializationMethod.Scoped)]
     public interface IContainer : IModule, IGuiContainer<IGuiComponent>
     {
-        string Title { get; set; }
+        string Title
+        {
+            get;
+            set;
+        }
+
         bool IsFocused
         {
             get;
         }
+
+        bool Resizable
+        {
+            get;
+            set;
+        }
+
+        bool ScrollBar
+        {
+            get;
+            set;
+        }
+
         Vector2i Size
+        {
+            get;
+        }
+
+        Vector2i Location
         {
             get;
         }

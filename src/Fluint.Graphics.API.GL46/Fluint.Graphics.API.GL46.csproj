@@ -70,7 +70,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ImGui.NET" Version="1.78.0" />
+      <PackageReference Include="ImGui.NET" Version="1.78.0"/>
       <PackageReference Include="OpenTK" Version="4.6.4"/>
       <PackageReference Include="SixLabors.ImageSharp" Version="2.1.1"/>
       <PackageReference Include="System.Drawing.Common" Version="5.0.2"/>
@@ -88,10 +88,16 @@
         <None Update="Shaders\shader.vert">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Update="shaders\fragment.glsl">
+        <None Update="shaders\grid.frag.glsl">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Update="shaders\vertex.glsl">
+        <None Update="shaders\grid.vert.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="shaders\simple.frag.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="shaders\simple.vert.glsl">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>

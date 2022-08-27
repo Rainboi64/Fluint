@@ -8,12 +8,13 @@ using System;
 using System.Collections.Generic;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.StateManagement;
 using Fluint.Layer.UI;
 
 namespace Fluint.Layer.Windowing
 {
     [Initialization(InitializationMethod.Scoped)]
-    public interface IWindow : IModule
+    public interface IWindow : IModule, IStatefulContext
     {
         public IInputManager InputManager
         {

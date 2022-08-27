@@ -149,7 +149,8 @@ namespace Fluint.Layer.Mathematics
             if (values == null)
                 throw new ArgumentNullException(nameof(values));
             if (values.Length != 3)
-                throw new ArgumentOutOfRangeException(nameof(values), "There must be three and only three input values for Vector3.");
+                throw new ArgumentOutOfRangeException(nameof(values),
+                    "There must be three and only three input values for Vector3.");
 
             X = values[0];
             Y = values[1];
@@ -161,7 +162,10 @@ namespace Fluint.Layer.Mathematics
         /// </summary>
         public bool IsNormalized
         {
-            get { return MathUtil.IsOne((X * X) + (Y * Y) + (Z * Z)); }
+            get
+            {
+                return MathUtil.IsOne((X * X) + (Y * Y) + (Z * Z));
+            }
         }
 
         /// <summary>
@@ -169,7 +173,10 @@ namespace Fluint.Layer.Mathematics
         /// </summary>
         public bool IsZero
         {
-            get { return X == 0 && Y == 0 && Z == 0; }
+            get
+            {
+                return X == 0 && Y == 0 && Z == 0;
+            }
         }
 
         /// <summary>
@@ -197,10 +204,18 @@ namespace Fluint.Layer.Mathematics
             {
                 switch (index)
                 {
-                    case 0: X = value; break;
-                    case 1: Y = value; break;
-                    case 2: Z = value; break;
-                    default: throw new ArgumentOutOfRangeException(nameof(index), "Indices for Vector3 run from 0 to 2, inclusive.");
+                    case 0:
+                        X = value;
+                        break;
+                    case 1:
+                        Y = value;
+                        break;
+                    case 2:
+                        Z = value;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(index),
+                            "Indices for Vector3 run from 0 to 2, inclusive.");
                 }
             }
         }
@@ -430,7 +445,7 @@ namespace Fluint.Layer.Mathematics
         {
             return new Vector3(value.X / scale, value.Y / scale, value.Z / scale);
         }
-        
+
         /// <summary>
         /// Scales a vector by the given value.
         /// </summary>
@@ -507,7 +522,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="amount1">Barycentric coordinate b2, which expresses the weighting factor toward vertex 2 (specified in <paramref name="value2"/>).</param>
         /// <param name="amount2">Barycentric coordinate b3, which expresses the weighting factor toward vertex 3 (specified in <paramref name="value3"/>).</param>
         /// <param name="result">When the method completes, contains the 3D Cartesian coordinates of the specified point.</param>
-        public static void Barycentric(ref Vector3 value1, ref Vector3 value2, ref Vector3 value3, float amount1, float amount2, out Vector3 result)
+        public static void Barycentric(ref Vector3 value1, ref Vector3 value2, ref Vector3 value3, float amount1,
+            float amount2, out Vector3 result)
         {
             result = new Vector3((value1.X + (amount1 * (value2.X - value1.X))) + (amount2 * (value3.X - value1.X)),
                 (value1.Y + (amount1 * (value2.Y - value1.Y))) + (amount2 * (value3.Y - value1.Y)),
@@ -696,8 +712,8 @@ namespace Fluint.Layer.Mathematics
         public static bool NearEqual(ref Vector3 left, ref Vector3 right, ref Vector3 epsilon)
         {
             return MathUtil.WithinEpsilon(left.X, right.X, epsilon.X) &&
-                    MathUtil.WithinEpsilon(left.Y, right.Y, epsilon.Y) &&
-                    MathUtil.WithinEpsilon(left.Z, right.Z, epsilon.Z);
+                   MathUtil.WithinEpsilon(left.Y, right.Y, epsilon.Y) &&
+                   MathUtil.WithinEpsilon(left.Z, right.Z, epsilon.Z);
         }
 
         /// <summary>
@@ -812,7 +828,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="tangent2">Second source tangent vector.</param>
         /// <param name="amount">Weighting factor.</param>
         /// <param name="result">When the method completes, contains the result of the Hermite spline interpolation.</param>
-        public static void Hermite(ref Vector3 value1, ref Vector3 tangent1, ref Vector3 value2, ref Vector3 tangent2, float amount, out Vector3 result)
+        public static void Hermite(ref Vector3 value1, ref Vector3 tangent1, ref Vector3 value2, ref Vector3 tangent2,
+            float amount, out Vector3 result)
         {
             float squared = amount * amount;
             float cubed = amount * squared;
@@ -850,22 +867,26 @@ namespace Fluint.Layer.Mathematics
         /// <param name="value4">The fourth position in the interpolation.</param>
         /// <param name="amount">Weighting factor.</param>
         /// <param name="result">When the method completes, contains the result of the Catmull-Rom interpolation.</param>
-        public static void CatmullRom(ref Vector3 value1, ref Vector3 value2, ref Vector3 value3, ref Vector3 value4, float amount, out Vector3 result)
+        public static void CatmullRom(ref Vector3 value1, ref Vector3 value2, ref Vector3 value3, ref Vector3 value4,
+            float amount, out Vector3 result)
         {
             float squared = amount * amount;
             float cubed = amount * squared;
 
             result.X = 0.5f * ((((2.0f * value2.X) + ((-value1.X + value3.X) * amount)) +
-            (((((2.0f * value1.X) - (5.0f * value2.X)) + (4.0f * value3.X)) - value4.X) * squared)) +
-            ((((-value1.X + (3.0f * value2.X)) - (3.0f * value3.X)) + value4.X) * cubed));
+                                (((((2.0f * value1.X) - (5.0f * value2.X)) + (4.0f * value3.X)) - value4.X) *
+                                 squared)) +
+                               ((((-value1.X + (3.0f * value2.X)) - (3.0f * value3.X)) + value4.X) * cubed));
 
             result.Y = 0.5f * ((((2.0f * value2.Y) + ((-value1.Y + value3.Y) * amount)) +
-                (((((2.0f * value1.Y) - (5.0f * value2.Y)) + (4.0f * value3.Y)) - value4.Y) * squared)) +
-                ((((-value1.Y + (3.0f * value2.Y)) - (3.0f * value3.Y)) + value4.Y) * cubed));
+                                (((((2.0f * value1.Y) - (5.0f * value2.Y)) + (4.0f * value3.Y)) - value4.Y) *
+                                 squared)) +
+                               ((((-value1.Y + (3.0f * value2.Y)) - (3.0f * value3.Y)) + value4.Y) * cubed));
 
             result.Z = 0.5f * ((((2.0f * value2.Z) + ((-value1.Z + value3.Z) * amount)) +
-                (((((2.0f * value1.Z) - (5.0f * value2.Z)) + (4.0f * value3.Z)) - value4.Z) * squared)) +
-                ((((-value1.Z + (3.0f * value2.Z)) - (3.0f * value3.Z)) + value4.Z) * cubed));
+                                (((((2.0f * value1.Z) - (5.0f * value2.Z)) + (4.0f * value3.Z)) - value4.Z) *
+                                 squared)) +
+                               ((((-value1.Z + (3.0f * value2.Z)) - (3.0f * value3.Z)) + value4.Z) * cubed));
         }
 
         /// <summary>
@@ -945,12 +966,14 @@ namespace Fluint.Layer.Mathematics
         /// <param name="maxZ">The maximum depth of the viewport.</param>
         /// <param name="worldViewProjection">The combined world-view-projection matrix.</param>
         /// <param name="result">When the method completes, contains the vector in screen space.</param>
-        public static void Project(ref Vector3 vector, float x, float y, float width, float height, float minZ, float maxZ, ref Matrix worldViewProjection, out Vector3 result)
+        public static void Project(ref Vector3 vector, float x, float y, float width, float height, float minZ,
+            float maxZ, ref Matrix worldViewProjection, out Vector3 result)
         {
             Vector3 v = new Vector3();
             TransformCoordinate(ref vector, ref worldViewProjection, out v);
 
-            result = new Vector3(((1.0f + v.X) * 0.5f * width) + x, ((1.0f - v.Y) * 0.5f * height) + y, (v.Z * (maxZ - minZ)) + minZ);
+            result = new Vector3(((1.0f + v.X) * 0.5f * width) + x, ((1.0f - v.Y) * 0.5f * height) + y,
+                (v.Z * (maxZ - minZ)) + minZ);
         }
 
         /// <summary>
@@ -965,7 +988,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="maxZ">The maximum depth of the viewport.</param>
         /// <param name="worldViewProjection">The combined world-view-projection matrix.</param>
         /// <returns>The vector in screen space.</returns>
-        public static Vector3 Project(Vector3 vector, float x, float y, float width, float height, float minZ, float maxZ, Matrix worldViewProjection)
+        public static Vector3 Project(Vector3 vector, float x, float y, float width, float height, float minZ,
+            float maxZ, Matrix worldViewProjection)
         {
             Project(ref vector, x, y, width, height, minZ, maxZ, ref worldViewProjection, out var result);
             return result;
@@ -983,7 +1007,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="maxZ">The maximum depth of the viewport.</param>
         /// <param name="worldViewProjection">The combined world-view-projection matrix.</param>
         /// <param name="result">When the method completes, contains the vector in object space.</param>
-        public static void Unproject(ref Vector3 vector, float x, float y, float width, float height, float minZ, float maxZ, ref Matrix worldViewProjection, out Vector3 result)
+        public static void Unproject(ref Vector3 vector, float x, float y, float width, float height, float minZ,
+            float maxZ, ref Matrix worldViewProjection, out Vector3 result)
         {
             Vector3 v = new Vector3();
             Matrix matrix = new Matrix();
@@ -1008,7 +1033,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="maxZ">The maximum depth of the viewport.</param>
         /// <param name="worldViewProjection">The combined world-view-projection matrix.</param>
         /// <returns>The vector in object space.</returns>
-        public static Vector3 Unproject(Vector3 vector, float x, float y, float width, float height, float minZ, float maxZ, Matrix worldViewProjection)
+        public static Vector3 Unproject(Vector3 vector, float x, float y, float width, float height, float minZ,
+            float maxZ, Matrix worldViewProjection)
         {
             Unproject(ref vector, x, y, width, height, minZ, maxZ, ref worldViewProjection, out var result);
             return result;
@@ -1075,7 +1101,8 @@ namespace Fluint.Layer.Mathematics
             if (destination == null)
                 throw new ArgumentNullException(nameof(destination));
             if (destination.Length < source.Length)
-                throw new ArgumentOutOfRangeException(nameof(destination), "The destination array must be of same length or larger length than the source array.");
+                throw new ArgumentOutOfRangeException(nameof(destination),
+                    "The destination array must be of same length or larger length than the source array.");
 
             for (int i = 0; i < source.Length; ++i)
             {
@@ -1083,7 +1110,8 @@ namespace Fluint.Layer.Mathematics
 
                 for (int r = 0; r < i; ++r)
                 {
-                    newvector -= (Dot(destination[r], newvector) / Dot(destination[r], destination[r])) * destination[r];
+                    newvector -= (Dot(destination[r], newvector) / Dot(destination[r], destination[r])) *
+                                 destination[r];
                 }
 
                 destination[i] = newvector;
@@ -1122,7 +1150,8 @@ namespace Fluint.Layer.Mathematics
             if (destination == null)
                 throw new ArgumentNullException(nameof(destination));
             if (destination.Length < source.Length)
-                throw new ArgumentOutOfRangeException(nameof(destination), "The destination array must be of same length or larger length than the source array.");
+                throw new ArgumentOutOfRangeException(nameof(destination),
+                    "The destination array must be of same length or larger length than the source array.");
 
             for (int i = 0; i < source.Length; ++i)
             {
@@ -1193,7 +1222,8 @@ namespace Fluint.Layer.Mathematics
             if (destination == null)
                 throw new ArgumentNullException(nameof(destination));
             if (destination.Length < source.Length)
-                throw new ArgumentOutOfRangeException(nameof(destination), "The destination array must be of same length or larger length than the source array.");
+                throw new ArgumentOutOfRangeException(nameof(destination),
+                    "The destination array must be of same length or larger length than the source array.");
 
             float x = rotation.X + rotation.X;
             float y = rotation.Y + rotation.Y;
@@ -1236,10 +1266,10 @@ namespace Fluint.Layer.Mathematics
         /// <param name="result">When the method completes, contains the transformed <see cref="Vector3"/>.</param>
         public static void Transform(ref Vector3 vector, ref Matrix3x3 transform, out Vector3 result)
         {
-            result = new Vector3(   (vector.X * transform.M11) + (vector.Y * transform.M21) + (vector.Z * transform.M31),
-                                    (vector.X * transform.M12) + (vector.Y * transform.M22) + (vector.Z * transform.M32),
-                                    (vector.X * transform.M13) + (vector.Y * transform.M23) + (vector.Z * transform.M33)
-                                );
+            result = new Vector3((vector.X * transform.M11) + (vector.Y * transform.M21) + (vector.Z * transform.M31),
+                (vector.X * transform.M12) + (vector.Y * transform.M22) + (vector.Z * transform.M32),
+                (vector.X * transform.M13) + (vector.Y * transform.M23) + (vector.Z * transform.M33)
+            );
         }
 
         /// <summary>
@@ -1308,7 +1338,8 @@ namespace Fluint.Layer.Mathematics
             if (destination == null)
                 throw new ArgumentNullException(nameof(destination));
             if (destination.Length < source.Length)
-                throw new ArgumentOutOfRangeException(nameof(destination), "The destination array must be of same length or larger length than the source array.");
+                throw new ArgumentOutOfRangeException(nameof(destination),
+                    "The destination array must be of same length or larger length than the source array.");
 
             for (int i = 0; i < source.Length; ++i)
             {
@@ -1332,10 +1363,14 @@ namespace Fluint.Layer.Mathematics
         public static void TransformCoordinate(ref Vector3 coordinate, ref Matrix transform, out Vector3 result)
         {
             Vector4 vector = new Vector4();
-            vector.X = (coordinate.X * transform.M11) + (coordinate.Y * transform.M21) + (coordinate.Z * transform.M31) + transform.M41;
-            vector.Y = (coordinate.X * transform.M12) + (coordinate.Y * transform.M22) + (coordinate.Z * transform.M32) + transform.M42;
-            vector.Z = (coordinate.X * transform.M13) + (coordinate.Y * transform.M23) + (coordinate.Z * transform.M33) + transform.M43;
-            vector.W = 1f / ((coordinate.X * transform.M14) + (coordinate.Y * transform.M24) + (coordinate.Z * transform.M34) + transform.M44);
+            vector.X = (coordinate.X * transform.M11) + (coordinate.Y * transform.M21) +
+                       (coordinate.Z * transform.M31) + transform.M41;
+            vector.Y = (coordinate.X * transform.M12) + (coordinate.Y * transform.M22) +
+                       (coordinate.Z * transform.M32) + transform.M42;
+            vector.Z = (coordinate.X * transform.M13) + (coordinate.Y * transform.M23) +
+                       (coordinate.Z * transform.M33) + transform.M43;
+            vector.W = 1f / ((coordinate.X * transform.M14) + (coordinate.Y * transform.M24) +
+                             (coordinate.Z * transform.M34) + transform.M44);
 
             result = new Vector3(vector.X * vector.W, vector.Y * vector.W, vector.Z * vector.W);
         }
@@ -1382,7 +1417,8 @@ namespace Fluint.Layer.Mathematics
             if (destination == null)
                 throw new ArgumentNullException(nameof(destination));
             if (destination.Length < source.Length)
-                throw new ArgumentOutOfRangeException(nameof(destination), "The destination array must be of same length or larger length than the source array.");
+                throw new ArgumentOutOfRangeException(nameof(destination),
+                    "The destination array must be of same length or larger length than the source array.");
 
             for (int i = 0; i < source.Length; ++i)
             {
@@ -1453,7 +1489,8 @@ namespace Fluint.Layer.Mathematics
             if (destination == null)
                 throw new ArgumentNullException(nameof(destination));
             if (destination.Length < source.Length)
-                throw new ArgumentOutOfRangeException(nameof(destination), "The destination array must be of same length or larger length than the source array.");
+                throw new ArgumentOutOfRangeException(nameof(destination),
+                    "The destination array must be of same length or larger length than the source array.");
 
             for (int i = 0; i < source.Length; ++i)
             {
@@ -1568,7 +1605,7 @@ namespace Fluint.Layer.Mathematics
         {
             return new Vector3(value.X / scale.X, value.Y / scale.Y, value.Z / scale.Z);
         }
-        
+
         /// <summary>
         /// Perform a component-wise addition
         /// </summary>
@@ -1680,7 +1717,8 @@ namespace Fluint.Layer.Mathematics
             if (format == null)
                 return ToString();
 
-            return string.Format(CultureInfo.CurrentCulture, "X:{0} Y:{1} Z:{2}", X.ToString(format, CultureInfo.CurrentCulture), 
+            return string.Format(CultureInfo.CurrentCulture, "X:{0} Y:{1} Z:{2}",
+                X.ToString(format, CultureInfo.CurrentCulture),
                 Y.ToString(format, CultureInfo.CurrentCulture), Z.ToString(format, CultureInfo.CurrentCulture));
         }
 
@@ -1742,7 +1780,7 @@ namespace Fluint.Layer.Mathematics
         {
             return MathUtil.NearEqual(other.X, X) && MathUtil.NearEqual(other.Y, Y) && MathUtil.NearEqual(other.Z, Z);
         }
-        
+
         /// <summary>
         /// Determines whether the specified <see cref="Vector3"/> is equal to this instance.
         /// </summary>
@@ -1771,6 +1809,5 @@ namespace Fluint.Layer.Mathematics
             var strongValue = (Vector3)value;
             return Equals(ref strongValue);
         }
-
     }
 }

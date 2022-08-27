@@ -5,10 +5,6 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fluint.Layer.Mathematics
 {
@@ -52,6 +48,11 @@ namespace Fluint.Layer.Mathematics
         public static bool operator !=(Vector2i left, Vector2i right)
         {
             return !(left == right);
+        }
+
+        public override string ToString()
+        {
+            return $"({X}, {Y})";
         }
     }
 }

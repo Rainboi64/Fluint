@@ -119,6 +119,7 @@ public static class GLExtensions
         return primitiveTopology switch {
             PrimitiveTopology.TriangleList => PrimitiveType.Triangles,
             PrimitiveTopology.LineList => PrimitiveType.LineLoop,
+            PrimitiveTopology.Lines => PrimitiveType.Lines,
             PrimitiveTopology.NotAssigned => PrimitiveType.Triangles,
             _ => throw new ArgumentOutOfRangeException(nameof(primitiveTopology), primitiveTopology, null)
         };

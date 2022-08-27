@@ -5,14 +5,12 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Fluint.Layer.Networking.Client
 {
-    public class MessageReceivedEventArgs : System.EventArgs
+    public class MessageReceivedEventArgs : EventArgs
     {
-        public MessageReceivedEventArgs(IClientData sender, string messageData)
+        public MessageReceivedEventArgs(ClientData sender, string messageData)
         {
             Sender = sender;
             MessageData = messageData;
@@ -21,11 +19,17 @@ namespace Fluint.Layer.Networking.Client
         /// <summary>
         /// The Client who sent the message.
         /// </summary>
-        public IClientData Sender { get; }
+        public ClientData Sender
+        {
+            get;
+        }
 
         /// <summary>
         /// The message text (string).
         /// </summary>
-        public string MessageData { get; }
+        public string MessageData
+        {
+            get;
+        }
     }
 }

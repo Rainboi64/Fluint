@@ -6,6 +6,7 @@ using Fluint.Layer;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
+using Newtonsoft.Json;
 
 namespace Fluint.SDK.Base
 {
@@ -89,7 +90,7 @@ namespace Fluint.SDK.Base
             };
 
             _prompt = $"[{lambdaColor}]λ[/{lambdaColor}] [took [yellow]{timer.ElapsedMilliseconds / 1000f}s[/yellow]] ";
-            Console.WriteLine(response.Data);
+            Console.WriteLine(JsonConvert.SerializeObject(response.Data));
         }
 
         // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp

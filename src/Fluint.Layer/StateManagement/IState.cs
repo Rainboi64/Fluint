@@ -7,5 +7,4 @@ namespace Fluint.Layer.StateManagement;
 
 public interface IState
 {
-    
 }

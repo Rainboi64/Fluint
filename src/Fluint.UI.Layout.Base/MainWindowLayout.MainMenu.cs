@@ -29,20 +29,57 @@ public partial class MainWindowLayout
         _mainMenuFileExitItem.OnClick = new ModularAction { _actionManager.GetAction<IGracefulExit>().Exit };
         _mainMenuFileExitItem.Text = _localizationManager.Fetch("exit");
 
-        // Windows
-        _mainMenuWindowsItem = _packet.CreateScoped<IMenuItem>();
-        _mainMenu["WindowsMenuItem"] = _mainMenuWindowsItem;
-        _mainMenuWindowsItem.Text = _localizationManager.Fetch("window");
+        // Tools
+        _mainMenuToolsItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenu["ToolsMenuItem"] = _mainMenuToolsItem;
+        _mainMenuToolsItem.Text = _localizationManager.Fetch("tools");
 
-        // Windows -> Camera
-        _mainMenuWindowsCameraItem = _packet.CreateScoped<IMenuItem>();
-        _mainMenuWindowsItem["WindowsMenuCameraItem"] = _mainMenuWindowsCameraItem;
-        _mainMenuWindowsCameraItem.OnClick = new ModularAction {
+        // Tools -> Camera
+        _mainMenuToolsCameraItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenuToolsItem["ToolsMenuCameraItem"] = _mainMenuToolsCameraItem;
+        _mainMenuToolsCameraItem.OnClick = new ModularAction {
             () => {
                 _window.SpawnControl<CameraControl>();
             }
         };
-        _mainMenuWindowsCameraItem.Text = _localizationManager.Fetch("camera");
+        _mainMenuToolsCameraItem.Text = _localizationManager.Fetch("camera");
+
+        // Tools -> Toolbox
+        _mainMenuToolsToolboxItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenuToolsItem["ToolsMenuToolboxItem"] = _mainMenuToolsToolboxItem;
+        _mainMenuToolsToolboxItem.OnClick = new ModularAction {
+            () => {
+                _window.SpawnControl<ToolboxControl>();
+            }
+        };
+        _mainMenuToolsToolboxItem.Text = _localizationManager.Fetch("toolbox");
+
+        // Debug
+        _mainMenuDebugItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenu["DebugMenuItem"] = _mainMenuDebugItem;
+        _mainMenuDebugItem.Text = _localizationManager.Fetch("debug");
+
+        // Debug -> Metrics
+
+        _mainMenuDebugMetricsItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenuDebugItem["DebugMetricsMenuItem"] = _mainMenuDebugMetricsItem;
+        _mainMenuDebugMetricsItem.Text = _localizationManager.Fetch("metrics");
+        _mainMenuDebugMetricsItem.OnClick = new ModularAction {
+            () => {
+                _window.SpawnControl<MetricsControl>();
+            }
+        };
+
+        // Debug -> Demo
+
+        _mainMenuDebugUIDemoItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenuDebugItem["DebugDemoMenuItem"] = _mainMenuDebugUIDemoItem;
+        _mainMenuDebugUIDemoItem.Text = _localizationManager.Fetch("demo");
+        _mainMenuDebugUIDemoItem.OnClick = new ModularAction {
+            () => {
+                _window.SpawnControl<UIDemoControl>();
+            }
+        };
 
         // Help
         _mainMenuHelpMenuItem = _packet.CreateScoped<IMenuItem>();

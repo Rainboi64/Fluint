@@ -24,12 +24,12 @@ namespace Fluint.Networking.Base.Server
             get;
         }
 
-        public void InvokeConnectedEvent(IClientData client)
+        public void InvokeConnectedEvent(ClientData client)
         {
             ClientConnected?.Invoke(this, new ClientConnectedEventArgs(client));
         }
 
-        public void InvokeDisconnectedEvent(IClientData client, DisconnectionReason reason)
+        public void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason)
         {
             ClientDisconnected?.Invoke(this, new ClientDisconnectedEventArgs(client, reason));
         }

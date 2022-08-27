@@ -10,6 +10,7 @@ namespace Fluint.Layer.Graphics.API
     {
         TriangleList,
         LineList,
+        Lines,
         NotAssigned
     }
 }

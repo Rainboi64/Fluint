@@ -4,25 +4,28 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using System;
+
 namespace Fluint.Layer.Networking.Client
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IClientData
+    public struct ClientData
     {
         /// <summary>
-        /// The username of the client.
+        /// The username of the cslient.
         /// </summary>
-        string Username
+        public string Username
         {
             get;
+            set;
         }
 
         /// <summary>
         /// The Identifying ID of the client.
         /// </summary>
-        int Guid
+        public Guid ID
         {
             get;
+            set;
         }
     }
 }

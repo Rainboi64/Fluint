@@ -45,7 +45,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="vertex2">The second vertex to test.</param>
         /// <param name="vertex3">The third vertex to test.</param>
         /// <param name="result">When the method completes, contains the closest point between the two objects.</param>
-        public static void ClosestPointPointTriangle(ref Vector3 point, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 result)
+        public static void ClosestPointPointTriangle(ref Vector3 point, ref Vector3 vertex1, ref Vector3 vertex2,
+            ref Vector3 vertex3, out Vector3 result)
         {
             //Source: Real-Time Collision Detection by Christer Ericson
             //Reference: Page 136
@@ -185,7 +186,8 @@ namespace Fluint.Layer.Mathematics
         /// is the 'closest' point of intersection. This can also be considered is the deepest point of
         /// intersection.
         /// </remarks>
-        public static void ClosestPointSphereSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2, out Vector3 result)
+        public static void ClosestPointSphereSphere(ref BoundingSphere sphere1, ref BoundingSphere sphere2,
+            out Vector3 result)
         {
             //Source: Jorgy343
             //Reference: None
@@ -483,11 +485,11 @@ namespace Fluint.Layer.Mathematics
             Vector3.Dot(ref plane.Normal, ref ray.Position, out var position);
             distance = (-plane.D - position) / direction;
 
-            if (distance < 0f)
-            {
-                distance = 0f;
-                return false;
-            }
+            // if (distance < 0f)
+            // {
+            //     distance = 0f;
+            //     return false;
+            // }
 
             return true;
         }
@@ -532,7 +534,8 @@ namespace Fluint.Layer.Mathematics
         /// the ray, no intersection is assumed to have happened. In both cases of assumptions,
         /// this method returns false.
         /// </remarks>
-        public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out float distance)
+        public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2,
+            ref Vector3 vertex3, out float distance)
         {
             //Source: Fast Minimum Storage Ray / Triangle Intersection
             //Reference: http://www.cs.virginia.edu/~gfx/Courses/2003/ImageSynthesis/papers/Acceleration/Fast%20MinimumStorage%20RayTriangle%20Intersection.pdf
@@ -559,7 +562,8 @@ namespace Fluint.Layer.Mathematics
             //Compute the determinant.
             float determinant;
             //Dot product of edge1 and the first part of determinant.
-            determinant = (edge1.X * directioncrossedge2.X) + (edge1.Y * directioncrossedge2.Y) + (edge1.Z * directioncrossedge2.Z);
+            determinant = (edge1.X * directioncrossedge2.X) + (edge1.Y * directioncrossedge2.Y) +
+                          (edge1.Z * directioncrossedge2.Z);
 
             //If the ray is parallel to the triangle plane, there is no collision.
             //This also means that we are not culling, the ray may hit both the
@@ -579,7 +583,8 @@ namespace Fluint.Layer.Mathematics
             distanceVector.Z = ray.Position.Z - vertex1.Z;
 
             float triangleU;
-            triangleU = (distanceVector.X * directioncrossedge2.X) + (distanceVector.Y * directioncrossedge2.Y) + (distanceVector.Z * directioncrossedge2.Z);
+            triangleU = (distanceVector.X * directioncrossedge2.X) + (distanceVector.Y * directioncrossedge2.Y) +
+                        (distanceVector.Z * directioncrossedge2.Z);
             triangleU *= inversedeterminant;
 
             //Make sure it is inside the triangle.
@@ -596,7 +601,8 @@ namespace Fluint.Layer.Mathematics
             distancecrossedge1.Z = (distanceVector.X * edge1.Y) - (distanceVector.Y * edge1.X);
 
             float triangleV;
-            triangleV = ((ray.Direction.X * distancecrossedge1.X) + (ray.Direction.Y * distancecrossedge1.Y)) + (ray.Direction.Z * distancecrossedge1.Z);
+            triangleV = ((ray.Direction.X * distancecrossedge1.X) + (ray.Direction.Y * distancecrossedge1.Y)) +
+                        (ray.Direction.Z * distancecrossedge1.Z);
             triangleV *= inversedeterminant;
 
             //Make sure it is inside the triangle.
@@ -608,7 +614,8 @@ namespace Fluint.Layer.Mathematics
 
             //Compute the distance along the ray to the triangle.
             float raydistance;
-            raydistance = (edge2.X * distancecrossedge1.X) + (edge2.Y * distancecrossedge1.Y) + (edge2.Z * distancecrossedge1.Z);
+            raydistance = (edge2.X * distancecrossedge1.X) + (edge2.Y * distancecrossedge1.Y) +
+                          (edge2.Z * distancecrossedge1.Z);
             raydistance *= inversedeterminant;
 
             //Is the triangle behind the ray origin?
@@ -632,7 +639,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="point">When the method completes, contains the point of intersection,
         /// or <see cref="Vector3.Zero"/> if there was no intersection.</param>
         /// <returns>Whether the two objects intersected.</returns>
-        public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3, out Vector3 point)
+        public static bool RayIntersectsTriangle(ref Ray ray, ref Vector3 vertex1, ref Vector3 vertex2,
+            ref Vector3 vertex3, out Vector3 point)
         {
             if (!RayIntersectsTriangle(ref ray, ref vertex1, ref vertex2, ref vertex3, out float distance))
             {
@@ -927,7 +935,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="vertex2">The second vertex of the triangle to test.</param>
         /// <param name="vertex3">The third vertex of the triangle to test.</param>
         /// <returns>Whether the two objects intersected.</returns>
-        public static PlaneIntersectionType PlaneIntersectsTriangle(ref Plane plane, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)
+        public static PlaneIntersectionType PlaneIntersectsTriangle(ref Plane plane, ref Vector3 vertex1,
+            ref Vector3 vertex2, ref Vector3 vertex3)
         {
             //Source: Real-Time Collision Detection by Christer Ericson
             //Reference: Page 207
@@ -936,10 +945,12 @@ namespace Fluint.Layer.Mathematics
             PlaneIntersectionType test2 = PlaneIntersectsPoint(ref plane, ref vertex2);
             PlaneIntersectionType test3 = PlaneIntersectsPoint(ref plane, ref vertex3);
 
-            if (test1 == PlaneIntersectionType.Front && test2 == PlaneIntersectionType.Front && test3 == PlaneIntersectionType.Front)
+            if (test1 == PlaneIntersectionType.Front && test2 == PlaneIntersectionType.Front &&
+                test3 == PlaneIntersectionType.Front)
                 return PlaneIntersectionType.Front;
 
-            if (test1 == PlaneIntersectionType.Back && test2 == PlaneIntersectionType.Back && test3 == PlaneIntersectionType.Back)
+            if (test1 == PlaneIntersectionType.Back && test2 == PlaneIntersectionType.Back &&
+                test3 == PlaneIntersectionType.Back)
                 return PlaneIntersectionType.Back;
 
             return PlaneIntersectionType.Intersecting;
@@ -1071,7 +1082,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="vertex2">The second vertex of the triangle to test.</param>
         /// <param name="vertex3">The third vertex of the triangle to test.</param>
         /// <returns>Whether the two objects intersected.</returns>
-        public static bool SphereIntersectsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)
+        public static bool SphereIntersectsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2,
+            ref Vector3 vertex3)
         {
             //Source: Real-Time Collision Detection by Christer Ericson
             //Reference: Page 167
@@ -1157,7 +1169,8 @@ namespace Fluint.Layer.Mathematics
                 return ContainmentType.Disjoint;
 
             if (box1.Minimum.X <= box2.Minimum.X && (box2.Maximum.X <= box1.Maximum.X &&
-                box1.Minimum.Y <= box2.Minimum.Y && box2.Maximum.Y <= box1.Maximum.Y) &&
+                                                     box1.Minimum.Y <= box2.Minimum.Y &&
+                                                     box2.Maximum.Y <= box1.Maximum.Y) &&
                 box1.Minimum.Z <= box2.Minimum.Z && box2.Maximum.Z <= box1.Maximum.Z)
             {
                 return ContainmentType.Contains;
@@ -1180,9 +1193,15 @@ namespace Fluint.Layer.Mathematics
             if (distance > sphere.Radius * sphere.Radius)
                 return ContainmentType.Disjoint;
 
-            if ((((box.Minimum.X + sphere.Radius <= sphere.Center.X) && (sphere.Center.X <= box.Maximum.X - sphere.Radius)) && ((box.Maximum.X - box.Minimum.X > sphere.Radius) &&
-                (box.Minimum.Y + sphere.Radius <= sphere.Center.Y))) && (((sphere.Center.Y <= box.Maximum.Y - sphere.Radius) && (box.Maximum.Y - box.Minimum.Y > sphere.Radius)) &&
-                (((box.Minimum.Z + sphere.Radius <= sphere.Center.Z) && (sphere.Center.Z <= box.Maximum.Z - sphere.Radius)) && (box.Maximum.Z - box.Minimum.Z > sphere.Radius))))
+            if ((((box.Minimum.X + sphere.Radius <= sphere.Center.X) &&
+                  (sphere.Center.X <= box.Maximum.X - sphere.Radius)) &&
+                 ((box.Maximum.X - box.Minimum.X > sphere.Radius) &&
+                  (box.Minimum.Y + sphere.Radius <= sphere.Center.Y))) &&
+                (((sphere.Center.Y <= box.Maximum.Y - sphere.Radius) &&
+                  (box.Maximum.Y - box.Minimum.Y > sphere.Radius)) &&
+                 (((box.Minimum.Z + sphere.Radius <= sphere.Center.Z) &&
+                   (sphere.Center.Z <= box.Maximum.Z - sphere.Radius)) &&
+                  (box.Maximum.Z - box.Minimum.Z > sphere.Radius))))
             {
                 return ContainmentType.Contains;
             }
@@ -1212,7 +1231,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="vertex2">The second vertex of the triangle to test.</param>
         /// <param name="vertex3">The third vertex of the triangle to test.</param>
         /// <returns>The type of containment the two objects have.</returns>
-        public static ContainmentType SphereContainsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1, ref Vector3 vertex2, ref Vector3 vertex3)
+        public static ContainmentType SphereContainsTriangle(ref BoundingSphere sphere, ref Vector3 vertex1,
+            ref Vector3 vertex2, ref Vector3 vertex3)
         {
             //Source: Jorgy343
             //Reference: None
@@ -1221,7 +1241,8 @@ namespace Fluint.Layer.Mathematics
             ContainmentType test2 = SphereContainsPoint(ref sphere, ref vertex2);
             ContainmentType test3 = SphereContainsPoint(ref sphere, ref vertex3);
 
-            if (test1 == ContainmentType.Contains && test2 == ContainmentType.Contains && test3 == ContainmentType.Contains)
+            if (test1 == ContainmentType.Contains && test2 == ContainmentType.Contains &&
+                test3 == ContainmentType.Contains)
                 return ContainmentType.Contains;
 
             if (SphereIntersectsTriangle(ref sphere, ref vertex1, ref vertex2, ref vertex3))

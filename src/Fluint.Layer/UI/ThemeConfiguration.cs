@@ -1,7 +1,7 @@
 using System.Numerics;
 using Fluint.Layer.Configuration;
 
-namespace Fluint.UI.Base
+namespace Fluint.Layer.UI
 {
     [Configuration("Theme", "A Configuration for the theme of Fluint.", "UI")]
     public class ThemeConfiguration : IConfiguration
@@ -14,47 +14,49 @@ namespace Fluint.UI.Base
             FrameRounding = 0.0f;
             ItemSpacing = new Vector2(8, 8);
             ItemInnerSpacing = new Vector2(4, 4);
+            TabRounding = 0;
             IndentSpacing = 16.0f;
-            ScrollbarSize = 16.0f;
+            ScrollbarSize = 14.0f;
             ScrollbarRounding = 0.0f;
             GrabMinSize = 12.0f;
             GrabRounding = 0.0f;
 
-            Text = new Vector4(0.80f, 0.80f, 0.83f, 1.00f);
-            TextDisabled = new Vector4(0.24f, 0.23f, 0.29f, 1.00f);
-            WindowBg = new Vector4(0.06f, 0.05f, 0.07f, 1.00f);
-            ChildBg = new Vector4(0.07f, 0.07f, 0.09f, 1.00f);
-            PopupBg = new Vector4(0.07f, 0.07f, 0.09f, 1.00f);
-            Border = new Vector4(0.20f, 0.20f, 0.23f, 0.88f);
+            Text = new Vector4(0.80f, 0.80f, 0.80f, 1.00f);
+            TextDisabled = new Vector4(0.58f, 0.58f, 0.58f, 1.00f);
+            WindowBg = new Vector4(0.16f, 0.16f, 0.16f, 1.00f);
+            ChildBg = new Vector4(0.14f, 0.14f, 0.14f, 1.00f);
+            PopupBg = new Vector4(0.25f, 0.25f, 0.25f, 1.00f);
+            Border = new Vector4(0.23f, 0.23f, 0.23f, 0.88f);
             BorderShadow = new Vector4(0.92f, 0.91f, 0.88f, 0.00f);
-            FrameBg = new Vector4(0.10f, 0.09f, 0.12f, 1.00f);
-            FrameBgHovered = new Vector4(0.24f, 0.23f, 0.29f, 1.00f);
-            FrameBgActive = new Vector4(0.56f, 0.56f, 0.58f, 1.00f);
-            TitleBg = new Vector4(0.10f, 0.09f, 0.12f, 1.00f);
-            TitleBgCollapsed = new Vector4(1.00f, 0.98f, 0.95f, 0.75f);
-            TitleBgActive = new Vector4(0.07f, 0.07f, 0.09f, 1.00f);
-            MenuBarBg = new Vector4(0.10f, 0.09f, 0.12f, 1.00f);
-            ScrollbarBg = new Vector4(0.10f, 0.09f, 0.12f, 1.00f);
+            FrameBg = new Vector4(0.20f, 0.20f, 0.20f, 1.00f);
+            FrameBgHovered = new Vector4(0.31f, 0.31f, 0.31f, 1.00f);
+            FrameBgActive = new Vector4(0.22f, 0.22f, 0.22f, 1.00f);
+            TitleBg = new Vector4(0.19f, 0.19f, 0.19f, 1.00f);
+            TitleBgCollapsed = new Vector4(0.22f, 0.22f, 0.22f, 1.00f);
+            TitleBgActive = new Vector4(0.22f, 0.22f, 0.22f, 1.00f);
+            MenuBarBg = new Vector4(0.20f, 0.20f, 0.20f, 1.00f);
+            ScrollbarBg = new Vector4(0.17f, 0.17f, 0.17f, 1.00f);
             ScrollbarGrab = new Vector4(0.80f, 0.80f, 0.83f, 0.31f);
             ScrollbarGrabHovered = new Vector4(0.56f, 0.56f, 0.58f, 1.00f);
-            ScrollbarGrabActive = new Vector4(0.06f, 0.05f, 0.07f, 1.00f);
+            ScrollbarGrabActive = new Vector4(0.53f, 0.53f, 0.53f, 1.00f);
             CheckMark = new Vector4(0.80f, 0.80f, 0.83f, 0.31f);
             SliderGrab = new Vector4(0.80f, 0.80f, 0.83f, 0.31f);
-            SliderGrabActive = new Vector4(0.06f, 0.05f, 0.07f, 1.00f);
-            Button = new Vector4(0.10f, 0.09f, 0.12f, 1.00f);
-            ButtonHovered = new Vector4(0.24f, 0.23f, 0.29f, 1.00f);
+            SliderGrabActive = new Vector4(0.09f, 0.09f, 0.09f, 1.00f);
+            Button = new Vector4(0.20f, 0.20f, 0.20f, 1.00f);
+            ButtonHovered = new Vector4(0.32f, 0.32f, 0.32f, 1.00f);
             ButtonActive = new Vector4(0.56f, 0.56f, 0.58f, 1.00f);
-            Header = new Vector4(0.10f, 0.09f, 0.12f, 1.00f);
+            Header = new Vector4(0.21f, 0.21f, 0.21f, 1.00f);
             HeaderHovered = new Vector4(0.56f, 0.56f, 0.58f, 1.00f);
             HeaderActive = new Vector4(0.06f, 0.05f, 0.07f, 1.00f);
-            ResizeGrip = new Vector4(0.00f, 0.00f, 0.00f, 0.00f);
-            ResizeGripHovered = new Vector4(0.56f, 0.56f, 0.58f, 1.00f);
-            ResizeGripActive = new Vector4(0.06f, 0.05f, 0.07f, 1.00f);
-            PlotLines = new Vector4(0.40f, 0.39f, 0.38f, 0.63f);
-            PlotLinesHovered = new Vector4(0.25f, 1.00f, 0.00f, 1.00f);
-            PlotHistogram = new Vector4(0.40f, 0.39f, 0.38f, 0.63f);
-            PlotHistogramHovered = new Vector4(0.25f, 1.00f, 0.00f, 1.00f);
-            TextSelectedBg = new Vector4(0.25f, 1.00f, 0.00f, 0.43f);
+            ResizeGrip = new Vector4(0.49f, 0.49f, 0.49f, 0.50f);
+            ResizeGripHovered = new Vector4(0.10f, 0.40f, 0.75f, 0.78f);
+            ResizeGripActive = new Vector4(0.06f, 0.40f, 0.75f, 1.00f);
+            PlotLines = new Vector4(0.00f, 0.00f, 0.00f, 0.00f);
+            PlotLinesHovered = new Vector4(0.56f, 0.56f, 0.58f, 1.00f);
+            PlotHistogram = new Vector4(0.06f, 0.05f, 0.07f, 1.00f);
+            PlotHistogramHovered = new Vector4(0.18f, 0.35f, 0.58f, 0.86f);
+            TextSelectedBg = new Vector4(0.26f, 0.59f, 0.98f, 0.80f);
+            Separator = new Vector4(0.34f, 0.34f, 0.34f, 0.50f);
         }
 
         public float FrameRounding
@@ -285,6 +287,17 @@ namespace Fluint.UI.Base
         public Vector4 TextSelectedBg
         {
             get;
+        }
+
+        public float TabRounding
+        {
+            get;
+        }
+
+        public Vector4 Separator
+        {
+            get;
+            set;
         }
     }
 }

@@ -16,20 +16,26 @@ namespace Fluint.Layer.Networking.Client
     /// </summary>
     public class ConnectedToServerEventArgs : EventArgs
     {
-        public ConnectedToServerEventArgs(IServerData serverInfo, IEnumerable<IClientData> clientsConnected)
+        public ConnectedToServerEventArgs(ServerData serverInfo, IEnumerable<ClientData> clientsConnected)
         {
             ServerInfo = serverInfo;
-            ClientsConnected = (ReadOnlyCollection<IClientData>)clientsConnected;
+            ClientsConnected = (ReadOnlyCollection<ClientData>)clientsConnected;
         }
 
         /// <summary>
         /// The info of the server connected to.
         /// </summary>
-        public IServerData ServerInfo { get; }
+        public ServerData ServerInfo
+        {
+            get;
+        }
 
         /// <summary>
         /// The Collection of clients who are connected to this server, including this one.
         /// </summary>
-        public ReadOnlyCollection<IClientData> ClientsConnected { get; }
+        public ReadOnlyCollection<ClientData> ClientsConnected
+        {
+            get;
+        }
     }
 }
