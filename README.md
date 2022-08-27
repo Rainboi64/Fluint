@@ -1,7 +1,11 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/rainboi64/fluint/badge)](https://www.codefactor.io/repository/github/rainboi64/fluint)
-[![.NET Core Desktop](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-desktop.yml)
+# Fluint [![CodeFactor](https://www.codefactor.io/repository/github/rainboi64/fluint/badge)](https://www.codefactor.io/repository/github/rainboi64/fluint)
 
-# Fluint
+## Build Status
+| Platform        | Status                                                                                                                                                                                              |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ubuntu Desktop  | [![.NET Core Ubuntu Desktop](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-windows-desktop.yml) |
+| Windows Desktop | [![.NET Core Windows Desktop](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-ubuntu-desktop.yml) |
+| MacOS Desktop   | [![.NET Core MacOS Desktop](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Rainboi64/Fluint/actions/workflows/dotnet-macos-desktop.yml)    |
 
 ## What is Fluint
 
