@@ -1,0 +1,47 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["../Fluint.sln", "**/*.csproj"],
+          "exclude": ["**/bin/**", "**/obj/**"],
+          "src": "../src"
+        }
+      ],
+      "dest": "obj/api"
+    }
+  ],
+  "build": {
+    "template": ["default", "templates/darkfx"],
+    "content": [
+      {
+        "files": ["**/*.yml"],
+        "src": "obj/api",
+        "dest": "api"
+      },
+      {
+        "files": ["articles/**/*.md", "*.md", "toc.yml", "restapi/**"]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["articles/images/**"]
+      }
+    ],
+    "globalMetadata": {
+      "_appTitle": "Fluint",
+      "_enableSearch": true
+    },
+    "fileMetadata": {
+      "keywords": {
+        "obj/docfx/**": ["API", "Reference"],
+        "spec/**.md": ["Spec", "Conceptual"]
+      },
+      "_noindex": {
+        "README.md": true
+      }
+    },
+    "markdownEngineName": "markdig",
+    "dest": "../_site"
+  }
+}
