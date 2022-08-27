@@ -8,7 +8,7 @@
 # To learn how to migrate your existing application to .NET Core,
 # refer to https://docs.microsoft.com/en-us/dotnet/desktop-wpf/m12
 
-name: .NET Core Desktop
+name: .NET Core Ubuntu Desktop
 
 on:
   push:
