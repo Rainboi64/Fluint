@@ -6,11 +6,16 @@
 namespace Fluint.Layer.VirtualFileSystem;
 
 [Initialization(InitializationMethod.Scoped)]
-public interface IVirtualFileSystem : IModule, IDirectory
+public interface IVirtualFileSystem : IModule
 {
+    IDirectory Root
+    {
+        get;
+    }
+
     IFile QueryFile(string path);
     IDirectory QueryDirectory(string path);
-    
+
     public void LoadFromFile(string path);
     public void SaveToFile(string path);
 }
