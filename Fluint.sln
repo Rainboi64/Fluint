@@ -129,6 +129,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Systems", "Systems", "{8F44
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.Editor.Base", "src\Fluint.Editor.Base\Fluint.Editor.Base.csproj", "{D21FBAF4-40EA-48C3-844E-2A4974993304}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluint.VirtualFileSystem.Base", "src\Fluint.VirtualFileSystem.Base\Fluint.VirtualFileSystem.Base.csproj", "{E49D1CB6-6278-451D-A6FA-B57B81436750}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug With Modules Setup|Any CPU = Debug With Modules Setup|Any CPU
@@ -985,6 +987,30 @@ Global
 		{D21FBAF4-40EA-48C3-844E-2A4974993304}.Release|x86.Build.0 = Release|Any CPU
 		{D21FBAF4-40EA-48C3-844E-2A4974993304}.Release With Modules Setup|x64.ActiveCfg = Release With Modules Setup|x64
 		{D21FBAF4-40EA-48C3-844E-2A4974993304}.Release With Modules Setup|x64.Build.0 = Release With Modules Setup|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug With Modules Setup|Any CPU.ActiveCfg = Debug With Modules Setup|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug With Modules Setup|Any CPU.Build.0 = Debug With Modules Setup|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug With Modules Setup|x64.ActiveCfg = Debug With Modules Setup|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug With Modules Setup|x64.Build.0 = Debug With Modules Setup|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug With Modules Setup|x86.ActiveCfg = Debug With Modules Setup|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug With Modules Setup|x86.Build.0 = Debug With Modules Setup|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug|x64.ActiveCfg = Debug|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug|x64.Build.0 = Debug|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug|x86.ActiveCfg = Debug|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Debug|x86.Build.0 = Debug|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release With Modules Setup|Any CPU.ActiveCfg = Release With Modules Setup|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release With Modules Setup|Any CPU.Build.0 = Release With Modules Setup|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release With Modules Setup|x64.ActiveCfg = Release With Modules Setup|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release With Modules Setup|x64.Build.0 = Release With Modules Setup|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release With Modules Setup|x86.ActiveCfg = Release With Modules Setup|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release With Modules Setup|x86.Build.0 = Release With Modules Setup|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release|x64.ActiveCfg = Release|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release|x64.Build.0 = Release|x64
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release|x86.ActiveCfg = Release|x86
+		{E49D1CB6-6278-451D-A6FA-B57B81436750}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1027,6 +1053,7 @@ Global
 		{57CDC538-88CF-4533-BA9D-BE41E5004050} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 		{D21FBAF4-40EA-48C3-844E-2A4974993304} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
 		{F67AC32C-A184-47BE-B2BC-DB21CEC21621} = {AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}
+		{E49D1CB6-6278-451D-A6FA-B57B81436750} = {8F44BD35-EFBA-4D24-8A4D-1779B927978B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {448C7179-E7AE-4470-97E2-A32117E7168A}
