@@ -1,7 +1,7 @@
 [*.cs]
 #Core editorconfig formatting - indentation
 
-file_header_template = \n{fileName}\n\nCopyright (C) 2021 Yaman Alhalabi\n
+file_header_template = \n{fileName}\n\nCopyright (C) 2022 Yaman Alhalabi\n
 
 #use soft tabs (spaces) for indentation
 indent_style = space

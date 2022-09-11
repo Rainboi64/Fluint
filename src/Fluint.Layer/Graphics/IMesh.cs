@@ -7,6 +7,7 @@ using Fluint.Layer.Graphics.API;
 
 namespace Fluint.Layer.Graphics;
 
+[Initialization(InitializationMethod.Scoped)]
 public interface IMesh : IModule
 {
     IVertexBuffer VertexBuffer

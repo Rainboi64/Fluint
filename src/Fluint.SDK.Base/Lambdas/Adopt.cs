@@ -32,7 +32,7 @@ public class Adopt : ILambda
             .CurrentRuntime
             .Parent.Instances
             .Values
-            .OfType<FluintInstance>()
+            .OfType<EditorInstance>()
             .Any();
 
         if (exists)
@@ -41,7 +41,7 @@ public class Adopt : ILambda
             return LambdaObject.Error("Fluint instance already exists");
         }
 
-        var id = _packet.CurrentRuntime.Parent.CreateInstance<FluintInstance>();
+        var id = _packet.CurrentRuntime.Parent.CreateInstance<EditorInstance>();
         new Thread(() => {
             _packet.CurrentRuntime.Parent.Start(id);
         }).Start();

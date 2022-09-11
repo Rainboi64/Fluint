@@ -12,9 +12,9 @@ namespace Fluint.Layer.DependencyInjection
 {
     public class ModulePacket
     {
+        private readonly List<IModule> _staticModules;
         public readonly Dictionary<Type, Type> ScopedMappings;
         public readonly Dictionary<Type, IModule> SingletonMappings;
-        public readonly List<IModule> StaticModules;
 
         public ModulePacket(IRuntime runtime, Dictionary<Type, Type> scopedMappings,
             Dictionary<Type, Type> singletonMappings, List<Type> instances)
@@ -30,10 +30,10 @@ namespace Fluint.Layer.DependencyInjection
                 SingletonMappings[key] = value;
             }
 
-            StaticModules = new List<IModule>();
+            _staticModules = new List<IModule>();
             foreach (var type in instances)
             {
-                StaticModules.Add((IModule)CreateInstance(type));
+                _staticModules.Add((IModule)CreateInstance(type));
             }
         }
 
@@ -67,7 +67,7 @@ namespace Fluint.Layer.DependencyInjection
             return CreateInstance(type);
         }
 
-        
+
         public T CreateInstance<T>()
         {
             return (T)CreateInstance(typeof(T));
@@ -135,12 +135,12 @@ namespace Fluint.Layer.DependencyInjection
 
         public IEnumerable<IModule> GetInstances()
         {
-            return StaticModules;
+            return _staticModules;
         }
-        
+
         public IEnumerable<T> GetInstances<T>()
         {
-            return StaticModules.OfType<T>();
+            return _staticModules.OfType<T>();
         }
     }
 }

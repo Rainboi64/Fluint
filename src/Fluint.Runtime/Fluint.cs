@@ -32,7 +32,7 @@ public class Fluint
         var manifest = new StartupManifest(Environment.GetCommandLineArgs(), moduleDirectory, VersionDetails);
         var manager = new InstanceManager(manifest);
 
-        manager.CreateInstance<FluintInstance>();
+        manager.CreateInstance<EditorInstance>();
 
         // Create an SDK attached to the fluint instance.
         Task.Run(() => {

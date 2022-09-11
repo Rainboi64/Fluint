@@ -5,7 +5,7 @@ using Fluint.Layer.Tasks;
 
 namespace Fluint.Layer.Runtime
 {
-    public class FluintInstance : IRuntime
+    public class EditorInstance : IRuntime
     {
         private ILogger _logger;
 

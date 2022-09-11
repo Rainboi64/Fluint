@@ -15,13 +15,8 @@ using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Layer
 {
-    // only used in implementation
     public static class ModulesManager
     {
-        /// <summary>
-        /// Loads the modules inside the file using System.Reflection
-        /// </summary>
-        /// <param name="modulesfolder">The path of the folder to be loaded.</param>
         public static ModuleCollection LoadFolder(string modulesfolder)
         {
             var loadingWatch = new Stopwatch();
@@ -33,17 +28,7 @@ namespace Fluint.Layer
             if (Directory.Exists(modulesfolder))
             {
                 var files = Directory.GetFiles(modulesfolder).Where(x => x.EndsWith(".dll"));
-                foreach (var file in files)
-                {
-                    try
-                    {
-                        assemblies.Add(Assembly.LoadFrom(file));
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex);
-                    }
-                }
+                assemblies.AddRange(files.Select(Assembly.LoadFrom));
             }
             else
             {
@@ -58,7 +43,7 @@ namespace Fluint.Layer
 
             var types = new List<Type>();
             var usefulAssemblies = new List<Assembly>();
-            
+
             foreach (var assembly in assemblies)
             {
                 foreach (var type in assembly.GetTypes())
@@ -81,46 +66,55 @@ namespace Fluint.Layer
             table.AddColumn(new[] { "Stage Name", "Stage Parent", "Assembly", "Initialization Mode" });
 
             var moduleCollection = new ModuleCollection();
-            
+
             foreach (var type in types)
             {
                 Type parent = null;
 
-                foreach (var parentInterface in type.GetInterfaces())
+                for (var index = 0; index < type.GetInterfaces().Length; index++)
                 {
-                    if (parentInterface != typeof(IModule) && parentInterface.IsAssignableTo(typeof(IModule)))
+                    var parentInterface = type.GetInterfaces()[index];
+                    if (parentInterface == typeof(IModule) || !parentInterface.IsAssignableTo(typeof(IModule)))
                     {
-                        parent = parentInterface;
-                        break;
+                        continue;
                     }
+
+                    parent = parentInterface;
+                    break;
                 }
 
-                var initializationMethod = parent.GetCustomAttribute<InitializationAttribute>()?.InitializationMethod;
-
-                if (initializationMethod is null)
+                if (parent != null)
                 {
-                    ConsoleHelper.WriteWarning(
-                        $"[MODULE MANAGER WARNING]: Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
-                    initializationMethod = InitializationMethod.Scoped;
-                }
+                    var initializationMethod =
+                        parent.GetCustomAttribute<InitializationAttribute>()?.InitializationMethod;
 
-                switch (initializationMethod)
-                {
-                    case InitializationMethod.Scoped:
-                        moduleCollection.MapScoped(parent, type);
-                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
-                            "Scoped");
-                        break;
-                    case InitializationMethod.Singleton:
-                        moduleCollection.MapSingleton(parent, type);
-                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
-                            "Singleton");
-                        break;
-                    case InitializationMethod.Instanced:
-                        moduleCollection.AddInstanced(type);
-                        table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
-                            "Instanced");
-                        break;
+                    if (initializationMethod is null)
+                    {
+                        ConsoleHelper.WriteWarning(
+                            $"[MODULE MANAGER WARNING]: Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
+                        initializationMethod = InitializationMethod.Scoped;
+                    }
+
+                    switch (initializationMethod)
+                    {
+                        case InitializationMethod.Scoped:
+                            moduleCollection.MapScoped(parent, type);
+                            table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
+                                "Scoped");
+                            break;
+                        case InitializationMethod.Singleton:
+                            moduleCollection.MapSingleton(parent, type);
+                            table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
+                                "Singleton");
+                            break;
+                        case InitializationMethod.Instanced:
+                            moduleCollection.AddInstanced(type);
+                            table.AddRow(type.FullName, parent.FullName, Path.GetFileName(type.Assembly.Location),
+                                "Instanced");
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
                 }
             }
 
