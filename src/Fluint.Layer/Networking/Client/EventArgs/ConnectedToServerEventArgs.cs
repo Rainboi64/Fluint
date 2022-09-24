@@ -4,17 +4,16 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Fluint.Layer.Networking.Server;
 
-namespace Fluint.Layer.Networking.Client
+namespace Fluint.Layer.Networking.Client.EventArgs
 {
     /// <summary>
     /// event arguments for when the client is connected to the server.
     /// </summary>
-    public class ConnectedToServerEventArgs : EventArgs
+    public class ConnectedToServerEventArgs : System.EventArgs
     {
         public ConnectedToServerEventArgs(ServerData serverInfo, IEnumerable<ClientData> clientsConnected)
         {

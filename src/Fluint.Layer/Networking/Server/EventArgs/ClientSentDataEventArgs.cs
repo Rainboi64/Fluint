@@ -4,15 +4,14 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using Fluint.Layer.Networking.Client;
 
-namespace Fluint.Layer.Networking.Server
+namespace Fluint.Layer.Networking.Server.EventArgs
 {
     /// <summary>
     /// Event Arguments for when the client sends data.
     /// </summary>
-    public class ClientSentDataEventArgs : EventArgs
+    public class ClientSentDataEventArgs : System.EventArgs
     {
         public ClientSentDataEventArgs(NetworkPacket data, ClientData client)
         {

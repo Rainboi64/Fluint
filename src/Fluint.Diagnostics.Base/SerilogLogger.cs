@@ -8,6 +8,7 @@ using System;
 using System.IO;
 using System.Reflection;
 using Serilog;
+using Serilog.Core.Enrichers;
 using Serilog.Sinks.SystemConsole.Themes;
 using ILogger = Fluint.Layer.Diagnostics.ILogger;
 
@@ -18,15 +19,14 @@ namespace Fluint.Diagnostics.Base
         public SerilogLogger()
         {
             var exePath = Path.GetDirectoryName(
-                Assembly.GetExecutingAssembly().Location);
+                Assembly.GetEntryAssembly()?.Location);
 
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
+                .Enrich.With(new PropertyEnricher("Caller", Assembly.GetCallingAssembly()))
                 .WriteTo.Console(theme: AnsiConsoleTheme.Literate)
                 .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
-
-            Log.Information("[{Name}] Intialized Logger", "SerilogLogger");
         }
 
         public void Information(string messageTemplate)

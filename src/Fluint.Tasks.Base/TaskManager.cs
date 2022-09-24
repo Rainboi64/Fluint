@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Tasks;
 
-namespace Fluint.SDK.Base.Tasks
+namespace Fluint.Tasks.Base
 {
     public class TaskManager : ITaskManager
     {

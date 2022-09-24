@@ -4,12 +4,11 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using Fluint.Layer.Networking.Server;
 
-namespace Fluint.Layer.Networking.Client
+namespace Fluint.Layer.Networking.Client.EventArgs
 {
-    public class DisconnectedFromServerEventArgs : EventArgs
+    public class DisconnectedFromServerEventArgs : System.EventArgs
     {
         public DisconnectedFromServerEventArgs(DisconnectionReason reason, ServerData serverInfo)
         {

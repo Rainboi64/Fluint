@@ -11,13 +11,33 @@ namespace Fluint.Layer
 {
     public interface IRuntime
     {
-        int Id { get; }
+        int Id
+        {
+            get;
+        }
 
-        StartupManifest Manifest { get; }
-        ModulePacket Packet { get; }
-        InstanceManager Parent { get; }
+        StartupManifest StartupManifest
+        {
+            get;
+        }
 
-        void Create(int id, StartupManifest manifest, ModulePacket packet, InstanceManager parent);
+        ModuleManifest ModuleManifest
+        {
+            get;
+        }
+
+        ModulePacket Packet
+        {
+            get;
+        }
+
+        InstanceManager Parent
+        {
+            get;
+        }
+
+        void Create(int id, StartupManifest startupManifest, ModuleManifest moduleManifest, ModulePacket packet,
+            InstanceManager parent);
 
         void Start();
         void Kill();

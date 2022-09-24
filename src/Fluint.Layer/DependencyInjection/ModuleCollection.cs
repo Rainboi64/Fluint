@@ -20,6 +20,10 @@ namespace Fluint.Layer.DependencyInjection
             return new ModulePacket(runtime, _mappings, _singletonMappings, _instances);
         }
 
+        public void CreateModuleManifest()
+        {
+        }
+
         public void MapScoped(Type abstraction, Type implementation)
         {
             _mappings[abstraction] = implementation;

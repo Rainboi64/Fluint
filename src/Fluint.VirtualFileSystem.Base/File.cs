@@ -12,11 +12,6 @@ public class File : IFile
 {
     private byte[] _bytes;
 
-    public File(byte[] bytes)
-    {
-        Bytes = bytes;
-    }
-
     public void Update(string file)
     {
         OnChange?.Invoke(this, new FileChangedEvent());

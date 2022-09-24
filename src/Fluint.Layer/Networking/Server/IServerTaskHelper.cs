@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using Fluint.Layer.Networking.Client;
 
-namespace Fluint.Layer.Networking
+namespace Fluint.Layer.Networking.Server
 {
     [Initialization(InitializationMethod.Scoped)]
     public interface IServerTaskHelper : IModule

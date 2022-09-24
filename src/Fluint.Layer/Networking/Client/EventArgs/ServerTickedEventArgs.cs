@@ -4,11 +4,9 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-
-namespace Fluint.Layer.Networking.Client
+namespace Fluint.Layer.Networking.Client.EventArgs
 {
-    public class ServerTickedEventArgs : EventArgs
+    public class ServerTickedEventArgs : System.EventArgs
     {
         public ServerTickedEventArgs(NetworkPacket networkPacket)
         {
@@ -18,6 +16,9 @@ namespace Fluint.Layer.Networking.Client
         /// <summary>
         /// The data that the server sent.
         /// </summary>
-        public NetworkPacket NetworkPacket { get; }
+        public NetworkPacket NetworkPacket
+        {
+            get;
+        }
     }
 }

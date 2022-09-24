@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Fluint.Layer.Networking;
 using Fluint.Layer.Networking.Client;
 using Fluint.Layer.Networking.Server;
+using Fluint.Layer.Networking.Server.EventArgs;
 
 namespace Fluint.Networking.Base.Server
 {

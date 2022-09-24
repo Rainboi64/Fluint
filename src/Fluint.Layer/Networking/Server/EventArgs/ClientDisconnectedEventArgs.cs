@@ -4,15 +4,14 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using Fluint.Layer.Networking.Client;
 
-namespace Fluint.Layer.Networking.Server
+namespace Fluint.Layer.Networking.Server.EventArgs
 {
     /// <summary>
     /// Event Arguments for when the clients disconnects.
     /// </summary>
-    public class ClientDisconnectedEventArgs : EventArgs
+    public class ClientDisconnectedEventArgs : System.EventArgs
     {
         public ClientDisconnectedEventArgs(ClientData client, DisconnectionReason reason)
         {

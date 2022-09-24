@@ -4,15 +4,14 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
 using Fluint.Layer.Networking.Client;
 
-namespace Fluint.Layer.Networking.Server
+namespace Fluint.Layer.Networking.Server.EventArgs
 {
     /// <summary>
     /// Event arguments for when a client connects.
     /// </summary>
-    public class ClientConnectedEventArgs : EventArgs
+    public class ClientConnectedEventArgs : System.EventArgs
     {
         public ClientConnectedEventArgs(ClientData client)
         {

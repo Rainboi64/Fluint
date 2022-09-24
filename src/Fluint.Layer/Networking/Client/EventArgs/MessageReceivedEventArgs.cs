@@ -4,11 +4,9 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-
-namespace Fluint.Layer.Networking.Client
+namespace Fluint.Layer.Networking.Client.EventArgs
 {
-    public class MessageReceivedEventArgs : EventArgs
+    public class MessageReceivedEventArgs : System.EventArgs
     {
         public MessageReceivedEventArgs(ClientData sender, string messageData)
         {

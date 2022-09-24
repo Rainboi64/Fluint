@@ -39,7 +39,30 @@ namespace Fluint.SDK.Base
             }
         }
 
-        public LambdaObject Execute(string command, string[] args)
+        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
+        public (string command, string[] arguments) Parse(string input)
+        {
+            var inQuotes = false;
+
+            var segments = Split(input, c => {
+                    if (c == '\"')
+                    {
+                        inQuotes = !inQuotes;
+                    }
+
+                    return !inQuotes && c == ' ';
+                })
+                .Select(arg => TrimMatchingQuotes(arg.Trim(), '\"'))
+                .Where(arg => !string.IsNullOrEmpty(arg));
+
+            var segmentArray = segments as string[] ?? segments.ToArray();
+            var command = segmentArray.FirstOrDefault();
+            var arguments = segmentArray.Skip(1);
+
+            return (command, arguments.ToArray());
+        }
+
+        private LambdaObject Execute(string command, string[] args)
         {
             return _lambdaParser.Parse(command.ToLower(), args);
         }
@@ -91,29 +114,6 @@ namespace Fluint.SDK.Base
 
             _prompt = $"[{lambdaColor}]λ[/{lambdaColor}] [took [yellow]{timer.ElapsedMilliseconds / 1000f}s[/yellow]] ";
             Console.WriteLine(JsonConvert.SerializeObject(response.Data));
-        }
-
-        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
-        public static (string command, string[] arguments) Parse(string input)
-        {
-            bool inQuotes = false;
-
-            var segments = Split(input, c => {
-                    if (c == '\"')
-                    {
-                        inQuotes = !inQuotes;
-                    }
-
-                    return !inQuotes && c == ' ';
-                })
-                .Select(arg => TrimMatchingQuotes(arg.Trim(), '\"'))
-                .Where(arg => !string.IsNullOrEmpty(arg));
-
-            var segmentArray = segments as string[] ?? segments.ToArray();
-            var command = segmentArray.FirstOrDefault();
-            var arguments = segmentArray.Skip(1);
-
-            return (command, arguments.ToArray());
         }
 
         // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp

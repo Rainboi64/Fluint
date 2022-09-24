@@ -23,6 +23,7 @@ namespace Fluint.Layer.DependencyInjection
             ScopedMappings = scopedMappings;
 
             SingletonMappings = new Dictionary<Type, IModule>();
+            _staticModules = new List<IModule>();
 
             foreach (var (key, type) in singletonMappings)
             {
@@ -30,7 +31,6 @@ namespace Fluint.Layer.DependencyInjection
                 SingletonMappings[key] = value;
             }
 
-            _staticModules = new List<IModule>();
             foreach (var type in instances)
             {
                 _staticModules.Add((IModule)CreateInstance(type));
@@ -73,14 +73,19 @@ namespace Fluint.Layer.DependencyInjection
             return (T)CreateInstance(typeof(T));
         }
 
-        public object CreateInstance(Type target)
+        private object CreateInstance(Type target)
         {
             return CreateInstance(target, target.GetGenericArguments());
         }
 
-        public object CreateInstance(Type target, Type[] generics)
+        private object CreateInstance(Type target, Type[] generics)
         {
-            var constructor = target.GetConstructors()[0];
+            var constructor = target.GetConstructors().FirstOrDefault();
+            if (constructor is null)
+            {
+                throw new ModuleException(target);
+            }
+
             var parameters = constructor.GetParameters();
 
             if (target.ContainsGenericParameters)
@@ -108,7 +113,7 @@ namespace Fluint.Layer.DependencyInjection
                 }
             }
 
-            return type;
+            throw new ModuleException(type);
         }
 
         private object CreateScoped(Type type)

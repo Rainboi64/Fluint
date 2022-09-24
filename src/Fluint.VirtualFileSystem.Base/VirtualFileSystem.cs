@@ -11,7 +11,7 @@ namespace Fluint.VirtualFileSystem.Base;
 
 public class VirtualFileSystem : IVirtualFileSystem
 {
-    private VirtualFileSystem(ModulePacket packet)
+    public VirtualFileSystem(ModulePacket packet)
     {
         Root = packet.CreateScoped<IDirectory>();
     }

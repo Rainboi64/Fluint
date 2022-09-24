@@ -4,6 +4,7 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Networking.Client;
 using Fluint.Layer.Networking.Server;
@@ -12,12 +13,12 @@ namespace Fluint.Networking.Base.Client
 {
     internal class Client : IClient
     {
-        private readonly ILogger _logger;
+        private readonly ModulePacket _packet;
         private NcsClient _client;
 
-        public Client(ILogger logger)
+        public Client(ModulePacket packet)
         {
-            _logger = logger;
+            _packet = packet;
         }
 
         public ClientData ClientInfo
@@ -35,7 +36,7 @@ namespace Fluint.Networking.Base.Client
 
         public void Connect(ServerData serverInfo)
         {
-            _client = new NcsClient(serverInfo.IpAddress, serverInfo.Port, ClientInfo, _logger);
+            _client = new NcsClient(serverInfo.IpAddress, serverInfo.Port, ClientInfo, _packet.GetSingleton<ILogger>());
             _client.Connect();
         }
 
