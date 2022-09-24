@@ -124,18 +124,18 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Manifest.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Manifest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_ModuleManifest.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.ModuleManifest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L16">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L24">View Source</a>
   </span>
-  <a id="Fluint_Layer_IRuntime_Manifest_" data-uid="Fluint.Layer.IRuntime.Manifest*"></a>
-  <h4 id="Fluint_Layer_IRuntime_Manifest" data-uid="Fluint.Layer.IRuntime.Manifest">Manifest</h4>
+  <a id="Fluint_Layer_IRuntime_ModuleManifest_" data-uid="Fluint.Layer.IRuntime.ModuleManifest*"></a>
+  <h4 id="Fluint_Layer_IRuntime_ModuleManifest" data-uid="Fluint.Layer.IRuntime.ModuleManifest">ModuleManifest</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">StartupManifest Manifest { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">ModuleManifest ModuleManifest { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,7 +147,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Fluint.Layer.StartupManifest</span></td>
+        <td><a class="xref" href="Fluint.Layer.DependencyInjection.ModuleManifest.html">ModuleManifest</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -157,7 +157,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Packet.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Packet%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L17">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L29">View Source</a>
   </span>
   <a id="Fluint_Layer_IRuntime_Packet_" data-uid="Fluint.Layer.IRuntime.Packet*"></a>
   <h4 id="Fluint_Layer_IRuntime_Packet" data-uid="Fluint.Layer.IRuntime.Packet">Packet</h4>
@@ -187,7 +187,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Parent.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Parent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L18">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L34">View Source</a>
   </span>
   <a id="Fluint_Layer_IRuntime_Parent_" data-uid="Fluint.Layer.IRuntime.Parent*"></a>
   <h4 id="Fluint_Layer_IRuntime_Parent" data-uid="Fluint.Layer.IRuntime.Parent">Parent</h4>
@@ -212,22 +212,52 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Create_System_Int32_Fluint_Layer_StartupManifest_Fluint_Layer_DependencyInjection_ModulePacket_Fluint_Layer_Runtime_InstanceManager_.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Create(System.Int32%2CFluint.Layer.StartupManifest%2CFluint.Layer.DependencyInjection.ModulePacket%2CFluint.Layer.Runtime.InstanceManager)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_StartupManifest.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.StartupManifest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L20">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L19">View Source</a>
   </span>
-  <a id="Fluint_Layer_IRuntime_Create_" data-uid="Fluint.Layer.IRuntime.Create*"></a>
-  <h4 id="Fluint_Layer_IRuntime_Create_System_Int32_Fluint_Layer_StartupManifest_Fluint_Layer_DependencyInjection_ModulePacket_Fluint_Layer_Runtime_InstanceManager_" data-uid="Fluint.Layer.IRuntime.Create(System.Int32,Fluint.Layer.StartupManifest,Fluint.Layer.DependencyInjection.ModulePacket,Fluint.Layer.Runtime.InstanceManager)">Create(Int32, StartupManifest, ModulePacket, InstanceManager)</h4>
+  <a id="Fluint_Layer_IRuntime_StartupManifest_" data-uid="Fluint.Layer.IRuntime.StartupManifest*"></a>
+  <h4 id="Fluint_Layer_IRuntime_StartupManifest" data-uid="Fluint.Layer.IRuntime.StartupManifest">StartupManifest</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Create(int id, StartupManifest manifest, ModulePacket packet, InstanceManager parent)</code></pre>
+    <pre><code class="lang-csharp hljs">StartupManifest StartupManifest { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Fluint.Layer.StartupManifest</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Create_System_Int32_Fluint_Layer_StartupManifest_Fluint_Layer_DependencyInjection_ModuleManifest_Fluint_Layer_DependencyInjection_ModulePacket_Fluint_Layer_Runtime_InstanceManager_.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Create(System.Int32%2CFluint.Layer.StartupManifest%2CFluint.Layer.DependencyInjection.ModuleManifest%2CFluint.Layer.DependencyInjection.ModulePacket%2CFluint.Layer.Runtime.InstanceManager)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L39">View Source</a>
+  </span>
+  <a id="Fluint_Layer_IRuntime_Create_" data-uid="Fluint.Layer.IRuntime.Create*"></a>
+  <h4 id="Fluint_Layer_IRuntime_Create_System_Int32_Fluint_Layer_StartupManifest_Fluint_Layer_DependencyInjection_ModuleManifest_Fluint_Layer_DependencyInjection_ModulePacket_Fluint_Layer_Runtime_InstanceManager_" data-uid="Fluint.Layer.IRuntime.Create(System.Int32,Fluint.Layer.StartupManifest,Fluint.Layer.DependencyInjection.ModuleManifest,Fluint.Layer.DependencyInjection.ModulePacket,Fluint.Layer.Runtime.InstanceManager)">Create(Int32, StartupManifest, ModuleManifest, ModulePacket, InstanceManager)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Create(int id, StartupManifest startupManifest, ModuleManifest moduleManifest, ModulePacket packet, InstanceManager parent)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -246,7 +276,12 @@
       </tr>
       <tr>
         <td><span class="xref">Fluint.Layer.StartupManifest</span></td>
-        <td><span class="parametername">manifest</span></td>
+        <td><span class="parametername">startupManifest</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.DependencyInjection.ModuleManifest.html">ModuleManifest</a></td>
+        <td><span class="parametername">moduleManifest</span></td>
         <td></td>
       </tr>
       <tr>
@@ -266,7 +301,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Kill.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Kill%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L23">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L43">View Source</a>
   </span>
   <a id="Fluint_Layer_IRuntime_Kill_" data-uid="Fluint.Layer.IRuntime.Kill*"></a>
   <h4 id="Fluint_Layer_IRuntime_Kill" data-uid="Fluint.Layer.IRuntime.Kill">Kill()</h4>
@@ -281,7 +316,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_IRuntime_Start.md&amp;value=---%0Auid%3A%20Fluint.Layer.IRuntime.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L22">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/IRuntime.cs/#L42">View Source</a>
   </span>
   <a id="Fluint_Layer_IRuntime_Start_" data-uid="Fluint.Layer.IRuntime.Start*"></a>
   <h4 id="Fluint_Layer_IRuntime_Start" data-uid="Fluint.Layer.IRuntime.Start">Start()</h4>

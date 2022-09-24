@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Diagnostics.Base.SerilogLogger.html",
-          "hash": "0xOfANQy/iqoG7po/L5yTw=="
+          "hash": "MB9zirIE3hXUlSjwa1GmGg=="
         }
       },
       "is_incremental": false,
@@ -118,6 +118,102 @@
         ".html": {
           "relative_path": "api/Fluint.Editor.Base.html",
           "hash": "346lm2hsomffXWGGG8wS2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.Controls.AboutControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.Controls.AboutControl.html",
+          "hash": "nkDGHPAG13iJXT3KlQZ1LA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.Controls.CameraControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.Controls.CameraControl.html",
+          "hash": "v8Y917z1jG+SIaPFC0jkkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.Controls.MetricsControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.Controls.MetricsControl.html",
+          "hash": "kA0k6Dxx1Z0Un2N+8lWsPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.Controls.ToolboxControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.Controls.ToolboxControl.html",
+          "hash": "BY5BwA50wCWhEDEBUBKkxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.Controls.UIDemoControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.Controls.UIDemoControl.html",
+          "hash": "kf96oyghFckCX+4h8ugfig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.Controls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.Controls.html",
+          "hash": "pvdmS6Qbkmk05fZr5MnWRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.MainWindowLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.MainWindowLayout.html",
+          "hash": "DApDY2oUKWkjzuitiB7WIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Editor.Layout.Base.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Editor.Layout.Base.html",
+          "hash": "pQYWUQMlaSrrMkhYUM2aPg=="
         }
       },
       "is_incremental": false,
@@ -705,7 +801,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.DependencyInjection.ModuleCollection.html",
-          "hash": "hUvTrlDBSpw+ANcLt+2ZRg=="
+          "hash": "l+D4525IgToau+IJt4FWlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.DependencyInjection.ModuleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.DependencyInjection.ModuleException.html",
+          "hash": "9+z4UUansv/zZ3HuHJHSDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.DependencyInjection.ModuleManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.DependencyInjection.ModuleManifest.html",
+          "hash": "Q7W4P90Uo4Fx6QaC8kXoHA=="
         }
       },
       "is_incremental": false,
@@ -717,7 +837,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.DependencyInjection.ModulePacket.html",
-          "hash": "nixZnMSb9QQI0p/CGdBuhg=="
+          "hash": "XCTJzaqHOvaRrmwKd1Y/8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.DependencyInjection.ModulesManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.DependencyInjection.ModulesManager.html",
+          "hash": "N53sLR/hTIq/L8jSGu31bg=="
         }
       },
       "is_incremental": false,
@@ -729,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.DependencyInjection.html",
-          "hash": "ZF0v0CVmSGmH0gE2s/hc/g=="
+          "hash": "Ikzsm94o3eYO48Fv/TR+TQ=="
         }
       },
       "is_incremental": false,
@@ -921,7 +1053,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Functionality.Graphics.IGenerateSphere.html",
-          "hash": "yXibKaXeV68mCH6w0eQJqA=="
+          "hash": "XPUhdfqk1xzwUxrzm0ViLA=="
         }
       },
       "is_incremental": false,
@@ -1725,7 +1857,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Graphics.IMesh.html",
-          "hash": "nG5ebp+z4eurqMp+IvsPdg=="
+          "hash": "c2KYNPkUdrJEhxeckMDlSQ=="
         }
       },
       "is_incremental": false,
@@ -1845,7 +1977,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.IRuntime.html",
-          "hash": "eHlmIFzP7Xfg90/i9WA4ug=="
+          "hash": "n+tHbxVcYbI1q9bmDlKoIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.InitializationMethod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.InitializationMethod.html",
+          "hash": "ykPELnS9AtLHzVX/HqMrag=="
         }
       },
       "is_incremental": false,
@@ -2573,18 +2717,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.ModulesManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.Layer.ModulesManager.html",
-          "hash": "bmU/mWIV+hgFO1TeKF8iNw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.ClientData.yml",
       "output": {
         ".html": {
@@ -2597,11 +2729,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.ConnectedToServerEventArgs.yml",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.EventArgs.ConnectedToServerEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Client.ConnectedToServerEventArgs.html",
-          "hash": "bjUIV685xpilBSCOHannqQ=="
+          "relative_path": "api/Fluint.Layer.Networking.Client.EventArgs.ConnectedToServerEventArgs.html",
+          "hash": "81u2uL0dye9bIgiunlukEA=="
         }
       },
       "is_incremental": false,
@@ -2609,11 +2741,47 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.DisconnectedFromServerEventArgs.yml",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.EventArgs.DisconnectedFromServerEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Client.DisconnectedFromServerEventArgs.html",
-          "hash": "FsvXKDmaid1tzad1Mv6wSA=="
+          "relative_path": "api/Fluint.Layer.Networking.Client.EventArgs.DisconnectedFromServerEventArgs.html",
+          "hash": "JRcXccn480aHnwYCZApwkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.EventArgs.MessageReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.Networking.Client.EventArgs.MessageReceivedEventArgs.html",
+          "hash": "XQhvNeh0T4DceYqU+mgJ4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.EventArgs.ServerTickedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.Networking.Client.EventArgs.ServerTickedEventArgs.html",
+          "hash": "BZ3iPIoBYGzz1hF0q7vphg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.EventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.Networking.Client.EventArgs.html",
+          "hash": "rypmszuhBhQJhCBpozyDGA=="
         }
       },
       "is_incremental": false,
@@ -2645,35 +2813,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.MessageReceivedEventArgs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Client.MessageReceivedEventArgs.html",
-          "hash": "MhJIzZvhXEc+45/m8nC3yw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.ServerTickedEventArgs.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Client.ServerTickedEventArgs.html",
-          "hash": "yCLLiZHOAYISUIQz6Q7jdQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.Layer.Networking.Client.yml",
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Networking.Client.html",
-          "hash": "KUv8LD6IddddSRnmII07tg=="
+          "hash": "ueAR4yUsGv3Z+xI6c7H25A=="
         }
       },
       "is_incremental": false,
@@ -2705,18 +2849,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.IServerTaskHelper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.IServerTaskHelper.html",
-          "hash": "m8QTKJrCrSMP4OznuTDTrA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.Layer.Networking.NetworkPacket.yml",
       "output": {
         ".html": {
@@ -2729,11 +2861,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.ClientConnectedEventArgs.yml",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.EventArgs.ClientConnectedEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Server.ClientConnectedEventArgs.html",
-          "hash": "JDT4sfvzazTLzK8TzsSxoQ=="
+          "relative_path": "api/Fluint.Layer.Networking.Server.EventArgs.ClientConnectedEventArgs.html",
+          "hash": "Ydl7wpEomo6oeuzS5TBcOg=="
         }
       },
       "is_incremental": false,
@@ -2741,11 +2873,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.ClientDisconnectedEventArgs.yml",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.EventArgs.ClientDisconnectedEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Server.ClientDisconnectedEventArgs.html",
-          "hash": "dWNx6WdTx0zUUhai5z2RBQ=="
+          "relative_path": "api/Fluint.Layer.Networking.Server.EventArgs.ClientDisconnectedEventArgs.html",
+          "hash": "9s1KQEDtIqFqzYOwwudsHQ=="
         }
       },
       "is_incremental": false,
@@ -2753,11 +2885,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.ClientSentDataEventArgs.yml",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.EventArgs.ClientSentDataEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.Layer.Networking.Server.ClientSentDataEventArgs.html",
-          "hash": "grtS8O36muKDtZ9fns4n5A=="
+          "relative_path": "api/Fluint.Layer.Networking.Server.EventArgs.ClientSentDataEventArgs.html",
+          "hash": "gR1bVLb17nuit5+QM7XHCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.EventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.Networking.Server.EventArgs.html",
+          "hash": "KqTltNYu3Gx0lNOVv61OsA=="
         }
       },
       "is_incremental": false,
@@ -2781,7 +2925,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Networking.Server.IServerTask.html",
-          "hash": "TQgVFDr0ea3ArTZCDBYekQ=="
+          "hash": "AhP+b8grt/+/HAK8qENgDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.Networking.Server.IServerTaskHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.Networking.Server.IServerTaskHelper.html",
+          "hash": "kcgaV/UKC+71l+s9XcmQMA=="
         }
       },
       "is_incremental": false,
@@ -2805,7 +2961,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Networking.Server.html",
-          "hash": "ecrl0OEsznrkl4tOCG49UQ=="
+          "hash": "EMJZ3k11q4nCAkxD9vfL4A=="
         }
       },
       "is_incremental": false,
@@ -2817,19 +2973,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Networking.html",
-          "hash": "8CojOZfc8nroXOhvMrqknA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Layer.Runtime.FluintInstance.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.Layer.Runtime.FluintInstance.html",
-          "hash": "hQ8Xa1Z2EeC2ss4o6GZNNg=="
+          "hash": "2KnzDCZ2WBaNERkc2KL6tA=="
         }
       },
       "is_incremental": false,
@@ -2861,11 +3005,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.Runtime.Instance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.Runtime.Instance.html",
+          "hash": "rhajg6+A5IMMXwCZDxKO2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.Layer.Runtime.InstanceManager.yml",
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Runtime.InstanceManager.html",
-          "hash": "rG9HdwjWhi/s6aPcF7ypvw=="
+          "hash": "kTJ/ZCjpCkvm8qKmSsjjPg=="
         }
       },
       "is_incremental": false,
@@ -2877,7 +3033,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.Runtime.html",
-          "hash": "e5utAEdAL0f9hlhwwL+Mzg=="
+          "hash": "c17iYy+l9MJnrrZLs/sEUQ=="
         }
       },
       "is_incremental": false,
@@ -2901,7 +3057,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.SDK.ILambdaListener.html",
-          "hash": "JZdOLvnfCGWHL+xZPIVeaQ=="
+          "hash": "O8Ek+5ms370OelacMGXK3Q=="
         }
       },
       "is_incremental": false,
@@ -2961,7 +3117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.SDK.SdkInstance.html",
-          "hash": "/Z+oHuONO2YDO0OZi438OA=="
+          "hash": "bNOK+Ri+zt7dBHE7e7iLdg=="
         }
       },
       "is_incremental": false,
@@ -3189,7 +3345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.UI.Control.html",
-          "hash": "eFBKolf9ZIdzxdfRm1PEBg=="
+          "hash": "Fb1qtpHVSTT15VFikNk1mQ=="
         }
       },
       "is_incremental": false,
@@ -3461,11 +3617,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.VirtualFileSystem.DirectoryChangedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.VirtualFileSystem.DirectoryChangedEvent.html",
+          "hash": "JDL19bvzdKjO4lFKZ9LWRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Layer.VirtualFileSystem.FileChangedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Layer.VirtualFileSystem.FileChangedEvent.html",
+          "hash": "0ffZxpURD8bjhALpcOspeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.Layer.VirtualFileSystem.IDirectory.yml",
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.VirtualFileSystem.IDirectory.html",
-          "hash": "P3mPQ0sE3Y4DpC8hxCF7sQ=="
+          "hash": "OB17YJmkYZqJ67DDqyWD2A=="
         }
       },
       "is_incremental": false,
@@ -3477,7 +3657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.VirtualFileSystem.IFile.html",
-          "hash": "rv1rOYfSPgqJPipmtVdhwQ=="
+          "hash": "ur+6EVQySa8Yx5kQ8uiNoA=="
         }
       },
       "is_incremental": false,
@@ -3489,7 +3669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.VirtualFileSystem.IVirtualFileSystem.html",
-          "hash": "Kyhdj7Vb8UCONd4e+RhxCQ=="
+          "hash": "eKxU91cKEC918uXdpzq8Pg=="
         }
       },
       "is_incremental": false,
@@ -3501,7 +3681,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.VirtualFileSystem.html",
-          "hash": "lzh5CkphQ5GtbcJrT+BLPA=="
+          "hash": "mN92xXYYS298qWbNH1UrTg=="
         }
       },
       "is_incremental": false,
@@ -3597,7 +3777,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Layer.html",
-          "hash": "coYinHL5aDMh5yzIt/cBAA=="
+          "hash": "2h1H0LVtae+8Wq+Zo/Zshg=="
         }
       },
       "is_incremental": false,
@@ -3645,7 +3825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Logic.Base.ActionManager.html",
-          "hash": "mPAx5/OZ4baW4jANDxe/rA=="
+          "hash": "c76v4uREsiZMO41a5APIwQ=="
         }
       },
       "is_incremental": false,
@@ -3729,7 +3909,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Networking.Base.Server.ServerTaskHelper.html",
-          "hash": "97UpuHYJw4Th2StgEz/MHQ=="
+          "hash": "iFZbRl6s8wzQZnXdbdltVw=="
         }
       },
       "is_incremental": false,
@@ -3749,11 +3929,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.Runtime.Fluint.yml",
+      "source_relative_path": "obj/api/Fluint.Runtime.Editor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.Runtime.Fluint.html",
-          "hash": "r7bMrqsA1oUq29fcsiGKVg=="
+          "relative_path": "api/Fluint.Runtime.Editor.html",
+          "hash": "FpIV8wdo7xSvVRK61BFukA=="
         }
       },
       "is_incremental": false,
@@ -3765,7 +3945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.Runtime.html",
-          "hash": "iROCasXD9Db/JRHgY7XMhQ=="
+          "hash": "0a7Y1nH/KBmFbHTT2mjoIQ=="
         }
       },
       "is_incremental": false,
@@ -3789,7 +3969,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.SDK.Base.LambdaListener.html",
-          "hash": "QBHPPUtXE3gYhvHIs1i6mg=="
+          "hash": "YDqePHhORcDBUrLu7HMSUQ=="
         }
       },
       "is_incremental": false,
@@ -3821,318 +4001,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Adopt.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Adopt.html",
-          "hash": "EoNmedVHTPQMplEaLOyIFw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Async.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Async.html",
-          "hash": "auFmSSdJTjEXIi7YBzZwXA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Clear.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Clear.html",
-          "hash": "FoTDu4tMRjtZidPZllWaZg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Clients.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Clients.html",
-          "hash": "EuXQnYGB5i05F2Fre9V4/A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Connect.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Connect.html",
-          "hash": "/QleDmYzhoI242Np36CHBg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Create.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Create.html",
-          "hash": "nFM6fInwIt683CrVKeuk2A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Debug.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Debug.html",
-          "hash": "tzdin04xiQECBNg5d6/Y+w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Disconnect.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Disconnect.html",
-          "hash": "9whMdl4Y0cELeqlT7w7zkA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Dump.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Dump.html",
-          "hash": "WP/Y5aYu+FAQjV1cjb6pJg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Echo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Echo.html",
-          "hash": "4HW7BbKBzBaSSgzaGymC7A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Error.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Error.html",
-          "hash": "oTk1l9V9e8PaEzUAiDF6IQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Exit.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Exit.html",
-          "hash": "WVdHdm2kgTsW0yFvugUMYQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Fatal.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Fatal.html",
-          "hash": "ZA8VDLaR0dZ5783ruEwNWA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Information.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Information.html",
-          "hash": "jBnRvdUyISW4etAfdpVu8Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Jsonize.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Jsonize.html",
-          "hash": "N65DCE3HMUsj9+aOjsZqgQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Listen.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Listen.html",
-          "hash": "Mv9+GEKZrImscblaWv9IQw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Load.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Load.html",
-          "hash": "dc4EkQlcM05ToWEvBk+suw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Repeat.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Repeat.html",
-          "hash": "AeWQre6vzXt2ToRn730l2A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Say.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Say.html",
-          "hash": "WK4ZWzrUfNZLwSDbRovjwg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Singleton.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Singleton.html",
-          "hash": "BkSJqdVxAkiqnJT5+wIaEA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Sleep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Sleep.html",
-          "hash": "aIkKx7NVLXrQcLPfWDL1tA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Verbose.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Verbose.html",
-          "hash": "ITnSn56CgQZIksvHU63bJg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.Warning.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.Warning.html",
-          "hash": "D3EA0qVqMKCrOEOhrrFCcg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Lambdas.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Lambdas.html",
-          "hash": "8q4wlgYvZgMa31R7v4UsBQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Tasks.TaskManager.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Tasks.TaskManager.html",
-          "hash": "2F4Gz2ZEb9oeebg4Wtqe9Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.SDK.Base.Tasks.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.SDK.Base.Tasks.html",
-          "hash": "r3vInAdUVG+zvqeC3vn60Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.SDK.Base.yml",
       "output": {
         ".html": {
@@ -4149,7 +4017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Fluint.SDK.Commands.About.html",
-          "hash": "zFxiPWVe9Yay2D4J2nqFPw=="
+          "hash": "AHn7vEgimLXHFA64J46lcw=="
         }
       },
       "is_incremental": false,
@@ -4169,11 +4037,335 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Adopt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Adopt.html",
+          "hash": "GfuOsqarVohRnDd3H+cchQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Async.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Async.html",
+          "hash": "ITqg6DXXAGOGGW4qQEbPdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Clear.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Clear.html",
+          "hash": "PBV/z0YPUpHMDnML0qVfHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Clients.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Clients.html",
+          "hash": "fYEGMf3eneWprsl/P/BdMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Connect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Connect.html",
+          "hash": "+xKW25WCFpaKzU8b6veHoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Create.html",
+          "hash": "8FwsMI8UgBgOPmMMbedUdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Debug.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Debug.html",
+          "hash": "sllUkWx91PNsF7RBKyRbkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Disconnect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Disconnect.html",
+          "hash": "E//vfNExswZFo4azhcGA8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Dump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Dump.html",
+          "hash": "NSAyfqxgVexeM8780ZIBPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Echo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Echo.html",
+          "hash": "KsiWDyJz9V+YbDjDs31fWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Error.html",
+          "hash": "iMml4NYot+lhBuM80XaUhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Exit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Exit.html",
+          "hash": "TgjuOXnZZ8Bv2rmrZCwYLw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Fatal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Fatal.html",
+          "hash": "oIh/gg8AZvkPnNIrO15snQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Information.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Information.html",
+          "hash": "Dduvro1Qco6zs3Z2ItpTRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Jsonize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Jsonize.html",
+          "hash": "oSBGTtUPyAmhZLqQfjDC5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Listen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Listen.html",
+          "hash": "mR5CfqalOyn+lflGTBiHXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Load.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Load.html",
+          "hash": "GFyLzdCzaC5SwtO/PEaHiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Manifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Manifest.html",
+          "hash": "AqJ9FwhsrCXnVMwhkl9xTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Read.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Read.html",
+          "hash": "eg8FY4Ob6etejhUdpUoFhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Rebuild.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Rebuild.html",
+          "hash": "zwts4gpl+Fk1hRIsm/XW1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Repeat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Repeat.html",
+          "hash": "qGueXK3Ybc50ZdiIeYPm6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Say.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Say.html",
+          "hash": "Pa6iMKZ7ZQWOkNWu23uCOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Singleton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Singleton.html",
+          "hash": "JlvxBtXyYHbKhHjnSTj9bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Sleep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Sleep.html",
+          "hash": "/j4k2Dv2rPKmygSKpeLcXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Verbose.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Verbose.html",
+          "hash": "zF6fvGQFkIuat0XFfrlghg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.Warning.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.Warning.html",
+          "hash": "iHVBwKuTzPx8Nksota3vhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.SDK.Lambdas.Base.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.SDK.Lambdas.Base.html",
+          "hash": "4UTYSfppP1gBajVaY162uA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Fluint.SDK.Sdk.yml",
       "output": {
         ".html": {
           "relative_path": "api/Fluint.SDK.Sdk.html",
-          "hash": "7x9BY34KNh1haOxA+B0xhQ=="
+          "hash": "3egnreDoFz5JWrsQfxLfIQ=="
         }
       },
       "is_incremental": false,
@@ -4210,6 +4402,30 @@
         ".html": {
           "relative_path": "api/Fluint.StateManagement.Base.html",
           "hash": "Tpu+DgE/jcfan8wNwBkiAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Tasks.Base.TaskManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Tasks.Base.TaskManager.html",
+          "hash": "JKftcbhWcdd9vI0BdCj8Jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Fluint.Tasks.Base.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Fluint.Tasks.Base.html",
+          "hash": "SBJSjPmERgODAMOlhvTe+g=="
         }
       },
       "is_incremental": false,
@@ -4421,11 +4637,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.Controls.AboutControl.yml",
+      "source_relative_path": "obj/api/Fluint.VirtualFileSystem.Base.Directory.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.Controls.AboutControl.html",
-          "hash": "9zOm6GdcueDZvtpp8I2FKg=="
+          "relative_path": "api/Fluint.VirtualFileSystem.Base.Directory.html",
+          "hash": "rfo0IDPdMtRPukLjetrrLQ=="
         }
       },
       "is_incremental": false,
@@ -4433,11 +4649,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.Controls.CameraControl.yml",
+      "source_relative_path": "obj/api/Fluint.VirtualFileSystem.Base.File.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.Controls.CameraControl.html",
-          "hash": "j6iQHtdKNVIx+Jau0EnIng=="
+          "relative_path": "api/Fluint.VirtualFileSystem.Base.File.html",
+          "hash": "aJ9kxxsFIcLDkv/QwPHwsg=="
         }
       },
       "is_incremental": false,
@@ -4445,11 +4661,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.Controls.MetricsControl.yml",
+      "source_relative_path": "obj/api/Fluint.VirtualFileSystem.Base.VirtualFileSystem.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.Controls.MetricsControl.html",
-          "hash": "B4+sr2B2m6IcVxOlBvA+LQ=="
+          "relative_path": "api/Fluint.VirtualFileSystem.Base.VirtualFileSystem.html",
+          "hash": "l8pspfTWnyMvLUD9F0sHiQ=="
         }
       },
       "is_incremental": false,
@@ -4457,59 +4673,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.Controls.ToolboxControl.yml",
+      "source_relative_path": "obj/api/Fluint.VirtualFileSystem.Base.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.Controls.ToolboxControl.html",
-          "hash": "hVurO+jp1jlwrP/b0IMlqw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.Controls.UIDemoControl.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.Controls.UIDemoControl.html",
-          "hash": "sT8mvk5Kw709QHT1oPeJMQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.Controls.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.Controls.html",
-          "hash": "C8G58U0xC/H5YKHghvOGOA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.MainWindowLayout.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.MainWindowLayout.html",
-          "hash": "jsc+9Ak8EBw91h/828c/IA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Fluint.UI.Layout.Base.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Fluint.UI.Layout.Base.html",
-          "hash": "awCulU8ABjkiwcFzMFsEIQ=="
+          "relative_path": "api/Fluint.VirtualFileSystem.Base.html",
+          "hash": "0L3Q7qKTYsc8WwMOaoQDYQ=="
         }
       },
       "is_incremental": false,
@@ -4521,7 +4689,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "gofSRcta5cPMmFavB9iYpw=="
+          "hash": "3XTqIRtNMbrjgP+VfrK3ZA=="
         }
       },
       "is_incremental": false,
@@ -4563,7 +4731,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 373,
+          "total_file_count": 387,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

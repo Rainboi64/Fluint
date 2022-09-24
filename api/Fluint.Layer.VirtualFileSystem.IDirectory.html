@@ -88,7 +88,7 @@
   <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
   <h5 id="Fluint_Layer_VirtualFileSystem_IDirectory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IDirectory</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IDirectory : IModule</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
@@ -97,7 +97,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_AddDirectory_System_String_Fluint_Layer_VirtualFileSystem_IDirectory_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.AddDirectory(System.String%2CFluint.Layer.VirtualFileSystem.IDirectory)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/Directory.cs/#L10">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L24">View Source</a>
   </span>
   <a id="Fluint_Layer_VirtualFileSystem_IDirectory_AddDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddDirectory*"></a>
   <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_AddDirectory_System_String_Fluint_Layer_VirtualFileSystem_IDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddDirectory(System.String,Fluint.Layer.VirtualFileSystem.IDirectory)">AddDirectory(String, IDirectory)</h4>
@@ -105,7 +105,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddDirectory(string virtualPath, IDirectory directory)</code></pre>
+    <pre><code class="lang-csharp hljs">void AddDirectory(string name, IDirectory directory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -119,7 +119,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">virtualPath</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
@@ -134,7 +134,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_AddDirectory_System_String_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.AddDirectory(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/Directory.cs/#L11">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L25">View Source</a>
   </span>
   <a id="Fluint_Layer_VirtualFileSystem_IDirectory_AddDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddDirectory*"></a>
   <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_AddDirectory_System_String_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddDirectory(System.String,System.String)">AddDirectory(String, String)</h4>
@@ -142,7 +142,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IDirectory AddDirectory(string virtualPath, string physicalPath)</code></pre>
+    <pre><code class="lang-csharp hljs">IDirectory AddDirectory(string name, string physicalPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,7 +156,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">virtualPath</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
@@ -186,7 +186,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_AddFile_System_String_Fluint_Layer_VirtualFileSystem_IFile_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.AddFile(System.String%2CFluint.Layer.VirtualFileSystem.IFile)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/Directory.cs/#L13">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L27">View Source</a>
   </span>
   <a id="Fluint_Layer_VirtualFileSystem_IDirectory_AddFile_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddFile*"></a>
   <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_AddFile_System_String_Fluint_Layer_VirtualFileSystem_IFile_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddFile(System.String,Fluint.Layer.VirtualFileSystem.IFile)">AddFile(String, IFile)</h4>
@@ -194,7 +194,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void AddFile(string virtualPath, IFile file)</code></pre>
+    <pre><code class="lang-csharp hljs">void AddFile(string name, IFile file)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -208,7 +208,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">virtualPath</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
@@ -223,7 +223,7 @@
     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_AddFile_System_String_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.AddFile(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/Directory.cs/#L14">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L28">View Source</a>
   </span>
   <a id="Fluint_Layer_VirtualFileSystem_IDirectory_AddFile_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddFile*"></a>
   <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_AddFile_System_String_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.AddFile(System.String,System.String)">AddFile(String, String)</h4>
@@ -231,7 +231,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IFile AddFile(string virtualPath, string physicalPath)</code></pre>
+    <pre><code class="lang-csharp hljs">IFile AddFile(string name, string physicalPath)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -245,7 +245,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">virtualPath</span></td>
+        <td><span class="parametername">name</span></td>
         <td></td>
       </tr>
       <tr>
@@ -270,6 +270,361 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_GetDirectory_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.GetDirectory(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L19">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_GetDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.GetDirectory*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_GetDirectory_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.GetDirectory(System.String)">GetDirectory(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDirectory GetDirectory(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.VirtualFileSystem.IDirectory.html">IDirectory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_GetFile_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.GetFile(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L18">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_GetFile_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.GetFile*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_GetFile_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.GetFile(System.String)">GetFile(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IFile GetFile(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.VirtualFileSystem.IFile.html">IFile</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_HasDirectory_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.HasDirectory(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L22">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_HasDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.HasDirectory*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_HasDirectory_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.HasDirectory(System.String)">HasDirectory(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool HasDirectory(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_HasFile_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.HasFile(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L21">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_HasFile_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.HasFile*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_HasFile_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.HasFile(System.String)">HasFile(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool HasFile(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_TryGetDirectory_System_String_Fluint_Layer_VirtualFileSystem_IDirectory__.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.TryGetDirectory(System.String%2CFluint.Layer.VirtualFileSystem.IDirectory%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L16">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_TryGetDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.TryGetDirectory*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_TryGetDirectory_System_String_Fluint_Layer_VirtualFileSystem_IDirectory__" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.TryGetDirectory(System.String,Fluint.Layer.VirtualFileSystem.IDirectory@)">TryGetDirectory(String, out IDirectory)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool TryGetDirectory(string name, out IDirectory directory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.VirtualFileSystem.IDirectory.html">IDirectory</a></td>
+        <td><span class="parametername">directory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_TryGetFile_System_String_Fluint_Layer_VirtualFileSystem_IFile__.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.TryGetFile(System.String%2CFluint.Layer.VirtualFileSystem.IFile%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L15">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_TryGetFile_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.TryGetFile*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_TryGetFile_System_String_Fluint_Layer_VirtualFileSystem_IFile__" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.TryGetFile(System.String,Fluint.Layer.VirtualFileSystem.IFile@)">TryGetFile(String, out IFile)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool TryGetFile(string name, out IFile file)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Fluint.Layer.VirtualFileSystem.IFile.html">IFile</a></td>
+        <td><span class="parametername">file</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_UpdateDirectory_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.UpdateDirectory(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L30">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IDirectory_UpdateDirectory_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.UpdateDirectory*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_UpdateDirectory_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.UpdateDirectory(System.String)">UpdateDirectory(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateDirectory(string physicalPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">physicalPath</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory_OnChange.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory.OnChange%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L13">View Source</a>
+  </span>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IDirectory_OnChange" data-uid="Fluint.Layer.VirtualFileSystem.IDirectory.OnChange">OnChange</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;DirectoryChangedEvent&gt; OnChange</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="Fluint.Layer.VirtualFileSystem.DirectoryChangedEvent.html">DirectoryChangedEvent</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -281,7 +636,7 @@
                     <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IDirectory.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IDirectory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/Directory.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IDirectory.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

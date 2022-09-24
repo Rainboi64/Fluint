@@ -88,24 +88,24 @@
   <h6><strong>Assembly</strong>: Fluint.Layer.dll</h6>
   <h5 id="Fluint_Layer_VirtualFileSystem_IFile_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IFile</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IFile : IModule</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IFile_Data.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IFile.Data%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IFile_Bytes.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IFile.Bytes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IFile.cs/#L12">View Source</a>
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IFile.cs/#L13">View Source</a>
   </span>
-  <a id="Fluint_Layer_VirtualFileSystem_IFile_Data_" data-uid="Fluint.Layer.VirtualFileSystem.IFile.Data*"></a>
-  <h4 id="Fluint_Layer_VirtualFileSystem_IFile_Data" data-uid="Fluint.Layer.VirtualFileSystem.IFile.Data">Data</h4>
+  <a id="Fluint_Layer_VirtualFileSystem_IFile_Bytes_" data-uid="Fluint.Layer.VirtualFileSystem.IFile.Bytes*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IFile_Bytes" data-uid="Fluint.Layer.VirtualFileSystem.IFile.Bytes">Bytes</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">object Data { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">byte[] Bytes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -117,7 +117,71 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Object</span></td>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IFile_ToString.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IFile.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IFile.cs/#L20">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IFile_ToString_" data-uid="Fluint.Layer.VirtualFileSystem.IFile.ToString*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IFile_ToString" data-uid="Fluint.Layer.VirtualFileSystem.IFile.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">virtual string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Rainboi64/Fluint/new/master/apiSpec/new?filename=Fluint_Layer_VirtualFileSystem_IFile_Update_System_String_.md&amp;value=---%0Auid%3A%20Fluint.Layer.VirtualFileSystem.IFile.Update(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Rainboi64/Fluint/blob/master/src/Fluint.Layer/VirtualFileSystem/IFile.cs/#L18">View Source</a>
+  </span>
+  <a id="Fluint_Layer_VirtualFileSystem_IFile_Update_" data-uid="Fluint.Layer.VirtualFileSystem.IFile.Update*"></a>
+  <h4 id="Fluint_Layer_VirtualFileSystem_IFile_Update_System_String_" data-uid="Fluint.Layer.VirtualFileSystem.IFile.Update(System.String)">Update(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Update(string file)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">file</span></td>
         <td></td>
       </tr>
     </tbody>

@@ -34,6 +34,46 @@
     "title": "Class SketchTool | Fluint",
     "keywords": "Class SketchTool Inheritance System.Object SketchTool Implements ITool IModule ISketchTool Namespace : Fluint.Editor.Base Assembly : Fluint.Editor.Base.dll Syntax public class SketchTool : object, ITool, IModule, ISketchTool Properties | Improve this Doc View Source Skeleton Declaration public ICollection<PositionColorVertex> Skeleton { get; } Property Value Type Description ICollection < PositionColorVertex > | Improve this Doc View Source Type Declaration public string Type { get; set; } Property Value Type Description System.String Methods | Improve this Doc View Source Begin() Declaration public void Begin() | Improve this Doc View Source Dragging() Declaration public void Dragging() | Improve this Doc View Source End() Declaration public void End() | Improve this Doc View Source StartDragging() Declaration public void StartDragging() | Improve this Doc View Source StopDragging() Declaration public List<PositionColorVertex> StopDragging() Returns Type Description List < PositionColorVertex > | Improve this Doc View Source Tick() Declaration public void Tick() Implements ITool IModule ISketchTool"
   },
+  "api/Fluint.Editor.Layout.Base.Controls.AboutControl.html": {
+    "href": "api/Fluint.Editor.Layout.Base.Controls.AboutControl.html",
+    "title": "Class AboutControl | Fluint",
+    "keywords": "Class AboutControl Inheritance System.Object Control AboutControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String, IWindow) Control.Begin(String) Control.Tick() Namespace : Fluint.Editor.Layout.Base.Controls Assembly : Fluint.Editor.Layout.Base.dll Syntax public class AboutControl : Control, IGuiComponent Constructors | Improve this Doc View Source AboutControl(ModulePacket) Declaration public AboutControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Implements IGuiComponent"
+  },
+  "api/Fluint.Editor.Layout.Base.Controls.CameraControl.html": {
+    "href": "api/Fluint.Editor.Layout.Base.Controls.CameraControl.html",
+    "title": "Class CameraControl | Fluint",
+    "keywords": "Class CameraControl Inheritance System.Object Control CameraControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String) Namespace : Fluint.Editor.Layout.Base.Controls Assembly : Fluint.Editor.Layout.Base.dll Syntax public class CameraControl : Control, IGuiComponent Constructors | Improve this Doc View Source CameraControl(ModulePacket) Declaration public CameraControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Begin(String, IWindow) Declaration public override void Begin(string name, IWindow window) Parameters Type Name Description System.String name IWindow window | Improve this Doc View Source GenerateCube(Vector3, Vector3, Color4) Declaration public List<PositionColorVertex> GenerateCube(Vector3 Verts, Vector3 Trans, Color4 color) Parameters Type Name Description Vector3 Verts Vector3 Trans Color4 color Returns Type Description List < PositionColorVertex > | Improve this Doc View Source Tick() Declaration public override void Tick() Overrides Control.Tick() Implements IGuiComponent"
+  },
+  "api/Fluint.Editor.Layout.Base.Controls.html": {
+    "href": "api/Fluint.Editor.Layout.Base.Controls.html",
+    "title": "Namespace Fluint.Editor.Layout.Base.Controls | Fluint",
+    "keywords": "Namespace Fluint.Editor.Layout.Base.Controls Classes AboutControl CameraControl MetricsControl ToolboxControl UIDemoControl"
+  },
+  "api/Fluint.Editor.Layout.Base.Controls.MetricsControl.html": {
+    "href": "api/Fluint.Editor.Layout.Base.Controls.MetricsControl.html",
+    "title": "Class MetricsControl | Fluint",
+    "keywords": "Class MetricsControl Inheritance System.Object Control MetricsControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String) Namespace : Fluint.Editor.Layout.Base.Controls Assembly : Fluint.Editor.Layout.Base.dll Syntax public class MetricsControl : Control, IGuiComponent Constructors | Improve this Doc View Source MetricsControl(ModulePacket) Declaration public MetricsControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Begin(String, IWindow) Declaration public override void Begin(string name, IWindow parent) Parameters Type Name Description System.String name IWindow parent | Improve this Doc View Source Tick() Declaration public override void Tick() Overrides Control.Tick() Implements IGuiComponent"
+  },
+  "api/Fluint.Editor.Layout.Base.Controls.ToolboxControl.html": {
+    "href": "api/Fluint.Editor.Layout.Base.Controls.ToolboxControl.html",
+    "title": "Class ToolboxControl | Fluint",
+    "keywords": "Class ToolboxControl Inheritance System.Object Control ToolboxControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String, IWindow) Control.Begin(String) Namespace : Fluint.Editor.Layout.Base.Controls Assembly : Fluint.Editor.Layout.Base.dll Syntax public class ToolboxControl : Control, IGuiComponent Constructors | Improve this Doc View Source ToolboxControl(ModulePacket, ILocalizationManager, IConfigurationManager, IStateManager) Declaration public ToolboxControl(ModulePacket packet, ILocalizationManager localizationManager, IConfigurationManager configManager, IStateManager stateManager) Parameters Type Name Description ModulePacket packet ILocalizationManager localizationManager IConfigurationManager configManager IStateManager stateManager Methods | Improve this Doc View Source Tick() Declaration public override void Tick() Overrides Control.Tick() Implements IGuiComponent"
+  },
+  "api/Fluint.Editor.Layout.Base.Controls.UIDemoControl.html": {
+    "href": "api/Fluint.Editor.Layout.Base.Controls.UIDemoControl.html",
+    "title": "Class UIDemoControl | Fluint",
+    "keywords": "Class UIDemoControl Inheritance System.Object Control UIDemoControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String, IWindow) Control.Begin(String) Control.Tick() Namespace : Fluint.Editor.Layout.Base.Controls Assembly : Fluint.Editor.Layout.Base.dll Syntax public class UIDemoControl : Control, IGuiComponent Constructors | Improve this Doc View Source UIDemoControl(ModulePacket) Declaration public UIDemoControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Implements IGuiComponent"
+  },
+  "api/Fluint.Editor.Layout.Base.html": {
+    "href": "api/Fluint.Editor.Layout.Base.html",
+    "title": "Namespace Fluint.Editor.Layout.Base | Fluint",
+    "keywords": "Namespace Fluint.Editor.Layout.Base Classes MainWindowLayout"
+  },
+  "api/Fluint.Editor.Layout.Base.MainWindowLayout.html": {
+    "href": "api/Fluint.Editor.Layout.Base.MainWindowLayout.html",
+    "title": "Class MainWindowLayout | Fluint",
+    "keywords": "Class MainWindowLayout Inheritance System.Object MainWindowLayout Implements ILayout IModule Namespace : Fluint.Editor.Layout.Base Assembly : Fluint.Editor.Layout.Base.dll Syntax public class MainWindowLayout : object, ILayout, IModule Constructors | Improve this Doc View Source MainWindowLayout(ModulePacket) Declaration public MainWindowLayout(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Initialize(IWindow) Declaration public void Initialize(IWindow window) Parameters Type Name Description IWindow window Implements ILayout IModule"
+  },
   "api/Fluint.Fluincy.EnableFluincyConfiguration.html": {
     "href": "api/Fluint.Fluincy.EnableFluincyConfiguration.html",
     "title": "Class EnableFluincyConfiguration | Fluint",
@@ -277,17 +317,32 @@
   "api/Fluint.Layer.DependencyInjection.html": {
     "href": "api/Fluint.Layer.DependencyInjection.html",
     "title": "Namespace Fluint.Layer.DependencyInjection | Fluint",
-    "keywords": "Namespace Fluint.Layer.DependencyInjection Classes ModuleCollection ModulePacket"
+    "keywords": "Namespace Fluint.Layer.DependencyInjection Classes ModuleCollection ModuleException ModuleManifest ModulePacket ModulesManager"
   },
   "api/Fluint.Layer.DependencyInjection.ModuleCollection.html": {
     "href": "api/Fluint.Layer.DependencyInjection.ModuleCollection.html",
     "title": "Class ModuleCollection | Fluint",
-    "keywords": "Class ModuleCollection Inheritance System.Object ModuleCollection Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public class ModuleCollection : object Methods | Improve this Doc View Source AddInstanced(Type) Declaration public void AddInstanced(Type instanced) Parameters Type Name Description Type instanced | Improve this Doc View Source AddInstanced<TInstancedType>() Declaration public void AddInstanced<TInstancedType>() Type Parameters Name Description TInstancedType | Improve this Doc View Source GenerateModulePacket(IRuntime) Declaration public ModulePacket GenerateModulePacket(IRuntime runtime) Parameters Type Name Description IRuntime runtime Returns Type Description ModulePacket | Improve this Doc View Source MapScoped(Type, Type) Declaration public void MapScoped(Type abstraction, Type implementation) Parameters Type Name Description Type abstraction Type implementation | Improve this Doc View Source MapScoped<TAbstraction, TImplementation>() Declaration public void MapScoped<TAbstraction, TImplementation>() where TAbstraction : IModule where TImplementation : IModule Type Parameters Name Description TAbstraction TImplementation | Improve this Doc View Source MapSingleton(Type, Type) Declaration public void MapSingleton(Type abstraction, Type implementation) Parameters Type Name Description Type abstraction Type implementation | Improve this Doc View Source MapSingleton<TAbstraction, TImplementation>() Declaration public void MapSingleton<TAbstraction, TImplementation>() where TAbstraction : IModule where TImplementation : IModule Type Parameters Name Description TAbstraction TImplementation"
+    "keywords": "Class ModuleCollection Inheritance System.Object ModuleCollection Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public class ModuleCollection : object Methods | Improve this Doc View Source AddInstanced(Type) Declaration public void AddInstanced(Type instanced) Parameters Type Name Description Type instanced | Improve this Doc View Source AddInstanced<TInstancedType>() Declaration public void AddInstanced<TInstancedType>() Type Parameters Name Description TInstancedType | Improve this Doc View Source CreateModuleManifest() Declaration public void CreateModuleManifest() | Improve this Doc View Source GenerateModulePacket(IRuntime) Declaration public ModulePacket GenerateModulePacket(IRuntime runtime) Parameters Type Name Description IRuntime runtime Returns Type Description ModulePacket | Improve this Doc View Source MapScoped(Type, Type) Declaration public void MapScoped(Type abstraction, Type implementation) Parameters Type Name Description Type abstraction Type implementation | Improve this Doc View Source MapScoped<TAbstraction, TImplementation>() Declaration public void MapScoped<TAbstraction, TImplementation>() where TAbstraction : IModule where TImplementation : IModule Type Parameters Name Description TAbstraction TImplementation | Improve this Doc View Source MapSingleton(Type, Type) Declaration public void MapSingleton(Type abstraction, Type implementation) Parameters Type Name Description Type abstraction Type implementation | Improve this Doc View Source MapSingleton<TAbstraction, TImplementation>() Declaration public void MapSingleton<TAbstraction, TImplementation>() where TAbstraction : IModule where TImplementation : IModule Type Parameters Name Description TAbstraction TImplementation"
+  },
+  "api/Fluint.Layer.DependencyInjection.ModuleException.html": {
+    "href": "api/Fluint.Layer.DependencyInjection.ModuleException.html",
+    "title": "Class ModuleException | Fluint",
+    "keywords": "Class ModuleException Inheritance System.Object ModuleException Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public class ModuleException : Exception Constructors | Improve this Doc View Source ModuleException(Type) Declaration public ModuleException(Type abstraction) Parameters Type Name Description Type abstraction"
+  },
+  "api/Fluint.Layer.DependencyInjection.ModuleManifest.html": {
+    "href": "api/Fluint.Layer.DependencyInjection.ModuleManifest.html",
+    "title": "Class ModuleManifest | Fluint",
+    "keywords": "Class ModuleManifest Inheritance System.Object ModuleManifest Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public class ModuleManifest : object Constructors | Improve this Doc View Source ModuleManifest(IEnumerable<ModulePair>) Declaration public ModuleManifest(IEnumerable<ModulePair> modules) Parameters Type Name Description IEnumerable < ModulePair > modules Properties | Improve this Doc View Source Modules Declaration public IEnumerable<ModulePair> Modules { get; } Property Value Type Description IEnumerable < ModulePair > Methods | Improve this Doc View Source ToString() Declaration public override string ToString() Returns Type Description System.String"
   },
   "api/Fluint.Layer.DependencyInjection.ModulePacket.html": {
     "href": "api/Fluint.Layer.DependencyInjection.ModulePacket.html",
     "title": "Class ModulePacket | Fluint",
-    "keywords": "Class ModulePacket Inheritance System.Object ModulePacket Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public class ModulePacket : object Constructors | Improve this Doc View Source ModulePacket(IRuntime, Dictionary<Type, Type>, Dictionary<Type, Type>, List<Type>) Declaration public ModulePacket(IRuntime runtime, Dictionary<Type, Type> scopedMappings, Dictionary<Type, Type> singletonMappings, List<Type> instances) Parameters Type Name Description IRuntime runtime Dictionary < Type , Type > scopedMappings Dictionary < Type , Type > singletonMappings List < Type > instances Fields | Improve this Doc View Source ScopedMappings Declaration public readonly Dictionary<Type, Type> ScopedMappings Field Value Type Description Dictionary < Type , Type > | Improve this Doc View Source SingletonMappings Declaration public readonly Dictionary<Type, IModule> SingletonMappings Field Value Type Description Dictionary < Type , IModule > | Improve this Doc View Source StaticModules Declaration public readonly List<IModule> StaticModules Field Value Type Description List < IModule > Properties | Improve this Doc View Source CurrentRuntime Declaration public IRuntime CurrentRuntime { get; } Property Value Type Description IRuntime Methods | Improve this Doc View Source CreateInstance(Type) Declaration public object CreateInstance(Type target) Parameters Type Name Description Type target Returns Type Description System.Object | Improve this Doc View Source CreateInstance(Type, Type[]) Declaration public object CreateInstance(Type target, Type[] generics) Parameters Type Name Description Type target Type [] generics Returns Type Description System.Object | Improve this Doc View Source CreateInstance<T>() Declaration public T CreateInstance<T>() Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source CreateScoped<T>() Declaration public T CreateScoped<T>() where T : IModule Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source FetchAndCreateInstance(Type) Declaration public object FetchAndCreateInstance(Type type) Parameters Type Name Description Type type Returns Type Description System.Object | Improve this Doc View Source GetInstances() Declaration public IEnumerable<IModule> GetInstances() Returns Type Description IEnumerable < IModule > | Improve this Doc View Source GetInstances<T>() Declaration public IEnumerable<T> GetInstances<T>() Returns Type Description IEnumerable <T> Type Parameters Name Description T | Improve this Doc View Source GetSingleton<T>() Declaration public T GetSingleton<T>() where T : IModule Returns Type Description T Type Parameters Name Description T"
+    "keywords": "Class ModulePacket Inheritance System.Object ModulePacket Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public class ModulePacket : object Constructors | Improve this Doc View Source ModulePacket(IRuntime, Dictionary<Type, Type>, Dictionary<Type, Type>, List<Type>) Declaration public ModulePacket(IRuntime runtime, Dictionary<Type, Type> scopedMappings, Dictionary<Type, Type> singletonMappings, List<Type> instances) Parameters Type Name Description IRuntime runtime Dictionary < Type , Type > scopedMappings Dictionary < Type , Type > singletonMappings List < Type > instances Fields | Improve this Doc View Source ScopedMappings Declaration public readonly Dictionary<Type, Type> ScopedMappings Field Value Type Description Dictionary < Type , Type > | Improve this Doc View Source SingletonMappings Declaration public readonly Dictionary<Type, IModule> SingletonMappings Field Value Type Description Dictionary < Type , IModule > Properties | Improve this Doc View Source CurrentRuntime Declaration public IRuntime CurrentRuntime { get; } Property Value Type Description IRuntime Methods | Improve this Doc View Source CreateInstance<T>() Declaration public T CreateInstance<T>() Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source CreateScoped<T>() Declaration public T CreateScoped<T>() where T : IModule Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source FetchAndCreateInstance(Type) Declaration public object FetchAndCreateInstance(Type type) Parameters Type Name Description Type type Returns Type Description System.Object | Improve this Doc View Source GetInstances() Declaration public IEnumerable<IModule> GetInstances() Returns Type Description IEnumerable < IModule > | Improve this Doc View Source GetInstances<T>() Declaration public IEnumerable<T> GetInstances<T>() Returns Type Description IEnumerable <T> Type Parameters Name Description T | Improve this Doc View Source GetSingleton<T>() Declaration public T GetSingleton<T>() where T : IModule Returns Type Description T Type Parameters Name Description T"
+  },
+  "api/Fluint.Layer.DependencyInjection.ModulesManager.html": {
+    "href": "api/Fluint.Layer.DependencyInjection.ModulesManager.html",
+    "title": "Class ModulesManager | Fluint",
+    "keywords": "Class ModulesManager Inheritance System.Object ModulesManager Namespace : Fluint.Layer.DependencyInjection Assembly : Fluint.Layer.dll Syntax public static class ModulesManager : object Methods | Improve this Doc View Source GenerateManifest(String) Declaration public static ModuleManifest GenerateManifest(string modulesFolder) Parameters Type Name Description System.String modulesFolder Returns Type Description ModuleManifest | Improve this Doc View Source LoadFolder(String) Declaration public static ModuleCollection LoadFolder(string modulesFolder) Parameters Type Name Description System.String modulesFolder Returns Type Description ModuleCollection | Improve this Doc View Source LoadManifest(ModuleManifest) Declaration public static ModuleCollection LoadManifest(ModuleManifest manifest) Parameters Type Name Description ModuleManifest manifest Returns Type Description ModuleCollection"
   },
   "api/Fluint.Layer.Diagnostics.Assert.html": {
     "href": "api/Fluint.Layer.Diagnostics.Assert.html",
@@ -727,12 +782,17 @@
   "api/Fluint.Layer.html": {
     "href": "api/Fluint.Layer.html",
     "title": "Namespace Fluint.Layer | Fluint",
-    "keywords": "Namespace Fluint.Layer Classes ModuleAttribute An attribute containing the name and the description of the module. ModulesManager Interfaces IModule A piece of software that enables certain behavior in fluint. IRuntime"
+    "keywords": "Namespace Fluint.Layer Classes ModuleAttribute An attribute containing the name and the description of the module. Interfaces IModule A piece of software that enables certain behavior in fluint. IRuntime Enums InitializationMethod"
   },
   "api/Fluint.Layer.IModule.html": {
     "href": "api/Fluint.Layer.IModule.html",
     "title": "Interface IModule | Fluint",
     "keywords": "Interface IModule A piece of software that enables certain behavior in fluint. Namespace : Fluint.Layer Assembly : Fluint.Layer.dll Syntax public interface IModule"
+  },
+  "api/Fluint.Layer.InitializationMethod.html": {
+    "href": "api/Fluint.Layer.InitializationMethod.html",
+    "title": "Enum InitializationMethod | Fluint",
+    "keywords": "Enum InitializationMethod Namespace : Fluint.Layer Assembly : Fluint.Layer.dll Syntax public enum InitializationMethod : int Fields Name Description Instanced Scoped Singleton"
   },
   "api/Fluint.Layer.Input.Binding.html": {
     "href": "api/Fluint.Layer.Input.Binding.html",
@@ -797,7 +857,7 @@
   "api/Fluint.Layer.IRuntime.html": {
     "href": "api/Fluint.Layer.IRuntime.html",
     "title": "Interface IRuntime | Fluint",
-    "keywords": "Interface IRuntime Namespace : Fluint.Layer Assembly : Fluint.Layer.dll Syntax public interface IRuntime Properties | Improve this Doc View Source Id Declaration int Id { get; } Property Value Type Description System.Int32 | Improve this Doc View Source Manifest Declaration StartupManifest Manifest { get; } Property Value Type Description Fluint.Layer.StartupManifest | Improve this Doc View Source Packet Declaration ModulePacket Packet { get; } Property Value Type Description ModulePacket | Improve this Doc View Source Parent Declaration InstanceManager Parent { get; } Property Value Type Description InstanceManager Methods | Improve this Doc View Source Create(Int32, StartupManifest, ModulePacket, InstanceManager) Declaration void Create(int id, StartupManifest manifest, ModulePacket packet, InstanceManager parent) Parameters Type Name Description System.Int32 id Fluint.Layer.StartupManifest manifest ModulePacket packet InstanceManager parent | Improve this Doc View Source Kill() Declaration void Kill() | Improve this Doc View Source Start() Declaration void Start()"
+    "keywords": "Interface IRuntime Namespace : Fluint.Layer Assembly : Fluint.Layer.dll Syntax public interface IRuntime Properties | Improve this Doc View Source Id Declaration int Id { get; } Property Value Type Description System.Int32 | Improve this Doc View Source ModuleManifest Declaration ModuleManifest ModuleManifest { get; } Property Value Type Description ModuleManifest | Improve this Doc View Source Packet Declaration ModulePacket Packet { get; } Property Value Type Description ModulePacket | Improve this Doc View Source Parent Declaration InstanceManager Parent { get; } Property Value Type Description InstanceManager | Improve this Doc View Source StartupManifest Declaration StartupManifest StartupManifest { get; } Property Value Type Description Fluint.Layer.StartupManifest Methods | Improve this Doc View Source Create(Int32, StartupManifest, ModuleManifest, ModulePacket, InstanceManager) Declaration void Create(int id, StartupManifest startupManifest, ModuleManifest moduleManifest, ModulePacket packet, InstanceManager parent) Parameters Type Name Description System.Int32 id Fluint.Layer.StartupManifest startupManifest ModuleManifest moduleManifest ModulePacket packet InstanceManager parent | Improve this Doc View Source Kill() Declaration void Kill() | Improve this Doc View Source Start() Declaration void Start()"
   },
   "api/Fluint.Layer.Localization.html": {
     "href": "api/Fluint.Layer.Localization.html",
@@ -1059,30 +1119,40 @@
     "title": "Class ModuleAttribute | Fluint",
     "keywords": "Class ModuleAttribute An attribute containing the name and the description of the module. Inheritance System.Object ModuleAttribute Namespace : Fluint.Layer Assembly : Fluint.Layer.dll Syntax public class ModuleAttribute : Attribute Constructors | Improve this Doc View Source ModuleAttribute(String, String) Declaration public ModuleAttribute(string moduleName, string description) Parameters Type Name Description System.String moduleName System.String description | Improve this Doc View Source ModuleAttribute(String, String, String) Declaration public ModuleAttribute(string moduleName, string description, string help) Parameters Type Name Description System.String moduleName System.String description System.String help Properties | Improve this Doc View Source Description The description of the module. Declaration public string Description { get; } Property Value Type Description System.String | Improve this Doc View Source Help Declaration public string Help { get; } Property Value Type Description System.String | Improve this Doc View Source ModuleName The name of the module Declaration public string ModuleName { get; } Property Value Type Description System.String"
   },
-  "api/Fluint.Layer.ModulesManager.html": {
-    "href": "api/Fluint.Layer.ModulesManager.html",
-    "title": "Class ModulesManager | Fluint",
-    "keywords": "Class ModulesManager Inheritance System.Object ModulesManager Namespace : Fluint.Layer Assembly : Fluint.Layer.dll Syntax public static class ModulesManager : object Methods | Improve this Doc View Source LoadFolder(String) Loads the modules inside the file using System.Reflection Declaration public static ModuleCollection LoadFolder(string modulesfolder) Parameters Type Name Description System.String modulesfolder The path of the folder to be loaded. Returns Type Description ModuleCollection"
-  },
   "api/Fluint.Layer.Networking.Client.ClientData.html": {
     "href": "api/Fluint.Layer.Networking.Client.ClientData.html",
     "title": "Struct ClientData | Fluint",
     "keywords": "Struct ClientData Namespace : Fluint.Layer.Networking.Client Assembly : Fluint.Layer.dll Syntax public struct ClientData Properties | Improve this Doc View Source ID The Identifying ID of the client. Declaration public Guid ID { get; set; } Property Value Type Description Guid | Improve this Doc View Source Username The username of the cslient. Declaration public string Username { get; set; } Property Value Type Description System.String"
   },
-  "api/Fluint.Layer.Networking.Client.ConnectedToServerEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Client.ConnectedToServerEventArgs.html",
+  "api/Fluint.Layer.Networking.Client.EventArgs.ConnectedToServerEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Client.EventArgs.ConnectedToServerEventArgs.html",
     "title": "Class ConnectedToServerEventArgs | Fluint",
-    "keywords": "Class ConnectedToServerEventArgs event arguments for when the client is connected to the server. Inheritance System.Object ConnectedToServerEventArgs Namespace : Fluint.Layer.Networking.Client Assembly : Fluint.Layer.dll Syntax public class ConnectedToServerEventArgs : EventArgs Constructors | Improve this Doc View Source ConnectedToServerEventArgs(ServerData, IEnumerable<ClientData>) Declaration public ConnectedToServerEventArgs(ServerData serverInfo, IEnumerable<ClientData> clientsConnected) Parameters Type Name Description ServerData serverInfo IEnumerable < ClientData > clientsConnected Properties | Improve this Doc View Source ClientsConnected The Collection of clients who are connected to this server, including this one. Declaration public ReadOnlyCollection<ClientData> ClientsConnected { get; } Property Value Type Description ReadOnlyCollection < ClientData > | Improve this Doc View Source ServerInfo The info of the server connected to. Declaration public ServerData ServerInfo { get; } Property Value Type Description ServerData"
+    "keywords": "Class ConnectedToServerEventArgs event arguments for when the client is connected to the server. Inheritance System.Object ConnectedToServerEventArgs Namespace : Fluint.Layer.Networking.Client.EventArgs Assembly : Fluint.Layer.dll Syntax public class ConnectedToServerEventArgs : System.EventArgs Constructors | Improve this Doc View Source ConnectedToServerEventArgs(ServerData, IEnumerable<ClientData>) Declaration public ConnectedToServerEventArgs(ServerData serverInfo, IEnumerable<ClientData> clientsConnected) Parameters Type Name Description ServerData serverInfo IEnumerable < ClientData > clientsConnected Properties | Improve this Doc View Source ClientsConnected The Collection of clients who are connected to this server, including this one. Declaration public ReadOnlyCollection<ClientData> ClientsConnected { get; } Property Value Type Description ReadOnlyCollection < ClientData > | Improve this Doc View Source ServerInfo The info of the server connected to. Declaration public ServerData ServerInfo { get; } Property Value Type Description ServerData"
   },
-  "api/Fluint.Layer.Networking.Client.DisconnectedFromServerEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Client.DisconnectedFromServerEventArgs.html",
+  "api/Fluint.Layer.Networking.Client.EventArgs.DisconnectedFromServerEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Client.EventArgs.DisconnectedFromServerEventArgs.html",
     "title": "Class DisconnectedFromServerEventArgs | Fluint",
-    "keywords": "Class DisconnectedFromServerEventArgs Inheritance System.Object DisconnectedFromServerEventArgs Namespace : Fluint.Layer.Networking.Client Assembly : Fluint.Layer.dll Syntax public class DisconnectedFromServerEventArgs : EventArgs Constructors | Improve this Doc View Source DisconnectedFromServerEventArgs(DisconnectionReason, ServerData) Declaration public DisconnectedFromServerEventArgs(DisconnectionReason reason, ServerData serverInfo) Parameters Type Name Description DisconnectionReason reason ServerData serverInfo Properties | Improve this Doc View Source Reason The reason the client disconnected. Declaration public DisconnectionReason Reason { get; } Property Value Type Description DisconnectionReason | Improve this Doc View Source ServerInfo The server disconnected from. Declaration public ServerData ServerInfo { get; } Property Value Type Description ServerData"
+    "keywords": "Class DisconnectedFromServerEventArgs Inheritance System.Object DisconnectedFromServerEventArgs Namespace : Fluint.Layer.Networking.Client.EventArgs Assembly : Fluint.Layer.dll Syntax public class DisconnectedFromServerEventArgs : System.EventArgs Constructors | Improve this Doc View Source DisconnectedFromServerEventArgs(DisconnectionReason, ServerData) Declaration public DisconnectedFromServerEventArgs(DisconnectionReason reason, ServerData serverInfo) Parameters Type Name Description DisconnectionReason reason ServerData serverInfo Properties | Improve this Doc View Source Reason The reason the client disconnected. Declaration public DisconnectionReason Reason { get; } Property Value Type Description DisconnectionReason | Improve this Doc View Source ServerInfo The server disconnected from. Declaration public ServerData ServerInfo { get; } Property Value Type Description ServerData"
+  },
+  "api/Fluint.Layer.Networking.Client.EventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Client.EventArgs.html",
+    "title": "Namespace Fluint.Layer.Networking.Client.EventArgs | Fluint",
+    "keywords": "Namespace Fluint.Layer.Networking.Client.EventArgs Classes ConnectedToServerEventArgs event arguments for when the client is connected to the server. DisconnectedFromServerEventArgs MessageReceivedEventArgs ServerTickedEventArgs"
+  },
+  "api/Fluint.Layer.Networking.Client.EventArgs.MessageReceivedEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Client.EventArgs.MessageReceivedEventArgs.html",
+    "title": "Class MessageReceivedEventArgs | Fluint",
+    "keywords": "Class MessageReceivedEventArgs Inheritance System.Object MessageReceivedEventArgs Namespace : Fluint.Layer.Networking.Client.EventArgs Assembly : Fluint.Layer.dll Syntax public class MessageReceivedEventArgs : System.EventArgs Constructors | Improve this Doc View Source MessageReceivedEventArgs(ClientData, String) Declaration public MessageReceivedEventArgs(ClientData sender, string messageData) Parameters Type Name Description ClientData sender System.String messageData Properties | Improve this Doc View Source MessageData The message text (string). Declaration public string MessageData { get; } Property Value Type Description System.String | Improve this Doc View Source Sender The Client who sent the message. Declaration public ClientData Sender { get; } Property Value Type Description ClientData"
+  },
+  "api/Fluint.Layer.Networking.Client.EventArgs.ServerTickedEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Client.EventArgs.ServerTickedEventArgs.html",
+    "title": "Class ServerTickedEventArgs | Fluint",
+    "keywords": "Class ServerTickedEventArgs Inheritance System.Object ServerTickedEventArgs Namespace : Fluint.Layer.Networking.Client.EventArgs Assembly : Fluint.Layer.dll Syntax public class ServerTickedEventArgs : System.EventArgs Constructors | Improve this Doc View Source ServerTickedEventArgs(NetworkPacket) Declaration public ServerTickedEventArgs(NetworkPacket networkPacket) Parameters Type Name Description NetworkPacket networkPacket Properties | Improve this Doc View Source NetworkPacket The data that the server sent. Declaration public NetworkPacket NetworkPacket { get; } Property Value Type Description NetworkPacket"
   },
   "api/Fluint.Layer.Networking.Client.html": {
     "href": "api/Fluint.Layer.Networking.Client.html",
     "title": "Namespace Fluint.Layer.Networking.Client | Fluint",
-    "keywords": "Namespace Fluint.Layer.Networking.Client Classes ConnectedToServerEventArgs event arguments for when the client is connected to the server. DisconnectedFromServerEventArgs MessageReceivedEventArgs ServerTickedEventArgs Structs ClientData Interfaces IClient The managing class on the Client-Side. IClientTask"
+    "keywords": "Namespace Fluint.Layer.Networking.Client Structs ClientData Interfaces IClient The managing class on the Client-Side. IClientTask"
   },
   "api/Fluint.Layer.Networking.Client.IClient.html": {
     "href": "api/Fluint.Layer.Networking.Client.IClient.html",
@@ -1094,16 +1164,6 @@
     "title": "Interface IClientTask | Fluint",
     "keywords": "Interface IClientTask Namespace : Fluint.Layer.Networking.Client Assembly : Fluint.Layer.dll Syntax public interface IClientTask"
   },
-  "api/Fluint.Layer.Networking.Client.MessageReceivedEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Client.MessageReceivedEventArgs.html",
-    "title": "Class MessageReceivedEventArgs | Fluint",
-    "keywords": "Class MessageReceivedEventArgs Inheritance System.Object MessageReceivedEventArgs Namespace : Fluint.Layer.Networking.Client Assembly : Fluint.Layer.dll Syntax public class MessageReceivedEventArgs : EventArgs Constructors | Improve this Doc View Source MessageReceivedEventArgs(ClientData, String) Declaration public MessageReceivedEventArgs(ClientData sender, string messageData) Parameters Type Name Description ClientData sender System.String messageData Properties | Improve this Doc View Source MessageData The message text (string). Declaration public string MessageData { get; } Property Value Type Description System.String | Improve this Doc View Source Sender The Client who sent the message. Declaration public ClientData Sender { get; } Property Value Type Description ClientData"
-  },
-  "api/Fluint.Layer.Networking.Client.ServerTickedEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Client.ServerTickedEventArgs.html",
-    "title": "Class ServerTickedEventArgs | Fluint",
-    "keywords": "Class ServerTickedEventArgs Inheritance System.Object ServerTickedEventArgs Namespace : Fluint.Layer.Networking.Client Assembly : Fluint.Layer.dll Syntax public class ServerTickedEventArgs : EventArgs Constructors | Improve this Doc View Source ServerTickedEventArgs(NetworkPacket) Declaration public ServerTickedEventArgs(NetworkPacket networkPacket) Parameters Type Name Description NetworkPacket networkPacket Properties | Improve this Doc View Source NetworkPacket The data that the server sent. Declaration public NetworkPacket NetworkPacket { get; } Property Value Type Description NetworkPacket"
-  },
   "api/Fluint.Layer.Networking.DisconnectionReason.html": {
     "href": "api/Fluint.Layer.Networking.DisconnectionReason.html",
     "title": "Enum DisconnectionReason | Fluint",
@@ -1112,42 +1172,42 @@
   "api/Fluint.Layer.Networking.html": {
     "href": "api/Fluint.Layer.Networking.html",
     "title": "Namespace Fluint.Layer.Networking | Fluint",
-    "keywords": "Namespace Fluint.Layer.Networking Classes NetworkPacket A data structure to be transported Interfaces INetworkTaskManager IServerTaskHelper Enums DisconnectionReason"
+    "keywords": "Namespace Fluint.Layer.Networking Classes NetworkPacket A data structure to be transported Interfaces INetworkTaskManager Enums DisconnectionReason"
   },
   "api/Fluint.Layer.Networking.INetworkTaskManager.html": {
     "href": "api/Fluint.Layer.Networking.INetworkTaskManager.html",
     "title": "Interface INetworkTaskManager | Fluint",
     "keywords": "Interface INetworkTaskManager Namespace : Fluint.Layer.Networking Assembly : Fluint.Layer.dll Syntax public interface INetworkTaskManager Methods | Improve this Doc View Source Parse(String) Declaration void Parse(string task) Parameters Type Name Description System.String task"
   },
-  "api/Fluint.Layer.Networking.IServerTaskHelper.html": {
-    "href": "api/Fluint.Layer.Networking.IServerTaskHelper.html",
-    "title": "Interface IServerTaskHelper | Fluint",
-    "keywords": "Interface IServerTaskHelper Namespace : Fluint.Layer.Networking Assembly : Fluint.Layer.dll Syntax public interface IServerTaskHelper : IModule Properties | Improve this Doc View Source PacketsToMultiCast Declaration List<NetworkPacket> PacketsToMultiCast { get; } Property Value Type Description List < NetworkPacket > Methods | Improve this Doc View Source InvokeConnectedEvent(ClientData) Declaration void InvokeConnectedEvent(ClientData client) Parameters Type Name Description ClientData client | Improve this Doc View Source InvokeDisconnectedEvent(ClientData, DisconnectionReason) Declaration void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason) Parameters Type Name Description ClientData client DisconnectionReason reason"
-  },
   "api/Fluint.Layer.Networking.NetworkPacket.html": {
     "href": "api/Fluint.Layer.Networking.NetworkPacket.html",
     "title": "Class NetworkPacket | Fluint",
     "keywords": "Class NetworkPacket A data structure to be transported Inheritance System.Object NetworkPacket Namespace : Fluint.Layer.Networking Assembly : Fluint.Layer.dll Syntax public class NetworkPacket : object Constructors | Improve this Doc View Source NetworkPacket(String, Object[]) Declaration public NetworkPacket(string task, object[] arguments) Parameters Type Name Description System.String task System.Object [] arguments Properties | Improve this Doc View Source Arguments Declaration public object[] Arguments { get; } Property Value Type Description System.Object [] | Improve this Doc View Source Task Declaration public string Task { get; } Property Value Type Description System.String"
   },
-  "api/Fluint.Layer.Networking.Server.ClientConnectedEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Server.ClientConnectedEventArgs.html",
+  "api/Fluint.Layer.Networking.Server.EventArgs.ClientConnectedEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Server.EventArgs.ClientConnectedEventArgs.html",
     "title": "Class ClientConnectedEventArgs | Fluint",
-    "keywords": "Class ClientConnectedEventArgs Event arguments for when a client connects. Inheritance System.Object ClientConnectedEventArgs Namespace : Fluint.Layer.Networking.Server Assembly : Fluint.Layer.dll Syntax public class ClientConnectedEventArgs : EventArgs Constructors | Improve this Doc View Source ClientConnectedEventArgs(ClientData) Declaration public ClientConnectedEventArgs(ClientData client) Parameters Type Name Description ClientData client Properties | Improve this Doc View Source Client The data of the client who connected. Declaration public ClientData Client { get; } Property Value Type Description ClientData"
+    "keywords": "Class ClientConnectedEventArgs Event arguments for when a client connects. Inheritance System.Object ClientConnectedEventArgs Namespace : Fluint.Layer.Networking.Server.EventArgs Assembly : Fluint.Layer.dll Syntax public class ClientConnectedEventArgs : System.EventArgs Constructors | Improve this Doc View Source ClientConnectedEventArgs(ClientData) Declaration public ClientConnectedEventArgs(ClientData client) Parameters Type Name Description ClientData client Properties | Improve this Doc View Source Client The data of the client who connected. Declaration public ClientData Client { get; } Property Value Type Description ClientData"
   },
-  "api/Fluint.Layer.Networking.Server.ClientDisconnectedEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Server.ClientDisconnectedEventArgs.html",
+  "api/Fluint.Layer.Networking.Server.EventArgs.ClientDisconnectedEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Server.EventArgs.ClientDisconnectedEventArgs.html",
     "title": "Class ClientDisconnectedEventArgs | Fluint",
-    "keywords": "Class ClientDisconnectedEventArgs Event Arguments for when the clients disconnects. Inheritance System.Object ClientDisconnectedEventArgs Namespace : Fluint.Layer.Networking.Server Assembly : Fluint.Layer.dll Syntax public class ClientDisconnectedEventArgs : EventArgs Constructors | Improve this Doc View Source ClientDisconnectedEventArgs(ClientData, DisconnectionReason) Declaration public ClientDisconnectedEventArgs(ClientData client, DisconnectionReason reason) Parameters Type Name Description ClientData client DisconnectionReason reason Properties | Improve this Doc View Source Client The data of the client who disconnected. Declaration public ClientData Client { get; } Property Value Type Description ClientData | Improve this Doc View Source Reason The reason the client disconnected. Declaration public DisconnectionReason Reason { get; } Property Value Type Description DisconnectionReason"
+    "keywords": "Class ClientDisconnectedEventArgs Event Arguments for when the clients disconnects. Inheritance System.Object ClientDisconnectedEventArgs Namespace : Fluint.Layer.Networking.Server.EventArgs Assembly : Fluint.Layer.dll Syntax public class ClientDisconnectedEventArgs : System.EventArgs Constructors | Improve this Doc View Source ClientDisconnectedEventArgs(ClientData, DisconnectionReason) Declaration public ClientDisconnectedEventArgs(ClientData client, DisconnectionReason reason) Parameters Type Name Description ClientData client DisconnectionReason reason Properties | Improve this Doc View Source Client The data of the client who disconnected. Declaration public ClientData Client { get; } Property Value Type Description ClientData | Improve this Doc View Source Reason The reason the client disconnected. Declaration public DisconnectionReason Reason { get; } Property Value Type Description DisconnectionReason"
   },
-  "api/Fluint.Layer.Networking.Server.ClientSentDataEventArgs.html": {
-    "href": "api/Fluint.Layer.Networking.Server.ClientSentDataEventArgs.html",
+  "api/Fluint.Layer.Networking.Server.EventArgs.ClientSentDataEventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Server.EventArgs.ClientSentDataEventArgs.html",
     "title": "Class ClientSentDataEventArgs | Fluint",
-    "keywords": "Class ClientSentDataEventArgs Event Arguments for when the client sends data. Inheritance System.Object ClientSentDataEventArgs Namespace : Fluint.Layer.Networking.Server Assembly : Fluint.Layer.dll Syntax public class ClientSentDataEventArgs : EventArgs Constructors | Improve this Doc View Source ClientSentDataEventArgs(NetworkPacket, ClientData) Declaration public ClientSentDataEventArgs(NetworkPacket data, ClientData client) Parameters Type Name Description NetworkPacket data ClientData client Properties | Improve this Doc View Source Client The data of the client who sent. Declaration public ClientData Client { get; } Property Value Type Description ClientData | Improve this Doc View Source Data The Data The client sent. Declaration public NetworkPacket Data { get; } Property Value Type Description NetworkPacket"
+    "keywords": "Class ClientSentDataEventArgs Event Arguments for when the client sends data. Inheritance System.Object ClientSentDataEventArgs Namespace : Fluint.Layer.Networking.Server.EventArgs Assembly : Fluint.Layer.dll Syntax public class ClientSentDataEventArgs : System.EventArgs Constructors | Improve this Doc View Source ClientSentDataEventArgs(NetworkPacket, ClientData) Declaration public ClientSentDataEventArgs(NetworkPacket data, ClientData client) Parameters Type Name Description NetworkPacket data ClientData client Properties | Improve this Doc View Source Client The data of the client who sent. Declaration public ClientData Client { get; } Property Value Type Description ClientData | Improve this Doc View Source Data The Data The client sent. Declaration public NetworkPacket Data { get; } Property Value Type Description NetworkPacket"
+  },
+  "api/Fluint.Layer.Networking.Server.EventArgs.html": {
+    "href": "api/Fluint.Layer.Networking.Server.EventArgs.html",
+    "title": "Namespace Fluint.Layer.Networking.Server.EventArgs | Fluint",
+    "keywords": "Namespace Fluint.Layer.Networking.Server.EventArgs Classes ClientConnectedEventArgs Event arguments for when a client connects. ClientDisconnectedEventArgs Event Arguments for when the clients disconnects. ClientSentDataEventArgs Event Arguments for when the client sends data."
   },
   "api/Fluint.Layer.Networking.Server.html": {
     "href": "api/Fluint.Layer.Networking.Server.html",
     "title": "Namespace Fluint.Layer.Networking.Server | Fluint",
-    "keywords": "Namespace Fluint.Layer.Networking.Server Classes ClientConnectedEventArgs Event arguments for when a client connects. ClientDisconnectedEventArgs Event Arguments for when the clients disconnects. ClientSentDataEventArgs Event Arguments for when the client sends data. Structs ServerData an interface for storing the server's data. Interfaces IServer The managing class on the Server-Side. IServerTask"
+    "keywords": "Namespace Fluint.Layer.Networking.Server Structs ServerData an interface for storing the server's data. Interfaces IServer The managing class on the Server-Side. IServerTask IServerTaskHelper"
   },
   "api/Fluint.Layer.Networking.Server.IServer.html": {
     "href": "api/Fluint.Layer.Networking.Server.IServer.html",
@@ -1159,20 +1219,20 @@
     "title": "Interface IServerTask | Fluint",
     "keywords": "Interface IServerTask Namespace : Fluint.Layer.Networking.Server Assembly : Fluint.Layer.dll Syntax public interface IServerTask : IModule Properties | Improve this Doc View Source TaskId Declaration string TaskId { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Do(ref IServerTaskHelper) Declaration void Do(ref IServerTaskHelper helper) Parameters Type Name Description IServerTaskHelper helper"
   },
+  "api/Fluint.Layer.Networking.Server.IServerTaskHelper.html": {
+    "href": "api/Fluint.Layer.Networking.Server.IServerTaskHelper.html",
+    "title": "Interface IServerTaskHelper | Fluint",
+    "keywords": "Interface IServerTaskHelper Namespace : Fluint.Layer.Networking.Server Assembly : Fluint.Layer.dll Syntax public interface IServerTaskHelper : IModule Properties | Improve this Doc View Source PacketsToMultiCast Declaration List<NetworkPacket> PacketsToMultiCast { get; } Property Value Type Description List < NetworkPacket > Methods | Improve this Doc View Source InvokeConnectedEvent(ClientData) Declaration void InvokeConnectedEvent(ClientData client) Parameters Type Name Description ClientData client | Improve this Doc View Source InvokeDisconnectedEvent(ClientData, DisconnectionReason) Declaration void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason) Parameters Type Name Description ClientData client DisconnectionReason reason"
+  },
   "api/Fluint.Layer.Networking.Server.ServerData.html": {
     "href": "api/Fluint.Layer.Networking.Server.ServerData.html",
     "title": "Struct ServerData | Fluint",
     "keywords": "Struct ServerData an interface for storing the server's data. Namespace : Fluint.Layer.Networking.Server Assembly : Fluint.Layer.dll Syntax public struct ServerData Properties | Improve this Doc View Source IpAddress The IP Address of the server. Declaration public string IpAddress { get; set; } Property Value Type Description System.String | Improve this Doc View Source Name The name/tag of the server. (Can be changed at runtime) Declaration public string Name { get; set; } Property Value Type Description System.String | Improve this Doc View Source Port The Port Number for clients to connect through. Declaration public int Port { get; set; } Property Value Type Description System.Int32 | Improve this Doc View Source TickDelay The tick delay of the server state, dedicates the tick rate. Declaration public int TickDelay { get; set; } Property Value Type Description System.Int32"
   },
-  "api/Fluint.Layer.Runtime.FluintInstance.html": {
-    "href": "api/Fluint.Layer.Runtime.FluintInstance.html",
-    "title": "Class FluintInstance | Fluint",
-    "keywords": "Class FluintInstance Inheritance System.Object FluintInstance Implements IRuntime Namespace : Fluint.Layer.Runtime Assembly : Fluint.Layer.dll Syntax public class FluintInstance : object, IRuntime Properties | Improve this Doc View Source Id Declaration public int Id { get; } Property Value Type Description System.Int32 | Improve this Doc View Source Manifest Declaration public StartupManifest Manifest { get; } Property Value Type Description Fluint.Layer.StartupManifest | Improve this Doc View Source Packet Declaration public ModulePacket Packet { get; } Property Value Type Description ModulePacket | Improve this Doc View Source Parent Declaration public InstanceManager Parent { get; } Property Value Type Description InstanceManager | Improve this Doc View Source TaskManager Declaration public ITaskManager TaskManager { get; } Property Value Type Description ITaskManager Methods | Improve this Doc View Source Create(Int32, StartupManifest, ModulePacket, InstanceManager) Declaration public void Create(int id, StartupManifest manifest, ModulePacket packet, InstanceManager parent) Parameters Type Name Description System.Int32 id Fluint.Layer.StartupManifest manifest ModulePacket packet InstanceManager parent | Improve this Doc View Source Kill() Declaration public void Kill() | Improve this Doc View Source Start() Declaration public void Start() Implements IRuntime"
-  },
   "api/Fluint.Layer.Runtime.html": {
     "href": "api/Fluint.Layer.Runtime.html",
     "title": "Namespace Fluint.Layer.Runtime | Fluint",
-    "keywords": "Namespace Fluint.Layer.Runtime Classes FluintInstance InstanceManager Interfaces ICommandLineArgument ICommandLineArgumentParser"
+    "keywords": "Namespace Fluint.Layer.Runtime Classes Instance InstanceManager Interfaces ICommandLineArgument ICommandLineArgumentParser"
   },
   "api/Fluint.Layer.Runtime.ICommandLineArgument.html": {
     "href": "api/Fluint.Layer.Runtime.ICommandLineArgument.html",
@@ -1183,6 +1243,11 @@
     "href": "api/Fluint.Layer.Runtime.ICommandLineArgumentParser.html",
     "title": "Interface ICommandLineArgumentParser | Fluint",
     "keywords": "Interface ICommandLineArgumentParser Namespace : Fluint.Layer.Runtime Assembly : Fluint.Layer.dll Syntax public interface ICommandLineArgumentParser : IModule Methods | Improve this Doc View Source Parse(String, String[]) Declaration void Parse(string command, string[] arguments) Parameters Type Name Description System.String command System.String [] arguments"
+  },
+  "api/Fluint.Layer.Runtime.Instance.html": {
+    "href": "api/Fluint.Layer.Runtime.Instance.html",
+    "title": "Class Instance | Fluint",
+    "keywords": "Class Instance Inheritance System.Object Instance Implements IRuntime Namespace : Fluint.Layer.Runtime Assembly : Fluint.Layer.dll Syntax public class Instance : object, IRuntime Properties | Improve this Doc View Source Id Declaration public int Id { get; } Property Value Type Description System.Int32 | Improve this Doc View Source ModuleManifest Declaration public ModuleManifest ModuleManifest { get; } Property Value Type Description ModuleManifest | Improve this Doc View Source Packet Declaration public ModulePacket Packet { get; } Property Value Type Description ModulePacket | Improve this Doc View Source Parent Declaration public InstanceManager Parent { get; } Property Value Type Description InstanceManager | Improve this Doc View Source StartupManifest Declaration public StartupManifest StartupManifest { get; } Property Value Type Description Fluint.Layer.StartupManifest | Improve this Doc View Source TaskManager Declaration public ITaskManager TaskManager { get; } Property Value Type Description ITaskManager Methods | Improve this Doc View Source Create(Int32, StartupManifest, ModuleManifest, ModulePacket, InstanceManager) Declaration public void Create(int id, StartupManifest startupManifest, ModuleManifest moduleManifest, ModulePacket packet, InstanceManager parent) Parameters Type Name Description System.Int32 id Fluint.Layer.StartupManifest startupManifest ModuleManifest moduleManifest ModulePacket packet InstanceManager parent | Improve this Doc View Source Kill() Declaration public void Kill() | Improve this Doc View Source Start() Declaration public void Start() Implements IRuntime"
   },
   "api/Fluint.Layer.Runtime.InstanceManager.html": {
     "href": "api/Fluint.Layer.Runtime.InstanceManager.html",
@@ -1202,7 +1267,7 @@
   "api/Fluint.Layer.SDK.ILambdaListener.html": {
     "href": "api/Fluint.Layer.SDK.ILambdaListener.html",
     "title": "Interface ILambdaListener | Fluint",
-    "keywords": "Interface ILambdaListener Namespace : Fluint.Layer.SDK Assembly : Fluint.Layer.dll Syntax public interface ILambdaListener : IModule Methods | Improve this Doc View Source Execute(String) Declaration void Execute(string command) Parameters Type Name Description System.String command | Improve this Doc View Source Listen() Declaration void Listen()"
+    "keywords": "Interface ILambdaListener Namespace : Fluint.Layer.SDK Assembly : Fluint.Layer.dll Syntax public interface ILambdaListener : IModule Methods | Improve this Doc View Source Execute(String) Declaration void Execute(string command) Parameters Type Name Description System.String command | Improve this Doc View Source Listen() Declaration void Listen() | Improve this Doc View Source Parse(String) Declaration (string command, string[] arguments) Parse(string input) Parameters Type Name Description System.String input Returns Type Description System.ValueTuple < System.String , System.String []>"
   },
   "api/Fluint.Layer.SDK.ILambdaMemory.html": {
     "href": "api/Fluint.Layer.SDK.ILambdaMemory.html",
@@ -1227,7 +1292,7 @@
   "api/Fluint.Layer.SDK.SdkInstance.html": {
     "href": "api/Fluint.Layer.SDK.SdkInstance.html",
     "title": "Class SdkInstance | Fluint",
-    "keywords": "Class SdkInstance Inheritance System.Object SdkInstance Implements IRuntime Namespace : Fluint.Layer.SDK Assembly : Fluint.Layer.dll Syntax public class SdkInstance : object, IRuntime Properties | Improve this Doc View Source Id Declaration public int Id { get; } Property Value Type Description System.Int32 | Improve this Doc View Source Manifest Declaration public StartupManifest Manifest { get; } Property Value Type Description Fluint.Layer.StartupManifest | Improve this Doc View Source Packet Declaration public ModulePacket Packet { get; } Property Value Type Description ModulePacket | Improve this Doc View Source Parent Declaration public InstanceManager Parent { get; } Property Value Type Description InstanceManager Methods | Improve this Doc View Source Create(Int32, StartupManifest, ModulePacket, InstanceManager) Declaration public void Create(int id, StartupManifest manifest, ModulePacket packet, InstanceManager parent) Parameters Type Name Description System.Int32 id Fluint.Layer.StartupManifest manifest ModulePacket packet InstanceManager parent | Improve this Doc View Source Kill() Declaration public void Kill() | Improve this Doc View Source Start() Declaration public void Start() Implements IRuntime"
+    "keywords": "Class SdkInstance Inheritance System.Object SdkInstance Implements IRuntime Namespace : Fluint.Layer.SDK Assembly : Fluint.Layer.dll Syntax public class SdkInstance : object, IRuntime Properties | Improve this Doc View Source Id Declaration public int Id { get; } Property Value Type Description System.Int32 | Improve this Doc View Source ModuleManifest Declaration public ModuleManifest ModuleManifest { get; } Property Value Type Description ModuleManifest | Improve this Doc View Source Packet Declaration public ModulePacket Packet { get; } Property Value Type Description ModulePacket | Improve this Doc View Source Parent Declaration public InstanceManager Parent { get; } Property Value Type Description InstanceManager | Improve this Doc View Source StartupManifest Declaration public StartupManifest StartupManifest { get; } Property Value Type Description Fluint.Layer.StartupManifest Methods | Improve this Doc View Source Create(Int32, StartupManifest, ModuleManifest, ModulePacket, InstanceManager) Declaration public void Create(int id, StartupManifest startupManifest, ModuleManifest moduleManifest, ModulePacket packet, InstanceManager parent) Parameters Type Name Description System.Int32 id Fluint.Layer.StartupManifest startupManifest ModuleManifest moduleManifest ModulePacket packet InstanceManager parent | Improve this Doc View Source Kill() Declaration public void Kill() | Improve this Doc View Source Start() Declaration public void Start() Implements IRuntime"
   },
   "api/Fluint.Layer.StateManagement.GlobalContext.html": {
     "href": "api/Fluint.Layer.StateManagement.GlobalContext.html",
@@ -1429,25 +1494,35 @@
     "title": "Class UIConfiguration | Fluint",
     "keywords": "Class UIConfiguration Inheritance System.Object UIConfiguration Implements IConfiguration Namespace : Fluint.Layer.UI Assembly : Fluint.Layer.dll Syntax public class UIConfiguration : object, IConfiguration Constructors | Improve this Doc View Source UIConfiguration() Declaration public UIConfiguration() Properties | Improve this Doc View Source Fonts Declaration public UIConfiguration.Font[] Fonts { get; set; } Property Value Type Description Fluint.Layer.UI.UIConfiguration.Font [] | Improve this Doc View Source Language Declaration public string Language { get; set; } Property Value Type Description System.String Implements IConfiguration"
   },
+  "api/Fluint.Layer.VirtualFileSystem.DirectoryChangedEvent.html": {
+    "href": "api/Fluint.Layer.VirtualFileSystem.DirectoryChangedEvent.html",
+    "title": "Class DirectoryChangedEvent | Fluint",
+    "keywords": "Class DirectoryChangedEvent Inheritance System.Object DirectoryChangedEvent Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public class DirectoryChangedEvent : EventArgs"
+  },
+  "api/Fluint.Layer.VirtualFileSystem.FileChangedEvent.html": {
+    "href": "api/Fluint.Layer.VirtualFileSystem.FileChangedEvent.html",
+    "title": "Class FileChangedEvent | Fluint",
+    "keywords": "Class FileChangedEvent Inheritance System.Object FileChangedEvent Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public class FileChangedEvent : EventArgs"
+  },
   "api/Fluint.Layer.VirtualFileSystem.html": {
     "href": "api/Fluint.Layer.VirtualFileSystem.html",
     "title": "Namespace Fluint.Layer.VirtualFileSystem | Fluint",
-    "keywords": "Namespace Fluint.Layer.VirtualFileSystem Interfaces IDirectory IFile IVirtualFileSystem"
+    "keywords": "Namespace Fluint.Layer.VirtualFileSystem Classes DirectoryChangedEvent FileChangedEvent Interfaces IDirectory IFile IVirtualFileSystem"
   },
   "api/Fluint.Layer.VirtualFileSystem.IDirectory.html": {
     "href": "api/Fluint.Layer.VirtualFileSystem.IDirectory.html",
     "title": "Interface IDirectory | Fluint",
-    "keywords": "Interface IDirectory Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public interface IDirectory Methods | Improve this Doc View Source AddDirectory(String, IDirectory) Declaration void AddDirectory(string virtualPath, IDirectory directory) Parameters Type Name Description System.String virtualPath IDirectory directory | Improve this Doc View Source AddDirectory(String, String) Declaration IDirectory AddDirectory(string virtualPath, string physicalPath) Parameters Type Name Description System.String virtualPath System.String physicalPath Returns Type Description IDirectory | Improve this Doc View Source AddFile(String, IFile) Declaration void AddFile(string virtualPath, IFile file) Parameters Type Name Description System.String virtualPath IFile file | Improve this Doc View Source AddFile(String, String) Declaration IFile AddFile(string virtualPath, string physicalPath) Parameters Type Name Description System.String virtualPath System.String physicalPath Returns Type Description IFile"
+    "keywords": "Interface IDirectory Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public interface IDirectory : IModule Methods | Improve this Doc View Source AddDirectory(String, IDirectory) Declaration void AddDirectory(string name, IDirectory directory) Parameters Type Name Description System.String name IDirectory directory | Improve this Doc View Source AddDirectory(String, String) Declaration IDirectory AddDirectory(string name, string physicalPath) Parameters Type Name Description System.String name System.String physicalPath Returns Type Description IDirectory | Improve this Doc View Source AddFile(String, IFile) Declaration void AddFile(string name, IFile file) Parameters Type Name Description System.String name IFile file | Improve this Doc View Source AddFile(String, String) Declaration IFile AddFile(string name, string physicalPath) Parameters Type Name Description System.String name System.String physicalPath Returns Type Description IFile | Improve this Doc View Source GetDirectory(String) Declaration IDirectory GetDirectory(string name) Parameters Type Name Description System.String name Returns Type Description IDirectory | Improve this Doc View Source GetFile(String) Declaration IFile GetFile(string name) Parameters Type Name Description System.String name Returns Type Description IFile | Improve this Doc View Source HasDirectory(String) Declaration bool HasDirectory(string name) Parameters Type Name Description System.String name Returns Type Description System.Boolean | Improve this Doc View Source HasFile(String) Declaration bool HasFile(string name) Parameters Type Name Description System.String name Returns Type Description System.Boolean | Improve this Doc View Source TryGetDirectory(String, out IDirectory) Declaration bool TryGetDirectory(string name, out IDirectory directory) Parameters Type Name Description System.String name IDirectory directory Returns Type Description System.Boolean | Improve this Doc View Source TryGetFile(String, out IFile) Declaration bool TryGetFile(string name, out IFile file) Parameters Type Name Description System.String name IFile file Returns Type Description System.Boolean | Improve this Doc View Source UpdateDirectory(String) Declaration void UpdateDirectory(string physicalPath) Parameters Type Name Description System.String physicalPath Events | Improve this Doc View Source OnChange Declaration event EventHandler<DirectoryChangedEvent> OnChange Event Type Type Description EventHandler < DirectoryChangedEvent >"
   },
   "api/Fluint.Layer.VirtualFileSystem.IFile.html": {
     "href": "api/Fluint.Layer.VirtualFileSystem.IFile.html",
     "title": "Interface IFile | Fluint",
-    "keywords": "Interface IFile Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public interface IFile Properties | Improve this Doc View Source Data Declaration object Data { get; } Property Value Type Description System.Object"
+    "keywords": "Interface IFile Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public interface IFile : IModule Properties | Improve this Doc View Source Bytes Declaration byte[] Bytes { get; } Property Value Type Description System.Byte [] Methods | Improve this Doc View Source ToString() Declaration virtual string ToString() Returns Type Description System.String | Improve this Doc View Source Update(String) Declaration void Update(string file) Parameters Type Name Description System.String file"
   },
   "api/Fluint.Layer.VirtualFileSystem.IVirtualFileSystem.html": {
     "href": "api/Fluint.Layer.VirtualFileSystem.IVirtualFileSystem.html",
     "title": "Interface IVirtualFileSystem | Fluint",
-    "keywords": "Interface IVirtualFileSystem Inherited Members IDirectory.AddDirectory(String, IDirectory) IDirectory.AddDirectory(String, String) IDirectory.AddFile(String, IFile) IDirectory.AddFile(String, String) Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public interface IVirtualFileSystem : IModule, IDirectory Methods | Improve this Doc View Source LoadFromFile(String) Declaration void LoadFromFile(string path) Parameters Type Name Description System.String path | Improve this Doc View Source QueryDirectory(String) Declaration IDirectory QueryDirectory(string path) Parameters Type Name Description System.String path Returns Type Description IDirectory | Improve this Doc View Source QueryFile(String) Declaration IFile QueryFile(string path) Parameters Type Name Description System.String path Returns Type Description IFile | Improve this Doc View Source SaveToFile(String) Declaration void SaveToFile(string path) Parameters Type Name Description System.String path"
+    "keywords": "Interface IVirtualFileSystem Namespace : Fluint.Layer.VirtualFileSystem Assembly : Fluint.Layer.dll Syntax public interface IVirtualFileSystem : IModule Properties | Improve this Doc View Source Root Declaration IDirectory Root { get; } Property Value Type Description IDirectory Methods | Improve this Doc View Source LoadFromFile(String) Declaration void LoadFromFile(string path) Parameters Type Name Description System.String path | Improve this Doc View Source QueryDirectory(String) Declaration IDirectory QueryDirectory(string path) Parameters Type Name Description System.String path Returns Type Description IDirectory | Improve this Doc View Source QueryFile(String) Declaration IFile QueryFile(string path) Parameters Type Name Description System.String path Returns Type Description IFile | Improve this Doc View Source SaveToFile(String) Declaration void SaveToFile(string path) Parameters Type Name Description System.String path"
   },
   "api/Fluint.Layer.Windowing.html": {
     "href": "api/Fluint.Layer.Windowing.html",
@@ -1544,15 +1619,15 @@
     "title": "Class ServerTaskHelper | Fluint",
     "keywords": "Class ServerTaskHelper Inheritance System.Object ServerTaskHelper Implements IServerTaskHelper IModule Namespace : Fluint.Networking.Base.Server Assembly : Fluint.Networking.Base.dll Syntax public class ServerTaskHelper : object, IServerTaskHelper, IModule Constructors | Improve this Doc View Source ServerTaskHelper() Declaration public ServerTaskHelper() Properties | Improve this Doc View Source PacketsToMultiCast Declaration public List<NetworkPacket> PacketsToMultiCast { get; } Property Value Type Description List < NetworkPacket > Methods | Improve this Doc View Source InvokeConnectedEvent(ClientData) Declaration public void InvokeConnectedEvent(ClientData client) Parameters Type Name Description ClientData client | Improve this Doc View Source InvokeDisconnectedEvent(ClientData, DisconnectionReason) Declaration public void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason) Parameters Type Name Description ClientData client DisconnectionReason reason Events | Improve this Doc View Source ClientConnected Declaration public event EventHandler<ClientConnectedEventArgs> ClientConnected Event Type Type Description EventHandler < ClientConnectedEventArgs > | Improve this Doc View Source ClientDisconnected Declaration public event EventHandler<ClientDisconnectedEventArgs> ClientDisconnected Event Type Type Description EventHandler < ClientDisconnectedEventArgs > Implements IServerTaskHelper IModule"
   },
-  "api/Fluint.Runtime.Fluint.html": {
-    "href": "api/Fluint.Runtime.Fluint.html",
-    "title": "Class Fluint | Fluint",
-    "keywords": "Class Fluint Inheritance System.Object Fluint Namespace : Fluint.Runtime Assembly : Fluint.Runtime.dll Syntax public class Fluint : object Methods | Improve this Doc View Source Start() Declaration public void Start()"
+  "api/Fluint.Runtime.Editor.html": {
+    "href": "api/Fluint.Runtime.Editor.html",
+    "title": "Class Editor | Fluint",
+    "keywords": "Class Editor Inheritance System.Object Editor Namespace : Fluint.Runtime Assembly : Fluint.Editor.Runtime.dll Syntax public class Editor : object Methods | Improve this Doc View Source Start() Declaration public static void Start()"
   },
   "api/Fluint.Runtime.html": {
     "href": "api/Fluint.Runtime.html",
     "title": "Namespace Fluint.Runtime | Fluint",
-    "keywords": "Namespace Fluint.Runtime Classes Fluint"
+    "keywords": "Namespace Fluint.Runtime Classes Editor"
   },
   "api/Fluint.SDK.Base.ConsoleKeyHandler.html": {
     "href": "api/Fluint.SDK.Base.ConsoleKeyHandler.html",
@@ -1567,7 +1642,7 @@
   "api/Fluint.SDK.Base.LambdaListener.html": {
     "href": "api/Fluint.SDK.Base.LambdaListener.html",
     "title": "Class LambdaListener | Fluint",
-    "keywords": "Class LambdaListener Inheritance System.Object LambdaListener Implements ILambdaListener IModule Namespace : Fluint.SDK.Base Assembly : Fluint.SDK.Base.dll Syntax public class LambdaListener : object, ILambdaListener, IModule Constructors | Improve this Doc View Source LambdaListener(ModulePacket) Declaration public LambdaListener(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Execute(String) Declaration public void Execute(string command) Parameters Type Name Description System.String command | Improve this Doc View Source Execute(String, String[]) Declaration public LambdaObject Execute(string command, string[] args) Parameters Type Name Description System.String command System.String [] args Returns Type Description LambdaObject | Improve this Doc View Source Listen() Declaration public void Listen() | Improve this Doc View Source Parse(String) Declaration public static (string command, string[] arguments) Parse(string input) Parameters Type Name Description System.String input Returns Type Description System.ValueTuple < System.String , System.String []> | Improve this Doc View Source Split(String, Func<Char, Boolean>) Declaration public static IEnumerable<string> Split(string str, Func<char, bool> controller) Parameters Type Name Description System.String str Func < System.Char , System.Boolean > controller Returns Type Description IEnumerable < System.String > | Improve this Doc View Source TrimMatchingQuotes(String, Char) Declaration public static string TrimMatchingQuotes(string input, char quote) Parameters Type Name Description System.String input System.Char quote Returns Type Description System.String Implements ILambdaListener IModule"
+    "keywords": "Class LambdaListener Inheritance System.Object LambdaListener Implements ILambdaListener IModule Namespace : Fluint.SDK.Base Assembly : Fluint.SDK.Base.dll Syntax public class LambdaListener : object, ILambdaListener, IModule Constructors | Improve this Doc View Source LambdaListener(ModulePacket) Declaration public LambdaListener(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Execute(String) Declaration public void Execute(string command) Parameters Type Name Description System.String command | Improve this Doc View Source Listen() Declaration public void Listen() | Improve this Doc View Source Parse(String) Declaration public (string command, string[] arguments) Parse(string input) Parameters Type Name Description System.String input Returns Type Description System.ValueTuple < System.String , System.String []> | Improve this Doc View Source Split(String, Func<Char, Boolean>) Declaration public static IEnumerable<string> Split(string str, Func<char, bool> controller) Parameters Type Name Description System.String str Func < System.Char , System.Boolean > controller Returns Type Description IEnumerable < System.String > | Improve this Doc View Source TrimMatchingQuotes(String, Char) Declaration public static string TrimMatchingQuotes(string input, char quote) Parameters Type Name Description System.String input System.Char quote Returns Type Description System.String Implements ILambdaListener IModule"
   },
   "api/Fluint.SDK.Base.LambdaMemory.html": {
     "href": "api/Fluint.SDK.Base.LambdaMemory.html",
@@ -1579,140 +1654,10 @@
     "title": "Class LambdaParser | Fluint",
     "keywords": "Class LambdaParser Inheritance System.Object LambdaParser Implements ILambdaParser IModule Namespace : Fluint.SDK.Base Assembly : Fluint.SDK.Base.dll Syntax public class LambdaParser : object, ILambdaParser, IModule Constructors | Improve this Doc View Source LambdaParser(ModulePacket) Declaration public LambdaParser(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Add(ILambda) Declaration public void Add(ILambda command) Parameters Type Name Description ILambda command | Improve this Doc View Source Parse(String, String[]) Declaration public LambdaObject Parse(string command, string[] args) Parameters Type Name Description System.String command System.String [] args Returns Type Description LambdaObject Implements ILambdaParser IModule"
   },
-  "api/Fluint.SDK.Base.Lambdas.Adopt.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Adopt.html",
-    "title": "Class Adopt | Fluint",
-    "keywords": "Class Adopt Inheritance System.Object Adopt Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Adopt : object, ILambda, IModule Constructors | Improve this Doc View Source Adopt(ModulePacket) Declaration public Adopt(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Async.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Async.html",
-    "title": "Class Async | Fluint",
-    "keywords": "Class Async Inheritance System.Object Async Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Async : object, ILambda, IModule Constructors | Improve this Doc View Source Async(ModulePacket) Declaration public Async(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Clear.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Clear.html",
-    "title": "Class Clear | Fluint",
-    "keywords": "Class Clear Inheritance System.Object Clear Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Clear : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Clients.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Clients.html",
-    "title": "Class Clients | Fluint",
-    "keywords": "Class Clients Inheritance System.Object Clients Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Clients : object, ILambda, IModule Constructors | Improve this Doc View Source Clients(ModulePacket, ILogger) Declaration public Clients(ModulePacket packet, ILogger logger) Parameters Type Name Description ModulePacket packet ILogger logger Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Connect.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Connect.html",
-    "title": "Class Connect | Fluint",
-    "keywords": "Class Connect Inheritance System.Object Connect Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Connect : object, ILambda, IModule Constructors | Improve this Doc View Source Connect(ModulePacket) Declaration public Connect(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Create.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Create.html",
-    "title": "Class Create | Fluint",
-    "keywords": "Class Create Inheritance System.Object Create Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Create : object, ILambda, IModule Constructors | Improve this Doc View Source Create(ModulePacket) Declaration public Create(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Debug.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Debug.html",
-    "title": "Class Debug | Fluint",
-    "keywords": "Class Debug Inheritance System.Object Debug Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Debug : object, ILambda, IModule Constructors | Improve this Doc View Source Debug(ModulePacket) Declaration public Debug(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Disconnect.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Disconnect.html",
-    "title": "Class Disconnect | Fluint",
-    "keywords": "Class Disconnect Inheritance System.Object Disconnect Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Disconnect : object, ILambda, IModule Constructors | Improve this Doc View Source Disconnect(ModulePacket) Declaration public Disconnect(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Dump.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Dump.html",
-    "title": "Class Dump | Fluint",
-    "keywords": "Class Dump Inheritance System.Object Dump Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Dump : object, ILambda, IModule Constructors | Improve this Doc View Source Dump(ModulePacket) Declaration public Dump(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Echo.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Echo.html",
-    "title": "Class Echo | Fluint",
-    "keywords": "Class Echo Inheritance System.Object Echo Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Echo : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Error.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Error.html",
-    "title": "Class Error | Fluint",
-    "keywords": "Class Error Inheritance System.Object Error Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Error : object, ILambda, IModule Constructors | Improve this Doc View Source Error(ModulePacket) Declaration public Error(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Exit.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Exit.html",
-    "title": "Class Exit | Fluint",
-    "keywords": "Class Exit Inheritance System.Object Exit Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Exit : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Fatal.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Fatal.html",
-    "title": "Class Fatal | Fluint",
-    "keywords": "Class Fatal Inheritance System.Object Fatal Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Fatal : object, ILambda, IModule Constructors | Improve this Doc View Source Fatal(ModulePacket) Declaration public Fatal(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.html",
-    "title": "Namespace Fluint.SDK.Base.Lambdas | Fluint",
-    "keywords": "Namespace Fluint.SDK.Base.Lambdas Classes Adopt Async Clear Clients Connect Create Debug Disconnect Dump Echo Error Exit Fatal Information Jsonize Listen Load Repeat Say Singleton Sleep Verbose Warning"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Information.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Information.html",
-    "title": "Class Information | Fluint",
-    "keywords": "Class Information Inheritance System.Object Information Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Information : object, ILambda, IModule Constructors | Improve this Doc View Source Information(ModulePacket) Declaration public Information(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Jsonize.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Jsonize.html",
-    "title": "Class Jsonize | Fluint",
-    "keywords": "Class Jsonize Inheritance System.Object Jsonize Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Jsonize : object, ILambda, IModule Constructors | Improve this Doc View Source Jsonize(ModulePacket) Declaration public Jsonize(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Listen.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Listen.html",
-    "title": "Class Listen | Fluint",
-    "keywords": "Class Listen Inheritance System.Object Listen Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Listen : object, ILambda, IModule Constructors | Improve this Doc View Source Listen(ModulePacket) Declaration public Listen(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Load.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Load.html",
-    "title": "Class Load | Fluint",
-    "keywords": "Class Load Inheritance System.Object Load Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Load : object, ILambda, IModule Constructors | Improve this Doc View Source Load(ModulePacket) Declaration public Load(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Repeat.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Repeat.html",
-    "title": "Class Repeat | Fluint",
-    "keywords": "Class Repeat Inheritance System.Object Repeat Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Repeat : object, ILambda, IModule Constructors | Improve this Doc View Source Repeat(ModulePacket) Declaration public Repeat(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Say.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Say.html",
-    "title": "Class Say | Fluint",
-    "keywords": "Class Say Inheritance System.Object Say Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Say : object, ILambda, IModule Constructors | Improve this Doc View Source Say(ModulePacket) Declaration public Say(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Singleton.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Singleton.html",
-    "title": "Class Singleton | Fluint",
-    "keywords": "Class Singleton Inheritance System.Object Singleton Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Singleton : object, ILambda, IModule Constructors | Improve this Doc View Source Singleton(ModulePacket) Declaration public Singleton(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Sleep.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Sleep.html",
-    "title": "Class Sleep | Fluint",
-    "keywords": "Class Sleep Inheritance System.Object Sleep Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Sleep : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Verbose.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Verbose.html",
-    "title": "Class Verbose | Fluint",
-    "keywords": "Class Verbose Inheritance System.Object Verbose Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Verbose : object, ILambda, IModule Constructors | Improve this Doc View Source Verbose(ModulePacket) Declaration public Verbose(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Lambdas.Warning.html": {
-    "href": "api/Fluint.SDK.Base.Lambdas.Warning.html",
-    "title": "Class Warning | Fluint",
-    "keywords": "Class Warning Inheritance System.Object Warning Implements ILambda IModule Namespace : Fluint.SDK.Base.Lambdas Assembly : Fluint.SDK.Base.dll Syntax public class Warning : object, ILambda, IModule Constructors | Improve this Doc View Source Warning(ModulePacket) Declaration public Warning(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
-  },
-  "api/Fluint.SDK.Base.Tasks.html": {
-    "href": "api/Fluint.SDK.Base.Tasks.html",
-    "title": "Namespace Fluint.SDK.Base.Tasks | Fluint",
-    "keywords": "Namespace Fluint.SDK.Base.Tasks Classes TaskManager"
-  },
-  "api/Fluint.SDK.Base.Tasks.TaskManager.html": {
-    "href": "api/Fluint.SDK.Base.Tasks.TaskManager.html",
-    "title": "Class TaskManager | Fluint",
-    "keywords": "Class TaskManager Inheritance System.Object TaskManager Implements ITaskManager IModule Namespace : Fluint.SDK.Base.Tasks Assembly : Fluint.Tasks.Base.dll Syntax public class TaskManager : object, ITaskManager, IModule Constructors | Improve this Doc View Source TaskManager(ModulePacket) Declaration public TaskManager(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Invoke(TaskSchedule) Declaration public void Invoke(TaskSchedule schedule) Parameters Type Name Description TaskSchedule schedule | Improve this Doc View Source Invoke(TaskSchedule, TaskArgs) Declaration public void Invoke(TaskSchedule schedule, TaskArgs args) Parameters Type Name Description TaskSchedule schedule TaskArgs args | Improve this Doc View Source StopAll() Declaration public void StopAll() Implements ITaskManager IModule"
-  },
   "api/Fluint.SDK.Commands.About.html": {
     "href": "api/Fluint.SDK.Commands.About.html",
     "title": "Class About | Fluint",
-    "keywords": "Class About Inheritance System.Object About Implements ILambda IModule Namespace : Fluint.SDK.Commands Assembly : Fluint.SDK.dll Syntax public class About : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+    "keywords": "Class About Inheritance System.Object About Implements ILambda IModule Namespace : Fluint.SDK.Commands Assembly : Fluint.SDK.Runtime.dll Syntax public class About : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
   },
   "api/Fluint.SDK.Commands.html": {
     "href": "api/Fluint.SDK.Commands.html",
@@ -1724,10 +1669,145 @@
     "title": "Namespace Fluint.SDK | Fluint",
     "keywords": "Namespace Fluint.SDK Classes Sdk"
   },
+  "api/Fluint.SDK.Lambdas.Base.Adopt.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Adopt.html",
+    "title": "Class Adopt | Fluint",
+    "keywords": "Class Adopt Inheritance System.Object Adopt Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Adopt : object, ILambda, IModule Constructors | Improve this Doc View Source Adopt(ModulePacket) Declaration public Adopt(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Async.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Async.html",
+    "title": "Class Async | Fluint",
+    "keywords": "Class Async Inheritance System.Object Async Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Async : object, ILambda, IModule Constructors | Improve this Doc View Source Async(ModulePacket) Declaration public Async(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Clear.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Clear.html",
+    "title": "Class Clear | Fluint",
+    "keywords": "Class Clear Inheritance System.Object Clear Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Clear : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Clients.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Clients.html",
+    "title": "Class Clients | Fluint",
+    "keywords": "Class Clients Inheritance System.Object Clients Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Clients : object, ILambda, IModule Constructors | Improve this Doc View Source Clients(ModulePacket, ILogger) Declaration public Clients(ModulePacket packet, ILogger logger) Parameters Type Name Description ModulePacket packet ILogger logger Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Connect.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Connect.html",
+    "title": "Class Connect | Fluint",
+    "keywords": "Class Connect Inheritance System.Object Connect Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Connect : object, ILambda, IModule Constructors | Improve this Doc View Source Connect(ModulePacket) Declaration public Connect(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Create.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Create.html",
+    "title": "Class Create | Fluint",
+    "keywords": "Class Create Inheritance System.Object Create Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Create : object, ILambda, IModule Constructors | Improve this Doc View Source Create(ModulePacket) Declaration public Create(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Debug.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Debug.html",
+    "title": "Class Debug | Fluint",
+    "keywords": "Class Debug Inheritance System.Object Debug Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Debug : object, ILambda, IModule Constructors | Improve this Doc View Source Debug(ModulePacket) Declaration public Debug(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Disconnect.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Disconnect.html",
+    "title": "Class Disconnect | Fluint",
+    "keywords": "Class Disconnect Inheritance System.Object Disconnect Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Disconnect : object, ILambda, IModule Constructors | Improve this Doc View Source Disconnect(ModulePacket) Declaration public Disconnect(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Dump.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Dump.html",
+    "title": "Class Dump | Fluint",
+    "keywords": "Class Dump Inheritance System.Object Dump Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Dump : object, ILambda, IModule Constructors | Improve this Doc View Source Dump(ModulePacket) Declaration public Dump(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Echo.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Echo.html",
+    "title": "Class Echo | Fluint",
+    "keywords": "Class Echo Inheritance System.Object Echo Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Echo : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Error.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Error.html",
+    "title": "Class Error | Fluint",
+    "keywords": "Class Error Inheritance System.Object Error Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Error : object, ILambda, IModule Constructors | Improve this Doc View Source Error(ModulePacket) Declaration public Error(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Exit.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Exit.html",
+    "title": "Class Exit | Fluint",
+    "keywords": "Class Exit Inheritance System.Object Exit Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Exit : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Fatal.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Fatal.html",
+    "title": "Class Fatal | Fluint",
+    "keywords": "Class Fatal Inheritance System.Object Fatal Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Fatal : object, ILambda, IModule Constructors | Improve this Doc View Source Fatal(ModulePacket) Declaration public Fatal(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.html",
+    "title": "Namespace Fluint.SDK.Lambdas.Base | Fluint",
+    "keywords": "Namespace Fluint.SDK.Lambdas.Base Classes Adopt Async Clear Clients Connect Create Debug Disconnect Dump Echo Error Exit Fatal Information Jsonize Listen Load Manifest Read Rebuild Repeat Say Singleton Sleep Verbose Warning"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Information.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Information.html",
+    "title": "Class Information | Fluint",
+    "keywords": "Class Information Inheritance System.Object Information Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Information : object, ILambda, IModule Constructors | Improve this Doc View Source Information(ModulePacket) Declaration public Information(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Jsonize.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Jsonize.html",
+    "title": "Class Jsonize | Fluint",
+    "keywords": "Class Jsonize Inheritance System.Object Jsonize Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Jsonize : object, ILambda, IModule Constructors | Improve this Doc View Source Jsonize(ModulePacket) Declaration public Jsonize(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Listen.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Listen.html",
+    "title": "Class Listen | Fluint",
+    "keywords": "Class Listen Inheritance System.Object Listen Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Listen : object, ILambda, IModule Constructors | Improve this Doc View Source Listen(ModulePacket) Declaration public Listen(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Load.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Load.html",
+    "title": "Class Load | Fluint",
+    "keywords": "Class Load Inheritance System.Object Load Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Load : object, ILambda, IModule Constructors | Improve this Doc View Source Load(ModulePacket) Declaration public Load(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Manifest.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Manifest.html",
+    "title": "Class Manifest | Fluint",
+    "keywords": "Class Manifest Inheritance System.Object Manifest Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Manifest : object, ILambda, IModule Constructors | Improve this Doc View Source Manifest(ModulePacket) Declaration public Manifest(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Read.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Read.html",
+    "title": "Class Read | Fluint",
+    "keywords": "Class Read Inheritance System.Object Read Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Read : object, ILambda, IModule Constructors | Improve this Doc View Source Read(ModulePacket) Declaration public Read(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Rebuild.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Rebuild.html",
+    "title": "Class Rebuild | Fluint",
+    "keywords": "Class Rebuild Inheritance System.Object Rebuild Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Rebuild : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Repeat.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Repeat.html",
+    "title": "Class Repeat | Fluint",
+    "keywords": "Class Repeat Inheritance System.Object Repeat Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Repeat : object, ILambda, IModule Constructors | Improve this Doc View Source Repeat(ModulePacket) Declaration public Repeat(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Say.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Say.html",
+    "title": "Class Say | Fluint",
+    "keywords": "Class Say Inheritance System.Object Say Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Say : object, ILambda, IModule Constructors | Improve this Doc View Source Say(ModulePacket) Declaration public Say(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Singleton.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Singleton.html",
+    "title": "Class Singleton | Fluint",
+    "keywords": "Class Singleton Inheritance System.Object Singleton Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Singleton : object, ILambda, IModule Constructors | Improve this Doc View Source Singleton(ModulePacket) Declaration public Singleton(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Sleep.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Sleep.html",
+    "title": "Class Sleep | Fluint",
+    "keywords": "Class Sleep Inheritance System.Object Sleep Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Sleep : object, ILambda, IModule Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Verbose.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Verbose.html",
+    "title": "Class Verbose | Fluint",
+    "keywords": "Class Verbose Inheritance System.Object Verbose Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Verbose : object, ILambda, IModule Constructors | Improve this Doc View Source Verbose(ModulePacket) Declaration public Verbose(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
+  "api/Fluint.SDK.Lambdas.Base.Warning.html": {
+    "href": "api/Fluint.SDK.Lambdas.Base.Warning.html",
+    "title": "Class Warning | Fluint",
+    "keywords": "Class Warning Inheritance System.Object Warning Implements ILambda IModule Namespace : Fluint.SDK.Lambdas.Base Assembly : Fluint.SDK.Lambdas.Base.dll Syntax public class Warning : object, ILambda, IModule Constructors | Improve this Doc View Source Warning(ModulePacket) Declaration public Warning(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Command Declaration public string Command { get; } Property Value Type Description System.String Methods | Improve this Doc View Source Run(String[]) Declaration public LambdaObject Run(string[] args) Parameters Type Name Description System.String [] args Returns Type Description LambdaObject Implements ILambda IModule"
+  },
   "api/Fluint.SDK.Sdk.html": {
     "href": "api/Fluint.SDK.Sdk.html",
     "title": "Class Sdk | Fluint",
-    "keywords": "Class Sdk Inheritance System.Object Sdk Namespace : Fluint.SDK Assembly : Fluint.SDK.dll Syntax public class Sdk : object Methods | Improve this Doc View Source Start() Declaration public void Start()"
+    "keywords": "Class Sdk Inheritance System.Object Sdk Namespace : Fluint.SDK Assembly : Fluint.SDK.Runtime.dll Syntax public class Sdk : object Methods | Improve this Doc View Source Start() Declaration public void Start()"
   },
   "api/Fluint.StateManagement.Base.html": {
     "href": "api/Fluint.StateManagement.Base.html",
@@ -1738,6 +1818,16 @@
     "href": "api/Fluint.StateManagement.Base.StateManager.html",
     "title": "Class StateManager | Fluint",
     "keywords": "Class StateManager Inheritance System.Object StateManager Implements IStateManager IModule Namespace : Fluint.StateManagement.Base Assembly : Fluint.StateManagement.Base.dll Syntax public class StateManager : object, IStateManager, IModule Constructors | Improve this Doc View Source StateManager(ModulePacket) Declaration public StateManager(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source GetState<T>() Declaration public T GetState<T>() where T : IState Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source GetState<T>(IStatefulContext) Declaration public T GetState<T>(IStatefulContext context) where T : IState Parameters Type Name Description IStatefulContext context Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source GetStates(IStatefulContext) Declaration public IEnumerable<IState> GetStates(IStatefulContext context) Parameters Type Name Description IStatefulContext context Returns Type Description IEnumerable < IState > | Improve this Doc View Source HasState<T>() Declaration public bool HasState<T>() Returns Type Description System.Boolean Type Parameters Name Description T | Improve this Doc View Source HasState<T>(IStatefulContext) Declaration public bool HasState<T>(IStatefulContext context) Parameters Type Name Description IStatefulContext context Returns Type Description System.Boolean Type Parameters Name Description T | Improve this Doc View Source InitializeState<T>(IState) Declaration public T InitializeState<T>(IState state) where T : IState Parameters Type Name Description IState state Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source InitializeState<T>(IState, IStatefulContext) Declaration public T InitializeState<T>(IState state, IStatefulContext context) where T : IState Parameters Type Name Description IState state IStatefulContext context Returns Type Description T Type Parameters Name Description T | Improve this Doc View Source InitializeStatefulContext(IStatefulContext) Declaration public IStatefulContext InitializeStatefulContext(IStatefulContext context) Parameters Type Name Description IStatefulContext context Returns Type Description IStatefulContext | Improve this Doc View Source InitializeStatefulContext(IStatefulContext, IStatefulContext) Declaration public IStatefulContext InitializeStatefulContext(IStatefulContext context, IStatefulContext parent) Parameters Type Name Description IStatefulContext context IStatefulContext parent Returns Type Description IStatefulContext Implements IStateManager IModule"
+  },
+  "api/Fluint.Tasks.Base.html": {
+    "href": "api/Fluint.Tasks.Base.html",
+    "title": "Namespace Fluint.Tasks.Base | Fluint",
+    "keywords": "Namespace Fluint.Tasks.Base Classes TaskManager"
+  },
+  "api/Fluint.Tasks.Base.TaskManager.html": {
+    "href": "api/Fluint.Tasks.Base.TaskManager.html",
+    "title": "Class TaskManager | Fluint",
+    "keywords": "Class TaskManager Inheritance System.Object TaskManager Implements ITaskManager IModule Namespace : Fluint.Tasks.Base Assembly : Fluint.Tasks.Base.dll Syntax public class TaskManager : object, ITaskManager, IModule Constructors | Improve this Doc View Source TaskManager(ModulePacket) Declaration public TaskManager(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Invoke(TaskSchedule) Declaration public void Invoke(TaskSchedule schedule) Parameters Type Name Description TaskSchedule schedule | Improve this Doc View Source Invoke(TaskSchedule, TaskArgs) Declaration public void Invoke(TaskSchedule schedule, TaskArgs args) Parameters Type Name Description TaskSchedule schedule TaskArgs args | Improve this Doc View Source StopAll() Declaration public void StopAll() Implements ITaskManager IModule"
   },
   "api/Fluint.UI.Base.Button.html": {
     "href": "api/Fluint.UI.Base.Button.html",
@@ -1824,45 +1914,25 @@
     "title": "Class Viewport | Fluint",
     "keywords": "Class Viewport Inheritance System.Object Viewport Implements IViewport IModule IGuiComponent Namespace : Fluint.UI.Base Assembly : Fluint.UI.Base.dll Syntax public class Viewport : object, IViewport, IModule, IGuiComponent Constructors | Improve this Doc View Source Viewport() Declaration public Viewport() Properties | Improve this Doc View Source Name Declaration public string Name { get; } Property Value Type Description System.String | Improve this Doc View Source Size Declaration public Vector2i Size { get; set; } Property Value Type Description Vector2i | Improve this Doc View Source SwapChain Declaration public ISwapChain SwapChain { get; set; } Property Value Type Description ISwapChain Methods | Improve this Doc View Source Begin(String) Declaration public void Begin(string name) Parameters Type Name Description System.String name | Improve this Doc View Source Tick() Declaration public void Tick() Implements IViewport IModule IGuiComponent"
   },
-  "api/Fluint.UI.Layout.Base.Controls.AboutControl.html": {
-    "href": "api/Fluint.UI.Layout.Base.Controls.AboutControl.html",
-    "title": "Class AboutControl | Fluint",
-    "keywords": "Class AboutControl Inheritance System.Object Control AboutControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String, IWindow) Control.Begin(String) Control.Tick() Namespace : Fluint.UI.Layout.Base.Controls Assembly : Fluint.UI.Layout.Base.dll Syntax public class AboutControl : Control, IGuiComponent Constructors | Improve this Doc View Source AboutControl(ModulePacket) Declaration public AboutControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Implements IGuiComponent"
+  "api/Fluint.VirtualFileSystem.Base.Directory.html": {
+    "href": "api/Fluint.VirtualFileSystem.Base.Directory.html",
+    "title": "Class Directory | Fluint",
+    "keywords": "Class Directory Inheritance System.Object Directory Implements IDirectory IModule Namespace : Fluint.VirtualFileSystem.Base Assembly : Fluint.VirtualFileSystem.Base.dll Syntax public class Directory : object, IDirectory, IModule Constructors | Improve this Doc View Source Directory(ModulePacket) Declaration public Directory(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source AddDirectory(String, IDirectory) Declaration public void AddDirectory(string name, IDirectory directory) Parameters Type Name Description System.String name IDirectory directory | Improve this Doc View Source AddDirectory(String, String) Declaration public IDirectory AddDirectory(string name, string physicalPath) Parameters Type Name Description System.String name System.String physicalPath Returns Type Description IDirectory | Improve this Doc View Source AddFile(String, IFile) Declaration public void AddFile(string name, IFile file) Parameters Type Name Description System.String name IFile file | Improve this Doc View Source AddFile(String, String) Declaration public IFile AddFile(string name, string physicalPath) Parameters Type Name Description System.String name System.String physicalPath Returns Type Description IFile | Improve this Doc View Source GetDirectory(String) Declaration public IDirectory GetDirectory(string name) Parameters Type Name Description System.String name Returns Type Description IDirectory | Improve this Doc View Source GetFile(String) Declaration public IFile GetFile(string name) Parameters Type Name Description System.String name Returns Type Description IFile | Improve this Doc View Source HasDirectory(String) Declaration public bool HasDirectory(string name) Parameters Type Name Description System.String name Returns Type Description System.Boolean | Improve this Doc View Source HasFile(String) Declaration public bool HasFile(string name) Parameters Type Name Description System.String name Returns Type Description System.Boolean | Improve this Doc View Source ToString() Declaration public override string ToString() Returns Type Description System.String | Improve this Doc View Source TryGetDirectory(String, out IDirectory) Declaration public bool TryGetDirectory(string name, out IDirectory directory) Parameters Type Name Description System.String name IDirectory directory Returns Type Description System.Boolean | Improve this Doc View Source TryGetFile(String, out IFile) Declaration public bool TryGetFile(string name, out IFile file) Parameters Type Name Description System.String name IFile file Returns Type Description System.Boolean | Improve this Doc View Source UpdateDirectory(String) Declaration public void UpdateDirectory(string physicalPath) Parameters Type Name Description System.String physicalPath Events | Improve this Doc View Source OnChange Declaration public event EventHandler<DirectoryChangedEvent> OnChange Event Type Type Description EventHandler < DirectoryChangedEvent > Implements IDirectory IModule"
   },
-  "api/Fluint.UI.Layout.Base.Controls.CameraControl.html": {
-    "href": "api/Fluint.UI.Layout.Base.Controls.CameraControl.html",
-    "title": "Class CameraControl | Fluint",
-    "keywords": "Class CameraControl Inheritance System.Object Control CameraControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String) Namespace : Fluint.UI.Layout.Base.Controls Assembly : Fluint.UI.Layout.Base.dll Syntax public class CameraControl : Control, IGuiComponent Constructors | Improve this Doc View Source CameraControl(ModulePacket) Declaration public CameraControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Begin(String, IWindow) Declaration public override void Begin(string name, IWindow window) Parameters Type Name Description System.String name IWindow window | Improve this Doc View Source GenerateCube(Vector3, Vector3, Color4) Declaration public List<PositionColorVertex> GenerateCube(Vector3 Verts, Vector3 Trans, Color4 color) Parameters Type Name Description Vector3 Verts Vector3 Trans Color4 color Returns Type Description List < PositionColorVertex > | Improve this Doc View Source Tick() Declaration public override void Tick() Overrides Control.Tick() Implements IGuiComponent"
+  "api/Fluint.VirtualFileSystem.Base.File.html": {
+    "href": "api/Fluint.VirtualFileSystem.Base.File.html",
+    "title": "Class File | Fluint",
+    "keywords": "Class File Inheritance System.Object File Implements IFile IModule Namespace : Fluint.VirtualFileSystem.Base Assembly : Fluint.VirtualFileSystem.Base.dll Syntax public class File : object, IFile, IModule Properties | Improve this Doc View Source Bytes Declaration public byte[] Bytes { get; } Property Value Type Description System.Byte [] Methods | Improve this Doc View Source Update(String) Declaration public void Update(string file) Parameters Type Name Description System.String file Events | Improve this Doc View Source OnChange Declaration public event EventHandler<FileChangedEvent> OnChange Event Type Type Description EventHandler < FileChangedEvent > Implements IFile IModule"
   },
-  "api/Fluint.UI.Layout.Base.Controls.html": {
-    "href": "api/Fluint.UI.Layout.Base.Controls.html",
-    "title": "Namespace Fluint.UI.Layout.Base.Controls | Fluint",
-    "keywords": "Namespace Fluint.UI.Layout.Base.Controls Classes AboutControl CameraControl MetricsControl ToolboxControl UIDemoControl"
+  "api/Fluint.VirtualFileSystem.Base.html": {
+    "href": "api/Fluint.VirtualFileSystem.Base.html",
+    "title": "Namespace Fluint.VirtualFileSystem.Base | Fluint",
+    "keywords": "Namespace Fluint.VirtualFileSystem.Base Classes Directory File VirtualFileSystem"
   },
-  "api/Fluint.UI.Layout.Base.Controls.MetricsControl.html": {
-    "href": "api/Fluint.UI.Layout.Base.Controls.MetricsControl.html",
-    "title": "Class MetricsControl | Fluint",
-    "keywords": "Class MetricsControl Inheritance System.Object Control MetricsControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String) Namespace : Fluint.UI.Layout.Base.Controls Assembly : Fluint.UI.Layout.Base.dll Syntax public class MetricsControl : Control, IGuiComponent Constructors | Improve this Doc View Source MetricsControl(ModulePacket) Declaration public MetricsControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Begin(String, IWindow) Declaration public override void Begin(string name, IWindow parent) Parameters Type Name Description System.String name IWindow parent | Improve this Doc View Source Tick() Declaration public override void Tick() Overrides Control.Tick() Implements IGuiComponent"
-  },
-  "api/Fluint.UI.Layout.Base.Controls.ToolboxControl.html": {
-    "href": "api/Fluint.UI.Layout.Base.Controls.ToolboxControl.html",
-    "title": "Class ToolboxControl | Fluint",
-    "keywords": "Class ToolboxControl Inheritance System.Object Control ToolboxControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String, IWindow) Control.Begin(String) Namespace : Fluint.UI.Layout.Base.Controls Assembly : Fluint.UI.Layout.Base.dll Syntax public class ToolboxControl : Control, IGuiComponent Constructors | Improve this Doc View Source ToolboxControl(ModulePacket, ILocalizationManager, IConfigurationManager, IStateManager) Declaration public ToolboxControl(ModulePacket packet, ILocalizationManager localizationManager, IConfigurationManager configManager, IStateManager stateManager) Parameters Type Name Description ModulePacket packet ILocalizationManager localizationManager IConfigurationManager configManager IStateManager stateManager Methods | Improve this Doc View Source Tick() Declaration public override void Tick() Overrides Control.Tick() Implements IGuiComponent"
-  },
-  "api/Fluint.UI.Layout.Base.Controls.UIDemoControl.html": {
-    "href": "api/Fluint.UI.Layout.Base.Controls.UIDemoControl.html",
-    "title": "Class UIDemoControl | Fluint",
-    "keywords": "Class UIDemoControl Inheritance System.Object Control UIDemoControl Implements IGuiComponent Inherited Members Control.Children Control.Name Control.Begin(String, IWindow) Control.Begin(String) Control.Tick() Namespace : Fluint.UI.Layout.Base.Controls Assembly : Fluint.UI.Layout.Base.dll Syntax public class UIDemoControl : Control, IGuiComponent Constructors | Improve this Doc View Source UIDemoControl(ModulePacket) Declaration public UIDemoControl(ModulePacket packet) Parameters Type Name Description ModulePacket packet Implements IGuiComponent"
-  },
-  "api/Fluint.UI.Layout.Base.html": {
-    "href": "api/Fluint.UI.Layout.Base.html",
-    "title": "Namespace Fluint.UI.Layout.Base | Fluint",
-    "keywords": "Namespace Fluint.UI.Layout.Base Classes MainWindowLayout"
-  },
-  "api/Fluint.UI.Layout.Base.MainWindowLayout.html": {
-    "href": "api/Fluint.UI.Layout.Base.MainWindowLayout.html",
-    "title": "Class MainWindowLayout | Fluint",
-    "keywords": "Class MainWindowLayout Inheritance System.Object MainWindowLayout Implements ILayout IModule Namespace : Fluint.UI.Layout.Base Assembly : Fluint.UI.Layout.Base.dll Syntax public class MainWindowLayout : object, ILayout, IModule Constructors | Improve this Doc View Source MainWindowLayout(ModulePacket) Declaration public MainWindowLayout(ModulePacket packet) Parameters Type Name Description ModulePacket packet Methods | Improve this Doc View Source Initialize(IWindow) Declaration public void Initialize(IWindow window) Parameters Type Name Description IWindow window Implements ILayout IModule"
+  "api/Fluint.VirtualFileSystem.Base.VirtualFileSystem.html": {
+    "href": "api/Fluint.VirtualFileSystem.Base.VirtualFileSystem.html",
+    "title": "Class VirtualFileSystem | Fluint",
+    "keywords": "Class VirtualFileSystem Inheritance System.Object VirtualFileSystem Implements IVirtualFileSystem IModule Namespace : Fluint.VirtualFileSystem.Base Assembly : Fluint.VirtualFileSystem.Base.dll Syntax public class VirtualFileSystem : object, IVirtualFileSystem, IModule Constructors | Improve this Doc View Source VirtualFileSystem(ModulePacket) Declaration public VirtualFileSystem(ModulePacket packet) Parameters Type Name Description ModulePacket packet Properties | Improve this Doc View Source Root Declaration public IDirectory Root { get; } Property Value Type Description IDirectory Methods | Improve this Doc View Source LoadFromFile(String) Declaration public void LoadFromFile(string path) Parameters Type Name Description System.String path | Improve this Doc View Source QueryDirectory(String) Declaration public IDirectory QueryDirectory(string path) Parameters Type Name Description System.String path Returns Type Description IDirectory | Improve this Doc View Source QueryFile(String) Declaration public IFile QueryFile(string path) Parameters Type Name Description System.String path Returns Type Description IFile | Improve this Doc View Source SaveToFile(String) Declaration public void SaveToFile(string path) Parameters Type Name Description System.String path | Improve this Doc View Source ToString() Declaration public override string ToString() Returns Type Description System.String Implements IVirtualFileSystem IModule"
   },
   "articles/index.html": {
     "href": "articles/index.html",
