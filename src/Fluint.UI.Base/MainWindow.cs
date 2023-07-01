@@ -12,7 +12,6 @@ using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Editor;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
-using Fluint.Layer.StateManagement;
 using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 using ImGuiNET;
@@ -33,10 +32,6 @@ public class MainWindow : IWindow
 
     public MainWindow(ModulePacket packet, ILogger logger, IConfigurationManager configurationManager)
     {
-        var stateManager = packet.GetSingleton<IStateManager>();
-        stateManager.InitializeStatefulContext(this);
-        stateManager.InitializeState<WorldState>(_worldState, this);
-
         _configurationManager = configurationManager;
         _packet = packet;
         _logger = logger;

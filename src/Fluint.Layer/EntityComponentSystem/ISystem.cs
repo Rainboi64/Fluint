@@ -5,8 +5,7 @@
 
 namespace Fluint.Layer.EntityComponentSystem;
 
-[Initialization(InitializationMethod.Scoped)]
-public interface ISystem<in T> : IModule, IComponent
+public interface ISystem<in T> : IModule where T : IComponent
 {
     void Register(T component);
 }

@@ -6,13 +6,19 @@
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Graphics.Renderers;
-using Fluint.Layer.Mathematics;
+using Fluint.Layer.Windowing;
 
-namespace Fluint.Layer.Editor;
+namespace Fluint.Layer.Editor.Viewport;
 
 [Initialization(InitializationMethod.Scoped)]
 public interface IViewportRenderer : IModule
 {
+    IWindow Window
+    {
+        get;
+        set;
+    }
+
     ICamera Camera
     {
         get;
@@ -30,5 +36,6 @@ public interface IViewportRenderer : IModule
 
     void Start();
     void Render();
-    void Resize(Viewport viewport);
+    void Resize(Mathematics.Viewport viewport);
+    IViewportContext GetContext();
 }

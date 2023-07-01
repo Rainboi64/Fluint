@@ -8,4 +8,6 @@ namespace Fluint.Layer.StateManagement;
 [Initialization(InitializationMethod.Scoped)]
 public interface IStatefulContext : IModule
 {
+    void AddState<T>(T state) where T : IState;
+    T GetState<T>() where T : IState;
 }

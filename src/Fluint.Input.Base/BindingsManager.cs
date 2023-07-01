@@ -16,7 +16,7 @@ namespace Fluint.Input.Base
     {
         public readonly static IEnumerable<Binding> Default = new[] {
             new Binding { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } },
-            new Binding { Tag = "MOVE_CAMERA", MainCombination = new[] { Key.LeftAlt } }
+            new Binding { Tag = "MOVE_CAMERA", MainCombination = new[] { Key.Space } }
         };
 
         private readonly Dictionary<string, List<Binding>> _bindingsDictionary;

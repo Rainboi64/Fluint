@@ -20,9 +20,9 @@ public class World : IWorld
 
     public T CreateComponent<T>() where T : IComponent
     {
-        var component = (ISystem<IComponent>)_packet.CreateScoped<T>();
+        var component = _packet.CreateScoped<T>();
         _systems[typeof(T)].Register(component);
-        return (T)component;
+        return component;
     }
 
     public T CreateSystem<T, T2>() where T : ISystem<T2> where T2 : IComponent

@@ -1,15 +1,15 @@
 // 
-// ISketchRenderer.cs
+// IDebugRenderer.cs
 // 
 // Copyright (C) 2022 Yaman Alhalabi
 
-using Fluint.Layer.Editor.Tools.Sketching;
 using Fluint.Layer.Graphics.Common;
+using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Graphics.Renderers;
 
 [Initialization(InitializationMethod.Scoped)]
-public interface ISketchRenderer : IModule, IRenderer
+public interface IDebugRenderer : IModule, IRenderer
 {
     public ModelViewProjection WorldView
     {
@@ -17,5 +17,9 @@ public interface ISketchRenderer : IModule, IRenderer
         set;
     }
 
-    void AttachSystem(ISketchSystem system);
+    public Viewport Viewport
+    {
+        get;
+        set;
+    }
 }

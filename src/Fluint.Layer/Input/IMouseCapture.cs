@@ -10,17 +10,17 @@ namespace Fluint.Layer.Input;
 [Initialization(InitializationMethod.Scoped)]
 public interface IMouseCapture : IModule
 {
-    public int X
+    int X
     {
         get;
     }
 
-    public int Y
+    int Y
     {
         get;
     }
 
-    public void Begin(IWindow window);
-    public void Capture();
-    public void Update();
+    void Begin(IWindow window);
+    void Capture();
+    void Update();
 }

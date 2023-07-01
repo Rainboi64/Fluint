@@ -4,10 +4,10 @@
 // Copyright (C) 2022 Yaman Alhalabi
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Collections.Immutable;
+using Fluint.Layer.Editor.Tools.Sketching;
 using Fluint.Layer.Graphics.API;
+using Fluint.Layer.Graphics.Common;
 using Fluint.Layer.Graphics.Renderers;
 using Fluint.Layer.Mathematics;
 
@@ -19,8 +19,9 @@ public class SketchRenderer : ISketchRenderer
 
     private readonly IGraphicsFactory _factory;
     private readonly IPipeline _pipeline;
-    private readonly List<ISketch> _sketches = new();
+    private readonly IConstantBuffer _worldViewBuffer;
 
+    private ISketchSystem _system;
     private IVertexBuffer _vertexBuffer;
     private int _vertexCount;
 
@@ -48,10 +49,9 @@ public class SketchRenderer : ISketchRenderer
             new Viewport(0, 0, 750, 750),
             PrimitiveTopology.Lines);
 
+        _worldViewBuffer = factory.CreateConstantBuffer(WorldView);
         _cmdList = _factory.CreateCommandList();
     }
-
-    public IList<ISketch> Sketches => _sketches;
 
     public void Start()
     {
@@ -61,65 +61,42 @@ public class SketchRenderer : ISketchRenderer
 
     public void PreRender()
     {
-        throw new NotImplementedException();
+        var vertex = _system.GetVertex();
+        _vertexCount = vertex.Length;
+        _vertexBuffer.Initialize(vertex);
+        _worldViewBuffer.UpdateBuffer(WorldView);
+
+        _cmdList.Clear();
+        _cmdList.Begin("Grid", _pipeline);
+        _cmdList.SetConstantBuffer(_worldViewBuffer, BufferScope.VertexShader);
+        _cmdList.SetVertexBuffer(_vertexBuffer);
+        _cmdList.Draw(_vertexCount);
+        _cmdList.End();
     }
 
     public void Render()
     {
-        throw new NotImplementedException();
+        _cmdList.Submit();
     }
 
     public void PostRender()
     {
-        throw new NotImplementedException();
     }
 
-    public ISketch this[int index]
+    public ModelViewProjection WorldView
     {
-        get => _sketches[index];
-        set => _sketches[index] = value;
+        get;
+        set;
     }
 
-    public IEnumerator<ISketch> GetEnumerator()
+    public void AttachSystem(ISketchSystem system)
     {
-        return _sketches.GetEnumerator();
+        _system = system;
     }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return ((IEnumerable)_sketches).GetEnumerator();
-    }
-
-    public void Add(ISketch item)
-    {
-        _sketches.Add(item);
-    }
-
-    public void Clear()
-    {
-        _sketches.Clear();
-    }
-
-    public bool Contains(ISketch item)
-    {
-        return _sketches.Contains(item);
-    }
-
-    public void CopyTo(ISketch[] array, int arrayIndex)
-    {
-        _sketches.CopyTo(array, arrayIndex);
-    }
-
-    public bool Remove(ISketch item)
-    {
-        return _sketches.Remove(item);
-    }
-
-    public int Count => _sketches.Count;
-
-    public bool IsReadOnly => ((ICollection<ISketch>)_sketches).IsReadOnly;
 
     public void Dispose()
     {
+        _pipeline?.Dispose();
+        _vertexBuffer?.Dispose();
     }
 }
