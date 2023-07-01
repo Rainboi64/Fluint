@@ -10,7 +10,7 @@ using Fluint.Layer.Mathematics;
 namespace Fluint.Layer.Editor.Tools.Sketching;
 
 [Initialization(InitializationMethod.Scoped)]
-public interface ISketchSystem : ISystem<ISketch>, IModule
+public interface ISketchSystem : ISystem<ISketch>
 {
     ISketch Pick(Ray ray);
     PositionColorVertex[] GetVertex();

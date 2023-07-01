@@ -88,8 +88,6 @@ public class DebugRenderer : IDebugRenderer
         }
 
         _pipeline.Viewport = _viewport;
-        GenerateCommandList();
-
         _viewportUpdated = false;
     }
 

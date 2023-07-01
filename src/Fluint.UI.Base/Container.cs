@@ -84,7 +84,7 @@ namespace Fluint.UI.Base
             Size = new Vector2i((int)size.X, (int)size.Y);
 
 
-            var location = ImGui.GetWindowPos();
+            var location = ImGui.GetWindowPos() + ImGui.GetWindowContentRegionMin();
             Location = new Vector2i((int)location.X, (int)location.Y);
 
             IsFocused = ImGui.IsWindowFocused();

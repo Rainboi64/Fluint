@@ -11,7 +11,7 @@ namespace Fluint.EntityComponentSystem.Base;
 public class World : IWorld
 {
     private readonly ModulePacket _packet;
-    private readonly Dictionary<Type, ISystem<IComponent>> _systems = new();
+    private readonly Dictionary<Type, object> _systems = new();
 
     public World(ModulePacket packet)
     {
@@ -21,14 +21,20 @@ public class World : IWorld
     public T CreateComponent<T>() where T : IComponent
     {
         var component = _packet.CreateScoped<T>();
-        _systems[typeof(T)].Register(component);
+        var system = _systems[typeof(T)] as ISystem<IComponent>;
+        system?.Register(component);
         return component;
     }
 
-    public T CreateSystem<T, T2>() where T : ISystem<T2> where T2 : IComponent
+    public T GetSystem<T, T2>() where T : ISystem<T2> where T2 : IComponent
     {
-        var system = (ISystem<IComponent>)_packet.CreateScoped<T>();
+        if (_systems.ContainsKey(typeof(T2)))
+        {
+            return (T)_systems[typeof(T2)];
+        }
+
+        var system = _packet.CreateScoped<T>();
         _systems[typeof(T2)] = system;
-        return (T)system;
+        return system;
     }
 }

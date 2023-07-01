@@ -31,7 +31,14 @@ public class CameraTool : ITool
 
     private void ViewportOnTick(object sender, TickEventArgs e)
     {
-        if (sender is not IViewportContext { Focused: true } context)
+        if (sender is not IViewportContext context)
+        {
+            return;
+        }
+
+        context.Camera.Zoom -= context.InputManager.MouseScrollDelta.Y / 100f;
+
+        if (!context.Focused)
         {
             return;
         }
@@ -52,8 +59,6 @@ public class CameraTool : ITool
             context.Camera.Pitch = state.MouseCapture.Y * camBoost;
             context.Camera.Yaw = state.MouseCapture.X * camBoost;
         }
-
-        context.Camera.Zoom -= context.InputManager.MouseScrollDelta.Y / 100f;
 
         if (context.InputManager.IsKeyPressed(Key.K))
         {

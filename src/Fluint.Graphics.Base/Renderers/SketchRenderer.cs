@@ -4,8 +4,10 @@
 // Copyright (C) 2022 Yaman Alhalabi
 
 using System;
-using System.Collections.Immutable;
+using System.Linq;
+using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Editor.Tools.Sketching;
+using Fluint.Layer.EntityComponentSystem;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Graphics.Common;
 using Fluint.Layer.Graphics.Renderers;
@@ -15,72 +17,25 @@ namespace Fluint.Graphics.Base.Renderers;
 
 public class SketchRenderer : ISketchRenderer
 {
-    private readonly ICommandList _cmdList;
+    private readonly IGraphicsFactory _graphicsFactory;
+    private readonly ISketchSystem _system;
 
-    private readonly IGraphicsFactory _factory;
-    private readonly IPipeline _pipeline;
-    private readonly IConstantBuffer _worldViewBuffer;
+    private ICommandList _commandList;
+    private Shader _fragmentShader;
 
-    private ISketchSystem _system;
+    private IPipeline _pipeline;
     private IVertexBuffer _vertexBuffer;
     private int _vertexCount;
 
-    public SketchRenderer(IGraphicsFactory factory)
+    private Shader _vertexShader;
+    private IConstantBuffer _worldViewBuffer;
+
+    public SketchRenderer(ModulePacket packet)
     {
-        _factory = factory;
+        _graphicsFactory = packet.CreateScoped<IGraphicsFactory>();
 
-        var vertexShader = _factory.CreateShaderFromFile(
-            ShaderStage.Vertex,
-            "./base/shaders/simple.vert",
-            VertexType.PositionColor,
-            ImmutableArray<(string, string)>.Empty);
-
-        var fragmentShader = _factory.CreateShaderFromFile(
-            ShaderStage.Pixel,
-            "./base/shaders/simple.frag",
-            VertexType.PositionColor,
-            ImmutableArray<(string, string)>.Empty);
-
-        _pipeline = _factory.CreatePipeline(
-            vertexShader,
-            fragmentShader,
-            vertexShader.InputLayout,
-            null, null, null,
-            new Viewport(0, 0, 750, 750),
-            PrimitiveTopology.Lines);
-
-        _worldViewBuffer = factory.CreateConstantBuffer(WorldView);
-        _cmdList = _factory.CreateCommandList();
-    }
-
-    public void Start()
-    {
-        _vertexCount = 0;
-        _vertexBuffer = _factory.CreateVertexBuffer(Array.Empty<PositionColorVertex>());
-    }
-
-    public void PreRender()
-    {
-        var vertex = _system.GetVertex();
-        _vertexCount = vertex.Length;
-        _vertexBuffer.Initialize(vertex);
-        _worldViewBuffer.UpdateBuffer(WorldView);
-
-        _cmdList.Clear();
-        _cmdList.Begin("Grid", _pipeline);
-        _cmdList.SetConstantBuffer(_worldViewBuffer, BufferScope.VertexShader);
-        _cmdList.SetVertexBuffer(_vertexBuffer);
-        _cmdList.Draw(_vertexCount);
-        _cmdList.End();
-    }
-
-    public void Render()
-    {
-        _cmdList.Submit();
-    }
-
-    public void PostRender()
-    {
+        var world = packet.GetSingleton<IWorld>();
+        _system = world.GetSystem<ISketchSystem, ISketch>();
     }
 
     public ModelViewProjection WorldView
@@ -89,14 +44,72 @@ public class SketchRenderer : ISketchRenderer
         set;
     }
 
-    public void AttachSystem(ISketchSystem system)
+    public Viewport Viewport
     {
-        _system = system;
+        get;
+        set;
+    }
+
+
+    public void Start()
+    {
+        _commandList = _graphicsFactory.CreateCommandList();
+        _vertexShader = _graphicsFactory.CreateShaderFromFile(
+            ShaderStage.Vertex,
+            "./base/shaders/grid.vert",
+            VertexType.PositionColor,
+            Enumerable.Empty<(string, string)>());
+
+        _fragmentShader = _graphicsFactory.CreateShaderFromFile(
+            ShaderStage.Pixel,
+            "./base/shaders/grid.frag",
+            VertexType.PositionColor,
+            Enumerable.Empty<(string, string)>());
+
+        _pipeline = _graphicsFactory.CreatePipeline(
+            _vertexShader,
+            _fragmentShader,
+            _vertexShader.InputLayout,
+            null, null, null,
+            Viewport,
+            PrimitiveTopology.Lines);
+
+        _worldViewBuffer = _graphicsFactory.CreateConstantBuffer(WorldView);
+        _vertexBuffer = _graphicsFactory.CreateVertexBuffer(Array.Empty<PositionColorVertex>());
+    }
+
+    public void PreRender()
+    {
+        var vertex = _system.GetVertex();
+        _vertexCount = vertex.Length;
+        _vertexBuffer.Initialize(vertex);
+
+        _pipeline.Viewport = Viewport;
+        GenerateCommandList();
+    }
+
+    public void Render()
+    {
+        _pipeline.Viewport = Viewport;
+        _worldViewBuffer.UpdateBuffer(WorldView);
+        _commandList.Submit();
+    }
+
+    public void PostRender()
+    {
     }
 
     public void Dispose()
     {
-        _pipeline?.Dispose();
-        _vertexBuffer?.Dispose();
+    }
+
+    private void GenerateCommandList()
+    {
+        _commandList.Clear();
+        _commandList.Begin("Sketches", _pipeline);
+        _commandList.SetConstantBuffer(_worldViewBuffer, BufferScope.VertexShader);
+        _commandList.SetVertexBuffer(_vertexBuffer);
+        _commandList.Draw(_vertexCount);
+        _commandList.End();
     }
 }

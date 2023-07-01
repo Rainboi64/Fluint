@@ -60,6 +60,12 @@ public class ViewportContext : IViewportContext
         private set;
     }
 
+    public Vector2i Location
+    {
+        get;
+        set;
+    }
+
     public bool Focused
     {
         get;

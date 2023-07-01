@@ -4,6 +4,7 @@
 // Copyright (C) 2022 Yaman Alhalabi
 
 using Fluint.Layer.Graphics.API;
+using Fluint.Layer.Graphics.Common;
 using Fluint.Layer.Graphics.Renderers;
 using Fluint.Layer.Mathematics;
 
@@ -34,6 +35,18 @@ public class RayTracingRenderer : IRenderer
     public RayTracingRenderer(IGraphicsFactory graphicsFactory)
     {
         _graphicsFactory = graphicsFactory;
+    }
+
+    public ModelViewProjection WorldView
+    {
+        get;
+        set;
+    }
+
+    public Viewport Viewport
+    {
+        get;
+        set;
     }
 
     public void Start()

@@ -37,5 +37,4 @@ public interface IViewportRenderer : IModule
     void Start();
     void Render();
     void Resize(Mathematics.Viewport viewport);
-    IViewportContext GetContext();
 }

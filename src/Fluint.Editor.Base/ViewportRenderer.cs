@@ -3,7 +3,6 @@
 // 
 // Copyright (C) 2022 Yaman Alhalabi
 
-using System;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Editor.Viewport;
 using Fluint.Layer.Graphics;
@@ -19,11 +18,8 @@ public class ViewportRenderer : IViewportRenderer
 {
     private readonly ICommandList _commandList;
     private readonly IDebugRenderServer _debug;
-    private readonly IDebugRenderer _debugRenderer;
-    private readonly IGridRenderer _gridRenderer;
 
     private readonly ModulePacket _packet;
-    // private readonly ISketchRenderer _sketchRenderer;
 
     public ViewportRenderer(ModulePacket packet)
     {
@@ -32,16 +28,15 @@ public class ViewportRenderer : IViewportRenderer
         Camera = packet.CreateScoped<ICamera>();
 
         Pipeline = packet.CreateScoped<IRenderingPipeline>();
-
-        _gridRenderer = packet.CreateScoped<IGridRenderer>();
-        // _sketchRenderer = packet.CreateScoped<ISketchRenderer>();
-        _debugRenderer = packet.CreateScoped<IDebugRenderer>();
-
         _commandList = packet.CreateScoped<IGraphicsFactory>().CreateCommandList();
 
-        Pipeline.Renderers.Add(_gridRenderer);
-        // Pipeline.Renderers.Add(_sketchRenderer);
-        Pipeline.Renderers.Add(_debugRenderer);
+        var gridRenderer = packet.CreateScoped<IGridRenderer>();
+        var sketchRenderer = packet.CreateScoped<ISketchRenderer>();
+        var debugRenderer = packet.CreateScoped<IDebugRenderer>();
+
+        Pipeline.Renderers.Add(gridRenderer);
+        Pipeline.Renderers.Add(sketchRenderer);
+        Pipeline.Renderers.Add(debugRenderer);
     }
 
     public IWindow Window
@@ -74,9 +69,11 @@ public class ViewportRenderer : IViewportRenderer
 
     public void Render()
     {
-        _debugRenderer.WorldView =
-            _gridRenderer.WorldView =
+        foreach (var renderer in Pipeline.Renderers)
+        {
+            renderer.WorldView =
                 new ModelViewProjection(Matrix.Identity, Camera.GetViewMatrix(), Camera.GetProjectionMatrix());
+        }
 
         SwapChain.Present();
         {
@@ -91,12 +88,9 @@ public class ViewportRenderer : IViewportRenderer
 
     public void Resize(Layer.Mathematics.Viewport viewport)
     {
-        _gridRenderer.Viewport =
-            _debugRenderer.Viewport = viewport;
-    }
-
-    public IViewportContext GetContext()
-    {
-        throw new NotImplementedException();
+        foreach (var renderer in Pipeline.Renderers)
+        {
+            renderer.Viewport = viewport;
+        }
     }
 }

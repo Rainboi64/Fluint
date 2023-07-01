@@ -9,5 +9,5 @@ namespace Fluint.Layer.EntityComponentSystem;
 public interface IWorld : IModule
 {
     public T CreateComponent<T>() where T : IComponent;
-    public T CreateSystem<T, T2>() where T2 : IComponent where T : ISystem<T2>;
+    public T GetSystem<T, T2>() where T : ISystem<T2> where T2 : IComponent;
 }

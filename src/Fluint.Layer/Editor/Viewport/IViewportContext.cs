@@ -7,6 +7,7 @@
 using System;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
+using Fluint.Layer.Mathematics;
 using Fluint.Layer.StateManagement;
 using Fluint.Layer.Windowing;
 
@@ -39,6 +40,12 @@ public interface IViewportContext : IModule, IStatefulContext
     Mathematics.Viewport Viewport
     {
         get;
+    }
+
+    Vector2i Location
+    {
+        get;
+        set;
     }
 
     bool Focused

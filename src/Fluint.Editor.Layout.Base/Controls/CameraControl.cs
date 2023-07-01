@@ -15,15 +15,9 @@ namespace Fluint.Editor.Layout.Base.Controls;
 
 public class CameraControl : Control
 {
-    // private readonly IBindingsManager _bindingsManager;
-    // private readonly IMouseCapture _mouseCapture;
-    // private ICamera _camera;
-    // private IInputManager _inputManager;
-
     private readonly IContainer _container;
     private readonly IViewport _viewport;
     private readonly IViewportContext _viewportContext;
-    private readonly IViewportRenderer _viewportRenderer;
 
     private IWindow _window;
 
@@ -42,9 +36,9 @@ public class CameraControl : Control
         _viewport = packet.CreateScoped<IViewport>();
         _viewport.SwapChain = swapChain;
 
-        _viewportRenderer = packet.CreateScoped<IViewportRenderer>();
-        _viewportRenderer.SwapChain = swapChain;
-        _viewportContext.AttachRenderer(_viewportRenderer);
+        var viewportRenderer = packet.CreateScoped<IViewportRenderer>();
+        viewportRenderer.SwapChain = swapChain;
+        _viewportContext.AttachRenderer(viewportRenderer);
 
         _container = packet.CreateScoped<IContainer>();
         _container.Title = localizationManager.Fetch("camera");
@@ -60,27 +54,15 @@ public class CameraControl : Control
         _window = window;
         _viewportContext.Window = window;
         _viewportContext.Start();
-        // _inputManager = window.InputManager;
-        // _bindingsManager.InputManager = _inputManager;
-
-        // _mouseCapture.Begin(window);
-
-        // _camera = _viewportRenderer.Camera;
-
-
         base.Begin(name, window);
     }
 
     public override void Tick()
     {
-        // _mouseCapture.Update();
-
-        // Input();
-
         _viewportContext.Focused = _container.IsFocused;
         _viewportContext.Update();
 
-        if (_viewport.Size != _container.Size)
+        if (_viewport.Size != _container.Size || _container.Location != _viewportContext.Location)
         {
             Resize();
         }
@@ -95,6 +77,7 @@ public class CameraControl : Control
             return;
         }
 
+        _viewportContext.Location = _container.Location;
         var viewport = new Viewport(0, 0, _container.Size.X, _container.Size.Y, 0.01f, 100000f);
 
         _viewport.Size = _container.Size;
