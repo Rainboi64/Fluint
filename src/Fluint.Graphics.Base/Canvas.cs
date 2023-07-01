@@ -69,6 +69,14 @@ namespace Fluint.Graphics.Base
             _editedPixels.Clear();
         }
 
+        public void Clear(Color color)
+        {
+            for (var i = 0; i < Width * Height; i++)
+            {
+                Pixels[i] = color;
+            }
+        }
+
         public void Set(int x, int y, Color color)
         {
             if (x > 0 && x < Width && y > 0 && y < Height)
@@ -402,7 +410,7 @@ namespace Fluint.Graphics.Base
                     maxx = t2X;
                 }
 
-                // Draw line from min to max points found on the y
+                // Submit line from min to max points found on the y
                 FastDrawLine(color, minx, maxx, y);
                 // Now increase y
                 if (!changed1)
@@ -755,7 +763,7 @@ namespace Fluint.Graphics.Base
                     maxx = t2X;
                 }
 
-                // Draw line from min to max points found on the y
+                // Submit line from min to max points found on the y
                 FastDrawLine(color, minx, maxx, y);
                 // Now increase y
                 if (!changed1)

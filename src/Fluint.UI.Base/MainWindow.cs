@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Editor;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.StateManagement;

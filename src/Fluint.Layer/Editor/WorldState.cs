@@ -5,8 +5,9 @@
 
 using System.Collections.Generic;
 using Fluint.Layer.Graphics.API;
+using Fluint.Layer.StateManagement;
 
-namespace Fluint.Layer.StateManagement;
+namespace Fluint.Layer.Editor;
 
 public class WorldState : IState
 {

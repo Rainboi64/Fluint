@@ -32,6 +32,7 @@ namespace Fluint.Layer.Graphics
         int ConvertIndex(int x, int y);
 
         void Clear();
+        void Clear(Color color);
         void Set(int x, int y, Color color);
         Color Get(int x, int y);
 

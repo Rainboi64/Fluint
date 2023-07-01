@@ -4,8 +4,8 @@
 // Copyright (C) 2021 Yaman Alhalabi
 
 using Fluint.Editor.Layout.Base.Controls;
+using Fluint.Editor.Layout.Base.Controls.Modals;
 using Fluint.Layer.Functionality;
-using Fluint.Layer.Functionality.Common;
 using Fluint.Layer.UI;
 
 namespace Fluint.Editor.Layout.Base;
@@ -26,7 +26,11 @@ public partial class MainWindowLayout
         // File -> Exit
         _mainMenuFileExitItem = _packet.CreateScoped<IMenuItem>();
         _mainMenuFileMenuItem["FileExitMenuItem"] = _mainMenuFileExitItem;
-        _mainMenuFileExitItem.OnClick = new ModularAction { _actionManager.GetAction<IGracefulExit>().Exit };
+        _mainMenuFileExitItem.OnClick = new ModularAction {
+            () => {
+                _window.SpawnControl<SureExitModal>();
+            }
+        };
         _mainMenuFileExitItem.Text = _localizationManager.Fetch("exit");
 
         // Tools
@@ -80,6 +84,21 @@ public partial class MainWindowLayout
                 _window.SpawnControl<UIDemoControl>();
             }
         };
+
+        // Debug -> Spawn Toast Notification
+
+        _mainMenuDebugSpawnToastNotifItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenuDebugItem["DebugSpawnToastNotificationMenuItem"] = _mainMenuDebugSpawnToastNotifItem;
+        _mainMenuDebugSpawnToastNotifItem.Text = _localizationManager.Fetch("spawn_demo_notification");
+        _mainMenuDebugSpawnToastNotifItem.OnClick = new ModularAction {
+            () => {
+                _toast.AddNotification(
+                    (NotificationType)_random.Next(0, 4),
+                    "This is a demo message",
+                    $"this is a test message with an fps {1f / _window.FrameTime:00}, have fun please!");
+            }
+        };
+
 
         // Help
         _mainMenuHelpMenuItem = _packet.CreateScoped<IMenuItem>();

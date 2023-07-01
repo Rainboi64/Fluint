@@ -32,7 +32,7 @@ namespace Fluint.Graphics.Base
             set;
         }
 
-        public ViewportF Viewport
+        public Viewport Viewport
         {
             get;
             set;

@@ -24,7 +24,7 @@ namespace Fluint.Layer.Graphics
             set;
         }
 
-        ViewportF Viewport
+        Viewport Viewport
         {
             get;
             set;

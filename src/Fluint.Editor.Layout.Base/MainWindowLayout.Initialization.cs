@@ -15,7 +15,9 @@ public partial class MainWindowLayout
 
     private IMenuItem _mainMenuDebugItem;
     private IMenuItem _mainMenuDebugMetricsItem;
+    private IMenuItem _mainMenuDebugSpawnToastNotifItem;
     private IMenuItem _mainMenuDebugUIDemoItem;
+
     private IMenuItem _mainMenuFileExitItem;
 
     private IMenuItem _mainMenuFileMenuItem;
@@ -27,9 +29,15 @@ public partial class MainWindowLayout
     private IMenuItem _mainMenuToolsItem;
     private IMenuItem _mainMenuToolsToolboxItem;
 
+    private IToast _toast;
+
     public void Initialize(IWindow window)
     {
         _window = window;
+
+        _toast = _packet.GetSingleton<IToast>();
+        _window.Controls["toast"] = _toast;
+        _toast.Begin("toast");
 
         MainMenu();
     }

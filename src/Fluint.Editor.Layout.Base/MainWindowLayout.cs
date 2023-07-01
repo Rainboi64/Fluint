@@ -3,6 +3,7 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
+using System;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Functionality;
 using Fluint.Layer.Localization;
@@ -16,6 +17,8 @@ public partial class MainWindowLayout : ILayout
     private readonly IActionManager _actionManager;
     private readonly ILocalizationManager _localizationManager;
     private readonly ModulePacket _packet;
+
+    private readonly Random _random = new();
     private IWindow _window;
 
     public MainWindowLayout(ModulePacket packet)

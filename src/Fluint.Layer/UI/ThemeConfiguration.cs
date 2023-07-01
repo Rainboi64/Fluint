@@ -57,6 +57,12 @@ namespace Fluint.Layer.UI
             PlotHistogramHovered = new Vector4(0.18f, 0.35f, 0.58f, 0.86f);
             TextSelectedBg = new Vector4(0.26f, 0.59f, 0.98f, 0.80f);
             Separator = new Vector4(0.34f, 0.34f, 0.34f, 0.50f);
+
+            Success = new Vector4(0.54f, 0.78f, 0.15f, 1f);
+            Error = new Vector4(1, 0.35f, 0.36f, 1f);
+            Debug = new Vector4(1, 0.8f, 0.22f, 1f);
+            Warning = new Vector4(0.54f, 0.78f, 0.15f, 1f);
+            Information = new Vector4(0.09f, 0.50f, 0.76f, 1f);
         }
 
         public float FrameRounding
@@ -295,6 +301,36 @@ namespace Fluint.Layer.UI
         }
 
         public Vector4 Separator
+        {
+            get;
+            set;
+        }
+
+        public Vector4 Success
+        {
+            get;
+            set;
+        }
+
+        public Vector4 Error
+        {
+            get;
+            set;
+        }
+
+        public Vector4 Warning
+        {
+            get;
+            set;
+        }
+
+        public Vector4 Information
+        {
+            get;
+            set;
+        }
+
+        public Vector4 Debug
         {
             get;
             set;

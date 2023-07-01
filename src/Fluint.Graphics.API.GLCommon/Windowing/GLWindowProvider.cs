@@ -32,7 +32,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     public GlWindowProvider(ModulePacket packet, ILogger logger, ITaskManager taskManager,
         IConfigurationManager configurationManager) :
-        base(GameWindowSettings.Default, new NativeWindowSettings {
+        base(new GameWindowSettings(), new NativeWindowSettings {
             APIVersion = new Version(4, 6),
             Size = new Vector2i(1600, 900)
         })
@@ -122,7 +122,6 @@ public class GlWindowProvider : GameWindow, IWindowProvider
     {
         var config = _configurationManager.Get<WindowConfiguration>();
 
-        WindowVSync = config.VSync;
         Size = GLExtensions.Vector2I(config.WindowSize);
         WindowBorder = config.Resizable ? WindowBorder.Resizable : WindowBorder.Fixed;
 
@@ -155,7 +154,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
     {
         GL.Viewport(0, 0, WindowSize.X, WindowSize.Y);
 
-        GL.ClearColor(GLExtensions.Color4(new Color(24, 24, 24, 255)));
+        GL.ClearColor(GLExtensions.Color4(new Color(12, 12, 12, 255)));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
         _taskManager.Invoke(TaskSchedule.WindowRender, new TaskArgs(Client));

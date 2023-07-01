@@ -55,11 +55,10 @@ namespace Fluint.Graphics.API.GLCommon
             if (type == DebugType.DebugTypeError)
             {
                 _logger.Error("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
+                throw new EngineApiException("OpenGL46", messageString);
             }
-            else
-            {
-                _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
-            }
+
+            _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
         }
     }
 }

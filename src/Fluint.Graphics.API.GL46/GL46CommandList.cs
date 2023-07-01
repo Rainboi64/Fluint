@@ -237,7 +237,10 @@ internal class GL46CommandList : ICommandList
             {
                 case CommandType.Begin:
                     GL.Enable(EnableCap.DepthTest);
-                    GL.DepthFunc(DepthFunction.Less);
+                    GL.DepthMask(true);
+                    GL.DepthFunc(DepthFunction.Lequal);
+                    GL.DepthRange(0f, 1f);
+
                     GL.Enable(EnableCap.Blend);
                     GL.Enable(EnableCap.LineSmooth);
                     GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);

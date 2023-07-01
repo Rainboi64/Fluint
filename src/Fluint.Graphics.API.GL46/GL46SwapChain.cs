@@ -11,10 +11,12 @@ namespace Fluint.Graphics.API.GL46;
 
 public class GL46SwapChain : ISwapChain
 {
-    private readonly int  _nativeFramebuffer;
-    private readonly int _rbo;
+    private readonly int _nativeFramebuffer;
 
     private readonly int _nativeTexture;
+
+    private readonly int _rbo;
+
     // Could possibly be optimized to use RenderBuffers instead.
     // https://learnopengl.com/Advanced-OpenGL/Framebuffers
     public GL46SwapChain(SwapChainDescriptor descriptor)
@@ -24,7 +26,7 @@ public class GL46SwapChain : ISwapChain
 
         var texture = new GL46Texture(descriptor.Width, descriptor.Height, Filter.Nearest);
         _nativeTexture = texture;
-        
+
         GL.TexImage2D(
             TextureTarget.Texture2D,
             0,
@@ -35,24 +37,27 @@ public class GL46SwapChain : ISwapChain
             PixelFormat.Rgb,
             PixelType.UnsignedByte,
             IntPtr.Zero);
-        
-        GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0, TextureTarget.Texture2D, texture, 0);
-        
+
+        GL.FramebufferTexture2D(FramebufferTarget.Framebuffer, FramebufferAttachment.ColorAttachment0,
+            TextureTarget.Texture2D, texture, 0);
+
         _rbo = GL.GenRenderbuffer();
         GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, _rbo);
-        GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, RenderbufferStorage.Depth24Stencil8, descriptor.Width, descriptor.Height);
-        GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment, RenderbufferTarget.Renderbuffer, _rbo);
-        
-        GL.Enable(EnableCap.CullFace);
-        GL.CullFace(CullFaceMode.Back);
-        GL.FrontFace(FrontFaceDirection.Ccw);
+        GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, RenderbufferStorage.Depth24Stencil8, descriptor.Width,
+            descriptor.Height);
+        GL.FramebufferRenderbuffer(FramebufferTarget.Framebuffer, FramebufferAttachment.DepthStencilAttachment,
+            RenderbufferTarget.Renderbuffer, _rbo);
+
+        // GL.Enable(EnableCap.CullFace);
+        // GL.CullFace(CullFaceMode.Back);
+        // GL.FrontFace(FrontFaceDirection.Ccw);
 
         GL.Enable(EnableCap.DepthTest);
         GL.DepthFunc(DepthFunction.Less);
-        
+
         TextureView = texture.View;
     }
-    
+
     public void Dispose()
     {
         GL.DeleteFramebuffer(_nativeFramebuffer);
@@ -91,8 +96,9 @@ public class GL46SwapChain : ISwapChain
             PixelFormat.Rgb,
             PixelType.UnsignedByte,
             IntPtr.Zero);
-        
+
         GL.BindRenderbuffer(RenderbufferTarget.Renderbuffer, _rbo);
-        GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, RenderbufferStorage.Depth24Stencil8, descriptor.Width, descriptor.Height);
+        GL.RenderbufferStorage(RenderbufferTarget.Renderbuffer, RenderbufferStorage.Depth24Stencil8, descriptor.Width,
+            descriptor.Height);
     }
 }

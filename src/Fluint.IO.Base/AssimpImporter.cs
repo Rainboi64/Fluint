@@ -50,7 +50,7 @@ namespace Fluint.IO.Base
 
                 // newMesh.VertexArray = vertex;
                 // newMesh.IndexArray = indices;
-                // newMesh.ModelMatrix = Matrix.Identity;
+                // newMesh.Model = Matrix.Identity;
                 // TODO: copy material stuff.
                 // newMesh.Material = 
 

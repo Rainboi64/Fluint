@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Platforms>AnyCPU;x64;x86</Platforms>
+        <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <RootNamespace>Fluint.Graphics.RayTracer</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Debug With Modules Setup'">
+        <OutputPath>$(SolutionDir)output\debug\$(Platform)\base</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Release With Modules Setup'">
+        <OutputPath>$(SolutionDir)output\release\$(Platform)\base</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Fluint.Layer\Fluint.Layer.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="shaders\raytracer.frag.glsl"/>
+        <Content Include="shaders\raytracer.frag.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <None Remove="shaders\raytracer.vert.glsl"/>
+        <Content Include="shaders\raytracer.vert.glsl">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+</Project>

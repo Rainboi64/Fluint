@@ -232,6 +232,18 @@ namespace Fluint.Layer.Mathematics
         /// <param name="min">The min.</param>
         /// <param name="max">The max.</param>
         /// <returns>The result of clamping a value between min and max</returns>
+        public static double Clamp(double value, double min, double max)
+        {
+            return value < min ? min : value > max ? max : value;
+        }
+
+        /// <summary>
+        /// Clamps the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="min">The min.</param>
+        /// <param name="max">The max.</param>
+        /// <returns>The result of clamping a value between min and max</returns>
         public static int Clamp(int value, int min, int max)
         {
             return value < min ? min : value > max ? max : value;
@@ -350,7 +362,8 @@ namespace Fluint.Layer.Mathematics
         public static int Wrap(int value, int min, int max)
         {
             if (min > max)
-                throw new ArgumentException(string.Format("min {0} should be less than or equal to max {1}", min, max), nameof(min));
+                throw new ArgumentException(string.Format("min {0} should be less than or equal to max {1}", min, max),
+                    nameof(min));
 
             // Code from http://stackoverflow.com/a/707426/1356325
             int range_size = max - min + 1;
@@ -378,10 +391,40 @@ namespace Fluint.Layer.Mathematics
             double valued = value;
 
             if (mind > maxd)
-                throw new ArgumentException(string.Format("min {0} should be less than or equal to max {1}", min, max), nameof(min));
+                throw new ArgumentException(string.Format("min {0} should be less than or equal to max {1}", min, max),
+                    nameof(min));
 
             var range_size = maxd - mind;
             return (float)(mind + (valued - mind) - (range_size * Math.Floor((valued - mind) / range_size)));
+        }
+
+        /// <summary>
+        ///     Wraps the specified value into a range [min, max[
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="min">The min.</param>
+        /// <param name="max">The max.</param>
+        /// <returns>Result of the wrapping.</returns>
+        /// <exception cref="ArgumentException">Is thrown when <paramref name="min" /> is greater than <paramref name="max" />.</exception>
+        public static double Wrap(double value, double min, double max)
+        {
+            if (min == max)
+            {
+                return min;
+            }
+
+            var mind = min;
+            var maxd = max;
+            var valued = value;
+
+            if (mind > maxd)
+            {
+                throw new ArgumentException(string.Format("min {0} should be less than or equal to max {1}", min, max),
+                    nameof(min));
+            }
+
+            var range_size = maxd - mind;
+            return mind + (valued - mind) - range_size * Math.Floor((valued - mind) / range_size);
         }
 
         /// <summary>
@@ -396,7 +439,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="sigmaX">Curve sigma X.</param>
         /// <param name="sigmaY">Curve sigma Y.</param>
         /// <returns>The result of Gaussian function.</returns>
-        public static float Gauss(float amplitude, float x, float y, float centerX, float centerY, float sigmaX, float sigmaY)
+        public static float Gauss(float amplitude, float x, float y, float centerX, float centerY, float sigmaX,
+            float sigmaY)
         {
             return (float)Gauss((double)amplitude, x, y, centerX, centerY, sigmaX, sigmaY);
         }
@@ -413,7 +457,8 @@ namespace Fluint.Layer.Mathematics
         /// <param name="sigmaX">Curve sigma X.</param>
         /// <param name="sigmaY">Curve sigma Y.</param>
         /// <returns>The result of Gaussian function.</returns>
-        public static double Gauss(double amplitude, double x, double y, double centerX, double centerY, double sigmaX, double sigmaY)
+        public static double Gauss(double amplitude, double x, double y, double centerX, double centerY, double sigmaX,
+            double sigmaY)
         {
             var cx = x - centerX;
             var cy = y - centerY;

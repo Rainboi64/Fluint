@@ -12,25 +12,12 @@ namespace Fluint.Graphics.API.GL46
 {
     public class GL46Texture : ITexture
     {
-        private readonly int _width;
         private readonly int _height;
         private readonly int _nativeTexture;
+        private readonly int _width;
 
-        public int Handle => _nativeTexture;
-
-        public TextureView View { get; }
-
-        public static implicit operator int(GL46Texture texture)
-        {
-            return texture._nativeTexture;
-        }
-
-        public void Dispose()
-        {
-            GL.DeleteTexture(_nativeTexture);
-        }
-
-        public GL46Texture(int width, int height, Filter filter, TextureAddressMode textureAddressMode, ref byte[] pixelData)
+        public GL46Texture(int width, int height, Filter filter, TextureAddressMode textureAddressMode,
+            ref byte[] pixelData)
         {
             _width = width;
             _height = height;
@@ -43,11 +30,29 @@ namespace Fluint.Graphics.API.GL46
             GL.TextureParameter(_nativeTexture, TextureParameterName.TextureWrapS, (int)textureAddressMode.ToOpenTK());
             GL.TextureParameter(_nativeTexture, TextureParameterName.TextureWrapT, (int)textureAddressMode.ToOpenTK());
 
-            GL.TextureSubImage2D(_nativeTexture, 0, 0, 0, width, height, PixelFormat.Rgba, PixelType.UnsignedByte, pixelData);
+            GL.TextureSubImage2D(_nativeTexture, 0, 0, 0, width, height, PixelFormat.Rgba, PixelType.UnsignedByte,
+                pixelData);
 
             View = new GL46TextureView(this);
         }
-        
+
+        public GL46Texture(int width, int height, Filter filter, TextureAddressMode textureAddressMode)
+        {
+            _width = width;
+            _height = height;
+            GL.CreateTextures(TextureTarget.Texture2D, 1, out _nativeTexture);
+            GL.TextureStorage2D(_nativeTexture, 1, SizedInternalFormat.Rgba32f, width, height);
+
+            GL.TextureParameter(_nativeTexture, TextureParameterName.TextureMinFilter, (int)filter.MinFilterToOpenTK());
+            GL.TextureParameter(_nativeTexture, TextureParameterName.TextureMagFilter, (int)filter.MagFilterToOpenTK());
+            GL.TextureParameter(_nativeTexture, TextureParameterName.TextureWrapR, (int)textureAddressMode.ToOpenTK());
+            GL.TextureParameter(_nativeTexture, TextureParameterName.TextureWrapS, (int)textureAddressMode.ToOpenTK());
+            GL.TextureParameter(_nativeTexture, TextureParameterName.TextureWrapT, (int)textureAddressMode.ToOpenTK());
+
+
+            View = new GL46TextureView(this);
+        }
+
         public GL46Texture(int width, int height, Filter filter)
         {
             _width = width;
@@ -59,6 +64,18 @@ namespace Fluint.Graphics.API.GL46
             GL.TextureParameter(_nativeTexture, TextureParameterName.TextureMagFilter, (int)filter.MagFilterToOpenTK());
 
             View = new GL46TextureView(this);
+        }
+
+        public int Handle => _nativeTexture;
+
+        public TextureView View
+        {
+            get;
+        }
+
+        public void Dispose()
+        {
+            GL.DeleteTexture(_nativeTexture);
         }
 
         public void SetData<T>(T[] data) where T : struct
@@ -73,6 +90,11 @@ namespace Fluint.Graphics.API.GL46
                 PixelFormat.Rgba,
                 PixelType.UnsignedByte,
                 data);
+        }
+
+        public static implicit operator int(GL46Texture texture)
+        {
+            return texture._nativeTexture;
         }
     }
 }
