@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
-using Fluint.Layer.Editor;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
@@ -22,11 +21,10 @@ namespace Fluint.UI.Base;
 public class MainWindow : IWindow
 {
     private readonly IConfigurationManager _configurationManager;
-
-    private readonly List<IPuppet> _ghosts;
     private readonly ILogger _logger;
     private readonly ModulePacket _packet;
-    private readonly WorldState _worldState = new();
+
+    private readonly List<IPuppet> _puppets;
 
     private IWindowProvider _provider;
 
@@ -36,8 +34,10 @@ public class MainWindow : IWindow
         _packet = packet;
         _logger = logger;
 
+        Profiler = packet.CreateScoped<IFrameProfiler>();
+
         Controls = new Dictionary<string, IGuiComponent>();
-        _ghosts = new List<IPuppet>();
+        _puppets = new List<IPuppet>();
     }
 
 
@@ -45,6 +45,11 @@ public class MainWindow : IWindow
     public event EventHandler<RenderEvent> Render;
     public event EventHandler<RenderEvent> Update;
     public event EventHandler<ResizeEvent> Resize;
+
+    public IFrameProfiler Profiler
+    {
+        get;
+    }
 
     public double FrameTime
     {
@@ -109,11 +114,13 @@ public class MainWindow : IWindow
 
     public void OnLoad()
     {
+        Profiler.Begin("Window Load");
+
         Title = "Fluint";
 
-        foreach (var ghost in _ghosts)
+        foreach (var ghost in _puppets)
         {
-            _logger.Verbose("[{0}] Loading Ghost: {1}", Title, ghost.ToString());
+            _logger.Verbose("[{0}] Loading Puppet: {1}", Title, ghost.ToString());
             ghost.OnLoad();
         }
 
@@ -128,11 +135,13 @@ public class MainWindow : IWindow
         }
 
         Load?.Invoke(this, EventArgs.Empty);
+
+        Profiler.End("Window Load");
     }
 
     public void OnStart()
     {
-        foreach (var ghost in _ghosts)
+        foreach (var ghost in _puppets)
         {
             ghost.OnStart();
         }
@@ -140,19 +149,25 @@ public class MainWindow : IWindow
 
     public void OnRender(double delay)
     {
-        foreach (var ghost in _ghosts)
+        Profiler.Begin("Render");
+
+        foreach (var ghost in _puppets)
         {
             ghost.OnRender(delay);
         }
 
         Render?.Invoke(this, new RenderEvent(delay));
+
+        Profiler.End("Render");
     }
 
     public void OnUpdate(double delay)
     {
+        Profiler.Begin("Update");
+
         FrameTime = delay;
 
-        foreach (var ghost in _ghosts)
+        foreach (var ghost in _puppets)
         {
             ghost.OnUpdate(delay);
         }
@@ -167,21 +182,21 @@ public class MainWindow : IWindow
         ImGui.End();
 
         Update?.Invoke(this, new RenderEvent(delay));
+
+        Profiler.End("Update");
     }
 
     public void OnTextReceived(int unicode, string data)
     {
-        foreach (var ghost in _ghosts)
+        foreach (var ghost in _puppets)
         {
             ghost.OnTextReceived(unicode, data);
         }
-
-        //TODO: Window stuff!
     }
 
     public void OnResize(int width, int height)
     {
-        foreach (var ghost in _ghosts)
+        foreach (var ghost in _puppets)
         {
             ghost.OnResize(width, height);
         }
@@ -191,12 +206,10 @@ public class MainWindow : IWindow
 
     public void OnMouseWheelMoved(Vector2 offset)
     {
-        foreach (var ghost in _ghosts)
+        foreach (var ghost in _puppets)
         {
             ghost.OnMouseWheelMoved(offset);
         }
-
-        //TODO: Window stuff!
     }
 
     public void SetProvider(in IWindowProvider provider)
@@ -212,15 +225,15 @@ public class MainWindow : IWindow
         _provider.FrameQueue.Enqueue(action);
     }
 
-    public void Puppet<TGhost>() where TGhost : IPuppet
+    public void Puppet<T>() where T : IPuppet
     {
-        var ghostType = typeof(TGhost);
-        _logger.Verbose("[{0}] Adopting Ghost {1}", Title, ghostType.Name);
+        var type = typeof(T);
+        _logger.Verbose("[{0}] Adopting Puppet {1}", Title, type.Name);
 
-        var ghost = (IPuppet)_packet.FetchAndCreateInstance(ghostType);
+        var puppet = (IPuppet)_packet.FetchAndCreateInstance(type);
 
-        ghost.SetPossessed(this);
-        _ghosts.Add(ghost);
+        puppet.SetPossessed(this);
+        _puppets.Add(puppet);
     }
 
     private void SetStyleFromConfig(ImGuiStylePtr style)

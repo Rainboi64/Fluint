@@ -11,10 +11,6 @@
         <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="PrimitiveMeshes"/>
-    </ItemGroup>
-
     <PropertyGroup Condition="'$(Configuration)'=='Debug With Modules Setup'">
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <OutputPath>$(SolutionDir)output\debug\$(Platform)\base</OutputPath>

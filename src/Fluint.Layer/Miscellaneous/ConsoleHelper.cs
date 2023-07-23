@@ -13,11 +13,17 @@ namespace Fluint.Layer.Miscellaneous
     /// Shameless steal!
     /// https://gist.github.com/RickStrahl/52c9ee43bd2723bcdf7bf4d24b029768
     /// </summary>
-    public class ConsoleHelper
+    public static class ConsoleHelper
     {
         private static readonly Lazy<Regex> ColorBlockRegEx = new(
             () => new Regex("\\[(?<color>.*?)\\](?<text>[^[]*)\\[/\\k<color>\\]", RegexOptions.IgnoreCase),
             isThreadSafe: true);
+
+        public static string Print(this string str, params object[] args)
+        {
+            Console.WriteLine(str, args);
+            return str;
+        }
 
         /// <summary>
         /// WriteLine with color
@@ -30,7 +36,9 @@ namespace Fluint.Layer.Miscellaneous
             {
                 var oldColor = Console.ForegroundColor;
                 if (color == oldColor)
+                {
                     Console.WriteLine(text);
+                }
                 else
                 {
                     Console.ForegroundColor = color.Value;
@@ -39,7 +47,9 @@ namespace Fluint.Layer.Miscellaneous
                 }
             }
             else
+            {
                 Console.WriteLine(text);
+            }
         }
 
         /// <summary>
@@ -76,7 +86,9 @@ namespace Fluint.Layer.Miscellaneous
             {
                 var oldColor = Console.ForegroundColor;
                 if (color == oldColor)
+                {
                     Console.Write(text);
+                }
                 else
                 {
                     Console.ForegroundColor = color.Value;
@@ -85,7 +97,9 @@ namespace Fluint.Layer.Miscellaneous
                 }
             }
             else
+            {
                 Console.Write(text);
+            }
         }
 
         /// <summary>
@@ -101,7 +115,7 @@ namespace Fluint.Layer.Miscellaneous
                 return;
             }
 
-            if (!ConsoleColor.TryParse(color, true, out ConsoleColor col))
+            if (!Enum.TryParse(color, true, out ConsoleColor col))
             {
                 Write(text);
             }
@@ -128,9 +142,11 @@ namespace Fluint.Layer.Miscellaneous
             ConsoleColor dashColor = ConsoleColor.DarkGray)
         {
             if (string.IsNullOrEmpty(headerText))
+            {
                 return;
+            }
 
-            string line = new string(wrapperChar, headerText.Length);
+            var line = new string(wrapperChar, headerText.Length);
 
             WriteLine(line, dashColor);
             WriteLine(headerText, headerColor);
@@ -151,8 +167,7 @@ namespace Fluint.Layer.Miscellaneous
 
         public static void WriteEmbeddedColor(string text, ConsoleColor? baseTextColor = null)
         {
-            if (baseTextColor == null)
-                baseTextColor = Console.ForegroundColor;
+            baseTextColor ??= Console.ForegroundColor;
 
             if (string.IsNullOrEmpty(text))
             {
@@ -160,8 +175,8 @@ namespace Fluint.Layer.Miscellaneous
                 return;
             }
 
-            int at = text.IndexOf("[");
-            int at2 = text.IndexOf("]");
+            var at = text.IndexOf("[", StringComparison.Ordinal);
+            var at2 = text.IndexOf("]", StringComparison.Ordinal);
             if (at == -1 || at2 <= at)
             {
                 WriteLine(text, baseTextColor);
@@ -178,16 +193,16 @@ namespace Fluint.Layer.Miscellaneous
                 }
 
                 // write up to expression
-                Write(text.Substring(0, match.Index), baseTextColor);
+                Write(text[..match.Index], baseTextColor);
 
                 // strip out the expression
-                string highlightText = match.Groups["text"].Value;
-                string colorVal = match.Groups["color"].Value;
+                var highlightText = match.Groups["text"].Value;
+                var colorVal = match.Groups["color"].Value;
 
                 Write(highlightText, colorVal);
 
                 // remainder of string
-                text = text.Substring(match.Index + match.Value.Length);
+                text = text[(match.Index + match.Value.Length)..];
             }
         }
 

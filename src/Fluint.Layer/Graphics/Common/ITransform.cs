@@ -9,14 +9,8 @@ using Fluint.Layer.Mathematics;
 namespace Fluint.Layer.Graphics.Common;
 
 [Initialization(InitializationMethod.Scoped)]
-public interface ITransform : IComponent, IModule
+public interface ITransform : IComponent
 {
-    public IEntity Entity
-    {
-        get;
-        set;
-    }
-
     public Vector3 Translation
     {
         get;

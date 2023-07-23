@@ -36,12 +36,12 @@ public class CameraTool : ITool
             return;
         }
 
-        context.Camera.Zoom -= context.InputManager.MouseScrollDelta.Y / 100f;
-
         if (!context.Focused)
         {
             return;
         }
+
+        context.Camera.Zoom -= context.InputManager.MouseScrollDelta.Y / 100f;
 
         var state = context.GetState<CameraToolState>();
 
@@ -60,7 +60,7 @@ public class CameraTool : ITool
             context.Camera.Yaw = state.MouseCapture.X * camBoost;
         }
 
-        if (context.InputManager.IsKeyPressed(Key.K))
+        if (context.InputManager.WasKeyPressed(Key.K) && !context.InputManager.IsKeyPressed(Key.K))
         {
             context.Camera.ProjectionMode = context.Camera.ProjectionMode == ProjectionMode.Orthogonal
                 ? ProjectionMode.Prespective
@@ -78,7 +78,7 @@ public class CameraTool : ITool
             }
             else
             {
-                movementVec += context.Camera.Front;
+                movementVec -= context.Camera.Front;
             }
         }
 
@@ -96,12 +96,12 @@ public class CameraTool : ITool
 
         if (context.InputManager.IsKeyPressed(Key.A))
         {
-            movementVec -= context.Camera.Right;
+            movementVec += context.Camera.Right;
         }
 
         if (context.InputManager.IsKeyPressed(Key.D))
         {
-            movementVec += context.Camera.Right;
+            movementVec -= context.Camera.Right;
         }
 
         context.Camera.Position += Vector3.Normalize(movementVec) * boost * (float)e.Time;

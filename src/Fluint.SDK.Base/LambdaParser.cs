@@ -36,7 +36,14 @@ namespace Fluint.SDK.Base
 
             if (commandObject is not null)
             {
-                return commandObject.Run(args);
+                try
+                {
+                    return commandObject.Run(args);
+                }
+                catch (Exception e)
+                {
+                    return LambdaObject.Error(e.Message);
+                }
             }
 
             switch (command)

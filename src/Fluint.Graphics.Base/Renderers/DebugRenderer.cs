@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Graphics.Common;
+using Fluint.Layer.Graphics.Debug;
 using Fluint.Layer.Graphics.Renderers;
 using Fluint.Layer.Mathematics;
 
@@ -15,10 +16,13 @@ namespace Fluint.Graphics.Base.Renderers;
 public class DebugRenderer : IDebugRenderer
 {
     private readonly IGraphicsFactory _graphicsFactory;
-    private readonly IDebugRenderServer _renderServer;
+    private readonly IDebugServer _server;
 
     private ICommandList _commandList;
     private Shader _fragmentShader;
+
+    // for thread-safety
+    private bool _needsUpdate = true;
 
     private IPipeline _pipeline;
     private IVertexBuffer _vertexBuffer;
@@ -29,10 +33,10 @@ public class DebugRenderer : IDebugRenderer
     private bool _viewportUpdated;
     private IConstantBuffer _worldViewBuffer;
 
-    public DebugRenderer(IDebugRenderServer renderServer, IGraphicsFactory graphicsFactory)
+    public DebugRenderer(IDebugServer server, IGraphicsFactory graphicsFactory)
     {
-        _renderServer = renderServer;
-        _renderServer.OnVertexChanged += RenderServerOnOnVertexChanged;
+        _server = server;
+        _server.OnVertexChanged += ServerOnOnVertexChanged;
         _graphicsFactory = graphicsFactory;
     }
 
@@ -82,12 +86,19 @@ public class DebugRenderer : IDebugRenderer
 
     public void PreRender()
     {
+        if (_needsUpdate)
+        {
+            Update();
+        }
+
         if (!_viewportUpdated)
         {
             return;
         }
 
         _pipeline.Viewport = _viewport;
+        Update();
+
         _viewportUpdated = false;
     }
 
@@ -106,12 +117,19 @@ public class DebugRenderer : IDebugRenderer
     {
     }
 
-    private void RenderServerOnOnVertexChanged(object sender, EventArgs e)
+    private void ServerOnOnVertexChanged(object sender, EventArgs e)
     {
-        _vertexCount = _renderServer.DebugVertex.Length;
-        _vertexBuffer.Initialize(_renderServer.DebugVertex);
+        _needsUpdate = true;
+    }
+
+    private void Update()
+    {
+        _vertexCount = _server.Vertices.Length;
+        _vertexBuffer.Initialize(_server.Vertices);
 
         GenerateCommandList();
+
+        _needsUpdate = false;
     }
 
     private void GenerateCommandList()

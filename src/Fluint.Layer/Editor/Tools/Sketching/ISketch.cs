@@ -24,4 +24,6 @@ public interface ISketch : IModule, IComponent
     }
 
     void Update();
+    int PickVertex(Ray ray, float radius);
+    int[] PickMultipleVertex(Ray ray, float radius);
 }

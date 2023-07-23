@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Editor;
 using Fluint.Layer.Editor.Tools;
 using Fluint.Layer.Localization;
 using Fluint.Layer.Mathematics;
@@ -21,7 +20,6 @@ public class ToolboxControl : Control
     private readonly Color4 _active;
     private readonly Dictionary<ITool, IImageButton> _buttons = new();
     private readonly Color4 _inactive;
-    private readonly ToolState _state;
 
     public ToolboxControl(ModulePacket packet, ILocalizationManager localizationManager,
         IConfigurationManager configManager, IStateManager stateManager)
@@ -31,8 +29,6 @@ public class ToolboxControl : Control
 
         _active = new Color4(theme.ButtonActive.X, theme.ButtonActive.Y, theme.ButtonActive.Z, theme.ButtonActive.W);
         _inactive = new Color4(theme.Button.X, theme.Button.Y, theme.Button.Z, theme.Button.W);
-
-        _state = stateManager.GetState<ToolState>();
 
         var container = packet.CreateScoped<IContainer>();
         container.Title = localizationManager.Fetch("toolbox");
@@ -54,7 +50,6 @@ public class ToolboxControl : Control
             button.Padding = 0;
             button.Path = toolAttribute.IconPath;
             button.OnClick = () => {
-                _state.ActiveTool = tool;
             };
 
             _buttons[tool] = button;
@@ -69,7 +64,6 @@ public class ToolboxControl : Control
     {
         foreach (var pair in _buttons)
         {
-            pair.Value.BackgroundColor = pair.Key == _state.ActiveTool ? _active : _inactive;
         }
 
         base.Tick();

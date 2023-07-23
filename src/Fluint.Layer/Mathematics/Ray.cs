@@ -8,6 +8,7 @@ using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Layer.Mathematics
 {
@@ -252,6 +253,35 @@ namespace Fluint.Layer.Mathematics
 
             Vector3 direction = farPoint - nearPoint;
 
+            farPoint.ToString().Print();
+
+            direction.Normalize();
+
+            return new Ray(nearPoint, direction);
+        }
+
+        /// <summary>
+        ///     Calculates a world space <see cref="Ray" /> from 2d screen coordinates.
+        /// </summary>
+        /// <param name="x">X coordinate on 2d screen.</param>
+        /// <param name="y">Y coordinate on 2d screen.</param>
+        /// <param name="viewport"><see cref="ViewportF" />.</param>
+        /// <returns>Resulting <see cref="Ray" />.</returns>
+        public static Ray GetPickRay(int x, int y, ViewportF viewport, Matrix view, Matrix projection)
+        {
+            var nearPoint = new Vector3(x, y, 0);
+            var farPoint = new Vector3(x, y, 1);
+
+            nearPoint = Vector3.Unproject(nearPoint, 0, 0, viewport.Width, viewport.Height, viewport.MinDepth,
+                viewport.MaxDepth, projection);
+            farPoint = Vector3.Unproject(farPoint, 0, 0, viewport.Width, viewport.Height, viewport.MinDepth,
+                viewport.MaxDepth, projection);
+
+            var viewMatrix = Matrix.Invert(view);
+            nearPoint = Vector3.TransformCoordinate(nearPoint, viewMatrix);
+            farPoint = Vector3.TransformCoordinate(farPoint, viewMatrix);
+
+            var direction = farPoint - nearPoint;
             direction.Normalize();
 
             return new Ray(nearPoint, direction);

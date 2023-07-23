@@ -5,7 +5,7 @@
 
 using System;
 using System.Linq;
-using Fluint.Layer.Editor;
+using Fluint.Layer.Editor.Viewport;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Graphics.Common;
 using Fluint.Layer.Graphics.Renderers;
@@ -19,9 +19,8 @@ public class GridRenderer : IGridRenderer
 
     private ICommandList _commandList;
     private Shader _fragmentShader;
+    private Grid _grid;
 
-    private Grid _grid = new(new Vector2i(1, 1), new Vector2i(1024, 1024));
-    private bool _gridUpdated;
     private IPipeline _pipeline;
     private IVertexBuffer _vertexBuffer;
 
@@ -34,18 +33,13 @@ public class GridRenderer : IGridRenderer
     public GridRenderer(IGraphicsFactory graphicsFactory)
     {
         _graphicsFactory = graphicsFactory;
-        _gridUpdated = true;
         _viewportUpdated = true;
     }
 
     public Grid Grid
     {
         get => _grid;
-        set
-        {
-            _gridUpdated = true;
-            _grid = value;
-        }
+        set => _grid = value;
     }
 
     public ModelViewProjection WorldView
@@ -93,12 +87,12 @@ public class GridRenderer : IGridRenderer
 
     public void PreRender()
     {
-        if (_gridUpdated)
+        if (_grid.NeedsUpdate)
         {
             GenerateGrid();
             GenerateCommandList();
 
-            _gridUpdated = false;
+            _grid.NeedsUpdate = false;
         }
 
         if (_viewportUpdated)
@@ -129,7 +123,7 @@ public class GridRenderer : IGridRenderer
     private void GenerateGrid()
     {
         var gridLines =
-            new PositionColorVertex[(_grid.Size.X / _grid.Offsets.X + _grid.Size.Y / _grid.Offsets.Y) * 4 + 4];
+            new PositionColorVertex[(_grid.Size.X + _grid.Size.Y) * 4 + 4];
         var k = 0;
 
         for (var x = -_grid.Size.X; x <= _grid.Size.X; x += _grid.Offsets.X)

@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.SDK.Runtime", "src\F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{AEEB9C92-8CF9-4DC4-84EC-D226FF477F64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Tasks.Base", "src\Fluint.Tasks.Base\Fluint.Tasks.Base.csproj", "{49D0F24C-F8C7-4D47-B1BE-FAB890354B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Jobs.Base", "src\Fluint.Jobs.Base\Fluint.Jobs.Base.csproj", "{49D0F24C-F8C7-4D47-B1BE-FAB890354B68}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluint.Diagnostics.Base", "src\Fluint.Diagnostics.Base\Fluint.Diagnostics.Base.csproj", "{24FAC640-6218-49E2-AAD8-24AFDE4D1B23}"
 EndProject

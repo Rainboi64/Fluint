@@ -28,10 +28,8 @@ public class CameraControl : Control
         var localizationManager = packet.GetSingleton<ILocalizationManager>();
         var graphicsFactory = packet.CreateScoped<IGraphicsFactory>();
 
-
         var swapChain =
             graphicsFactory.CreateSwapchain(new SwapChainDescriptor(750, 750, false, false, SwapEffect.Discard));
-
 
         _viewport = packet.CreateScoped<IViewport>();
         _viewport.SwapChain = swapChain;
@@ -83,11 +81,4 @@ public class CameraControl : Control
         _viewport.Size = _container.Size;
         _viewportContext.Resize(viewport);
     }
-
-    // private void Input()
-    // {
-    //    
-    //
-    //  
-    // }
 }

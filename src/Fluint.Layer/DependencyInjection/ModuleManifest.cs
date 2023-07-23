@@ -6,6 +6,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Layer.DependencyInjection;
@@ -36,6 +37,11 @@ public class ModuleManifest
                 pair.InitializationMethod);
         }
 
-        return table.ToMarkDownString();
+        var stringBuilder = new StringBuilder();
+        stringBuilder.Append("Loaded Modules: ");
+        stringBuilder.AppendLine(Modules.Count().ToString());
+        stringBuilder.AppendLine(table.ToMarkDownString());
+
+        return stringBuilder.ToString();
     }
 }

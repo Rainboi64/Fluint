@@ -27,17 +27,12 @@ public class InputManager : IInputManager
 
     public InputState State(Key key)
     {
-        if (_nativeKeyboard.IsKeyDown((Keys)key))
+        if (!_nativeKeyboard.IsKeyDown((Keys)key))
         {
-            if (_nativeKeyboard.WasKeyDown((Keys)key))
-            {
-                return InputState.Repeat;
-            }
-
-            return InputState.Press;
+            return InputState.Release;
         }
 
-        return InputState.Release;
+        return _nativeKeyboard.WasKeyDown((Keys)key) ? InputState.Repeat : InputState.Press;
     }
 
     public bool IsKeyPressed(Key key)

@@ -243,6 +243,7 @@ internal class GL46CommandList : ICommandList
 
                     GL.Enable(EnableCap.Blend);
                     GL.Enable(EnableCap.LineSmooth);
+                    GL.Enable(EnableCap.Multisample);
                     GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
                     break;
                 case CommandType.End:

@@ -13,7 +13,6 @@ namespace Fluint.Graphics.Base
 {
     public class Camera : ICamera
     {
-        private const float PiOver4 = MathF.PI / 4.0f;
         private const float PiOver2 = MathF.PI / 2.0f;
         private float _fov = PiOver2;
 
@@ -82,7 +81,7 @@ namespace Fluint.Graphics.Base
             get => MathUtil.RadiansToDegrees(_fov);
             set
             {
-                var angle = MathUtil.Clamp(value, 1f, 45f);
+                var angle = MathUtil.Clamp(value, 1f, 120f);
                 _fov = MathUtil.DegreesToRadians(angle);
             }
         }
@@ -95,21 +94,22 @@ namespace Fluint.Graphics.Base
 
         public Matrix GetViewMatrix()
         {
-            return Matrix.LookAtRH(Position, Position + Front, Up);
+            return Matrix.LookAtLH(Position, Position + Front, Up);
         }
 
         public Matrix GetProjectionMatrix()
         {
             Zoom = Math.Max(Zoom, Viewport.MinDepth);
-            if (ProjectionMode == ProjectionMode.Orthogonal)
+            if (ProjectionMode != ProjectionMode.Orthogonal)
             {
-                var x = Viewport.Width / 2.0f * Zoom;
-                var y = Viewport.Height / 2.0f * Zoom;
-
-                return Matrix.OrthoOffCenterRH(-x, x, -y, y, Viewport.MinDepth, Viewport.MaxDepth);
+                var mat = Matrix.PerspectiveFovRH(_fov, Viewport.AspectRatio, Viewport.MinDepth, Viewport.MaxDepth);
+                return mat;
             }
 
-            return Matrix.PerspectiveFovRH(_fov, Viewport.AspectRatio, Viewport.MinDepth, Viewport.MaxDepth);
+            var x = Viewport.Width / 2.0f * Zoom;
+            var y = Viewport.Height / 2.0f * Zoom;
+
+            return Matrix.OrthoOffCenterRH(-x, x, -y, y, Viewport.MinDepth, Viewport.MaxDepth);
         }
 
         private void UpdateVectors()

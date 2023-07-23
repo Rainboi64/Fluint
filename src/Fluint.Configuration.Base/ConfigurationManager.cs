@@ -8,9 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Diagnostics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -29,11 +29,13 @@ namespace Fluint.Configuration.Base
 
         public T Get<T>() where T : IConfiguration
         {
-            if (_configs.OfType<T>().Any())
-            {
-                return _configs.OfType<T>().FirstOrDefault();
-            }
-            else if (FileExists(typeof(T)))
+            // no caching
+            // if (_configs.OfType<T>().Any())
+            // {
+            //     return _configs.OfType<T>().FirstOrDefault();
+            // }
+
+            if (FileExists(typeof(T)))
             {
                 var jsonData = File.ReadAllText(GenerateTypeLocation(typeof(T)));
                 var obj = JsonConvert.DeserializeObject<T>(jsonData,
@@ -41,29 +43,23 @@ namespace Fluint.Configuration.Base
                 _configs.Add(obj);
                 return obj;
             }
-            else
-            {
-                Add(Activator.CreateInstance<T>());
-                return _configs.OfType<T>().FirstOrDefault();
-            }
+
+            Add(Activator.CreateInstance<T>());
+            return _configs.OfType<T>().FirstOrDefault();
         }
 
         public void Add(IConfiguration configuration)
         {
             var fileName = GenerateTypeLocation(configuration.GetType());
-            _packet.GetSingleton<ILogger>().Information("[{0}] creating configuration file \"{1}\"",
-                "ConfigurationManager", fileName);
-            GenerateJSONFile(configuration);
+            GenerateJsonFile(configuration);
             _configs.Add(configuration);
         }
 
         public void Save()
         {
-            _packet.GetSingleton<ILogger>().Information("[{0}] Saving configuration files", "ConfigurationManager");
-
             foreach (var config in _configs)
             {
-                GenerateJSONFile(config);
+                GenerateJsonFile(config);
             }
         }
 
@@ -79,15 +75,10 @@ namespace Fluint.Configuration.Base
                 }
             }
 
-            if (FileExists(typeof(T)))
-            {
-                return true;
-            }
-
-            return false;
+            return FileExists(typeof(T));
         }
 
-        private void GenerateJSONFile(IConfiguration config)
+        private void GenerateJsonFile(IConfiguration config)
         {
             var jsonData = JsonConvert.SerializeObject(config, Formatting.Indented,
                 new StringEnumConverter());
@@ -98,8 +89,10 @@ namespace Fluint.Configuration.Base
             File.WriteAllText(GenerateTypeLocation(config.GetType()), jsonData);
         }
 
-        private bool FileExists(Type config) => File.Exists(GenerateTypeLocation(config));
-        private bool FileExists(IConfiguration config) => FileExists(config.GetType());
+        private bool FileExists(Type config)
+        {
+            return File.Exists(GenerateTypeLocation(config));
+        }
 
         private string GenerateTypeLocation(Type type)
         {
@@ -111,13 +104,14 @@ namespace Fluint.Configuration.Base
             return $"./configs/{type.Name}.json";
         }
 
-        private bool GetLocation(Type type, out string location)
+        private static bool GetLocation(ICustomAttributeProvider type, out string location)
         {
             var attributes = type.GetCustomAttributes(false).OfType<ConfigurationAttribute>();
 
-            if (attributes.Any())
+            var configurationAttributes = attributes as ConfigurationAttribute[] ?? attributes.ToArray();
+            if (configurationAttributes.Any())
             {
-                location = attributes.FirstOrDefault().Location;
+                location = configurationAttributes.FirstOrDefault()?.Location;
                 return true;
             }
 

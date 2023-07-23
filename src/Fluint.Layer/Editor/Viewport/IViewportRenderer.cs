@@ -24,6 +24,12 @@ public interface IViewportRenderer : IModule
         get;
     }
 
+
+    Grid Grid
+    {
+        get;
+    }
+
     IRenderingPipeline Pipeline
     {
         get;

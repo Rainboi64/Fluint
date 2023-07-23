@@ -17,7 +17,7 @@ namespace Fluint.Runtime;
 public class Editor
 {
     private const string BaseFileLocation = "moduleManifest.json";
-    private const string VersionDetails = "pre-α 2022.5.1.00";
+    private const string VersionDetails = "pre-α 2023.0.0.00";
 
     public static void Start()
     {
@@ -32,16 +32,24 @@ public class Editor
         var manifest = new StartupManifest(Environment.GetCommandLineArgs(), moduleDirectory, VersionDetails);
         var manager = new InstanceManager(manifest);
 
-        manager.CreateInstance<Instance>();
+        if (manifest.CommandLineArguments.Any(x => x.ToUpper() == "--SDK"))
+        {
+            var sdk = manager.CreateInstance<SdkInstance>();
+            manager.Instances[sdk].Start();
+        }
+        else
+        {
+            var fluint = manager.CreateInstance<Instance>();
 
-        // Create an SDK attached to the fluint instance.
-        Task.Run(() => {
-            var sdk = new SdkInstance();
-            sdk.Create(1, manifest, manager.Instances[0].ModuleManifest, manager.Instances[0].Packet, manager);
-            sdk.Start();
-        });
+            // Create an SDK attached to the fluint instance.
+            Task.Run(() => {
+                var sdk = new SdkInstance();
+                sdk.Create(1, manifest, manager.Instances[0].ModuleManifest, manager.Instances[0].Packet, manager);
+                sdk.Start();
+            });
 
-        manager.StartAll();
+            manager.Instances[fluint].Start();
+        }
     }
 
     private static string GetTimeOfDayName(DateTime time)

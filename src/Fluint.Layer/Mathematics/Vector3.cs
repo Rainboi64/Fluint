@@ -1010,9 +1010,8 @@ namespace Fluint.Layer.Mathematics
         public static void Unproject(ref Vector3 vector, float x, float y, float width, float height, float minZ,
             float maxZ, ref Matrix worldViewProjection, out Vector3 result)
         {
-            Vector3 v = new Vector3();
-            Matrix matrix = new Matrix();
-            Matrix.Invert(ref worldViewProjection, out matrix);
+            var v = new Vector3();
+            Matrix.Invert(ref worldViewProjection, out var matrix);
 
             v.X = (((vector.X - x) / width) * 2.0f) - 1.0f;
             v.Y = -((((vector.Y - y) / height) * 2.0f) - 1.0f);
@@ -1020,6 +1019,7 @@ namespace Fluint.Layer.Mathematics
 
             TransformCoordinate(ref v, ref matrix, out result);
         }
+
 
         /// <summary>
         /// Projects a 3D vector from screen space into object space. 

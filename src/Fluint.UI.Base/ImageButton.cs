@@ -43,8 +43,8 @@ public class ImageButton : IImageButton
     {
         if (_texture is not null)
         {
-            if (ImGui.ImageButton(new IntPtr(_texture.Handle), new Vector2(Size.X, Size.Y), Vector2.Zero, Vector2.One,
-                    (int)Padding,
+            if (ImGui.ImageButton(Name, new IntPtr(_texture.Handle), new Vector2(Size.X, Size.Y), Vector2.Zero,
+                    Vector2.One,
                     new Vector4(BackgroundColor.Red, BackgroundColor.Green, BackgroundColor.Blue,
                         BackgroundColor.Alpha)))
             {

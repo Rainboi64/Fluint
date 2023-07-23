@@ -1,4 +1,3 @@
 #!/bin/sh
-echo starting...
-cd output/release/x64/
-./Fluint.Runtime
+cd ./output/release/x64/
+./Fluint.Editor.Runtime

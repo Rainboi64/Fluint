@@ -26,27 +26,22 @@ public class SketchSystem : ISketchSystem
         _sketches.Add(component);
     }
 
-    public ISketch Pick(Ray ray)
+    public bool Pick(Ray ray, out ISketch sketch)
     {
-        foreach (var sketch in _sketches)
+        foreach (var item in _sketches)
         {
-            if (!sketch.BoundingBox.Intersects(ref ray))
+            var aabb = item.BoundingBox;
+            if (!Collision.RayIntersectsBox(ref ray, ref aabb, out float _))
             {
                 continue;
             }
 
-            foreach (var vertex in sketch.Vertex)
-            {
-                var boundingSphere = new BoundingSphere(vertex.Position, 1);
-                if (Collision.RayIntersectsSphere(ref ray, ref boundingSphere,
-                        out float distance))
-                {
-                    return sketch;
-                }
-            }
+            sketch = item;
+            return true;
         }
 
-        return null;
+        sketch = null;
+        return false;
     }
 
     public PositionColorVertex[] GetVertex()

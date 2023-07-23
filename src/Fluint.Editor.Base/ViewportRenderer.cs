@@ -17,25 +17,26 @@ namespace Fluint.Editor.Base;
 public class ViewportRenderer : IViewportRenderer
 {
     private readonly ICommandList _commandList;
-    private readonly IDebugRenderServer _debug;
-
-    private readonly ModulePacket _packet;
 
     public ViewportRenderer(ModulePacket packet)
     {
-        _packet = packet;
-        _debug = packet.GetSingleton<IDebugRenderServer>();
         Camera = packet.CreateScoped<ICamera>();
 
         Pipeline = packet.CreateScoped<IRenderingPipeline>();
         _commandList = packet.CreateScoped<IGraphicsFactory>().CreateCommandList();
 
+        Grid = new Grid(new Vector2i(1, 1), new Vector2i(1024, 1024));
+
         var gridRenderer = packet.CreateScoped<IGridRenderer>();
+        gridRenderer.Grid = Grid;
+
         var sketchRenderer = packet.CreateScoped<ISketchRenderer>();
         var debugRenderer = packet.CreateScoped<IDebugRenderer>();
+        var gizmoRenderer = packet.CreateScoped<IGizmoRenderer>();
 
         Pipeline.Renderers.Add(gridRenderer);
         Pipeline.Renderers.Add(sketchRenderer);
+        Pipeline.Renderers.Add(gizmoRenderer);
         Pipeline.Renderers.Add(debugRenderer);
     }
 
@@ -46,6 +47,11 @@ public class ViewportRenderer : IViewportRenderer
     }
 
     public ICamera Camera
+    {
+        get;
+    }
+
+    public Grid Grid
     {
         get;
     }

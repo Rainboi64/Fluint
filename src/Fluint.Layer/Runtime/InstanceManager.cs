@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Threading;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
 
@@ -19,7 +20,19 @@ namespace Fluint.Layer.Runtime
         {
             _manifest = manifest;
 
-            if (File.Exists(manifest.ModuleManifest))
+            if (manifest.CommandLineArguments.Any(x => x.ToUpper() == "--REBUILD"))
+            {
+                ConsoleHelper.WriteInfo(
+                    "rebuilding ./moduleManifest.json");
+                _moduleManifest = ModulesManager.GenerateManifest("base");
+
+                File.WriteAllTextAsync(
+                    "moduleManifest.json",
+                    JsonSerializer.Serialize(_moduleManifest, new JsonSerializerOptions { WriteIndented = true }));
+
+                _collection = ModulesManager.LoadManifest(_moduleManifest);
+            }
+            else if (File.Exists(manifest.ModuleManifest))
             {
                 var json = File.ReadAllText(manifest.ModuleManifest);
                 _moduleManifest = JsonSerializer.Deserialize<ModuleManifest>(json, new JsonSerializerOptions {
@@ -57,7 +70,15 @@ namespace Fluint.Layer.Runtime
 
         public void Start(int id)
         {
-            _instances[id].Start();
+            try
+            {
+                _instances[id].Start();
+            }
+            catch (Exception ex)
+            {
+                ConsoleHelper.WriteError(ex.Message);
+                throw;
+            }
         }
 
         public void Kill(int id)
@@ -69,10 +90,7 @@ namespace Fluint.Layer.Runtime
         {
             foreach (var instance in _instances.Values)
             {
-                var thread = new Thread(() => {
-                    instance.Start();
-                });
-                thread.Start();
+                instance.Start();
             }
         }
 

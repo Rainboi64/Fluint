@@ -42,6 +42,11 @@ public interface IViewportContext : IModule, IStatefulContext
         get;
     }
 
+    Grid Grid
+    {
+        get;
+    }
+
     Vector2i Location
     {
         get;

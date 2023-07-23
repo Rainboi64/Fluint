@@ -23,7 +23,19 @@ namespace Fluint.Layer.DependencyInjection
             if (Directory.Exists(modulesFolder))
             {
                 var files = Directory.GetFiles(modulesFolder).Where(x => x.EndsWith(".dll"));
-                assemblies.AddRange(files.Select(Assembly.LoadFrom));
+                foreach (var file in files)
+                {
+                    try
+                    {
+                        var assembly = Assembly.LoadFrom(file);
+                        assemblies.Add(assembly);
+                    }
+                    catch (Exception e)
+                    {
+                        ConsoleHelper.WriteWarning(
+                            $"[MODULE MANAGER WARNING]: Failed to load specific assembly, where an exception was thrown. {e}");
+                    }
+                }
             }
 
             var types = assemblies

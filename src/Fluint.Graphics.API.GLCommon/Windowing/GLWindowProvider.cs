@@ -5,12 +5,12 @@
 //
 
 using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Jobs;
 using Fluint.Layer.Mathematics;
-using Fluint.Layer.Tasks;
 using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 using OpenTK.Graphics.OpenGL4;
@@ -25,25 +25,26 @@ namespace Fluint.Graphics.API.GLCommon.Windowing;
 public class GlWindowProvider : GameWindow, IWindowProvider
 {
     private readonly IConfigurationManager _configurationManager;
+    private readonly IJobManager _jobManager;
     private readonly ILogger _logger;
 
     private readonly ModulePacket _packet;
-    private readonly ITaskManager _taskManager;
 
-    public GlWindowProvider(ModulePacket packet, ILogger logger, ITaskManager taskManager,
+    public GlWindowProvider(ModulePacket packet, ILogger logger, IJobManager jobManager,
         IConfigurationManager configurationManager) :
         base(new GameWindowSettings(), new NativeWindowSettings {
             APIVersion = new Version(4, 6),
-            Size = new Vector2i(1600, 900)
+            Size = new Vector2i(1600, 900),
+            NumberOfSamples = 4
         })
     {
         _packet = packet;
-        _taskManager = taskManager;
+        _jobManager = jobManager;
         _logger = logger;
         _configurationManager = configurationManager;
 
         VSync = VSyncMode.On;
-        FrameQueue = new Queue<Action>();
+        FrameQueue = new ConcurrentQueue<Action>();
     }
 
     public IWindow Client
@@ -93,7 +94,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         }
     }
 
-    public Queue<Action> FrameQueue
+    public ConcurrentQueue<Action> FrameQueue
     {
         get;
     }
@@ -130,7 +131,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
         _logger.Debug("[{0}] Loaded", "OpenTK Window");
 
-        _taskManager.Invoke(TaskSchedule.WindowReady, new TaskArgs(Client));
+        _jobManager.Invoke(JobSchedule.WindowReady, new JobArgs(Client));
 
         Client.OnLoad();
 
@@ -139,10 +140,13 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     protected override void OnUpdateFrame(FrameEventArgs args)
     {
-        _taskManager.Invoke(TaskSchedule.WindowUpdate, new TaskArgs(Client));
+        _jobManager.Invoke(JobSchedule.WindowUpdate, new JobArgs(Client));
         while (FrameQueue.Count > 0)
         {
-            FrameQueue.Dequeue().Invoke();
+            if (FrameQueue.TryDequeue(out var action))
+            {
+                action();
+            }
         }
 
         Client.OnUpdate(args.Time);
@@ -157,7 +161,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         GL.ClearColor(GLExtensions.Color4(new Color(12, 12, 12, 255)));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
 
-        _taskManager.Invoke(TaskSchedule.WindowRender, new TaskArgs(Client));
+        _jobManager.Invoke(JobSchedule.WindowRender, new JobArgs(Client));
         Client.OnRender(args.Time);
 
         SwapBuffers();
@@ -167,7 +171,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     protected override void OnMouseWheel(MouseWheelEventArgs e)
     {
-        _taskManager.Invoke(TaskSchedule.WindowMouseScroll, new TaskArgs(e.OffsetY));
+        _jobManager.Invoke(JobSchedule.WindowMouseScroll, new JobArgs(e.OffsetY));
         Client.OnMouseWheelMoved(GLExtensions.Vector2(e.Offset));
 
         _logger.Debug("[{0}] Scrolled Delta: {1}", "OpenTK Window", e.Offset);
@@ -181,7 +185,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
         _logger.Debug("[{0}] Resized to ({1}, {2})", "OpenTK Window", e.Width, e.Height);
 
-        _taskManager.Invoke(TaskSchedule.WindowResize, new TaskArgs(Client));
+        _jobManager.Invoke(JobSchedule.WindowResize, new JobArgs(Client));
         Client.OnResize(e.Width, e.Height);
 
         base.OnResize(e);
@@ -189,7 +193,7 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     protected override void OnTextInput(TextInputEventArgs e)
     {
-        _taskManager.Invoke(TaskSchedule.WindowEnterText, new TaskArgs(new object[] { e.Unicode }, Client));
+        _jobManager.Invoke(JobSchedule.WindowEnterText, new JobArgs(new object[] { e.Unicode }, Client));
         Client.OnTextReceived(e.Unicode, e.AsString);
 
         _logger.Debug("[{0}] Text Input: {1}", "OpenTK Window", e.AsString);

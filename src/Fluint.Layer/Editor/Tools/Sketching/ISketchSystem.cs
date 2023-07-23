@@ -12,6 +12,6 @@ namespace Fluint.Layer.Editor.Tools.Sketching;
 [Initialization(InitializationMethod.Scoped)]
 public interface ISketchSystem : ISystem<ISketch>
 {
-    ISketch Pick(Ray ray);
+    bool Pick(Ray ray, out ISketch sketch);
     PositionColorVertex[] GetVertex();
 }

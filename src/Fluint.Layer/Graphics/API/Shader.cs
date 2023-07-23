@@ -4,27 +4,27 @@
 // Copyright (C) 2021 Yaman Alhalabi
 
 using System.Collections.Generic;
-using System.Diagnostics;
+using Fluint.Layer.Miscellaneous;
 
 namespace Fluint.Layer.Graphics.API;
 
-
 abstract public class Shader : IShader
 {
-    public IInputLayout InputLayout { get; protected set; }
-    protected Dictionary<string, string> Macros { get; }
-
-    public void AddMacro(string name, string value)
+    protected Shader()
     {
-        if (!Macros.TryAdd(name, value))
-        {
-            Debug.WriteLine($"Key already exists {name}.");
-        }
+        Macros = new Dictionary<string, string>();
     }
 
-    protected abstract void CompileFileInternal(ShaderStage shaderStage, string filePath, VertexType vertexType);
+    protected Dictionary<string, string> Macros
+    {
+        get;
+    }
 
-    protected abstract void CompileStringInternal(ShaderStage shaderStage, string filePath, VertexType vertexType);
+    public IInputLayout InputLayout
+    {
+        get;
+        protected set;
+    }
 
     public void CompileFile(ShaderStage shaderStage, string filePath, VertexType vertexType)
     {
@@ -36,10 +36,17 @@ abstract public class Shader : IShader
         CompileStringInternal(shaderStage, shaderText, vertexType);
     }
 
-    public abstract void Dispose();
+    abstract public void Dispose();
 
-    protected Shader()
+    public void AddMacro(string name, string value)
     {
-        Macros = new Dictionary<string, string>();
+        if (!Macros.TryAdd(name, value))
+        {
+            $"Key already exists {name}.".Print();
+        }
     }
+
+    abstract protected void CompileFileInternal(ShaderStage shaderStage, string filePath, VertexType vertexType);
+
+    abstract protected void CompileStringInternal(ShaderStage shaderStage, string filePath, VertexType vertexType);
 }

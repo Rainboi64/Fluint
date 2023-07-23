@@ -4,7 +4,6 @@
 // Copyright (C) 2022 Yaman Alhalabi
 
 using Fluint.Layer.DependencyInjection;
-using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 
 namespace Fluint.SDK.Lambdas.Base;
@@ -22,7 +21,6 @@ public class Manifest : ILambda
 
     public LambdaObject Run(string[] args)
     {
-        ConsoleHelper.WriteInfo(_packet.CurrentRuntime.ModuleManifest.ToString());
-        return LambdaObject.Success;
+        return new LambdaObject(_packet.CurrentRuntime.ModuleManifest.ToString(), LambdaStatus.Success);
     }
 }

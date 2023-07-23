@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
-using Fluint.Layer.Tasks;
+using Fluint.Layer.Jobs;
 
 namespace Fluint.Layer.Runtime
 {
@@ -9,7 +9,7 @@ namespace Fluint.Layer.Runtime
     {
         private ILogger _logger;
 
-        public ITaskManager TaskManager
+        public IJobManager JobManager
         {
             get;
             private set;
@@ -26,7 +26,7 @@ namespace Fluint.Layer.Runtime
             ModuleManifest = moduleManifest;
 
             _logger = Packet.GetSingleton<ILogger>();
-            TaskManager = Packet.CreateScoped<ITaskManager>();
+            JobManager = Packet.CreateScoped<IJobManager>();
         }
 
         public int Id
@@ -74,13 +74,13 @@ namespace Fluint.Layer.Runtime
             _logger.Debug("[{0}:{1}] .NET: Process Architecture - {@ProcessArchitecture}", "Fluint", Id,
                 RuntimeInformation.ProcessArchitecture);
 
-            TaskManager.Invoke(TaskSchedule.Startup, null);
-            TaskManager.Invoke(TaskSchedule.Background, null);
+            JobManager.Invoke(JobSchedule.Startup, null);
+            JobManager.Invoke(JobSchedule.Background, null);
         }
 
         public void Kill()
         {
-            TaskManager.StopAll();
+            JobManager.StopAll();
         }
     }
 }

@@ -18,20 +18,20 @@ namespace Fluint.SDK.Base
 {
     public class ConsoleKeyHandler
     {
-        private StringBuilder _buffer = new StringBuilder();
+        private readonly StringBuilder _buffer = new();
+
+        private readonly List<string> _history;
+        private readonly int _suggestionStart = 0;
 
         private ConsoleKeyInfo _current;
         private int _cursorLimit = 0;
 
         private int _cursorPosition = 0;
-
-        private List<string> _history;
         private int _historyIndex = 0;
         private Dictionary<string, Action> _reactions;
         private int _suggestionIndex = 0;
 
         private string[] _suggestions;
-        private int _suggestionStart = 0;
 
         public ConsoleKeyHandler(List<string> history)
         {
@@ -43,56 +43,83 @@ namespace Fluint.SDK.Base
 
         private void FillReactionDictionary()
         {
-            _reactions = new Dictionary<string, Action>();
-            _reactions["LeftArrow"] = MoveLeft;
-            _reactions["RightArrow"] = MoveRight;
-            _reactions["Home"] = MoveToStart;
-            _reactions["End"] = MoveToEnd;
-            _reactions["ControlA"] = MoveToStart;
-            _reactions["ControlB"] = MoveLeft;
-            _reactions["RightArrow"] = MoveRight;
-            _reactions["ControlF"] = MoveRight;
-            _reactions["ControlE"] = MoveToEnd;
-            _reactions["Backspace"] = Backspace;
-            _reactions["Delete"] = Delete;
-            _reactions["ControlD"] = Delete;
-            _reactions["ControlH"] = Backspace;
-            _reactions["ControlL"] = ClearLine;
-            _reactions["Escape"] = ClearLine;
-            _reactions["UpArrow"] = PreviousHistory;
-            _reactions["ControlP"] = PreviousHistory;
-            _reactions["DownArrow"] = NextHistory;
-            _reactions["ControlN"] = NextHistory;
-            _reactions["ControlU"] = () => {
-                while (!IsStartOfLine())
-                    Backspace();
+            _reactions = new Dictionary<string, Action> {
+                ["LeftArrow"] = MoveLeft,
+                ["RightArrow"] = MoveRight,
+                ["Home"] = MoveToStart,
+                ["End"] = MoveToEnd,
+                ["ControlA"] = MoveToStart,
+                ["ControlB"] = MoveLeft,
+                ["RightArrow"] = MoveRight,
+                ["ControlF"] = MoveRight,
+                ["ControlE"] = MoveToEnd,
+                ["Backspace"] = Backspace,
+                ["Delete"] = Delete,
+                ["ControlD"] = Delete,
+                ["ControlH"] = Backspace,
+                ["ControlL"] = ClearLine,
+                ["Escape"] = ClearLine,
+                ["UpArrow"] = PreviousHistory,
+                ["ControlP"] = PreviousHistory,
+                ["DownArrow"] = NextHistory,
+                ["ControlN"] = NextHistory,
+                ["ControlU"] = () => {
+                    while (!IsStartOfLine())
+                    {
+                        Backspace();
+                    }
+                },
+                ["ControlK"] = () => {
+                    var pos = _cursorPosition;
+                    MoveToEnd();
+                    while (_cursorPosition > pos)
+                    {
+                        Backspace();
+                    }
+                },
+                ["ControlW"] = () => {
+                    while (!IsStartOfLine() && _buffer[_cursorPosition - 1] != ' ')
+                    {
+                        Backspace();
+                    }
+                },
+                ["ControlT"] = TransposeCharacters
             };
-            _reactions["ControlK"] = () => {
-                var pos = _cursorPosition;
-                MoveToEnd();
-                while (_cursorPosition > pos)
-                    Backspace();
-            };
-            _reactions["ControlW"] = () => {
-                while (!IsStartOfLine() && _buffer[_cursorPosition - 1] != ' ')
-                    Backspace();
-            };
-            _reactions["ControlT"] = TransposeCharacters;
         }
 
-        public string GetText() => _buffer.ToString();
+        public string GetText()
+        {
+            return _buffer.ToString();
+        }
 
-        private bool IsStartOfLine() => _cursorPosition == 0;
-        private bool IsEndOfLine() => _cursorPosition == _cursorLimit;
-        private bool IsStartOfBuffer() => Console.CursorLeft == 0;
-        private bool IsEndOfBuffer() => Console.CursorLeft == Console.BufferWidth - 1;
+        private bool IsStartOfLine()
+        {
+            return _cursorPosition == 0;
+        }
+
+        private bool IsEndOfLine()
+        {
+            return _cursorPosition == _cursorLimit;
+        }
+
+        private static bool IsStartOfBuffer()
+        {
+            return Console.CursorLeft == 0;
+        }
+
+        private static bool IsEndOfBuffer()
+        {
+            return Console.CursorLeft == Console.BufferWidth - 1;
+        }
 
         public void Handle(ConsoleKeyInfo keyInfo)
         {
             _current = keyInfo;
 
             if (_suggestions != null && _current.Key != ConsoleKey.Tab)
+            {
                 ResetSuggestions();
+            }
 
             if (_reactions.TryGetValue(RepresentCurrent(), out var action))
             {
@@ -107,7 +134,9 @@ namespace Fluint.SDK.Base
         private void MoveLeft()
         {
             if (IsStartOfLine())
+            {
                 return;
+            }
 
             if (IsStartOfBuffer())
             {
@@ -124,7 +153,9 @@ namespace Fluint.SDK.Base
         private void MoveRight()
         {
             if (IsEndOfLine())
+            {
                 return;
+            }
 
             if (IsEndOfBuffer())
             {
@@ -189,8 +220,6 @@ namespace Fluint.SDK.Base
             _cursorLimit++;
         }
 
-        private void AppendCurrent() => AppendChar(_current.KeyChar);
-
         private void AppendString(string str)
         {
             foreach (var character in str)
@@ -207,7 +236,10 @@ namespace Fluint.SDK.Base
 
         private void Backspace()
         {
-            if (IsStartOfLine()) return;
+            if (IsStartOfLine())
+            {
+                return;
+            }
 
             MoveLeft();
 
@@ -231,18 +263,20 @@ namespace Fluint.SDK.Base
                 return _current.Key.ToString();
             }
 
-            return _current.Modifiers.ToString() + _current.Key.ToString();
+            return _current.Modifiers.ToString() + _current.Key;
         }
 
         private void Delete()
         {
             if (IsEndOfLine())
+            {
                 return;
+            }
 
             var index = _cursorPosition;
 
             _buffer.Remove(index, 1);
-            string replacement = _buffer.ToString().Substring(index);
+            var replacement = _buffer.ToString()[index..];
 
             var left = Console.CursorLeft;
             var top = Console.CursorTop;
@@ -259,14 +293,15 @@ namespace Fluint.SDK.Base
             int ConditionalIncrement(Func<bool> expression, int index) => expression() ? index + 1 : index;
             int ConditionalDecrement(Func<bool> expression, int index) => expression() ? index - 1 : index;
 
-            if (IsStartOfLine()) return;
+            if (IsStartOfLine())
+            {
+                return;
+            }
 
             var firstIndex = ConditionalDecrement(IsEndOfLine, _cursorPosition - 1);
             var secondIndex = ConditionalDecrement(IsEndOfLine, _cursorPosition);
 
-            var secondChar = _buffer[secondIndex];
-            _buffer[secondIndex] = _buffer[firstIndex];
-            _buffer[firstIndex] = secondChar;
+            (_buffer[secondIndex], _buffer[firstIndex]) = (_buffer[firstIndex], _buffer[secondIndex]);
 
             var left = ConditionalIncrement(AlmostAtEnd, Console.CursorLeft);
             var cursorPosition = ConditionalIncrement(AlmostAtEnd, _cursorPosition);
@@ -282,7 +317,9 @@ namespace Fluint.SDK.Base
         private void InitialSuggestion()
         {
             while (_cursorPosition > _suggestionStart)
+            {
                 Backspace();
+            }
 
             _suggestionIndex = 0;
 
@@ -292,10 +329,14 @@ namespace Fluint.SDK.Base
         private void NextSuggestion()
         {
             while (_cursorPosition > _suggestionStart)
+            {
                 Backspace();
+            }
 
             if (_suggestionIndex == _suggestions.Length)
+            {
                 _suggestionIndex = 0;
+            }
 
             AppendString(_suggestions[_suggestionIndex]);
         }
@@ -303,12 +344,16 @@ namespace Fluint.SDK.Base
         private void PreviousSuggestion()
         {
             while (_cursorPosition > _suggestionStart)
+            {
                 Backspace();
+            }
 
             _suggestionIndex--;
 
             if (_suggestionIndex < 0)
+            {
                 _suggestionIndex = _suggestions.Length - 1;
+            }
 
             AppendString(_suggestions[_suggestionIndex]);
         }
@@ -321,27 +366,31 @@ namespace Fluint.SDK.Base
 
         private void NextHistory()
         {
-            if (_historyIndex < _history.Count)
+            if (_historyIndex >= _history.Count)
             {
-                _historyIndex++;
-                if (_historyIndex == _history.Count)
-                {
-                    ClearLine();
-                }
-                else
-                {
-                    ReplaceLine(_history[_historyIndex]);
-                }
+                return;
+            }
+
+            _historyIndex++;
+            if (_historyIndex == _history.Count)
+            {
+                ClearLine();
+            }
+            else
+            {
+                ReplaceLine(_history[_historyIndex]);
             }
         }
 
         private void PreviousHistory()
         {
-            if (_historyIndex > 0)
+            if (_historyIndex <= 0)
             {
-                _historyIndex--;
-                ReplaceLine(_history[_historyIndex]);
+                return;
             }
+
+            _historyIndex--;
+            ReplaceLine(_history[_historyIndex]);
         }
     }
 }

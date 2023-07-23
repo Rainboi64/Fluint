@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
@@ -21,6 +22,11 @@ namespace Fluint.Layer.Windowing
         }
 
         public IDictionary<string, IGuiComponent> Controls
+        {
+            get;
+        }
+
+        public IFrameProfiler Profiler
         {
             get;
         }
@@ -60,7 +66,6 @@ namespace Fluint.Layer.Windowing
         }
 
         T SpawnControl<T>() where T : Control;
-
 
         public event EventHandler Load;
         public event EventHandler<RenderEvent> Render;

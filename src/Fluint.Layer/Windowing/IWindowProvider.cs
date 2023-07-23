@@ -5,7 +5,7 @@
 //
 
 using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Windowing
@@ -28,8 +28,6 @@ namespace Fluint.Layer.Windowing
         {
             get;
         }
-
-        public void SetMouseLocation(Vector2 location);
 
         public string WindowTitle
         {
@@ -60,10 +58,12 @@ namespace Fluint.Layer.Windowing
             get;
         }
 
-        public Queue<Action> FrameQueue
+        public ConcurrentQueue<Action> FrameQueue
         {
             get;
         }
+
+        public void SetMouseLocation(Vector2 location);
 
         public void Adopt<TClient>() where TClient : IWindow;
         public void Start();

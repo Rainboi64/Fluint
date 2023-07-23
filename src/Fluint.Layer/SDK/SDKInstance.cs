@@ -50,16 +50,17 @@ namespace Fluint.Layer.SDK
         {
             var listener = Packet.CreateScoped<ILambdaListener>();
 
-            if (StartupManifest.CommandLineArguments.Length > 1)
-            {
-                var parser = Packet.CreateScoped<ILambdaParser>();
-                foreach (var command in StartupManifest.CommandLineArguments)
-                {
-                    listener.Execute(command);
-                }
-
-                return;
-            }
+            // I have no idea why I had this here
+            // if (StartupManifest.CommandLineArguments.Length > 1)
+            // {
+            //     var parser = Packet.CreateScoped<ILambdaParser>();
+            //     foreach (var command in StartupManifest.CommandLineArguments)
+            //     {
+            //         listener.Execute(command);
+            //     }
+            //
+            //     return;
+            // }
 
             listener.Listen();
         }

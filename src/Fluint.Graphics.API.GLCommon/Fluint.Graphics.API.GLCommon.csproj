@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="OpenTK" Version="4.6.4"/>
+        <PackageReference Include="OpenTK" Version="4.7.7"/>
         <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
     </ItemGroup>
 

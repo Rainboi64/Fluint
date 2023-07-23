@@ -85,21 +85,6 @@ public partial class MainWindowLayout
             }
         };
 
-        // Debug -> Spawn Toast Notification
-
-        _mainMenuDebugSpawnToastNotifItem = _packet.CreateScoped<IMenuItem>();
-        _mainMenuDebugItem["DebugSpawnToastNotificationMenuItem"] = _mainMenuDebugSpawnToastNotifItem;
-        _mainMenuDebugSpawnToastNotifItem.Text = _localizationManager.Fetch("spawn_demo_notification");
-        _mainMenuDebugSpawnToastNotifItem.OnClick = new ModularAction {
-            () => {
-                _toast.AddNotification(
-                    (NotificationType)_random.Next(0, 4),
-                    "This is a demo message",
-                    $"this is a test message with an fps {1f / _window.FrameTime:00}, have fun please!");
-            }
-        };
-
-
         // Help
         _mainMenuHelpMenuItem = _packet.CreateScoped<IMenuItem>();
         _mainMenu["HelpMenuItem"] = _mainMenuHelpMenuItem;

@@ -15,7 +15,9 @@ namespace Fluint.Input.Base
     public class BindingsManager : IBindingsManager
     {
         public readonly static IEnumerable<Binding> Default = new[] {
+            new Binding { Tag = "GRID_SIZE_INCREASE", MainCombination = new[] { Key.KeyPadAdd, Key.LeftControl } },
             new Binding { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } },
+            new Binding { Tag = "SKETCH_ENABLE", MainCombination = new[] { Key.S, Key.LeftAlt } },
             new Binding { Tag = "MOVE_CAMERA", MainCombination = new[] { Key.Space } }
         };
 
@@ -56,17 +58,18 @@ namespace Fluint.Input.Base
         {
             return binding.MainCombination.Aggregate(
                 InputState.Press, (current, key) => {
-                    if (current == InputState.Release)
+                    if (current is InputState.Release)
                     {
                         return InputState.Release;
                     }
 
-                    if (InputManager.WasKeyPressed(key) && InputManager.IsKeyPressed(key))
+                    var isPressed = InputManager.IsKeyPressed(key);
+                    if (isPressed && InputManager.WasKeyPressed(key))
                     {
                         return InputState.Repeat;
                     }
 
-                    return InputManager.State(key);
+                    return isPressed ? InputState.Press : InputState.Release;
                 });
         }
 

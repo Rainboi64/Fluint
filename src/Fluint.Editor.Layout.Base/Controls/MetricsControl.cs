@@ -3,6 +3,7 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
+using System;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Localization;
 using Fluint.Layer.UI;
@@ -28,7 +29,7 @@ public class MetricsControl : Control
         _metricsLabel = packet.CreateScoped<ITextLabel>();
 
         container.Title = localizationManager.Fetch("metrics");
-        ;
+
         _versionLabel.Text = $"Fluint - {packet.CurrentRuntime.StartupManifest.VersionDetails}";
 
         container["metricsLabel"] = _metricsLabel;
@@ -45,7 +46,8 @@ public class MetricsControl : Control
 
     public override void Tick()
     {
-        _metricsLabel.Text = string.Format(_template, 1.0 / _window.FrameTime, _window.FrameTime * 1000.0);
+        _metricsLabel.Text = string.Format(_template, 1.0 / _window.FrameTime, _window.FrameTime * 1000.0,
+            GC.GetTotalMemory(true) / 1000);
         base.Tick();
     }
 }

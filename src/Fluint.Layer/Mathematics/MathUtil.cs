@@ -468,5 +468,15 @@ namespace Fluint.Layer.Mathematics
 
             return amplitude * Math.Exp(-(componentX + componentY));
         }
+
+
+        public static float RoundToClosest(float n, float step)
+        {
+            return n switch {
+                > 0 => MathF.Ceiling(n / step) * step,
+                < 0 => MathF.Floor(n / step) * step,
+                _ => step
+            };
+        }
     }
 }

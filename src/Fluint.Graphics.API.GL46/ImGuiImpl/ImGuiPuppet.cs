@@ -70,7 +70,13 @@ namespace Fluint.Graphics.API.GL46.ImGuiImpl
             var context = ImGui.CreateContext();
 
             ImGui.SetCurrentContext(context);
+
+
             var io = ImGui.GetIO();
+
+            io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
+            io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
+            io.ConfigWindowsMoveFromTitleBarOnly = true;
 
             unsafe
             {
@@ -96,10 +102,6 @@ namespace Fluint.Graphics.API.GL46.ImGuiImpl
 
                 io.Fonts.Build();
             }
-
-            io.BackendFlags |= ImGuiBackendFlags.RendererHasVtxOffset;
-            io.ConfigFlags |= ImGuiConfigFlags.DockingEnable;
-            io.ConfigWindowsMoveFromTitleBarOnly = true;
 
             CreateDeviceResources();
             SetKeyMappings();
@@ -182,7 +184,7 @@ namespace Fluint.Graphics.API.GL46.ImGuiImpl
 
             RecreateFontDeviceTexture();
 
-            string VertexSource = @"#version 450 core
+            var VertexSource = @"#version 450 core
 
 uniform mat4 projection_matrix;
 
@@ -199,7 +201,7 @@ void main()
     color = in_color;
     texCoord = in_texCoord;
 }";
-            string FragmentSource = @"#version 450 core
+            var FragmentSource = @"#version 450 core
 
 uniform sampler2D in_fontTexture;
 
@@ -233,8 +235,8 @@ void main()
         public void RecreateFontDeviceTexture()
         {
             var io = ImGui.GetIO();
-            io.Fonts.GetTexDataAsRGBA32(out IntPtr pixels, out var width, out var height, out var bytesPerPixel);
 
+            io.Fonts.GetTexDataAsRGBA32(out IntPtr pixels, out var width, out var height, out var bytesPerPixel);
             _fontTexture = new ImGuiTexture("ImGui Text Atlas", width, height, pixels);
             _fontTexture.SetMagFilter(TextureMagFilter.Linear);
             _fontTexture.SetMinFilter(TextureMinFilter.Linear);
@@ -324,14 +326,14 @@ void main()
                 return;
             }
 
-            for (int i = 0; i < draw_data.CmdListsCount; i++)
+            for (var i = 0; i < draw_data.CmdListsCount; i++)
             {
-                ImDrawListPtr cmd_list = draw_data.CmdListsRange[i];
+                var cmd_list = draw_data.CmdListsRange[i];
 
-                int vertexSize = cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>();
+                var vertexSize = cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>();
                 if (vertexSize > _vertexBufferSize)
                 {
-                    int newSize = (int)Math.Max(_vertexBufferSize * 1.5f, vertexSize);
+                    var newSize = (int)Math.Max(_vertexBufferSize * 1.5f, vertexSize);
                     GL.NamedBufferData(_vertexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _vertexBufferSize = newSize;
 
@@ -339,10 +341,10 @@ void main()
                         _vertexBufferSize);
                 }
 
-                int indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
+                var indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
                 if (indexSize > _indexBufferSize)
                 {
-                    int newSize = (int)Math.Max(_indexBufferSize * 1.5f, indexSize);
+                    var newSize = (int)Math.Max(_indexBufferSize * 1.5f, indexSize);
                     GL.NamedBufferData(_indexBuffer, newSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
                     _indexBufferSize = newSize;
 
@@ -352,8 +354,8 @@ void main()
             }
 
             // Setup orthographic projection matrix into our constant buffer
-            ImGuiIOPtr io = ImGui.GetIO();
-            Matrix4 mvp = Matrix4.CreateOrthographicOffCenter(
+            var io = ImGui.GetIO();
+            var mvp = Matrix4.CreateOrthographicOffCenter(
                 0.0f,
                 io.DisplaySize.X,
                 io.DisplaySize.Y,
@@ -377,21 +379,21 @@ void main()
             GL.Disable(EnableCap.DepthTest);
 
             // Render command lists
-            for (int n = 0; n < draw_data.CmdListsCount; n++)
+            for (var n = 0; n < draw_data.CmdListsCount; n++)
             {
-                ImDrawListPtr cmd_list = draw_data.CmdListsRange[n];
+                var cmd_list = draw_data.CmdListsRange[n];
 
                 GL.NamedBufferSubData(_vertexBuffer, IntPtr.Zero, cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>(),
                     cmd_list.VtxBuffer.Data);
                 GL.NamedBufferSubData(_indexBuffer, IntPtr.Zero, cmd_list.IdxBuffer.Size * sizeof(ushort),
                     cmd_list.IdxBuffer.Data);
 
-                int vtx_offset = 0;
-                int idx_offset = 0;
+                var vtx_offset = 0;
+                var idx_offset = 0;
 
-                for (int cmd_i = 0; cmd_i < cmd_list.CmdBuffer.Size; cmd_i++)
+                for (var cmd_i = 0; cmd_i < cmd_list.CmdBuffer.Size; cmd_i++)
                 {
-                    ImDrawCmdPtr pcmd = cmd_list.CmdBuffer[cmd_i];
+                    var pcmd = cmd_list.CmdBuffer[cmd_i];
                     if (pcmd.UserCallback != IntPtr.Zero)
                     {
                         throw new NotImplementedException();
