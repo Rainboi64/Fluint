@@ -12,73 +12,72 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Graphics;
 using Fluint.Layer.IO;
 
-namespace Fluint.IO.Base
+namespace Fluint.IO.Base;
+
+public class IoManager : IIoManager
 {
-    public class IoManager : IIoManager
+    private readonly List<IExporter> _exporters;
+    private readonly List<IImporter> _importers;
+    private readonly ModulePacket _packet;
+
+    public IoManager(ModulePacket packet)
     {
-        private readonly List<IExporter> _exporters;
-        private readonly List<IImporter> _importers;
-        private readonly ModulePacket _packet;
+        _packet = packet;
+        _exporters = (List<IExporter>)_packet.GetInstances().OfType<IExporter>();
+        _importers = (List<IImporter>)_packet.GetInstances().OfType<IImporter>();
+    }
 
-        public IoManager(ModulePacket packet)
+    public void Export(string fileName, IMesh[] meshes, string format = "")
+    {
+        if (format == string.Empty)
         {
-            _packet = packet;
-            _exporters = (List<IExporter>)_packet.GetInstances().OfType<IExporter>();
-            _importers = (List<IImporter>)_packet.GetInstances().OfType<IImporter>();
+            format = Path.GetExtension(fileName);
         }
 
-        public void Export(string fileName, IMesh[] meshes, string format = "")
+        foreach (var exporter in _exporters)
         {
-            if (format == string.Empty)
+            var isValid = exporter.FileExtenstions.Where(x => x.ToLower() == format.ToLower()).Any();
+            if (isValid)
             {
-                format = Path.GetExtension(fileName);
+                exporter.Export(meshes, fileName);
             }
+        }
+    }
 
-            foreach (var exporter in _exporters)
+    public IMesh[] Import(string fileName)
+    {
+        var format = Path.GetExtension(fileName);
+        foreach (var importer in _importers)
+        {
+            var isValid = importer.FileExtenstions.Where(x => x.ToLower() == format.ToLower()).Any();
+            if (isValid)
             {
-                var isValid = exporter.FileExtenstions.Where(x => x.ToLower() == format.ToLower()).Any();
-                if (isValid)
-                {
-                    exporter.Export(meshes, fileName);
-                }
+                return importer.Import(fileName);
             }
         }
 
-        public IMesh[] Import(string fileName)
-        {
-            var format = Path.GetExtension(fileName);
-            foreach (var importer in _importers)
-            {
-                var isValid = importer.FileExtenstions.Where(x => x.ToLower() == format.ToLower()).Any();
-                if (isValid)
-                {
-                    return importer.Import(fileName);
-                }
-            }
+        throw new ArgumentException($"could not import file type: {format}");
+    }
 
-            throw new ArgumentException($"could not import file type: {format}");
+    public string[] QueryExportableFormats()
+    {
+        var formats = new List<string>();
+        foreach (var exporter in _exporters)
+        {
+            formats.AddRange(exporter.FileExtenstions);
         }
 
-        public string[] QueryExportableFormats()
-        {
-            var formats = new List<string>();
-            foreach (var exporter in _exporters)
-            {
-                formats.AddRange(exporter.FileExtenstions);
-            }
+        return formats.ToArray();
+    }
 
-            return formats.ToArray();
+    public string[] QueryImportableFormats()
+    {
+        var formats = new List<string>();
+        foreach (var importer in _importers)
+        {
+            formats.AddRange(importer.FileExtenstions);
         }
 
-        public string[] QueryImportableFormats()
-        {
-            var formats = new List<string>();
-            foreach (var importer in _importers)
-            {
-                formats.AddRange(importer.FileExtenstions);
-            }
-
-            return formats.ToArray();
-        }
+        return formats.ToArray();
     }
 }

@@ -6,16 +6,15 @@
 
 using Fluint.Layer.Graphics;
 
-namespace Fluint.Layer.IO
-{
-    [Initialization(InitializationMethod.Instanced)]
-    public interface IExporter : IModule
-    {
-        string[] FileExtenstions
-        {
-            get;
-        }
+namespace Fluint.Layer.IO;
 
-        void Export(IMesh[] meshes, string fileName);
+[Initialization(InitializationMethod.Instanced)]
+public interface IExporter : IModule
+{
+    string[] FileExtenstions
+    {
+        get;
     }
+
+    void Export(IMesh[] meshes, string fileName);
 }

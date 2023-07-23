@@ -42,7 +42,8 @@ public class Editor
             var fluint = manager.CreateInstance<Instance>();
 
             // Create an SDK attached to the fluint instance.
-            Task.Run(() => {
+            Task.Run(() =>
+            {
                 var sdk = new SdkInstance();
                 sdk.Create(1, manifest, manager.Instances[0].ModuleManifest, manager.Instances[0].Packet, manager);
                 sdk.Start();
@@ -54,7 +55,8 @@ public class Editor
 
     private static string GetTimeOfDayName(DateTime time)
     {
-        return time.TimeOfDay.TotalHours switch {
+        return time.TimeOfDay.TotalHours switch
+        {
             < 12 => "morning",
             < 17 => "afternoon",
             > 17 => "evening",

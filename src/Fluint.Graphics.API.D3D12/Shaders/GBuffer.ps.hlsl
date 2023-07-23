@@ -19,42 +19,43 @@ SamplerState samplerAniso : register (s0);
 
 cbuffer MaterialBuffer : register(b1)
 {
-	float4 materialAlbedoColor;
-	float2 materialTiling;
-	float2 materialOffset;
-	float materialRoughness;
-	float materialMetallic;
-	float materialNormalStrength;
-	float materialHeight;
-	float materialShadingMode;
-	float3 padding2;
+float4 materialAlbedoColor;
+float2 materialTiling;
+float2 materialOffset;
+float materialRoughness;
+float materialMetallic;
+float materialNormalStrength;
+float materialHeight;
+float materialShadingMode;
+float3 padding2;
 };
 
 struct PixelInputType
 {
-	float4 PositionCS 			: SV_POSITION;
-	float2 Uv 					: TEXCOORD;
-	float3 Normal 				: NORMAL;
-	float3 Tangent 				: TANGENT;
-	float4 PositionVS 			: POSITIONT0;
-	float4 PositionWS 			: POSITIONT1;
-	float4 PositionCS_Current 	: SCREEN_POS;
-	float4 PositionCS_Previous 	: SCREEN_POS_PREVIOUS;
+	float4 PositionCS : SV_POSITION;
+	float2 Uv : TEXCOORD;
+	float3 Normal : NORMAL;
+	float3 Tangent : TANGENT;
+	float4 PositionVS : POSITIONT0;
+	float4 PositionWS : POSITIONT1;
+	float4 PositionCS_Current : SCREEN_POS;
+	float4 PositionCS_Previous : SCREEN_POS_PREVIOUS;
 };
 
 struct PixelOutputType
 {
-	float4 Albedo	: SV_Target0;
-	float4 Normal	: SV_Target1;
-	float4 Material	: SV_Target2;
-	float2 Velocity	: SV_Target3;
+	float4 Albedo : SV_Target0;
+	float4 Normal : SV_Target1;
+	float4 Material : SV_Target2;
+	float2 Velocity : SV_Target3;
 };
 
 PixelOutputType Main(PixelInputType input)
 {
 	PixelOutputType gBuffer;
 
-	float2 texCoords = float2(input.Uv.x * materialTiling.x + materialOffset.x, input.Uv.y * materialTiling.y + materialOffset.y);
+	float2 texCoords = float2(input.Uv.x * materialTiling.x + materialOffset.x,
+	                          input.Uv.y * materialTiling.y + materialOffset.y);
 	float4 albedo = materialAlbedoColor;
 	float roughness = materialRoughness;
 	float metallic = saturate(materialMetallic);

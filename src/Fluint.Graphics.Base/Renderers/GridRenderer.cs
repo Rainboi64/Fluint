@@ -19,7 +19,6 @@ public class GridRenderer : IGridRenderer
 
     private ICommandList _commandList;
     private Shader _fragmentShader;
-    private Grid _grid;
 
     private IPipeline _pipeline;
     private IVertexBuffer _vertexBuffer;
@@ -38,8 +37,8 @@ public class GridRenderer : IGridRenderer
 
     public Grid Grid
     {
-        get => _grid;
-        set => _grid = value;
+        get;
+        set;
     }
 
     public ModelViewProjection WorldView
@@ -87,12 +86,12 @@ public class GridRenderer : IGridRenderer
 
     public void PreRender()
     {
-        if (_grid.NeedsUpdate)
+        if (Grid.NeedsUpdate)
         {
             GenerateGrid();
             GenerateCommandList();
 
-            _grid.NeedsUpdate = false;
+            Grid.NeedsUpdate = false;
         }
 
         if (_viewportUpdated)
@@ -123,10 +122,10 @@ public class GridRenderer : IGridRenderer
     private void GenerateGrid()
     {
         var gridLines =
-            new PositionColorVertex[(_grid.Size.X + _grid.Size.Y) * 4 + 4];
+            new PositionColorVertex[(Grid.Size.X + Grid.Size.Y) * 4 + 4];
         var k = 0;
 
-        for (var x = -_grid.Size.X; x <= _grid.Size.X; x += _grid.Offsets.X)
+        for (var x = -Grid.Size.X; x <= Grid.Size.X; x += Grid.Offsets.X)
         {
             var color = new Vector4(0.2f);
             if (x % 10 == 0)
@@ -139,11 +138,11 @@ public class GridRenderer : IGridRenderer
                 color = new Vector4(0.8f, 0.2f, 0.2f, 1);
             }
 
-            gridLines[k++] = new PositionColorVertex(new Vector3(x, 0, -_grid.Size.Y), color);
-            gridLines[k++] = new PositionColorVertex(new Vector3(x, 0, _grid.Size.Y), color);
+            gridLines[k++] = new PositionColorVertex(new Vector3(x, 0, -Grid.Size.Y), color);
+            gridLines[k++] = new PositionColorVertex(new Vector3(x, 0, Grid.Size.Y), color);
         }
 
-        for (var y = -_grid.Size.Y; y <= _grid.Size.Y; y += _grid.Offsets.Y)
+        for (var y = -Grid.Size.Y; y <= Grid.Size.Y; y += Grid.Offsets.Y)
         {
             var color = new Vector4(0.2f);
             if (y % 10 == 0)
@@ -156,8 +155,8 @@ public class GridRenderer : IGridRenderer
                 color = new Vector4(0.2f, 0.2f, 0.8f, 1);
             }
 
-            gridLines[k++] = new PositionColorVertex(new Vector3(-_grid.Size.X, 0, y), color);
-            gridLines[k++] = new PositionColorVertex(new Vector3(_grid.Size.X, 0, y), color);
+            gridLines[k++] = new PositionColorVertex(new Vector3(-Grid.Size.X, 0, y), color);
+            gridLines[k++] = new PositionColorVertex(new Vector3(Grid.Size.X, 0, y), color);
         }
 
         _vertexCount = k;

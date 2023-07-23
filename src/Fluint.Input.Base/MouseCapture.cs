@@ -12,22 +12,21 @@ namespace Fluint.Input.Base;
 
 public class MouseCapture : IMouseCapture
 {
-    public int X => (int)Math.Ceiling(_x);
-    public int Y => (int)Math.Ceiling(_y);
+    private const int Trigger = 2;
+    private const int Padding = 2;
+    private Vector2 _delta;
+    private IInputManager _inputManager;
+    private Vector2 _lastMousePosition = Vector2.Zero;
+    private Vector2 _mouseLocation;
+    private Vector2i _screenSize;
+
+    private IWindow _window;
+    private Vector2 _windowLocation;
 
     private float _x;
     private float _y;
-
-    private const int Trigger = 2;
-    private const int Padding = 2;
-
-    private IWindow _window;
-    private Vector2i _screenSize;
-    private Vector2 _windowLocation;
-    private Vector2 _lastMousePosition = Vector2.Zero;
-    private Vector2 _delta;
-    private Vector2 _mouseLocation;
-    private IInputManager _inputManager;
+    public int X => (int)Math.Ceiling(_x);
+    public int Y => (int)Math.Ceiling(_y);
 
     public void Update()
     {

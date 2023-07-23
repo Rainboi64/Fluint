@@ -4,12 +4,11 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public enum CullMode
 {
-    public enum CullMode
-    {
-        None,
-        Front,
-        Back
-    }
+    None,
+    Front,
+    Back
 }

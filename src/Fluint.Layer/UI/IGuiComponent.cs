@@ -4,16 +4,15 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-using System.Collections.Generic;
-using Fluint.Layer.Mathematics;
+namespace Fluint.Layer.UI;
 
-namespace Fluint.Layer.UI
+public interface IGuiComponent
 {
-    public interface IGuiComponent 
+    string Name
     {
-        string Name { get; }
-        void Begin(string name);
-        void Tick();
+        get;
     }
+
+    void Begin(string name);
+    void Tick();
 }

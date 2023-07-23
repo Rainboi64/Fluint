@@ -20,9 +20,9 @@ SamplerState S_Sampler: register(s0);
 
 cbuffer BlurBuffer : register(b1)
 {
-	float2 blur_direction;
-	float blur_sigma;
-	float blur_padding;
+float2 blur_direction;
+float blur_sigma;
+float blur_padding;
 }
 
 float4 Main(PixelPositionTexture input) : SV_TARGET

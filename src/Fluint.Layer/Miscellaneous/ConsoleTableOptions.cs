@@ -7,23 +7,38 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
-namespace Fluint.Layer.Miscellaneous
+namespace Fluint.Layer.Miscellaneous;
+
+public class ConsoleTableOptions
 {
-    public class ConsoleTableOptions
+    public IEnumerable<string> Columns
     {
-        public IEnumerable<string> Columns { get; set; } = new List<string>();
-        public bool EnableCount { get; set; } = true;
+        get;
+        set;
+    } = new List<string>();
 
-        /// <summary>
-        /// Enable only from a list of objects
-        /// </summary>
-        public Alignment NumberAlignment { get; set; } = Alignment.Left;
+    public bool EnableCount
+    {
+        get;
+        set;
+    } = true;
 
-        /// <summary>
-        /// The <see cref="TextWriter"/> to write to. Defaults to <see cref="Console.Out"/>.
-        /// </summary>
-        public TextWriter OutputTo { get; set; } = Console.Out;
-    }
+    /// <summary>
+    ///     Enable only from a list of objects
+    /// </summary>
+    public Alignment NumberAlignment
+    {
+        get;
+        set;
+    } = Alignment.Left;
+
+    /// <summary>
+    ///     The <see cref="TextWriter" /> to write to. Defaults to <see cref="Console.Out" />.
+    /// </summary>
+    public TextWriter OutputTo
+    {
+        get;
+        set;
+    } = Console.Out;
 }

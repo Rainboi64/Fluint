@@ -9,5 +9,4 @@ namespace Fluint.Layer.Graphics.API;
 
 public interface IGraphicsDevice : IDisposable
 {
-    
 }

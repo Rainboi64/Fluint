@@ -32,7 +32,8 @@ public class GlWindowProvider : GameWindow, IWindowProvider
 
     public GlWindowProvider(ModulePacket packet, ILogger logger, IJobManager jobManager,
         IConfigurationManager configurationManager) :
-        base(new GameWindowSettings(), new NativeWindowSettings {
+        base(new GameWindowSettings(), new NativeWindowSettings
+        {
             APIVersion = new Version(4, 6),
             Size = new Vector2i(1600, 900),
             NumberOfSamples = 4

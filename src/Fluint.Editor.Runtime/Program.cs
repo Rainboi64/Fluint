@@ -4,13 +4,12 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Runtime
+namespace Fluint.Runtime;
+
+internal static class Program
 {
-    internal static class Program
+    private static void Main(string[] args)
     {
-        private static void Main(string[] args)
-        {
-            Editor.Start();
-        }
+        Editor.Start();
     }
 }

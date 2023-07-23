@@ -30,7 +30,8 @@ public class Load : ILambda
     {
         var listener = _packet.CreateScoped<ILambdaListener>();
 
-        Parallel.ForEach(args, argument => {
+        Parallel.ForEach(args, argument =>
+        {
             if (!File.Exists(argument))
             {
                 _packet.GetSingleton<ILogger>().Error("[{0}] \"{1}\":Path not found.", "Load", argument);

@@ -7,110 +7,110 @@ using System.Text.Json;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
 
-namespace Fluint.Layer.Runtime
+namespace Fluint.Layer.Runtime;
+
+public class InstanceManager
 {
-    public class InstanceManager
+    private readonly ModuleCollection _collection;
+    private readonly Dictionary<int, IRuntime> _instances = new();
+    private readonly StartupManifest _manifest;
+    private readonly ModuleManifest _moduleManifest;
+
+    public InstanceManager(StartupManifest manifest)
     {
-        private readonly ModuleCollection _collection;
-        private readonly Dictionary<int, IRuntime> _instances = new();
-        private readonly StartupManifest _manifest;
-        private readonly ModuleManifest _moduleManifest;
+        _manifest = manifest;
 
-        public InstanceManager(StartupManifest manifest)
+        if (manifest.CommandLineArguments.Any(x => x.ToUpper() == "--REBUILD"))
         {
-            _manifest = manifest;
+            ConsoleHelper.WriteInfo(
+                "rebuilding ./moduleManifest.json");
+            _moduleManifest = ModulesManager.GenerateManifest("base");
 
-            if (manifest.CommandLineArguments.Any(x => x.ToUpper() == "--REBUILD"))
+            File.WriteAllTextAsync(
+                "moduleManifest.json",
+                JsonSerializer.Serialize(_moduleManifest, new JsonSerializerOptions { WriteIndented = true }));
+
+            _collection = ModulesManager.LoadManifest(_moduleManifest);
+        }
+        else if (File.Exists(manifest.ModuleManifest))
+        {
+            var json = File.ReadAllText(manifest.ModuleManifest);
+            _moduleManifest = JsonSerializer.Deserialize<ModuleManifest>(json, new JsonSerializerOptions
             {
-                ConsoleHelper.WriteInfo(
-                    "rebuilding ./moduleManifest.json");
-                _moduleManifest = ModulesManager.GenerateManifest("base");
+                ReadCommentHandling = JsonCommentHandling.Skip,
+                AllowTrailingCommas = true
+            });
 
-                File.WriteAllTextAsync(
-                    "moduleManifest.json",
-                    JsonSerializer.Serialize(_moduleManifest, new JsonSerializerOptions { WriteIndented = true }));
+            _collection = ModulesManager.LoadManifest(_moduleManifest);
+        }
+        else
+        {
+            ConsoleHelper.WriteInfo(
+                $"The path \"{manifest.ModuleManifest}\" for the module manifest wasn't found, loading from 'base' and creating ./moduleManifest.json");
+            _moduleManifest = ModulesManager.GenerateManifest("base");
 
-                _collection = ModulesManager.LoadManifest(_moduleManifest);
-            }
-            else if (File.Exists(manifest.ModuleManifest))
-            {
-                var json = File.ReadAllText(manifest.ModuleManifest);
-                _moduleManifest = JsonSerializer.Deserialize<ModuleManifest>(json, new JsonSerializerOptions {
-                    ReadCommentHandling = JsonCommentHandling.Skip,
-                    AllowTrailingCommas = true
-                });
+            File.WriteAllTextAsync(
+                "moduleManifest.json",
+                JsonSerializer.Serialize(_moduleManifest, new JsonSerializerOptions { WriteIndented = true }));
 
-                _collection = ModulesManager.LoadManifest(_moduleManifest);
-            }
-            else
-            {
-                ConsoleHelper.WriteInfo(
-                    $"The path \"{manifest.ModuleManifest}\" for the module manifest wasn't found, loading from 'base' and creating ./moduleManifest.json");
-                _moduleManifest = ModulesManager.GenerateManifest("base");
+            _collection = ModulesManager.LoadManifest(_moduleManifest);
+        }
+    }
 
-                File.WriteAllTextAsync(
-                    "moduleManifest.json",
-                    JsonSerializer.Serialize(_moduleManifest, new JsonSerializerOptions { WriteIndented = true }));
+    public IReadOnlyDictionary<int, IRuntime> Instances => _instances;
 
-                _collection = ModulesManager.LoadManifest(_moduleManifest);
-            }
+    public int CreateInstance<T>() where T : IRuntime, new()
+    {
+        var instance = new T();
+        var id = _instances.Count;
+        instance.Create(id, _manifest, _moduleManifest, _collection.GenerateModulePacket(instance), this);
+        _instances.Add(id, instance);
+
+        return instance.Id;
+    }
+
+    public void Start(int id)
+    {
+        try
+        {
+            _instances[id].Start();
+        }
+        catch (Exception ex)
+        {
+            ConsoleHelper.WriteError(ex.Message);
+            throw;
+        }
+    }
+
+    public void Kill(int id)
+    {
+        _instances[id].Kill();
+    }
+
+    public void StartAll()
+    {
+        foreach (var instance in _instances.Values)
+        {
+            instance.Start();
+        }
+    }
+
+    public void KillAll()
+    {
+        foreach (var instance in _instances.Values)
+        {
+            instance.Kill();
+        }
+    }
+
+    public override string ToString()
+    {
+        var builder = new StringBuilder();
+        foreach (var instance in _instances)
+        {
+            builder.AppendLine(instance.ToString());
         }
 
-        public IReadOnlyDictionary<int, IRuntime> Instances => _instances;
-
-        public int CreateInstance<T>() where T : IRuntime, new()
-        {
-            var instance = new T();
-            var id = _instances.Count;
-            instance.Create(id, _manifest, _moduleManifest, _collection.GenerateModulePacket(instance), this);
-            _instances.Add(id, instance);
-
-            return instance.Id;
-        }
-
-        public void Start(int id)
-        {
-            try
-            {
-                _instances[id].Start();
-            }
-            catch (Exception ex)
-            {
-                ConsoleHelper.WriteError(ex.Message);
-                throw;
-            }
-        }
-
-        public void Kill(int id)
-        {
-            _instances[id].Kill();
-        }
-
-        public void StartAll()
-        {
-            foreach (var instance in _instances.Values)
-            {
-                instance.Start();
-            }
-        }
-
-        public void KillAll()
-        {
-            foreach (var instance in _instances.Values)
-            {
-                instance.Kill();
-            }
-        }
-
-        public override string ToString()
-        {
-            var builder = new StringBuilder();
-            foreach (var instance in _instances)
-            {
-                builder.AppendLine(instance.ToString());
-            }
-
-            return builder.ToString();
-        }
+        return builder.ToString();
     }
 }

@@ -14,6 +14,8 @@ namespace Fluint.UI.Base;
 
 public class Viewport : IViewport
 {
+    private Vector2i _size;
+
     public Viewport()
     {
         _size = new Vector2i(750, 750);
@@ -40,8 +42,6 @@ public class Viewport : IViewport
         get;
         set;
     }
-
-    private Vector2i _size;
 
     public Vector2i Size
     {

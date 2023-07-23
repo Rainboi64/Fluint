@@ -10,136 +10,138 @@ using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Input;
 
-namespace Fluint.Input.Base
+namespace Fluint.Input.Base;
+
+public class BindingsManager : IBindingsManager
 {
-    public class BindingsManager : IBindingsManager
+    public static readonly IEnumerable<Binding> Default = new[]
     {
-        public readonly static IEnumerable<Binding> Default = new[] {
-            new Binding { Tag = "GRID_SIZE_INCREASE", MainCombination = new[] { Key.KeyPadAdd, Key.LeftControl } },
-            new Binding { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } },
-            new Binding { Tag = "SKETCH_ENABLE", MainCombination = new[] { Key.S, Key.LeftAlt } },
-            new Binding { Tag = "MOVE_CAMERA", MainCombination = new[] { Key.Space } }
-        };
+        new Binding { Tag = "GRID_SIZE_INCREASE", MainCombination = new[] { Key.KeyPadAdd, Key.LeftControl } },
+        new Binding { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } },
+        new Binding { Tag = "SKETCH_ENABLE", MainCombination = new[] { Key.S, Key.LeftAlt } },
+        new Binding { Tag = "MOVE_CAMERA", MainCombination = new[] { Key.Space } }
+    };
 
-        private readonly Dictionary<string, List<Binding>> _bindingsDictionary;
-        private readonly IConfigurationManager _configurationManager;
+    private readonly Dictionary<string, List<Binding>> _bindingsDictionary;
+    private readonly IConfigurationManager _configurationManager;
 
-        private string _current = "default";
+    private string _current = "default";
 
-        public BindingsManager(ModulePacket packet)
+    public BindingsManager(ModulePacket packet)
+    {
+        _configurationManager = packet.GetSingleton<IConfigurationManager>();
+
+        if (_configurationManager.Contains<InputBindingsConfiguration>())
         {
-            _configurationManager = packet.GetSingleton<IConfigurationManager>();
-
-            if (_configurationManager.Contains<InputBindingsConfiguration>())
+            _bindingsDictionary = _configurationManager.Get<InputBindingsConfiguration>().Bindings;
+        }
+        else
+        {
+            _bindingsDictionary = new Dictionary<string, List<Binding>>
             {
-                _bindingsDictionary = _configurationManager.Get<InputBindingsConfiguration>().Bindings;
-            }
-            else
+                { "default", Default.ToList() }
+            };
+        }
+    }
+
+    public IInputManager InputManager
+    {
+        get;
+        set;
+    }
+
+    public InputState GetState(string bindName)
+    {
+        var binding = GetBinding(bindName);
+        return GetState(binding);
+    }
+
+    public InputState GetState(Binding binding)
+    {
+        return binding.MainCombination.Aggregate(
+            InputState.Press, (current, key) =>
             {
-                _bindingsDictionary = new Dictionary<string, List<Binding>> {
-                    { "default", Default.ToList() }
-                };
-            }
-        }
-
-        public IInputManager InputManager
-        {
-            get;
-            set;
-        }
-
-        public InputState GetState(string bindName)
-        {
-            var binding = GetBinding(bindName);
-            return GetState(binding);
-        }
-
-        public InputState GetState(Binding binding)
-        {
-            return binding.MainCombination.Aggregate(
-                InputState.Press, (current, key) => {
-                    if (current is InputState.Release)
-                    {
-                        return InputState.Release;
-                    }
-
-                    var isPressed = InputManager.IsKeyPressed(key);
-                    if (isPressed && InputManager.WasKeyPressed(key))
-                    {
-                        return InputState.Repeat;
-                    }
-
-                    return isPressed ? InputState.Press : InputState.Release;
-                });
-        }
-
-        public Binding GetBinding(string bindName)
-        {
-            // Damn it linq.
-            // am going all out, not even a foreach.
-            var bindings = _bindingsDictionary[_current];
-            var count = bindings.Count;
-            for (var i = 0; i < count; i++)
-            {
-                // looping through all of the bindings and checking if any key is pressed.
-                var current = bindings[i];
-                if (current.Tag == bindName)
+                if (current is InputState.Release)
                 {
-                    return current;
+                    return InputState.Release;
                 }
-            }
 
-            // not gonna except
-            return null;
-        }
+                var isPressed = InputManager.IsKeyPressed(key);
+                if (isPressed && InputManager.WasKeyPressed(key))
+                {
+                    return InputState.Repeat;
+                }
 
-        public IEnumerable<Binding> GetBindings()
+                return isPressed ? InputState.Press : InputState.Release;
+            });
+    }
+
+    public Binding GetBinding(string bindName)
+    {
+        // Damn it linq.
+        // am going all out, not even a foreach.
+        var bindings = _bindingsDictionary[_current];
+        var count = bindings.Count;
+        for (var i = 0; i < count; i++)
         {
-            return _bindingsDictionary[_current];
-        }
-
-        public void LoadCollection(string collectionTag)
-        {
-            _current = collectionTag;
-        }
-
-        public IEnumerable<Binding> GetCollection(string tag)
-        {
-            return _configurationManager.Get<InputBindingsConfiguration>().Bindings[tag];
-        }
-
-        public void SaveCurrentCollection(string tag)
-        {
-            if (_bindingsDictionary.ContainsKey(tag))
+            // looping through all of the bindings and checking if any key is pressed.
+            var current = bindings[i];
+            if (current.Tag == bindName)
             {
-                _bindingsDictionary[tag] = _bindingsDictionary[_current];
+                return current;
             }
-            else
-            {
-                _bindingsDictionary.Add(tag, _bindingsDictionary[_current]);
-            }
-
-            _configurationManager.Add(new InputBindingsConfiguration(_bindingsDictionary));
         }
 
-        public void LoadBinding(Binding binding)
+        // not gonna except
+        return null;
+    }
+
+    public IEnumerable<Binding> GetBindings()
+    {
+        return _bindingsDictionary[_current];
+    }
+
+    public void LoadCollection(string collectionTag)
+    {
+        _current = collectionTag;
+    }
+
+    public IEnumerable<Binding> GetCollection(string tag)
+    {
+        return _configurationManager.Get<InputBindingsConfiguration>().Bindings[tag];
+    }
+
+    public void SaveCurrentCollection(string tag)
+    {
+        if (_bindingsDictionary.ContainsKey(tag))
         {
-            _bindingsDictionary[_current].Add(binding);
+            _bindingsDictionary[tag] = _bindingsDictionary[_current];
+        }
+        else
+        {
+            _bindingsDictionary.Add(tag, _bindingsDictionary[_current]);
         }
 
-        public void LoadBindings(IEnumerable<Binding> bindings)
-        {
-            _bindingsDictionary[_current].AddRange(bindings);
-        }
+        _configurationManager.Add(new InputBindingsConfiguration(_bindingsDictionary));
+    }
 
-        public InputState Get(Binding binding)
-        {
-            return GetState(binding);
-        }
+    public void LoadBinding(Binding binding)
+    {
+        _bindingsDictionary[_current].Add(binding);
+    }
 
-        public InputState Get(string binding)
-        {
-            return GetState(GetBinding(binding));
-        }
+    public void LoadBindings(IEnumerable<Binding> bindings)
+    {
+        _bindingsDictionary[_current].AddRange(bindings);
+    }
+
+    public InputState Get(Binding binding)
+    {
+        return GetState(binding);
+    }
+
+    public InputState Get(string binding)
+    {
+        return GetState(GetBinding(binding));
     }
 }

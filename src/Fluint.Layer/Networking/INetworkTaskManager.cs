@@ -4,15 +4,10 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-using System.Collections.Generic;
-using System.Text;
+namespace Fluint.Layer.Networking;
 
-namespace Fluint.Layer.Networking
+[Initialization(InitializationMethod.Scoped)]
+public interface INetworkTaskManager
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface INetworkTaskManager
-    {
-        void Parse(string task);
-    }
+    void Parse(string task);
 }

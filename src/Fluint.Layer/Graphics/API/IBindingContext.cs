@@ -6,21 +6,20 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
-{
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IBindingContext : IModule, IDisposable
-    {
-        object NativeContext
-        {
-            get;
-        }
+namespace Fluint.Layer.Graphics.API;
 
-        void InitializeContext(BindingContextSettings settings);
-        void Resize(int width, int height);
-        void PreRender();
-        void PostRender();
-        void MakeCurrent();
-        void SwapBuffers();
+[Initialization(InitializationMethod.Scoped)]
+public interface IBindingContext : IModule, IDisposable
+{
+    object NativeContext
+    {
+        get;
     }
+
+    void InitializeContext(BindingContextSettings settings);
+    void Resize(int width, int height);
+    void PreRender();
+    void PostRender();
+    void MakeCurrent();
+    void SwapBuffers();
 }

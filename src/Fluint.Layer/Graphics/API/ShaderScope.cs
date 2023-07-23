@@ -4,11 +4,10 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public enum ShaderScope
 {
-    public enum ShaderScope
-    {
-        GlobalScope,
-        MainFunction,
-    }
+    GlobalScope,
+    MainFunction
 }

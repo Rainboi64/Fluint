@@ -4,12 +4,11 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface IShaderGenerator
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IShaderGenerator
-    {
-        public IShader Generate();
-        public void Add(IShaderGenerationModule module);
-    }
+    public IShader Generate();
+    public void Add(IShaderGenerationModule module);
 }

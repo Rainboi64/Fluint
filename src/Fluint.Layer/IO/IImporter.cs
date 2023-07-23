@@ -6,16 +6,15 @@
 
 using Fluint.Layer.Graphics;
 
-namespace Fluint.Layer.IO
-{
-    [Initialization(InitializationMethod.Instanced)]
-    public interface IImporter : IModule
-    {
-        string[] FileExtenstions
-        {
-            get;
-        }
+namespace Fluint.Layer.IO;
 
-        IMesh[] Import(string fileName);
+[Initialization(InitializationMethod.Instanced)]
+public interface IImporter : IModule
+{
+    string[] FileExtenstions
+    {
+        get;
     }
+
+    IMesh[] Import(string fileName);
 }

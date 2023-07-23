@@ -15,16 +15,18 @@ namespace Fluint.UI.Base;
 
 public class Image : IImage
 {
-    private ITexture _texture;
     private readonly ILogger _logger;
     private readonly ITextureFactory _textureFactory;
+
+    private string _path;
+    private ITexture _texture;
 
     public Image(ILogger logger, IGraphicsFactory graphicsFactory)
     {
         _logger = logger;
         _textureFactory = graphicsFactory.CreateTextureFactory();
     }
-    
+
     public string Name
     {
         get;
@@ -62,6 +64,4 @@ public class Image : IImage
             _texture = _textureFactory.CreateTextureFromFile(_path, true);
         }
     }
-
-    private string _path;
 }

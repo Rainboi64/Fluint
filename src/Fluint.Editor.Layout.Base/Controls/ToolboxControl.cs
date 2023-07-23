@@ -49,7 +49,8 @@ public class ToolboxControl : Control
             button.Size = new Vector2i(48, 48);
             button.Padding = 0;
             button.Path = toolAttribute.IconPath;
-            button.OnClick = () => {
+            button.OnClick = () =>
+            {
             };
 
             _buttons[tool] = button;

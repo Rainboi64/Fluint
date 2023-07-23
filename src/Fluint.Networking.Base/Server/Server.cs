@@ -12,69 +12,68 @@ using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Networking.Client;
 using Fluint.Layer.Networking.Server;
 
-namespace Fluint.Networking.Base.Server
+namespace Fluint.Networking.Base.Server;
+
+public class Server : IServer
 {
-    public class Server : IServer
+    private readonly ModulePacket _packet;
+    private ILogger _logger;
+
+    private NcsServer _server;
+    private ServerData _serverInfo;
+
+    public Server(ModulePacket packet)
     {
-        private readonly ModulePacket _packet;
-        private ILogger _logger;
+        _packet = packet;
+    }
 
-        private NcsServer _server;
-        private ServerData _serverInfo;
-
-        public Server(ModulePacket packet)
+    public ServerData ServerInfo
+    {
+        get => _serverInfo;
+        set
         {
-            _packet = packet;
-        }
+            _logger = _packet.GetSingleton<ILogger>();
 
-        public ServerData ServerInfo
+            _server = new NcsServer(IPAddress.Parse(value.IpAddress), value.Port, _logger);
+            _serverInfo = value;
+        }
+    }
+
+    public IReadOnlyCollection<ClientData> Clients => _server.Clients.Values;
+
+    public bool ServerStarted
+    {
+        get;
+        private set;
+    }
+
+    public void Start()
+    {
+        _server.Start(IPAddress.Parse(ServerInfo.IpAddress), ServerInfo.Port);
+        ServerStarted = true;
+        while (ServerStarted)
         {
-            get => _serverInfo;
-            set
-            {
-                _logger = _packet.GetSingleton<ILogger>();
-
-                _server = new NcsServer(IPAddress.Parse(value.IpAddress), value.Port, _logger);
-                _serverInfo = value;
-            }
+            Thread.Sleep(ServerInfo.TickDelay);
+            Tick();
         }
+    }
 
-        public IReadOnlyCollection<ClientData> Clients => _server.Clients.Values;
+    public void Stop()
+    {
+        _logger.Information("Fluint Server Stopped.");
+        _server.Stop();
+        ServerStarted = false;
+    }
 
-        public bool ServerStarted
-        {
-            get;
-            private set;
-        }
+    public void Restart()
+    {
+        ServerStarted = false;
+        _server.Restart();
+        ServerStarted = true;
+    }
 
-        public void Start()
-        {
-            _server.Start(IPAddress.Parse(ServerInfo.IpAddress), ServerInfo.Port);
-            ServerStarted = true;
-            while (ServerStarted)
-            {
-                Thread.Sleep(ServerInfo.TickDelay);
-                Tick();
-            }
-        }
-
-        public void Stop()
-        {
-            _logger.Information("Fluint Server Stopped.");
-            _server.Stop();
-            ServerStarted = false;
-        }
-
-        public void Restart()
-        {
-            ServerStarted = false;
-            _server.Restart();
-            ServerStarted = true;
-        }
-
-        private void Tick()
-        {
-            _server.Tick();
-        }
+    private void Tick()
+    {
+        _server.Tick();
     }
 }

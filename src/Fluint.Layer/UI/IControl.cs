@@ -11,19 +11,11 @@ namespace Fluint.Layer.UI;
 public class Control : IGuiComponent
 {
     protected readonly List<IGuiComponent> Children = new();
+
     public string Name
     {
         get;
         private set;
-    }
-
-    public virtual void Begin(string name, IWindow parent)
-    {
-        Name = name;
-        foreach (var guiComponent in Children)
-        {
-            guiComponent.Begin(Name + guiComponent.Name);
-        }
     }
 
     public void Begin(string name)
@@ -36,6 +28,15 @@ public class Control : IGuiComponent
         foreach (var guiComponent in Children)
         {
             guiComponent.Tick();
+        }
+    }
+
+    public virtual void Begin(string name, IWindow parent)
+    {
+        Name = name;
+        foreach (var guiComponent in Children)
+        {
+            guiComponent.Begin(Name + guiComponent.Name);
         }
     }
 }

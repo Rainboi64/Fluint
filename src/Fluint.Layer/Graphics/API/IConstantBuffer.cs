@@ -6,11 +6,10 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface IConstantBuffer : IModule, IDisposable
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IConstantBuffer : IModule, IDisposable
-    {
-        void UpdateBuffer<T>(T constants) where T : struct;
-    }
+    void UpdateBuffer<T>(T constants) where T : struct;
 }

@@ -11,31 +11,30 @@ using Fluint.Layer.Networking.Client;
 using Fluint.Layer.Networking.Server;
 using Fluint.Layer.Networking.Server.EventArgs;
 
-namespace Fluint.Networking.Base.Server
+namespace Fluint.Networking.Base.Server;
+
+public class ServerTaskHelper : IServerTaskHelper
 {
-    public class ServerTaskHelper : IServerTaskHelper
+    public ServerTaskHelper()
     {
-        public ServerTaskHelper()
-        {
-            PacketsToMultiCast = new List<NetworkPacket>();
-        }
-
-        public List<NetworkPacket> PacketsToMultiCast
-        {
-            get;
-        }
-
-        public void InvokeConnectedEvent(ClientData client)
-        {
-            ClientConnected?.Invoke(this, new ClientConnectedEventArgs(client));
-        }
-
-        public void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason)
-        {
-            ClientDisconnected?.Invoke(this, new ClientDisconnectedEventArgs(client, reason));
-        }
-
-        public event EventHandler<ClientConnectedEventArgs> ClientConnected;
-        public event EventHandler<ClientDisconnectedEventArgs> ClientDisconnected;
+        PacketsToMultiCast = new List<NetworkPacket>();
     }
+
+    public List<NetworkPacket> PacketsToMultiCast
+    {
+        get;
+    }
+
+    public void InvokeConnectedEvent(ClientData client)
+    {
+        ClientConnected?.Invoke(this, new ClientConnectedEventArgs(client));
+    }
+
+    public void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason)
+    {
+        ClientDisconnected?.Invoke(this, new ClientDisconnectedEventArgs(client, reason));
+    }
+
+    public event EventHandler<ClientConnectedEventArgs> ClientConnected;
+    public event EventHandler<ClientDisconnectedEventArgs> ClientDisconnected;
 }

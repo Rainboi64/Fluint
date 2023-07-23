@@ -25,7 +25,8 @@ public class Async : ILambda
     {
         var parser = _packet.CreateScoped<ILambdaParser>();
 
-        new Thread(() => {
+        new Thread(() =>
+        {
             parser.Parse(args[0], args.Skip(1).ToArray());
         }).Start();
 

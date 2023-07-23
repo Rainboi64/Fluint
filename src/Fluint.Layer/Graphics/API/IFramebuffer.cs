@@ -7,24 +7,23 @@
 using System;
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface IFramebuffer : IModule, IDisposable
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IFramebuffer : IModule, IDisposable
+    Vector2i Size
     {
-        Vector2i Size
-        {
-            get;
-        }
-
-        int Handle
-        {
-            get;
-        }
-
-        void Create(Vector2i size);
-        void Bind();
-        void Unbind();
-        ITexture GetTexture();
+        get;
     }
+
+    int Handle
+    {
+        get;
+    }
+
+    void Create(Vector2i size);
+    void Bind();
+    void Unbind();
+    ITexture GetTexture();
 }

@@ -4,21 +4,20 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Jobs
+namespace Fluint.Layer.Jobs;
+
+[Initialization(InitializationMethod.Instanced)]
+public interface IJob : IModule
 {
-    [Initialization(InitializationMethod.Instanced)]
-    public interface IJob : IModule
+    JobSchedule Schedule
     {
-        JobSchedule Schedule
-        {
-            get;
-        }
-
-        int Priority
-        {
-            get;
-        }
-
-        void Start(JobArgs args);
+        get;
     }
+
+    int Priority
+    {
+        get;
+    }
+
+    void Start(JobArgs args);
 }

@@ -6,27 +6,26 @@
 
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+/// <summary>
+///     A data structure to be loaded into buffers, contains position, and normal.
+/// </summary>
+public struct PositionNormalVertex
 {
-    /// <summary>
-    /// A data structure to be loaded into buffers, contains position, and normal.
-    /// </summary>
-    public struct PositionNormalVertex
+    public readonly Vector3 Position
     {
-        public readonly Vector3 Position
-        {
-            get;
-        }
+        get;
+    }
 
-        public readonly Vector3 Normal
-        {
-            get;
-        }
+    public readonly Vector3 Normal
+    {
+        get;
+    }
 
-        public PositionNormalVertex(Vector3 position, Vector3 normal)
-        {
-            Position = position;
-            Normal = normal;
-        }
+    public PositionNormalVertex(Vector3 position, Vector3 normal)
+    {
+        Position = position;
+        Normal = normal;
     }
 }

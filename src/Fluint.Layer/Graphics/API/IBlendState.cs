@@ -6,9 +6,8 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public interface IBlendState : IDisposable
 {
-    public interface IBlendState : IDisposable
-    {
-    }
 }

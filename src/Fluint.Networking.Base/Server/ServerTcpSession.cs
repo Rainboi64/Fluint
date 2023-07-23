@@ -12,25 +12,24 @@ using Fluint.Layer.Networking;
 using NetCoreServer;
 using Newtonsoft.Json;
 
-namespace Fluint.Networking.Base.Server
+namespace Fluint.Networking.Base.Server;
+
+internal class ServerTcpSession : TcpSession
 {
-    internal class ServerTcpSession : TcpSession
+    public List<NetworkPacket> PacketsReceived = new();
+
+    public ServerTcpSession(TcpServer server) : base(server)
     {
-        public List<NetworkPacket> PacketsReceived = new List<NetworkPacket>();
+    }
 
-        public ServerTcpSession(TcpServer server) : base(server)
-        {
-        }
+    protected override void OnReceived(byte[] buffer, long offset, long size)
+    {
+        var message = Encoding.UTF8.GetString(buffer, (int)offset, (int)size);
+        PacketsReceived.Add(JsonConvert.DeserializeObject<NetworkPacket>(message));
+    }
 
-        protected override void OnReceived(byte[] buffer, long offset, long size)
-        {
-            var message = Encoding.UTF8.GetString(buffer, (int)offset, (int)size);
-            PacketsReceived.Add(JsonConvert.DeserializeObject<NetworkPacket>(message));
-        }
-
-        protected override void OnError(SocketError error)
-        {
-            Console.WriteLine($"Chat TCP session caught an error with code {error}");
-        }
+    protected override void OnError(SocketError error)
+    {
+        Console.WriteLine($"Chat TCP session caught an error with code {error}");
     }
 }

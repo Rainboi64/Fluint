@@ -7,8 +7,6 @@ using System.Collections.Generic;
 
 namespace Fluint.Layer.UI;
 
-
 public interface IGuiContainer<T> : IGuiComponent, IDictionary<string, T> where T : IGuiComponent
 {
-    
 }

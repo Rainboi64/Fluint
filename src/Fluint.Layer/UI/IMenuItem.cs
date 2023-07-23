@@ -3,7 +3,6 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
-using System;
 using Fluint.Layer.Functionality;
 
 namespace Fluint.Layer.UI;
@@ -17,5 +16,9 @@ public interface IMenuItem : IModule, IGuiContainer<IMenuItem>
         set;
     }
 
-    ModularAction OnClick { get; set; }
+    ModularAction OnClick
+    {
+        get;
+        set;
+    }
 }

@@ -7,50 +7,49 @@
 using System;
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface IPipeline : IModule, IDisposable
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IPipeline : IModule, IDisposable
+    PrimitiveTopology PrimitiveTopology
     {
-        PrimitiveTopology PrimitiveTopology
-        {
-            get;
-        }
+        get;
+    }
 
-        IShader VertexShader
-        {
-            get;
-        }
+    IShader VertexShader
+    {
+        get;
+    }
 
-        IShader PixelShader
-        {
-            get;
-        }
+    IShader PixelShader
+    {
+        get;
+    }
 
-        IInputLayout InputLayout
-        {
-            get;
-        }
+    IInputLayout InputLayout
+    {
+        get;
+    }
 
-        IRasterizerState RasterizerState
-        {
-            get;
-        }
+    IRasterizerState RasterizerState
+    {
+        get;
+    }
 
-        IDepthStencilState DepthStencilState
-        {
-            get;
-        }
+    IDepthStencilState DepthStencilState
+    {
+        get;
+    }
 
-        IBlendState BlendState
-        {
-            get;
-        }
+    IBlendState BlendState
+    {
+        get;
+    }
 
-        Viewport Viewport
-        {
-            get;
-            set;
-        }
+    Viewport Viewport
+    {
+        get;
+        set;
     }
 }

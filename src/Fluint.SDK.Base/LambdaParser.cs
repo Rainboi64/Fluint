@@ -12,118 +12,117 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Base
+namespace Fluint.SDK.Base;
+
+public class LambdaParser : ILambdaParser
 {
-    public class LambdaParser : ILambdaParser
+    private readonly IList<ILambda> _commands;
+
+    public LambdaParser(ModulePacket packet)
     {
-        private readonly IList<ILambda> _commands;
+        _commands = packet.GetInstances()
+            .OfType<ILambda>()
+            .ToList();
+    }
 
-        public LambdaParser(ModulePacket packet)
+    public LambdaObject Parse(string command, string[] args)
+    {
+        if (command.StartsWith("#"))
         {
-            _commands = packet.GetInstances()
-                .OfType<ILambda>()
-                .ToList();
-        }
-
-        public LambdaObject Parse(string command, string[] args)
-        {
-            if (command.StartsWith("#"))
-            {
-                return LambdaObject.Unknown;
-            }
-
-            var commandObject = GetCommandByString(command);
-
-            if (commandObject is not null)
-            {
-                try
-                {
-                    return commandObject.Run(args);
-                }
-                catch (Exception e)
-                {
-                    return LambdaObject.Error(e.Message);
-                }
-            }
-
-            switch (command)
-            {
-                case "help":
-                    Help(GetCommandByString(args.FirstOrDefault()));
-                    break;
-                case "list":
-                    List();
-                    break;
-                default:
-                    return LambdaObject.Error("Lambda not found");
-            }
-
             return LambdaObject.Unknown;
         }
 
-        public void Add(ILambda command)
+        var commandObject = GetCommandByString(command);
+
+        if (commandObject is not null)
         {
-            _commands.Add(command);
+            try
+            {
+                return commandObject.Run(args);
+            }
+            catch (Exception e)
+            {
+                return LambdaObject.Error(e.Message);
+            }
         }
 
-        private ILambda GetCommandByString(string command)
+        switch (command)
         {
-            foreach (var item in _commands)
-            {
-                if (item.Command == command.ToLower())
-                {
-                    return item;
-                }
-            }
-
-            return null;
+            case "help":
+                Help(GetCommandByString(args.FirstOrDefault()));
+                break;
+            case "list":
+                List();
+                break;
+            default:
+                return LambdaObject.Error("Lambda not found");
         }
 
-        private void List()
+        return LambdaObject.Unknown;
+    }
+
+    public void Add(ILambda command)
+    {
+        _commands.Add(command);
+    }
+
+    private ILambda GetCommandByString(string command)
+    {
+        foreach (var item in _commands)
         {
-            var table = new ConsoleTable();
-
-            table.AddColumn(new[] { "Command", "Name", "Description" });
-            foreach (var consoleCommand in _commands)
+            if (item.Command == command.ToLower())
             {
-                var commandAttribute = consoleCommand.GetType()
-                    .GetCustomAttributes(false)
-                    .OfType<ModuleAttribute>()
-                    .FirstOrDefault();
-
-                table.AddRow($"'{consoleCommand.Command}'", commandAttribute?.ModuleName,
-                    commandAttribute?.Description);
+                return item;
             }
-
-            Console.WriteLine($"\n{table.ToMarkDownString()}");
         }
 
-        private static void Help(ILambda command)
+        return null;
+    }
+
+    private void List()
+    {
+        var table = new ConsoleTable();
+
+        table.AddColumn(new[] { "Command", "Name", "Description" });
+        foreach (var consoleCommand in _commands)
         {
-            if (command is null)
-            {
-                Console.WriteLine("The help command requires a second argument as command.");
-                return;
-            }
+            var commandAttribute = consoleCommand.GetType()
+                .GetCustomAttributes(false)
+                .OfType<ModuleAttribute>()
+                .FirstOrDefault();
 
-            var attribute = command
-                .GetType()
-                .GetCustomAttributes(typeof(ModuleAttribute), false)
-                .FirstOrDefault() as ModuleAttribute;
-
-            if (attribute is null)
-            {
-                Console.WriteLine("This command does not offer help");
-                return;
-            }
-
-            if (attribute.Help is null)
-            {
-                Console.WriteLine("This command does not offer help");
-                return;
-            }
-
-            Console.WriteLine(attribute.Help);
+            table.AddRow($"'{consoleCommand.Command}'", commandAttribute?.ModuleName,
+                commandAttribute?.Description);
         }
+
+        Console.WriteLine($"\n{table.ToMarkDownString()}");
+    }
+
+    private static void Help(ILambda command)
+    {
+        if (command is null)
+        {
+            Console.WriteLine("The help command requires a second argument as command.");
+            return;
+        }
+
+        var attribute = command
+            .GetType()
+            .GetCustomAttributes(typeof(ModuleAttribute), false)
+            .FirstOrDefault() as ModuleAttribute;
+
+        if (attribute is null)
+        {
+            Console.WriteLine("This command does not offer help");
+            return;
+        }
+
+        if (attribute.Help is null)
+        {
+            Console.WriteLine("This command does not offer help");
+            return;
+        }
+
+        Console.WriteLine(attribute.Help);
     }
 }

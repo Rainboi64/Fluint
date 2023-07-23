@@ -1,15 +1,14 @@
 using System;
 
-namespace Fluint.Layer.Diagnostics
-{
-    public class EngineApiException : Exception
-    {
-        public EngineApiException()
-        {
-        }
+namespace Fluint.Layer.Diagnostics;
 
-        public EngineApiException(string api, string message) : base($"{api}: {message}")
-        {
-        }
+public class EngineApiException : Exception
+{
+    public EngineApiException()
+    {
+    }
+
+    public EngineApiException(string api, string message) : base($"{api}: {message}")
+    {
     }
 }

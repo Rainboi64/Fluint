@@ -6,13 +6,12 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+[Flags]
+public enum TextureViewType
 {
-    [Flags]
-    public enum TextureViewType
-    {
-        RenderTarget = 1,
-        ShaderResource = 2,
-        DepthStencil = 4
-    }
+    RenderTarget = 1,
+    ShaderResource = 2,
+    DepthStencil = 4
 }

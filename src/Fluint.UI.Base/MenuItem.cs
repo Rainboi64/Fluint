@@ -3,10 +3,8 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Fluint.Layer;
 using Fluint.Layer.Functionality;
 using Fluint.Layer.UI;
 using ImGuiNET;
@@ -16,6 +14,7 @@ namespace Fluint.UI.Base;
 public class MenuItem : IMenuItem
 {
     private readonly IDictionary<string, IMenuItem> _children = new Dictionary<string, IMenuItem>();
+
     public string Name
     {
         get;
@@ -41,7 +40,7 @@ public class MenuItem : IMenuItem
             {
                 item.Tick();
             }
-            
+
             ImGui.EndMenu();
         }
         else
@@ -96,6 +95,7 @@ public class MenuItem : IMenuItem
                 Add(key, value);
                 return;
             }
+
             _children[key] = value;
         }
     }
@@ -115,7 +115,7 @@ public class MenuItem : IMenuItem
     }
 
     public void Add(KeyValuePair<string, IMenuItem> item)
-    { 
+    {
         item.Value.Begin(item.Key);
         _children.Add(item);
     }

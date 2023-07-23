@@ -23,8 +23,10 @@ public class SureExitModal : Control
         messageBox.Title = localizationManager.Fetch("exit_confirmation_title");
         messageBox.Prompt = localizationManager.Fetch("exit_confirmation_message");
 
-        messageBox.OnClick = new ModularAction {
-            () => {
+        messageBox.OnClick = new ModularAction
+        {
+            () =>
+            {
                 if (messageBox.Result == MessageBoxResult.Ok)
                 {
                     actionManager.GetAction<IGracefulExit>().Exit();

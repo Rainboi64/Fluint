@@ -4,22 +4,21 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Jobs
+namespace Fluint.Layer.Jobs;
+
+public enum JobSchedule
 {
-    public enum JobSchedule
-    {
-        Startup,
+    Startup,
 
-        // Window Related
-        WindowReady,
-        WindowUpdate,
-        WindowRender,
-        WindowDisposing,
-        WindowResize,
-        WindowEnterText,
-        WindowMouseScroll,
+    // Window Related
+    WindowReady,
+    WindowUpdate,
+    WindowRender,
+    WindowDisposing,
+    WindowResize,
+    WindowEnterText,
+    WindowMouseScroll,
 
-        // Multi-threaded
-        Background,
-    }
+    // Multi-threaded
+    Background
 }

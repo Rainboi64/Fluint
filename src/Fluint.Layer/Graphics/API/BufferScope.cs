@@ -4,13 +4,12 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public enum BufferScope
 {
-    public enum BufferScope
-    {
-        VertexShader,
-        PixelShader,
-        Global,
-        NotAssigned
-    }
+    VertexShader,
+    PixelShader,
+    Global,
+    NotAssigned
 }

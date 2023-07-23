@@ -6,22 +6,41 @@
 
 using System;
 
-namespace Fluint.Layer.Configuration
-{
-    [AttributeUsage(AttributeTargets.Class)]
-    public class ConfigurationAttribute : Attribute
-    {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string Location { get; set; }
+namespace Fluint.Layer.Configuration;
 
-        public ConfigurationAttribute(string title, string description, string location)
-        {
-            Title = title;
-            Description = description;
-            Location = location;
-        }
-        public ConfigurationAttribute(string title, string description) : this(title, description, "") { }
-        public ConfigurationAttribute(string location) : this("", "", location) { }
+[AttributeUsage(AttributeTargets.Class)]
+public class ConfigurationAttribute : Attribute
+{
+    public ConfigurationAttribute(string title, string description, string location)
+    {
+        Title = title;
+        Description = description;
+        Location = location;
+    }
+
+    public ConfigurationAttribute(string title, string description) : this(title, description, "")
+    {
+    }
+
+    public ConfigurationAttribute(string location) : this("", "", location)
+    {
+    }
+
+    public string Title
+    {
+        get;
+        set;
+    }
+
+    public string Description
+    {
+        get;
+        set;
+    }
+
+    public string Location
+    {
+        get;
+        set;
     }
 }

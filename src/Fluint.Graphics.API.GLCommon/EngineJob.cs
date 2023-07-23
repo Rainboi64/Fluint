@@ -11,54 +11,53 @@ using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Jobs;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Graphics.API.GLCommon
+namespace Fluint.Graphics.API.GLCommon;
+
+public class EngineJob : IJob
 {
-    public class EngineJob : IJob
+    private static ILogger _logger;
+
+
+    private static readonly DebugProc DebugProcCallback = DebugCallback;
+
+    public EngineJob(ModulePacket packet)
     {
-        private static ILogger _logger;
+        _logger = packet.GetSingleton<ILogger>();
+    }
 
+    public JobSchedule Schedule => JobSchedule.WindowReady;
 
-        private static readonly DebugProc DebugProcCallback = DebugCallback;
+    public int Priority => 1;
 
-        public EngineJob(ModulePacket packet)
+    public void Start(JobArgs args)
+    {
+        _logger.Debug("[{0}] OpenGL Version: {1}", "OpenGL46", GL.GetString(StringName.Version));
+        _logger.Debug("[{0}] Version: {1}", "OpenGL46", GL.GetString(StringName.ShadingLanguageVersion));
+        _logger.Debug("[{0}] Renderer: {1}", "OpenGL46", GL.GetString(StringName.Renderer));
+        _logger.Debug("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
+        _logger.Debug("[{0}] Extensions: {1}", "OpenGL46", GL.GetString(StringName.Extensions));
+
+        GL.DebugMessageCallback(DebugProcCallback, IntPtr.Zero);
+        GL.Enable(EnableCap.DebugOutput);
+        GL.Enable(EnableCap.DebugOutputSynchronous);
+    }
+
+    private static void DebugCallback(DebugSource source,
+        DebugType type,
+        int id,
+        DebugSeverity severity,
+        int length,
+        IntPtr message,
+        IntPtr userParam)
+    {
+        var messageString = Marshal.PtrToStringAnsi(message, length);
+
+        if (type == DebugType.DebugTypeError)
         {
-            _logger = packet.GetSingleton<ILogger>();
+            _logger.Error("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
+            throw new EngineApiException("OpenGL46", messageString);
         }
 
-        public JobSchedule Schedule => JobSchedule.WindowReady;
-
-        public int Priority => 1;
-
-        public void Start(JobArgs args)
-        {
-            _logger.Debug("[{0}] OpenGL Version: {1}", "OpenGL46", GL.GetString(StringName.Version));
-            _logger.Debug("[{0}] Version: {1}", "OpenGL46", GL.GetString(StringName.ShadingLanguageVersion));
-            _logger.Debug("[{0}] Renderer: {1}", "OpenGL46", GL.GetString(StringName.Renderer));
-            _logger.Debug("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
-            _logger.Debug("[{0}] Extensions: {1}", "OpenGL46", GL.GetString(StringName.Extensions));
-
-            GL.DebugMessageCallback(DebugProcCallback, IntPtr.Zero);
-            GL.Enable(EnableCap.DebugOutput);
-            GL.Enable(EnableCap.DebugOutputSynchronous);
-        }
-
-        private static void DebugCallback(DebugSource source,
-            DebugType type,
-            int id,
-            DebugSeverity severity,
-            int length,
-            IntPtr message,
-            IntPtr userParam)
-        {
-            var messageString = Marshal.PtrToStringAnsi(message, length);
-
-            if (type == DebugType.DebugTypeError)
-            {
-                _logger.Error("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
-                throw new EngineApiException("OpenGL46", messageString);
-            }
-
-            _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
-        }
+        _logger.Debug("[{0}] Debugger [{1}]:[{2}]: {3}", "OpenGL46", severity, type, messageString);
     }
 }

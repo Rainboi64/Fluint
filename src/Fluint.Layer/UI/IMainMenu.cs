@@ -6,7 +6,6 @@
 namespace Fluint.Layer.UI;
 
 [Initialization(InitializationMethod.Scoped)]
-public interface IMainMenu: IModule, IGuiContainer<IMenuItem>
+public interface IMainMenu : IModule, IGuiContainer<IMenuItem>
 {
-    
 }

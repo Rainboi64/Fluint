@@ -8,18 +8,17 @@ using System;
 using Fluint.Layer;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Lambdas.Base
+namespace Fluint.SDK.Lambdas.Base;
+
+[Module("Exit Command", "Exits the application with code 0", "enter this command to exit the application")]
+public class Exit : ILambda
 {
-    [Module("Exit Command", "Exits the application with code 0", "enter this command to exit the application")]
-    public class Exit : ILambda
+    public string Command => "exit";
+
+    public LambdaObject Run(string[] args)
     {
-        public string Command => "exit";
+        Environment.Exit(0);
 
-        public LambdaObject Run(string[] args)
-        {
-            Environment.Exit(0);
-
-            return LambdaObject.Success;
-        }
+        return LambdaObject.Success;
     }
 }

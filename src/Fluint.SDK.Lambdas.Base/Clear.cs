@@ -8,17 +8,16 @@ using System;
 using Fluint.Layer;
 using Fluint.Layer.SDK;
 
-namespace Fluint.SDK.Lambdas.Base
-{
-    [Module("Clear Command", "Clears the sdk text", "enter the command to clean console window.")]
-    public class Clear : ILambda
-    {
-        public string Command => "clear";
+namespace Fluint.SDK.Lambdas.Base;
 
-        public LambdaObject Run(string[] args)
-        {
-            Console.Clear();
-            return LambdaObject.Success;
-        }
+[Module("Clear Command", "Clears the sdk text", "enter the command to clean console window.")]
+public class Clear : ILambda
+{
+    public string Command => "clear";
+
+    public LambdaObject Run(string[] args)
+    {
+        Console.Clear();
+        return LambdaObject.Success;
     }
 }

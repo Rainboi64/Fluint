@@ -7,10 +7,11 @@
 namespace Fluint.Layer.Graphics.API;
 
 /**
- * @author Yaman Alhalabi <yamanalhalabi2@gmail.com>
- * @file A data type for enabling graphic api behavoir, needs to be passed to ICommandParser
- * @desc Created on 2020-12-11 7:50:25 pm
- * @copyright Panic Factory (C) 2020 
+ * @author Yaman Alhalabi
+ * <yamanalhalabi2@ gmail.com>
+ *     @file A data type for enabling graphic api behavoir, needs to be passed to ICommandParser
+ *     @desc Created on 2020-12-11 7:50:25 pm
+ *     @copyright Panic Factory (C) 2020
  */
 public struct Command
 {

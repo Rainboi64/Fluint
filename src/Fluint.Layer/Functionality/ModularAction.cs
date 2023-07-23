@@ -11,31 +11,8 @@ namespace Fluint.Layer.Functionality;
 
 public class ModularAction : ICollection<Action>
 {
-    public static implicit operator Action(ModularAction right)
-    {
-        return right.Invoke;
-    }
-    
-    public static implicit operator ModularAction(Action right)
-    {
-        return new ModularAction { right };
-    }
-    
-    public void Invoke()
-    {
-        foreach (var action in _actions)
-        {
-            action.Invoke();
-        }
-    }
-    
-    private List<Action> _actions = new List<Action>();
+    private readonly List<Action> _actions = new();
 
-    public void Insert(int key, Action action)
-    {
-        _actions.Insert(key, action);   
-    }
-    
     public IEnumerator<Action> GetEnumerator()
     {
         return _actions.GetEnumerator();
@@ -74,4 +51,27 @@ public class ModularAction : ICollection<Action>
     public int Count => _actions.Count;
 
     public bool IsReadOnly => false;
+
+    public static implicit operator Action(ModularAction right)
+    {
+        return right.Invoke;
+    }
+
+    public static implicit operator ModularAction(Action right)
+    {
+        return new ModularAction { right };
+    }
+
+    public void Invoke()
+    {
+        foreach (var action in _actions)
+        {
+            action.Invoke();
+        }
+    }
+
+    public void Insert(int key, Action action)
+    {
+        _actions.Insert(key, action);
+    }
 }

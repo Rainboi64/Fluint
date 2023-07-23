@@ -98,7 +98,8 @@ public class MainWindow : IWindow
     {
         var control = _packet.CreateInstance<T>();
 
-        Enqueue(() => {
+        Enqueue(() =>
+        {
             var name = $"{typeof(T).Name} : {control.GetHashCode()}";
             control.Begin(name, this);
             Controls.Add(name, control);

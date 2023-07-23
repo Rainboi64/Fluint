@@ -1,10 +1,9 @@
-namespace Fluint.Layer.SDK
+namespace Fluint.Layer.SDK;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface ILambdaListener : IModule
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface ILambdaListener : IModule
-    {
-        (string command, string[] arguments) Parse(string input);
-        void Execute(string command);
-        void Listen();
-    }
+    (string command, string[] arguments) Parse(string input);
+    void Execute(string command);
+    void Listen();
 }

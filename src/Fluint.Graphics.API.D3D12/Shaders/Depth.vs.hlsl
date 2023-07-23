@@ -2,15 +2,15 @@
 
 cbuffer Input
 {
-	matrix M_MVP;
+matrix M_MVP;
 };
 
 PixelPosition Main(VertexPosition input)
 {
-	PixelPosition output;
+    PixelPosition output;
 
-	input.Position.w = 1.0f;
-	output.Position = mul(input.Position, M_MVP);
+    input.Position.w = 1.0f;
+    output.Position = mul(input.Position, M_MVP);
 
-	return output;
+    return output;
 }

@@ -9,186 +9,187 @@ using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.SDK;
 using Newtonsoft.Json;
 
-namespace Fluint.SDK.Base
+namespace Fluint.SDK.Base;
+
+public class LambdaListener : ILambdaListener
 {
-    public class LambdaListener : ILambdaListener
+    private readonly IConfigurationManager _configurationManager;
+    private readonly ILambdaParser _lambdaParser;
+    private readonly PromptConfiguration _promptConfiguration;
+    private readonly SDKHistory _sdkHistory;
+
+    private string _prompt;
+
+    public LambdaListener(ModulePacket packet)
     {
-        private readonly IConfigurationManager _configurationManager;
-        private readonly ILambdaParser _lambdaParser;
-        private readonly PromptConfiguration _promptConfiguration;
-        private readonly SDKHistory _sdkHistory;
+        var lambdas = packet.GetInstances().OfType<ILambda>().ToList();
+        _lambdaParser = packet.CreateScoped<ILambdaParser>();
 
-        private string _prompt;
+        _configurationManager = packet.GetSingleton<IConfigurationManager>();
+        _sdkHistory = _configurationManager.Get<SDKHistory>();
 
-        public LambdaListener(ModulePacket packet)
+        _promptConfiguration = _configurationManager.Get<PromptConfiguration>();
+        _prompt = _promptConfiguration.DefaultPrompt;
+    }
+
+    public void Execute(string command)
+    {
+        if (command.Length <= 0)
         {
-            var lambdas = packet.GetInstances().OfType<ILambda>().ToList();
-            _lambdaParser = packet.CreateScoped<ILambdaParser>();
-
-            _configurationManager = packet.GetSingleton<IConfigurationManager>();
-            _sdkHistory = _configurationManager.Get<SDKHistory>();
-
-            _promptConfiguration = _configurationManager.Get<PromptConfiguration>();
-            _prompt = _promptConfiguration.DefaultPrompt;
+            return;
         }
 
-        public void Execute(string command)
+        var (onlyCommand, arguments) = Parse(command);
+        Execute(onlyCommand, arguments);
+    }
+
+    public void Listen()
+    {
+        while (true)
         {
-            if (command.Length <= 0)
+            var command = ReadLine();
+            Call(command);
+        }
+    }
+
+    // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
+    public (string command, string[] arguments) Parse(string input)
+    {
+        var inQuotes = false;
+
+        var segments = Split(input, c =>
             {
-                return;
-            }
-
-            var (onlyCommand, arguments) = Parse(command);
-            Execute(onlyCommand, arguments);
-        }
-
-        public void Listen()
-        {
-            while (true)
-            {
-                var command = ReadLine();
-                Call(command);
-            }
-        }
-
-        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
-        public (string command, string[] arguments) Parse(string input)
-        {
-            var inQuotes = false;
-
-            var segments = Split(input, c => {
-                    if (c == '\"')
-                    {
-                        inQuotes = !inQuotes;
-                    }
-
-                    return !inQuotes && c == ' ';
-                })
-                .Select(arg => TrimMatchingQuotes(arg.Trim(), '\"'))
-                .Where(arg => !string.IsNullOrEmpty(arg));
-
-            var segmentArray = segments as string[] ?? segments.ToArray();
-            var command = segmentArray.FirstOrDefault();
-            var arguments = segmentArray.Skip(1);
-
-            return (command, arguments.ToArray());
-        }
-
-        private LambdaObject Execute(string command, string[] args)
-        {
-            return _lambdaParser.Parse(command.ToLower(), args);
-        }
-
-        private string ReadLine()
-        {
-            var keyHandler = new ConsoleKeyHandler(_sdkHistory.CommandHistory);
-
-            ConsoleHelper.WriteEmbeddedColor(_prompt);
-
-            while (true)
-            {
-                var keyInfo = Console.ReadKey(true);
-                if (keyInfo.Key == ConsoleKey.Enter)
+                if (c == '\"')
                 {
-                    break;
+                    inQuotes = !inQuotes;
                 }
 
-                keyHandler.Handle(keyInfo);
-            }
+                return !inQuotes && c == ' ';
+            })
+            .Select(arg => TrimMatchingQuotes(arg.Trim(), '\"'))
+            .Where(arg => !string.IsNullOrEmpty(arg));
 
-            var text = keyHandler.GetText();
+        var segmentArray = segments as string[] ?? segments.ToArray();
+        var command = segmentArray.FirstOrDefault();
+        var arguments = segmentArray.Skip(1);
 
-            if (string.IsNullOrWhiteSpace(text))
+        return (command, arguments.ToArray());
+    }
+
+    private LambdaObject Execute(string command, string[] args)
+    {
+        return _lambdaParser.Parse(command.ToLower(), args);
+    }
+
+    private string ReadLine()
+    {
+        var keyHandler = new ConsoleKeyHandler(_sdkHistory.CommandHistory);
+
+        ConsoleHelper.WriteEmbeddedColor(_prompt);
+
+        while (true)
+        {
+            var keyInfo = Console.ReadKey(true);
+            if (keyInfo.Key == ConsoleKey.Enter)
             {
-                text = "";
-            }
-            else
-            {
-                AddToHistory(text);
+                break;
             }
 
-            return text;
+            keyHandler.Handle(keyInfo);
         }
 
-        private void Call(string input)
+        var text = keyHandler.GetText();
+
+        if (string.IsNullOrWhiteSpace(text))
         {
-            if (input is null || input.Length <= 0)
-            {
-                Console.WriteLine();
-                return;
-            }
+            text = "";
+        }
+        else
+        {
+            AddToHistory(text);
+        }
 
-            var timer = new Stopwatch();
-            timer.Start();
+        return text;
+    }
 
-            var (command, arguments) = Parse(input);
-            var response = Execute(command, arguments);
-
-            timer.Stop();
-
-            var lambdaColor = response.Status switch {
-                LambdaStatus.Success => "green",
-                LambdaStatus.Failure => "red",
-                _ => "yellow"
-            };
-
-            _prompt = string.Format(_promptConfiguration.Prompt, lambdaColor, timer.ElapsedMilliseconds / 1000f);
-
-            var json = JsonConvert.SerializeObject(response.Data);
-            var prettifiedJson = ColorizeJson(json);
-
-            // Pad with an extra newline.
+    private void Call(string input)
+    {
+        if (input is null || input.Length <= 0)
+        {
             Console.WriteLine();
-            ConsoleHelper.WriteEmbeddedColorLine(prettifiedJson);
+            return;
         }
 
-        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
-        private static IEnumerable<string> Split(string str, Func<char, bool> controller)
+        var timer = new Stopwatch();
+        timer.Start();
+
+        var (command, arguments) = Parse(input);
+        var response = Execute(command, arguments);
+
+        timer.Stop();
+
+        var lambdaColor = response.Status switch
         {
-            var nextPiece = 0;
+            LambdaStatus.Success => "green",
+            LambdaStatus.Failure => "red",
+            _ => "yellow"
+        };
 
-            for (var c = 0; c < str.Length; c++)
+        _prompt = string.Format(_promptConfiguration.Prompt, lambdaColor, timer.ElapsedMilliseconds / 1000f);
+
+        var json = JsonConvert.SerializeObject(response.Data);
+        var prettifiedJson = ColorizeJson(json);
+
+        // Pad with an extra newline.
+        Console.WriteLine();
+        ConsoleHelper.WriteEmbeddedColorLine(prettifiedJson);
+    }
+
+    // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
+    private static IEnumerable<string> Split(string str, Func<char, bool> controller)
+    {
+        var nextPiece = 0;
+
+        for (var c = 0; c < str.Length; c++)
+        {
+            if (!controller(str[c]))
             {
-                if (!controller(str[c]))
-                {
-                    continue;
-                }
-
-                yield return str.Substring(nextPiece, c - nextPiece);
-                nextPiece = c + 1;
+                continue;
             }
 
-            yield return str[nextPiece..];
+            yield return str.Substring(nextPiece, c - nextPiece);
+            nextPiece = c + 1;
         }
 
-        // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
-        private static string TrimMatchingQuotes(string input, char quote)
+        yield return str[nextPiece..];
+    }
+
+    // From https://stackoverflow.com/questions/298830/split-string-containing-command-line-parameters-into-string-in-c-sharp
+    private static string TrimMatchingQuotes(string input, char quote)
+    {
+        if (input.Length >= 2 &&
+            input[0] == quote && input[^1] == quote)
         {
-            if ((input.Length >= 2) &&
-                input[0] == quote && input[^1] == quote)
-            {
-                return input.Substring(1, input.Length - 2);
-            }
-
-            return input;
+            return input.Substring(1, input.Length - 2);
         }
 
-        private void AddToHistory(string input)
-        {
-            _sdkHistory.CommandHistory.Add(input);
-            _configurationManager.Add(_sdkHistory);
-        }
+        return input;
+    }
 
-        private static string ColorizeJson(string json)
-        {
-            var stringBuilder = new StringBuilder(json);
+    private void AddToHistory(string input)
+    {
+        _sdkHistory.CommandHistory.Add(input);
+        _configurationManager.Add(_sdkHistory);
+    }
 
-            stringBuilder.Replace(@"\n", "\n");
+    private static string ColorizeJson(string json)
+    {
+        var stringBuilder = new StringBuilder(json);
 
-            // TODO: Add syntax highlighting for json.
+        stringBuilder.Replace(@"\n", "\n");
 
-            return stringBuilder.ToString();
-        }
+        // TODO: Add syntax highlighting for json.
+
+        return stringBuilder.ToString();
     }
 }

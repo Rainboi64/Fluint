@@ -6,26 +6,25 @@
 
 using System;
 
-namespace Fluint.Layer.Networking.Client
-{
-    public struct ClientData
-    {
-        /// <summary>
-        /// The username of the cslient.
-        /// </summary>
-        public string Username
-        {
-            get;
-            set;
-        }
+namespace Fluint.Layer.Networking.Client;
 
-        /// <summary>
-        /// The Identifying ID of the client.
-        /// </summary>
-        public Guid ID
-        {
-            get;
-            set;
-        }
+public struct ClientData
+{
+    /// <summary>
+    ///     The username of the cslient.
+    /// </summary>
+    public string Username
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    ///     The Identifying ID of the client.
+    /// </summary>
+    public Guid ID
+    {
+        get;
+        set;
     }
 }

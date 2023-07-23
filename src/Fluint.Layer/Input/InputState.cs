@@ -4,16 +4,11 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System;
-using System.Collections.Generic;
-using System.Text;
+namespace Fluint.Layer.Input;
 
-namespace Fluint.Layer.Input
+public enum InputState
 {
-    public enum InputState
-    {
-        Press = 1,
-        Release = 0,
-        Repeat = 2,
-    }
+    Press = 1,
+    Release = 0,
+    Repeat = 2
 }

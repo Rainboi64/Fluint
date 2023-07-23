@@ -5,18 +5,21 @@
 //
 
 using System;
-namespace Fluint.Layer.Graphics.API
+
+namespace Fluint.Layer.Graphics.API;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface ITexture : IModule, IDisposable
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface ITexture : IModule, IDisposable
+    int Handle
     {
-        int Handle
-        {
-            get;
-        }
-
-        TextureView View { get; }
-
-        void SetData<T>(T[] data) where T : struct;
+        get;
     }
+
+    TextureView View
+    {
+        get;
+    }
+
+    void SetData<T>(T[] data) where T : struct;
 }

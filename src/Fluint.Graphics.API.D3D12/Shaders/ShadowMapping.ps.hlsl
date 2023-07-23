@@ -8,30 +8,30 @@
 //====================
 
 //= TEXTURES ==========================================
-Texture2D tex_normal 					: register(t0);
-Texture2D tex_depth 					: register(t1);
-Texture2DArray light_depth_directional 	: register(t2);
-TextureCube light_depth_point 			: register(t3);
-Texture2D light_depth_spot 				: register(t4);
+Texture2D tex_normal : register(t0);
+Texture2D tex_depth : register(t1);
+Texture2DArray light_depth_directional : register(t2);
+TextureCube light_depth_point : register(t3);
+Texture2D light_depth_spot : register(t4);
 //=====================================================
 
 //= SAMPLERS ==============================================
-SamplerComparisonState  sampler_cmp_depth 	: register(s0);
-SamplerState samplerLinear_clamp 			: register(s1);
+SamplerComparisonState sampler_cmp_depth : register(s0);
+SamplerState samplerLinear_clamp : register(s1);
 //=========================================================
 
 //= CONSTANT BUFFERS =====================
 cbuffer DefaultBuffer : register(b1)
 {
-	matrix m_view;
-	matrix mViewProjectionInverse;
-	matrix mLightViewProjection[CASCADES];
-	float3 light_position;
-	float shadow_map_resolution;
-	float3 light_direction;
-	float range;
-	float2 biases;
-	float2 padding2;
+matrix m_view;
+matrix mViewProjectionInverse;
+matrix mLightViewProjection[CASCADES];
+float3 light_position;
+float shadow_map_resolution;
+float3 light_direction;
+float range;
+float2 biases;
+float2 padding2;
 };
 //========================================
 
@@ -77,7 +77,8 @@ float Technique_Poisson(int cascade, float3 tex_coords, float compareDepth)
 	[unroll]
 	for (uint i = 0; i < samples; i++)
 	{
-		uint index = uint(samples * random(tex_coords.xy * i)) % samples; // A pseudo-random number between 0 and 15, different for each pixel and each index
+		uint index = uint(samples * random(tex_coords.xy * i)) % samples;
+		// A pseudo-random number between 0 and 15, different for each pixel and each index
 
 #if DIRECTIONAL
 		amountLit += DepthTest_Directional(cascade, tex_coords.xy + (poissonDisk[index] / packing), compareDepth);
@@ -145,7 +146,8 @@ float ShadowMapping_Directional(int cascade, float4 positionCS, float texel, flo
 	// If the cascade is not covering this pixel, don't sample anything
 	if (positionCS.x < -1.0f || positionCS.x > 1.0f ||
 		positionCS.y < -1.0f || positionCS.y > 1.0f ||
-		positionCS.z < 0.0f || positionCS.z > 1.0f) return 1.0f;
+		positionCS.z < 0.0f || positionCS.z > 1.0f)
+		return 1.0f;
 
 	float2 tex_coord = Project(positionCS);
 	float compare_depth = positionCS.z + bias;
@@ -158,7 +160,8 @@ float ShadowMapping_Spot(float4 positionCS, float texel, float3 sample_direction
 	// If the cascade is not covering this pixel, don't sample anything
 	if (positionCS.x < -1.0f || positionCS.x > 1.0f ||
 		positionCS.y < -1.0f || positionCS.y > 1.0f ||
-		positionCS.z < 0.0f || positionCS.z > 1.0f) return 1.0f;
+		positionCS.z < 0.0f || positionCS.z > 1.0f)
+		return 1.0f;
 
 	float compare_depth = positionCS.z + bias;
 	return Technique_PCF_2d(0, texel, sample_direction.xy, compare_depth);
@@ -176,10 +179,11 @@ float Main(PixelPositionTexture input) : SV_TARGET
 	float NdotL = dot(normal, light_direction);
 	float cos_angle = saturate(1.0f - NdotL);
 	float3 scaled_normal_offset = normal * normal_bias * cos_angle * texel;
-	float4 position_world = float4(GetWorldPositionFromDepth(depth, mViewProjectionInverse, tex_coord) + scaled_normal_offset, 1.0f);
+	float4 position_world = float4(
+		GetWorldPositionFromDepth(depth, mViewProjectionInverse, tex_coord) + scaled_normal_offset, 1.0f);
 
 	// Determine cascade to use
-	#if DIRECTIONAL
+#if DIRECTIONAL
 	{
 		// Compute clip space positions for each cascade
 		float4 positonCS[3];
@@ -221,7 +225,7 @@ float Main(PixelPositionTexture input) : SV_TARGET
 			return lerp(shadows[0], shadows[1], pow(max(cascadeBlend.x, max(cascadeBlend.y, cascadeBlend.z)), 4));
 		}
 	}
-	#elif POINT
+#elif POINT
 	{
 		float3 light_to_pixel_direction = position_world.xyz - light_position;
 		float light_to_pixel_distance = length(light_to_pixel_direction);
@@ -237,11 +241,11 @@ float Main(PixelPositionTexture input) : SV_TARGET
 			return light_depth_point.SampleCmpLevelZero(sampler_cmp_depth, light_to_pixel_direction, compare).r;
 		}
 	}
-	#elif SPOT
+#elif SPOT
 	{
 		return 1.0f;
 	}
-	#endif
+#endif
 
 	return 1.0f;
 }

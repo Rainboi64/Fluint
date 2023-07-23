@@ -87,7 +87,8 @@ public static class GLExtensions
 
     public static TextureMagFilter MagFilterToOpenTK(this Filter filter)
     {
-        return filter switch {
+        return filter switch
+        {
             Filter.Nearest => TextureMagFilter.Nearest,
             Filter.Linear => TextureMagFilter.Linear,
             _ => throw new ArgumentOutOfRangeException(nameof(filter), filter, null)
@@ -96,7 +97,8 @@ public static class GLExtensions
 
     public static TextureMinFilter MinFilterToOpenTK(this Filter filter)
     {
-        return filter switch {
+        return filter switch
+        {
             Filter.Nearest => TextureMinFilter.Nearest,
             Filter.Linear => TextureMinFilter.Linear,
             _ => throw new ArgumentOutOfRangeException(nameof(filter), filter, null)
@@ -105,7 +107,8 @@ public static class GLExtensions
 
     public static TextureWrapMode ToOpenTK(this TextureAddressMode textureAddressMode)
     {
-        return textureAddressMode switch {
+        return textureAddressMode switch
+        {
             TextureAddressMode.Border => TextureWrapMode.ClampToBorder,
             TextureAddressMode.Clamp => TextureWrapMode.ClampToEdge,
             TextureAddressMode.Mirror => TextureWrapMode.MirroredRepeat,
@@ -116,7 +119,8 @@ public static class GLExtensions
 
     public static PrimitiveType ToOpenTK(this PrimitiveTopology primitiveTopology)
     {
-        return primitiveTopology switch {
+        return primitiveTopology switch
+        {
             PrimitiveTopology.TriangleList => PrimitiveType.Triangles,
             PrimitiveTopology.LineList => PrimitiveType.LineLoop,
             PrimitiveTopology.Lines => PrimitiveType.Lines,

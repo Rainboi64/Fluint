@@ -19,13 +19,13 @@ public static class GL46Extensions
             ShaderStage.Vertex => ShaderType.VertexShader,
             ShaderStage.Pixel => ShaderType.FragmentShader,
             ShaderStage.Compute => ShaderType.ComputeShader,
-            _ => throw new ArgumentOutOfRangeException(nameof(shaderStage), shaderStage, null),
+            _ => throw new ArgumentOutOfRangeException(nameof(shaderStage), shaderStage, null)
         };
     }
 
     public static Rectangle ToOpenTK(this Viewport viewport)
     {
-        return new Rectangle((int)viewport.X, (int)viewport.Y, (int)viewport.Width, (int)viewport.Height);
+        return new Rectangle(viewport.X, viewport.Y, viewport.Width, viewport.Height);
     }
 
     public static SizedInternalFormat ToOpenTK(this Format format)
@@ -42,7 +42,7 @@ public static class GL46Extensions
             Format.R32G32Float => SizedInternalFormat.Rg32f,
             Format.R32G32B32Float => SizedInternalFormat.Rgba32f,
             Format.R32G32B32A32Float => SizedInternalFormat.Rgba32f,
-            _ => throw new ArgumentOutOfRangeException(nameof(format), format, null),
+            _ => throw new ArgumentOutOfRangeException(nameof(format), format, null)
         };
     }
 }

@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Platforms>AnyCPU;x64;x86</Platforms>
-      <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
-      <RootNamespace>Fluint.Engine.GL33</RootNamespace>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Platforms>AnyCPU;x64;x86</Platforms>
+        <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
+        <RootNamespace>Fluint.Engine.GL33</RootNamespace>
+    </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>

@@ -7,17 +7,16 @@
 using System.Collections.Generic;
 using Fluint.Layer.Networking.Client;
 
-namespace Fluint.Layer.Networking.Server
-{
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IServerTaskHelper : IModule
-    {
-        List<NetworkPacket> PacketsToMultiCast
-        {
-            get;
-        }
+namespace Fluint.Layer.Networking.Server;
 
-        void InvokeConnectedEvent(ClientData client);
-        void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason);
+[Initialization(InitializationMethod.Scoped)]
+public interface IServerTaskHelper : IModule
+{
+    List<NetworkPacket> PacketsToMultiCast
+    {
+        get;
     }
+
+    void InvokeConnectedEvent(ClientData client);
+    void InvokeDisconnectedEvent(ClientData client, DisconnectionReason reason);
 }

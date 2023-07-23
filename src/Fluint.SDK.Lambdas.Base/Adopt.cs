@@ -42,7 +42,8 @@ public class Adopt : ILambda
         }
 
         var id = _packet.CurrentRuntime.Parent.CreateInstance<Instance>();
-        new Thread(() => {
+        new Thread(() =>
+        {
             _packet.CurrentRuntime.Parent.Start(id);
         }).Start();
 

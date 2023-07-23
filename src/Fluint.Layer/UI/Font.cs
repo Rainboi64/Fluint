@@ -5,22 +5,24 @@
 //
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Fluint.Layer.UI
+namespace Fluint.Layer.UI;
+
+public class Font
 {
-    public class Font
+    public Font(Action enable, Action disable)
     {
-        public Action EnableFont { get; }
-        public Action DisableFont { get; }
+        EnableFont = enable;
+        DisableFont = disable;
+    }
 
-        public Font(Action enable, Action disable)
-        {
-            EnableFont = enable;
-            DisableFont = disable;
-        }
+    public Action EnableFont
+    {
+        get;
+    }
+
+    public Action DisableFont
+    {
+        get;
     }
 }

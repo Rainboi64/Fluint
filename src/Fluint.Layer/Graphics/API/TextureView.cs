@@ -4,15 +4,15 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public class TextureView
 {
-    public class TextureView
+    public int Handle;
+
+    public TextureViewType Type
     {
-        public int Handle;
-        public TextureViewType Type
-        {
-            get;
-            protected set;
-        }
+        get;
+        protected set;
     }
 }

@@ -26,7 +26,8 @@ internal class GL46CommandList : ICommandList
 
     public void Begin(string passName, IPipeline pipeline)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.Begin,
             Name = passName
         };
@@ -44,7 +45,8 @@ internal class GL46CommandList : ICommandList
 
     public void ClearRenderTarget(TextureView renderTarget, Color4 clearColor)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.ClearRenderTarget,
             ClearColor = GLExtensions.Color4(clearColor)
         };
@@ -59,7 +61,8 @@ internal class GL46CommandList : ICommandList
 
     public void ClearDepthStencil(TextureView depthStencil, float clearDepth, byte stencilDepth)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.ClearDepthStencil,
             ClearStencil = stencilDepth,
             ClearDepth = clearDepth
@@ -70,7 +73,8 @@ internal class GL46CommandList : ICommandList
 
     public void Draw(int vertexCount)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.Draw,
             DrawVertexCount = vertexCount
         };
@@ -80,7 +84,8 @@ internal class GL46CommandList : ICommandList
 
     public void DrawIndexed(int indexCount, int indexOffset, int vertexOffset)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.DrawIndexed,
             DrawIndexCount = indexCount,
             DrawIndexOffset = indexOffset,
@@ -91,7 +96,8 @@ internal class GL46CommandList : ICommandList
 
     public void End()
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.End
         };
 
@@ -100,7 +106,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetBlendState(IBlendState blendState)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetBlendState
         };
 
@@ -109,7 +116,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetConstantBuffer(IConstantBuffer buffer, BufferScope bufferScope)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetConstantBuffers,
             ConstantBuffer = (GL46ConstantBuffer)buffer
         };
@@ -119,7 +127,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetDepthStencilState(IDepthStencilState depthStencilState)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetDepthStencilState
         };
 
@@ -128,7 +137,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetIndexBuffer(IIndexBuffer indexBuffer)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetIndexBuffer,
             IndexBuffer = (GL46IndexBuffer)indexBuffer
         };
@@ -138,7 +148,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetInputLayout(IInputLayout inputLayout)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetInputLayout,
             InputLayout = (GL46InputLayout)inputLayout
         };
@@ -153,7 +164,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetPrimitiveTopology(PrimitiveTopology primitiveTopology)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetPrimitiveTopology,
             PrimitiveType = primitiveTopology.ToOpenTK()
         };
@@ -184,7 +196,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetScissorRectangle(Rectangle rectangle)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetScissor,
             ScissorRectangle = new System.Drawing.Rectangle(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height)
         };
@@ -194,7 +207,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetTexture(TextureView textureView)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetTextures,
             TextureView = (GL46TextureView)textureView
         };
@@ -204,7 +218,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetVertexBuffer(IVertexBuffer vertexBuffer)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetVertexBuffer,
             InputLayout = _currentInputLayout,
             VertexBuffer = (GL46VertexBuffer)vertexBuffer,
@@ -221,7 +236,8 @@ internal class GL46CommandList : ICommandList
 
     public void SetViewport(Viewport viewport)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetViewport,
             Viewport = GLExtensions.Viewport(viewport)
         };
@@ -320,7 +336,8 @@ internal class GL46CommandList : ICommandList
 
     public void ClearRenderTarget(TextureView renderTarget, Vector4 clearColor)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.ClearRenderTarget,
             ClearColor = new OpenTK.Mathematics.Color4(clearColor.X, clearColor.Y, clearColor.Z, clearColor.W)
         };
@@ -330,7 +347,8 @@ internal class GL46CommandList : ICommandList
 
     private void SetProgramPipeline(GL46Pipeline pipeline)
     {
-        var command = new OpenGlCommand {
+        var command = new OpenGlCommand
+        {
             Type = CommandType.SetPipeline,
             Pipeline = pipeline
         };

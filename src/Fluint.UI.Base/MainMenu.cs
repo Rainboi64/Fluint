@@ -32,6 +32,7 @@ public class MainMenu : IMainMenu
         {
             item.Tick();
         }
+
         ImGui.EndMainMenuBar();
     }
 
@@ -66,6 +67,7 @@ public class MainMenu : IMainMenu
                 Add(key, value);
                 return;
             }
+
             _children[key] = value;
         }
     }
@@ -85,7 +87,7 @@ public class MainMenu : IMainMenu
     }
 
     public void Add(KeyValuePair<string, IMenuItem> item)
-    { 
+    {
         item.Value.Begin(item.Key);
         _children.Add(item);
     }
@@ -110,10 +112,7 @@ public class MainMenu : IMainMenu
         return _children.Remove(item.Key);
     }
 
-    public int Count
-    {
-        get => _children.Count;
-    }
+    public int Count => _children.Count;
 
     public bool IsReadOnly => false;
 }

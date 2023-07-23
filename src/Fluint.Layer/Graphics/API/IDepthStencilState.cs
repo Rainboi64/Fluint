@@ -6,9 +6,8 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public interface IDepthStencilState : IDisposable
 {
-    public interface IDepthStencilState : IDisposable
-    {
-    }
 }

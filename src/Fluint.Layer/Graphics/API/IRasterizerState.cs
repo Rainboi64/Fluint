@@ -6,38 +6,37 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public interface IRasterizerState : IDisposable
 {
-    public interface IRasterizerState : IDisposable
+    CullMode CullMode
     {
-        CullMode CullMode
-        {
-            get;
-        }
+        get;
+    }
 
-        FillMode FillMode
-        {
-            get;
-        }
+    FillMode FillMode
+    {
+        get;
+    }
 
-        bool IsDepthEnabled
-        {
-            get;
-        }
+    bool IsDepthEnabled
+    {
+        get;
+    }
 
-        bool IsScissorEnabled
-        {
-            get;
-        }
+    bool IsScissorEnabled
+    {
+        get;
+    }
 
-        bool IsMultiSampleEnabled
-        {
-            get;
-        }
+    bool IsMultiSampleEnabled
+    {
+        get;
+    }
 
-        bool IsAntialiasedLineEnabled
-        {
-            get;
-        }
+    bool IsAntialiasedLineEnabled
+    {
+        get;
     }
 }

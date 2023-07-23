@@ -1,65 +1,62 @@
 using System;
-using System.Collections.Generic;
 using Fluint.Layer.Diagnostics;
-using Fluint.Layer.Graphics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
 using ImGuiNET;
 using Vector2 = System.Numerics.Vector2;
 
-namespace Fluint.UI.Base
+namespace Fluint.UI.Base;
+
+public class TextureView : ITextureView
 {
-    public class TextureView : ITextureView
+    private readonly ILogger _logger;
+
+    public TextureView(ILogger logger)
     {
-        private readonly ILogger _logger;
+        _logger = logger;
+    }
 
-        public TextureView(ILogger logger)
+    public string Title
+    {
+        get;
+        set;
+    }
+
+    public string Name
+    {
+        get;
+        private set;
+    }
+
+    public Vector2i Size
+    {
+        get;
+        set;
+    }
+
+    public ITexture Texture
+    {
+        get;
+        set;
+    }
+
+    public void Begin(string name)
+    {
+        Name = name;
+    }
+
+    public void Tick()
+    {
+        if (Texture is not null)
         {
-            _logger = logger;
+            ImGui.Begin($"{Name}###{Title}");
+            ImGui.Image(new IntPtr(Texture.Handle), new Vector2(Size.X, Size.Y));
+            ImGui.End();
+
+            return;
         }
 
-        public string Title
-        {
-            get;
-            set;
-        }
-
-        public string Name
-        {
-            get;
-            private set;
-        }
-
-        public Vector2i Size
-        {
-            get;
-            set;
-        }
-
-        public ITexture Texture
-        {
-            get;
-            set;
-        }
-
-        public void Begin(string name)
-        {
-            Name = name;
-        }
-
-        public void Tick()
-        {
-            if (Texture is not null)
-            {
-                ImGui.Begin($"{Name}###{Title}");
-                ImGui.Image(new IntPtr(Texture.Handle), new Vector2(Size.X, Size.Y));   
-                ImGui.End();
-
-                return;
-            }
-
-            _logger.Warning("[{0}] Texture is null", "TextureView");
-        }
+        _logger.Warning("[{0}] Texture is null", "TextureView");
     }
 }

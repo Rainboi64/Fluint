@@ -7,36 +7,35 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public class ShaderPacket : IReadOnlyList<ShaderObject>
 {
-    public class ShaderPacket : IReadOnlyList<ShaderObject>
+    public ShaderObject[] ShaderObjects;
+
+    public string Tag = "";
+
+    public ShaderPacket(IEnumerable<ShaderObject> value, string tag)
     {
-        public ShaderObject[] ShaderObjects;
+        Tag = tag;
+        ShaderObjects = (ShaderObject[])value;
+    }
 
-        public string Tag = "";
+    public ShaderPacket()
+    {
+    }
 
-        public ShaderPacket(IEnumerable<ShaderObject> value, string tag)
-        {
-            Tag = tag;
-            ShaderObjects = (ShaderObject[])value;
-        }
+    public int Count => ShaderObjects.Length;
 
-        public ShaderPacket()
-        {
-        }
+    public ShaderObject this[int index] => ShaderObjects[index];
 
-        public int Count => ShaderObjects.Length;
+    public IEnumerator<ShaderObject> GetEnumerator()
+    {
+        return (IEnumerator<ShaderObject>)ShaderObjects.GetEnumerator();
+    }
 
-        public ShaderObject this[int index] => ShaderObjects[index];
-
-        public IEnumerator<ShaderObject> GetEnumerator()
-        {
-            return (IEnumerator<ShaderObject>)ShaderObjects.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ShaderObjects.GetEnumerator();
-        }
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return ShaderObjects.GetEnumerator();
     }
 }

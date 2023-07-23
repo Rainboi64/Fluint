@@ -36,7 +36,8 @@ public class GlVersion : ILambda
             return LambdaObject.Error("Couldn't find window object");
         }
 
-        window.Enqueue(() => {
+        window.Enqueue(() =>
+        {
             logger.Information("[{0}] OpenGL Version: {1}", "OpenGLCommon", GL.GetString(StringName.Version));
             logger.Information("[{0}] Version: {1}", "OpenGLCommon", GL.GetString(StringName.ShadingLanguageVersion));
             logger.Information("[{0}] Renderer: {1}", "OpenGLCommon", GL.GetString(StringName.Renderer));

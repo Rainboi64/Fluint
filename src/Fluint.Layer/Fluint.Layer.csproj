@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Platforms>AnyCPU;x64;x86</Platforms>
-    <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
-  </PropertyGroup>
-  
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Platforms>AnyCPU;x64;x86</Platforms>
+        <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
+    </PropertyGroup>
+
 </Project>

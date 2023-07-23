@@ -76,7 +76,8 @@ public class Toast : IToast
                 open = false;
             }
 
-            var color = notification.Type switch {
+            var color = notification.Type switch
+            {
                 NotificationType.Success => _theme.Success,
                 NotificationType.Error => _theme.Error,
                 NotificationType.Warning => _theme.Warning,

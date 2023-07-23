@@ -29,7 +29,8 @@ public class MeshFactory : IMeshFactory
     public IMesh CreateUnitBox()
     {
         var cubeColor = new Vector4(112 / 256f, 53 / 256f, 63 / 256f, 1.0f);
-        var cubeVertices = new List<PositionColorVertex> {
+        var cubeVertices = new List<PositionColorVertex>
+        {
             new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Front 
             new(new Vector3(-1.0f, 1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, -1.0f), cubeColor),

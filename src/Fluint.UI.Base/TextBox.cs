@@ -4,50 +4,48 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
-using System.Collections.Generic;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.UI.Base
+namespace Fluint.UI.Base;
+
+public class TextBox : ITextBox
 {
-    public class TextBox : ITextBox
+    private string _text;
+
+    public bool IsMultiLine
     {
-        private string _text;
+        get;
+        set;
+    }
 
-        public bool IsMultiLine
-        {
-            get;
-            set;
-        }
+    public string Text
+    {
+        get => _text;
+        set => _text = value;
+    }
 
-        public string Text
-        {
-            get => _text;
-            set => _text = value;
-        }
+    public string Name
+    {
+        get;
+        private set;
+    }
 
-        public string Name
-        {
-            get;
-            private set;
-        }
-        
-        public string SideText
-        {
-            get;
-            set;
-        }
+    public string SideText
+    {
+        get;
+        set;
+    }
 
-        public void Begin(string name)
-        {
-            Name = name;
-            Text = string.Empty;
-            SideText = string.Empty;
-        }
+    public void Begin(string name)
+    {
+        Name = name;
+        Text = string.Empty;
+        SideText = string.Empty;
+    }
 
-        public void Tick()
-        {
-            ImGui.InputText(SideText, ref _text, 512);
-        }
+    public void Tick()
+    {
+        ImGui.InputText(SideText, ref _text, 512);
     }
 }

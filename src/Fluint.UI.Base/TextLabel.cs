@@ -7,30 +7,29 @@
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.UI.Base
+namespace Fluint.UI.Base;
+
+public class TextLabel : ITextLabel
 {
-    public class TextLabel : ITextLabel
+    public string Name
     {
-        public string Name
-        {
-            get;
-            private set;
-        }
+        get;
+        private set;
+    }
 
-        public string Text
-        {
-            get;
-            set;
-        }
+    public string Text
+    {
+        get;
+        set;
+    }
 
-        public void Begin(string name)
-        {
-            Name = name;
-        }
+    public void Begin(string name)
+    {
+        Name = name;
+    }
 
-        public void Tick()
-        {
-            ImGui.Text(Text);
-        }
+    public void Tick()
+    {
+        ImGui.Text(Text);
     }
 }

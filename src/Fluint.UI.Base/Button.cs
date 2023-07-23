@@ -8,39 +8,38 @@ using System;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.UI.Base
+namespace Fluint.UI.Base;
+
+public class Button : IButton
 {
-    public class Button : IButton
+    public string Text
     {
-        public string Text
-        {
-            get;
-            set;
-        }
+        get;
+        set;
+    }
 
-        public string Name
-        {
-            get;
-            private set;
-        }
+    public string Name
+    {
+        get;
+        private set;
+    }
 
-        public Action OnClick
-        {
-            get;
-            set;
-        }
+    public Action OnClick
+    {
+        get;
+        set;
+    }
 
-        public void Begin(string name)
-        {
-            Name = name;
-        }
+    public void Begin(string name)
+    {
+        Name = name;
+    }
 
-        public void Tick()
+    public void Tick()
+    {
+        if (ImGui.Button($"{Text}###{Name}"))
         {
-            if (ImGui.Button($"{Text}###{Name}"))
-            {
-                OnClick?.Invoke();
-            }
+            OnClick?.Invoke();
         }
     }
 }

@@ -7,20 +7,19 @@
 using System.Collections.Generic;
 using Fluint.Layer.Windowing;
 
-namespace Fluint.Layer.UI
-{
-    [Initialization(InitializationMethod.Singleton)]
-    public interface IGuiInstanceManager : IModule
-    {
-        IReadOnlyCollection<IWindow> Windows
-        {
-            get;
-        }
+namespace Fluint.Layer.UI;
 
-        /// <summary>
-        /// please don't call outside provider.
-        /// </summary>
-        /// <param name="window"></param>
-        void Adopt(in IWindow window);
+[Initialization(InitializationMethod.Singleton)]
+public interface IGuiInstanceManager : IModule
+{
+    IReadOnlyCollection<IWindow> Windows
+    {
+        get;
     }
+
+    /// <summary>
+    ///     please don't call outside provider.
+    /// </summary>
+    /// <param name="window"></param>
+    void Adopt(in IWindow window);
 }

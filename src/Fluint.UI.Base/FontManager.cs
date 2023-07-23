@@ -7,19 +7,20 @@
 using Fluint.Layer.UI;
 using ImGuiNET;
 
-namespace Fluint.UI.Base
+namespace Fluint.UI.Base;
+
+public class FontManager : IFontManager
 {
-    public class FontManager : IFontManager
+    public Font LoadFont(string fontFileName, float fontSize = 16)
     {
-        public Font LoadFont(string fontFileName, float fontSize = 16)
+        var io = ImGui.GetIO();
+        var font = io.Fonts.AddFontFromFileTTF(fontFileName, fontSize);
+        return new Font(() =>
         {
-            var io = ImGui.GetIO();
-            var font = io.Fonts.AddFontFromFileTTF(fontFileName, fontSize);
-            return new Font(() => {
-                ImGui.PushFont(font);
-            }, () => {
-                ImGui.PopFont();
-            });
-        }
+            ImGui.PushFont(font);
+        }, () =>
+        {
+            ImGui.PopFont();
+        });
     }
 }

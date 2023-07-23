@@ -6,13 +6,12 @@
 
 using System;
 
-namespace Fluint.Layer.Graphics.API
+namespace Fluint.Layer.Graphics.API;
+
+public interface IIndexBuffer : IDisposable
 {
-    public interface IIndexBuffer : IDisposable
+    bool Is16Bit
     {
-        bool Is16Bit
-        {
-            get;
-        }
+        get;
     }
 }

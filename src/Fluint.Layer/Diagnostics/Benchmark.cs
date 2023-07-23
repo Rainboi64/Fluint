@@ -5,73 +5,70 @@
 //
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Fluint.Layer.Diagnostics
+namespace Fluint.Layer.Diagnostics;
+
+public class Benchmark
 {
-    public class Benchmark
+    private readonly Action _action;
+
+    private double _sampleTimes;
+    public double AverageMillisecondDuration;
+    public TimeSpan AverageTimeSpan;
+    public TimeSpan BenchmarDuration;
+    public DateTime BenchmarkEndTime;
+    public long BenchmarkMillisecondsDuration;
+    public DateTime BenchmarkStartTime;
+
+    public uint TestSample;
+
+    public Benchmark(Action action, uint testSample)
     {
-        public DateTime BenchmarkStartTime;
-        public DateTime BenchmarkEndTime;
-        public TimeSpan BenchmarDuration;
-        public TimeSpan AverageTimeSpan;
-        public double AverageMillisecondDuration;
-        public long BenchmarkMillisecondsDuration;
+        TestSample = testSample;
+        _action = action;
+    }
 
-        private double _sampleTimes = 0;
+    public void Start()
+    {
+        var benchmarkWatch = new Stopwatch();
 
-        public uint TestSample;
+        BenchmarkStartTime = DateTime.Now;
 
-        private readonly Action _action;
+        benchmarkWatch.Start();
 
-        public Benchmark(Action action, uint testSample)
+        for (var i = 0; i < TestSample; i++)
         {
-            TestSample = testSample;
-            _action = action;
+            var watch = new Stopwatch();
+
+            watch.Start();
+            _action.Invoke();
+            watch.Stop();
+
+            _sampleTimes += watch.ElapsedMilliseconds;
         }
 
-        public void Start()
-        {
-            var benchmarkWatch = new Stopwatch();
-            
-            BenchmarkStartTime = DateTime.Now;
-            
-            benchmarkWatch.Start();
+        benchmarkWatch.Stop();
 
-            for (int i = 0; i < TestSample; i++)
-            {
-                var watch = new Stopwatch();
+        BenchmarkMillisecondsDuration = benchmarkWatch.ElapsedMilliseconds;
 
-                watch.Start();
-                _action.Invoke();
-                watch.Stop();
+        BenchmarkEndTime = DateTime.Now;
 
-               _sampleTimes += watch.ElapsedMilliseconds;
-            }
+        BenchmarDuration = benchmarkWatch.Elapsed;
+        AverageMillisecondDuration = _sampleTimes / TestSample;
+        AverageTimeSpan = new TimeSpan(0, 0, 0, 0, (int)AverageMillisecondDuration);
 
-            benchmarkWatch.Stop();
+        GC.Collect();
+    }
 
-            BenchmarkMillisecondsDuration = benchmarkWatch.ElapsedMilliseconds;
-
-            BenchmarkEndTime = DateTime.Now;
-
-            BenchmarDuration = benchmarkWatch.Elapsed;
-            AverageMillisecondDuration = (double)_sampleTimes / (double)TestSample;
-            AverageTimeSpan = new TimeSpan(0, 0, 0, 0, (int)AverageMillisecondDuration);
-
-            GC.Collect();
-        }
-
-        public override string ToString()
-        {
-            return
-                $"Sample Size: {TestSample}\n" +
-                $"Average Sample Time (ms): {AverageMillisecondDuration}\n" +
-                $"Average Time: {AverageTimeSpan}\n" +
-                $"Benchmark Time: {BenchmarDuration}\n" +
-                $"Benchmark Start: {BenchmarkStartTime}\n" +
-                $"Benchmark End: {BenchmarkEndTime}\n";
-        }
+    public override string ToString()
+    {
+        return
+            $"Sample Size: {TestSample}\n" +
+            $"Average Sample Time (ms): {AverageMillisecondDuration}\n" +
+            $"Average Time: {AverageTimeSpan}\n" +
+            $"Benchmark Time: {BenchmarDuration}\n" +
+            $"Benchmark Start: {BenchmarkStartTime}\n" +
+            $"Benchmark End: {BenchmarkEndTime}\n";
     }
 }

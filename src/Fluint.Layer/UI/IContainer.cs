@@ -6,42 +6,41 @@
 
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Layer.UI
+namespace Fluint.Layer.UI;
+
+[Initialization(InitializationMethod.Scoped)]
+public interface IContainer : IModule, IGuiContainer<IGuiComponent>
 {
-    [Initialization(InitializationMethod.Scoped)]
-    public interface IContainer : IModule, IGuiContainer<IGuiComponent>
+    string Title
     {
-        string Title
-        {
-            get;
-            set;
-        }
+        get;
+        set;
+    }
 
-        bool IsFocused
-        {
-            get;
-        }
+    bool IsFocused
+    {
+        get;
+    }
 
-        bool Resizable
-        {
-            get;
-            set;
-        }
+    bool Resizable
+    {
+        get;
+        set;
+    }
 
-        bool ScrollBar
-        {
-            get;
-            set;
-        }
+    bool ScrollBar
+    {
+        get;
+        set;
+    }
 
-        Vector2i Size
-        {
-            get;
-        }
+    Vector2i Size
+    {
+        get;
+    }
 
-        Vector2i Location
-        {
-            get;
-        }
+    Vector2i Location
+    {
+        get;
     }
 }
