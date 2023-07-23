@@ -30,7 +30,7 @@ public class SketchTool : ITool
     private readonly IWorld _world;
 
     private bool _active;
-    private ISketch? _activeSketch;
+    private ISketch _activeSketch;
     private bool _initialDrag;
     private int[] _selectedVertex = Array.Empty<int>();
 
@@ -171,7 +171,8 @@ public class SketchTool : ITool
         //     MathUtil.RoundToClosest(end.Y, 1),
         //     MathUtil.RoundToClosest(end.Z, offsets.Y));
 
-        var temp = new PositionColorVertex[] {
+        var temp = new PositionColorVertex[]
+        {
             new(new Vector3(start.X, start.Y, start.Z), Vector4.UnitY),
             new(new Vector3(end.X, start.Y, start.Z), Vector4.UnitY),
 
@@ -190,7 +191,8 @@ public class SketchTool : ITool
     private void CreateSketch(Vector3 point)
     {
         _activeSketch = _world.CreateComponent<ISketch>();
-        _activeSketch!.Vertex = new[] {
+        _activeSketch!.Vertex = new[]
+        {
             new PositionColorVertex(point, Vector4.UnitX)
         };
         _activeSketch.Update();

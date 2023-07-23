@@ -26,13 +26,7 @@
 
     <ItemGroup>
         <None Remove="shaders\raytracer.frag.glsl"/>
-        <Content Include="shaders\raytracer.frag.glsl">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
         <None Remove="shaders\raytracer.vert.glsl"/>
-        <Content Include="shaders\raytracer.vert.glsl">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
     </ItemGroup>
 
 </Project>

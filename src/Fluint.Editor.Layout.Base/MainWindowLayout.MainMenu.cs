@@ -26,8 +26,10 @@ public partial class MainWindowLayout
         // File -> Exit
         _mainMenuFileExitItem = _packet.CreateScoped<IMenuItem>();
         _mainMenuFileMenuItem["FileExitMenuItem"] = _mainMenuFileExitItem;
-        _mainMenuFileExitItem.OnClick = new ModularAction {
-            () => {
+        _mainMenuFileExitItem.OnClick = new ModularAction
+        {
+            () =>
+            {
                 _window.SpawnControl<SureExitModal>();
             }
         };
@@ -41,8 +43,10 @@ public partial class MainWindowLayout
         // Tools -> Camera
         _mainMenuToolsCameraItem = _packet.CreateScoped<IMenuItem>();
         _mainMenuToolsItem["ToolsMenuCameraItem"] = _mainMenuToolsCameraItem;
-        _mainMenuToolsCameraItem.OnClick = new ModularAction {
-            () => {
+        _mainMenuToolsCameraItem.OnClick = new ModularAction
+        {
+            () =>
+            {
                 _window.SpawnControl<CameraControl>();
             }
         };
@@ -51,8 +55,10 @@ public partial class MainWindowLayout
         // Tools -> Toolbox
         _mainMenuToolsToolboxItem = _packet.CreateScoped<IMenuItem>();
         _mainMenuToolsItem["ToolsMenuToolboxItem"] = _mainMenuToolsToolboxItem;
-        _mainMenuToolsToolboxItem.OnClick = new ModularAction {
-            () => {
+        _mainMenuToolsToolboxItem.OnClick = new ModularAction
+        {
+            () =>
+            {
                 _window.SpawnControl<ToolboxControl>();
             }
         };
@@ -68,20 +74,11 @@ public partial class MainWindowLayout
         _mainMenuDebugMetricsItem = _packet.CreateScoped<IMenuItem>();
         _mainMenuDebugItem["DebugMetricsMenuItem"] = _mainMenuDebugMetricsItem;
         _mainMenuDebugMetricsItem.Text = _localizationManager.Fetch("metrics");
-        _mainMenuDebugMetricsItem.OnClick = new ModularAction {
-            () => {
+        _mainMenuDebugMetricsItem.OnClick = new ModularAction
+        {
+            () =>
+            {
                 _window.SpawnControl<MetricsControl>();
-            }
-        };
-
-        // Debug -> Demo
-
-        _mainMenuDebugUIDemoItem = _packet.CreateScoped<IMenuItem>();
-        _mainMenuDebugItem["DebugDemoMenuItem"] = _mainMenuDebugUIDemoItem;
-        _mainMenuDebugUIDemoItem.Text = _localizationManager.Fetch("demo");
-        _mainMenuDebugUIDemoItem.OnClick = new ModularAction {
-            () => {
-                _window.SpawnControl<UIDemoControl>();
             }
         };
 
@@ -93,8 +90,10 @@ public partial class MainWindowLayout
         // Help -> About
         _mainMenuHelpAboutItem = _packet.CreateScoped<IMenuItem>();
         _mainMenuHelpMenuItem["HelpAboutMenuItem"] = _mainMenuHelpAboutItem;
-        _mainMenuHelpAboutItem.OnClick = new ModularAction {
-            () => {
+        _mainMenuHelpAboutItem.OnClick = new ModularAction
+        {
+            () =>
+            {
                 _window.SpawnControl<AboutControl>();
             }
         };

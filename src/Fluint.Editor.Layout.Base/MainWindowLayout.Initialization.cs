@@ -15,8 +15,6 @@ public partial class MainWindowLayout
 
     private IMenuItem _mainMenuDebugItem;
     private IMenuItem _mainMenuDebugMetricsItem;
-    private IMenuItem _mainMenuDebugSpawnToastNotifItem;
-    private IMenuItem _mainMenuDebugUIDemoItem;
 
     private IMenuItem _mainMenuFileExitItem;
 

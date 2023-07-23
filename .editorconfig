@@ -1,7 +1,7 @@
 [*.cs]
 #Core editorconfig formatting - indentation
 
-file_header_template = \n{fileName}\n\nCopyright (C) 2022 Yaman Alhalabi\n
+file_header_template = \n{fileName}\n\nCopyright (C) 2023 Yaman Alhalabi\n
 
 #use soft tabs (spaces) for indentation
 indent_style = space
@@ -20,7 +20,6 @@ csharp_new_line_before_else = true
 #require members of object initializers to be on the same line
 csharp_new_line_before_members_in_object_initializers = false
 #require braces to be on a new line for object_collection_array_initializers, accessors, types, control_blocks, methods, and properties (also known as "Allman" style)
-csharp_new_line_before_open_brace = object_collection_array_initializers, accessors, types, control_blocks, methods, properties
 
 #Formatting - organize using options
 
