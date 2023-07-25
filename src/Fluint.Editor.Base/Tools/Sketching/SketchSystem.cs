@@ -6,7 +6,6 @@
 using System.Collections.Generic;
 using Fluint.Layer.Editor.Tools.Sketching;
 using Fluint.Layer.EntityComponentSystem;
-using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 
 namespace Fluint.Editor.Base.Tools.Sketching;
@@ -44,12 +43,14 @@ public class SketchSystem : ISketchSystem
         return false;
     }
 
-    public PositionColorVertex[] GetVertex()
+    public IReadOnlyCollection<ISketch> Sketches => _sketches;
+
+    public Vector3[] GetVertices()
     {
-        var vertex = new List<PositionColorVertex>();
+        var vertex = new List<Vector3>();
         foreach (var sketch in _sketches)
         {
-            vertex.AddRange(sketch.Vertex);
+            vertex.AddRange(sketch.Vertices);
         }
 
         return vertex.ToArray();

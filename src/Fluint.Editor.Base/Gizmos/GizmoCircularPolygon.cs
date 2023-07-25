@@ -59,8 +59,6 @@ public class GizmoCircularPolygon : IGizmoCircularPolygon
         for (var i = 0; i < count; i++)
         {
             vertices.Add(new PositionColorVertex(points[i % count], Vector4.One));
-            vertices.Add(center);
-            vertices.Add(new PositionColorVertex(points[(i + 1) % count], Vector4.One));
         }
 
         return vertices.ToArray();

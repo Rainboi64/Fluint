@@ -100,5 +100,11 @@
         <None Update="shaders\simple.vert.glsl">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+        <None Update="shaders\sketch_lines.frag.glsl">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="shaders\sketch_lines.vert.glsl">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 </Project>

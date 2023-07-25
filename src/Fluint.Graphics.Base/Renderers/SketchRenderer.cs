@@ -23,12 +23,13 @@ public class SketchRenderer : ISketchRenderer
     private ICommandList _commandList;
     private Shader _fragmentShader;
 
+    private IConstantBuffer _lineSetupBuffer;
+
     private IPipeline _pipeline;
     private IVertexBuffer _vertexBuffer;
     private int _vertexCount;
 
     private Shader _vertexShader;
-    private IConstantBuffer _worldViewBuffer;
 
     public SketchRenderer(ModulePacket packet)
     {
@@ -56,14 +57,14 @@ public class SketchRenderer : ISketchRenderer
         _commandList = _graphicsFactory.CreateCommandList();
         _vertexShader = _graphicsFactory.CreateShaderFromFile(
             ShaderStage.Vertex,
-            "./base/shaders/grid.vert",
-            VertexType.PositionColor,
+            "./base/shaders/sketch_lines.vert",
+            VertexType.Position,
             Enumerable.Empty<(string, string)>());
 
         _fragmentShader = _graphicsFactory.CreateShaderFromFile(
             ShaderStage.Pixel,
-            "./base/shaders/grid.frag",
-            VertexType.PositionColor,
+            "./base/shaders/sketch_lines.frag",
+            VertexType.Position,
             Enumerable.Empty<(string, string)>());
 
         _pipeline = _graphicsFactory.CreatePipeline(
@@ -74,15 +75,18 @@ public class SketchRenderer : ISketchRenderer
             Viewport,
             PrimitiveTopology.Lines);
 
-        _worldViewBuffer = _graphicsFactory.CreateConstantBuffer(WorldView);
+        _lineSetupBuffer = _graphicsFactory.CreateConstantBuffer(WorldView);
         _vertexBuffer = _graphicsFactory.CreateVertexBuffer(Array.Empty<PositionColorVertex>());
     }
 
     public void PreRender()
     {
-        var vertex = _system.GetVertex();
-        _vertexCount = vertex.Length;
-        _vertexBuffer.Initialize(vertex);
+        var lineVertices = _system.GetVertices();
+
+        _lineSetupBuffer.UpdateBuffer(WorldView);
+
+        _vertexCount = lineVertices.Length;
+        _vertexBuffer.Initialize(lineVertices);
 
         _pipeline.Viewport = Viewport;
         GenerateCommandList();
@@ -90,8 +94,6 @@ public class SketchRenderer : ISketchRenderer
 
     public void Render()
     {
-        _pipeline.Viewport = Viewport;
-        _worldViewBuffer.UpdateBuffer(WorldView);
         _commandList.Submit();
     }
 
@@ -106,8 +108,8 @@ public class SketchRenderer : ISketchRenderer
     private void GenerateCommandList()
     {
         _commandList.Clear();
-        _commandList.Begin("Sketches", _pipeline);
-        _commandList.SetConstantBuffer(_worldViewBuffer, BufferScope.VertexShader);
+        _commandList.Begin("Sketches Lines", _pipeline);
+        _commandList.SetConstantBuffer(_lineSetupBuffer, BufferScope.VertexShader);
         _commandList.SetVertexBuffer(_vertexBuffer);
         _commandList.Draw(_vertexCount);
         _commandList.End();

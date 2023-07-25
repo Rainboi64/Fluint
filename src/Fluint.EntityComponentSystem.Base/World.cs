@@ -26,6 +26,14 @@ public class World : IWorld
         return component;
     }
 
+    public T CreateComponent<T, T2>() where T : IComponent where T2 : IComponent
+    {
+        var component = _packet.CreateScoped<T>();
+        var system = _systems[typeof(T2)] as ISystem<IComponent>;
+        system?.Register(component);
+        return component;
+    }
+
     public T GetSystem<T, T2>() where T : ISystem<T2> where T2 : IComponent
     {
         if (_systems.ContainsKey(typeof(T2)))

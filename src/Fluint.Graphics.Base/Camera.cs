@@ -94,12 +94,12 @@ public class Camera : ICamera
 
     public Matrix GetViewMatrix()
     {
-        return Matrix.LookAtLH(Position, Position + Front, Up);
+        return Matrix.LookAtRH(Position, Position + Front, Up);
     }
 
     public Matrix GetProjectionMatrix()
     {
-        Zoom = Math.Max(Zoom, Viewport.MinDepth);
+        Zoom = Math.Max(Zoom, 0.001f);
         if (ProjectionMode != ProjectionMode.Orthogonal)
         {
             var mat = Matrix.PerspectiveFovRH(_fov, Viewport.AspectRatio, Viewport.MinDepth, Viewport.MaxDepth);

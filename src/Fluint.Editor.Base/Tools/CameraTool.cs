@@ -41,7 +41,6 @@ public class CameraTool : ITool
             return;
         }
 
-        context.Camera.Zoom -= context.InputManager.MouseScrollDelta.Y / 100f;
 
         var state = context.GetState<CameraToolState>();
 
@@ -52,6 +51,8 @@ public class CameraTool : ITool
         {
             return;
         }
+
+        context.Camera.Zoom -= context.InputManager.MouseScrollDelta.Y / 100f;
 
         if (context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
         {

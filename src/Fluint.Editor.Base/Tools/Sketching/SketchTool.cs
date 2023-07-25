@@ -4,15 +4,15 @@
 // Copyright (C) 2021 Yaman Alhalabi
 
 using System;
+using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Editor.Gizmos;
 using Fluint.Layer.Editor.Tools;
 using Fluint.Layer.Editor.Tools.Sketching;
+using Fluint.Layer.Editor.Tools.Sketching.Shapes;
 using Fluint.Layer.Editor.Viewport;
 using Fluint.Layer.EntityComponentSystem;
 using Fluint.Layer.Graphics;
-using Fluint.Layer.Graphics.API;
-using Fluint.Layer.Graphics.Debug;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 
@@ -21,24 +21,21 @@ namespace Fluint.Editor.Base.Tools.Sketching;
 [Tool("Sketch Tool", "./assets/tools/sketch_tool_48px.png")]
 public class SketchTool : ITool
 {
+    private readonly Dictionary<ISketch, IGizmo[]> _gizmos = new();
     private readonly ModulePacket _packet;
     private readonly IGizmoProvider _provider;
-    private readonly Random _random = new();
 
-    private readonly IDebugServer _server;
     private readonly ISketchSystem _system;
     private readonly IWorld _world;
-
     private bool _active;
-    private ISketch _activeSketch;
-    private bool _initialDrag;
-    private int[] _selectedVertex = Array.Empty<int>();
+    private (ShapeType Type, ISketch Sketch) _activeSketch = (ShapeType.None, null);
+
+    private int _segments = 16;
 
     public SketchTool(ModulePacket packet)
     {
         _packet = packet;
         _provider = packet.GetSingleton<IGizmoProvider>();
-        _server = packet.GetSingleton<IDebugServer>();
         _world = packet.GetSingleton<IWorld>();
         _system = _world.GetSystem<ISketchSystem, ISketch>();
     }
@@ -65,7 +62,7 @@ public class SketchTool : ITool
         return ray;
     }
 
-    private Vector3 IntersectViewPlane(Ray ray, ICamera camera)
+    private static Vector3 IntersectViewPlane(Ray ray, ICamera camera)
     {
         var ground = new Plane(Vector3.Zero,
             // Or Vector3.UP for using the XY Grid
@@ -83,6 +80,10 @@ public class SketchTool : ITool
             return;
         }
 
+        if (context.BindingsManager.GetState("MOVE_CAMERA") == InputState.Repeat)
+        {
+            return;
+        }
 
         if (context.BindingsManager.GetState("GRID_SIZE_INCREASE") == InputState.Press)
         {
@@ -92,7 +93,7 @@ public class SketchTool : ITool
         if (context.BindingsManager.GetState("SKETCH_ENABLE") == InputState.Press)
         {
             _active = !_active;
-            _activeSketch = null;
+            _activeSketch = (ShapeType.None, null);
         }
 
         if (!_active)
@@ -100,102 +101,125 @@ public class SketchTool : ITool
             return;
         }
 
+        DrawGizmos();
+
         if (!context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
             context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
         {
             var ray = GetPickRay(context);
             var point = IntersectViewPlane(ray, context.Camera);
-            var polygon = _packet.CreateScoped<IGizmoCylinder>();
-            polygon.Height = _random.Next(5, 20);
-            polygon.IsCone = _random.Next(1, 3) == 1;
-            polygon.Center = point;
-            polygon.Radius = _random.Next(5, 15);
-            polygon.BaseSegments = _random.Next(3, 64);
-            polygon.Color = _random.NextColor();
+            var snapped = Snap(point, context.Grid);
 
-            _provider.Gizmos.Add(polygon);
+            CreatePolygon(snapped);
         }
-
-        if (_activeSketch is not null && !_initialDrag)
-        {
-            if (!context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
-                context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
-            {
-                var ray = GetPickRay(context);
-                _selectedVertex = _activeSketch.PickMultipleVertex(ray, 1);
-            }
-
-            if (context.InputManager.IsMouseButtonPressed(MouseButton.Button1) && _selectedVertex.Length > 0)
-            {
-                var ray = GetPickRay(context);
-                var point = IntersectViewPlane(ray, context.Camera);
-
-                foreach (var idx in _selectedVertex)
-                {
-                    var vertex = _activeSketch!.Vertex[idx];
-                    vertex.Position = point;
-                    _activeSketch.Vertex[idx] = vertex;
-                }
-            }
-
-            return;
-        }
-
-
-        if (_initialDrag && context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
-            context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
+        else if (context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
+                 context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
         {
             var ray = GetPickRay(context);
             var point = IntersectViewPlane(ray, context.Camera);
+            var snappedPoint = Snap(point, context.Grid);
 
-            _activeSketch!.Vertex = GenerateCube(_activeSketch.Vertex[0].Position, point, context.Grid.Offsets);
-            _activeSketch!.Update();
-        }
+            switch (_activeSketch.Type)
+            {
+                case ShapeType.Polygon:
+                    ((IPolygon)_activeSketch.Sketch)!.Corner = snappedPoint;
+                    if (!context.InputManager.MouseScrollDelta.IsZero)
+                    {
+                        _segments = ((IPolygon)_activeSketch.Sketch)!.Segments +=
+                            (int)context.InputManager.MouseScrollDelta.Y;
+                    }
 
-        if (_initialDrag && context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
-            !context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
-        {
-            _initialDrag = false;
+                    break;
+
+                case ShapeType.Spline:
+                    break;
+                case ShapeType.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 
-    private PositionColorVertex[] GenerateCube(Vector3 start, Vector3 end, Vector2i offsets)
+    private void DrawGizmos()
     {
-        // start = new Vector3(
-        //     MathUtil.RoundToClosest(start.X, offsets.X),
-        //     MathUtil.RoundToClosest(start.Y, 1),
-        //     MathUtil.RoundToClosest(start.Z, offsets.Y));
-        //
-        // end = new Vector3(
-        //     MathUtil.RoundToClosest(end.X, offsets.X),
-        //     MathUtil.RoundToClosest(end.Y, 1),
-        //     MathUtil.RoundToClosest(end.Z, offsets.Y));
-
-        var temp = new PositionColorVertex[]
+        foreach (var sketch in _system.Sketches)
         {
-            new(new Vector3(start.X, start.Y, start.Z), Vector4.UnitY),
-            new(new Vector3(end.X, start.Y, start.Z), Vector4.UnitY),
+            switch (sketch)
+            {
+                case IPolygon circle when !_gizmos.ContainsKey(sketch):
+                {
+                    var line = _packet.CreateScoped<IGizmoLine>();
+                    line.Color = Color.DarkRed;
+                    line.Start = circle.Center;
+                    line.End = circle.Corner;
 
-            new(new Vector3(end.X, start.Y, start.Z), Vector4.UnitY),
-            new(new Vector3(end.X, start.Y, end.Z), Vector4.UnitY),
+                    var grabberCenter = _packet.CreateScoped<IGizmoCube>();
+                    grabberCenter.Box =
+                        new OrientedBoundingBox(circle.Center + Vector3.Left, circle.Center + Vector3.Right);
+                    grabberCenter.Color = Color.Red;
 
-            new(new Vector3(end.X, start.Y, end.Z), Vector4.UnitY),
-            new(new Vector3(start.X, start.Y, end.Z), Vector4.UnitY),
+                    var grabberCorner = _packet.CreateScoped<IGizmoCube>();
+                    grabberCorner.Box =
+                        new OrientedBoundingBox(circle.Corner + Vector3.Left, circle.Corner + Vector3.Right);
+                    grabberCorner.Color = Color.Red;
 
-            new(new Vector3(start.X, start.Y, end.Z), Vector4.UnitY),
-            new(new Vector3(start.X, start.Y, start.Z), Vector4.UnitY)
-        };
-        return temp;
+                    _provider.Gizmos.Add(line);
+                    _provider.Gizmos.Add(grabberCenter);
+                    _provider.Gizmos.Add(grabberCorner);
+                    _gizmos[sketch] = new IGizmo[] { line, grabberCenter, grabberCorner };
+
+                    break;
+                }
+
+                case IPolygon circle:
+                {
+                    var gizmos = _gizmos[sketch];
+
+                    if (gizmos[0] is IGizmoLine gizmoLine)
+                    {
+                        gizmoLine.Start = circle.Center;
+                        gizmoLine.End = circle.Segments >= 3 ? circle.Corner : circle.Center;
+                    }
+
+                    if (gizmos[1] is IGizmoCube gizmoCube)
+                    {
+                        gizmoCube.Box =
+                            new OrientedBoundingBox(circle.Center - Vector3.One / 10.0f,
+                                circle.Center + Vector3.One / 10.0f);
+                    }
+
+                    if (gizmos[2] is IGizmoCube gizmoCube1)
+                    {
+                        gizmoCube1.Box =
+                            new OrientedBoundingBox(circle.Corner - Vector3.One / 10.0f,
+                                circle.Corner + Vector3.One / 10.0f);
+                    }
+
+                    break;
+                }
+                case ISpline:
+                    break;
+            }
+        }
     }
 
-    private void CreateSketch(Vector3 point)
+    private static Vector3 Snap(Vector3 point, Grid grid)
     {
-        _activeSketch = _world.CreateComponent<ISketch>();
-        _activeSketch!.Vertex = new[]
-        {
-            new PositionColorVertex(point, Vector4.UnitX)
-        };
-        _activeSketch.Update();
-        _system.Register(_activeSketch);
+        return new Vector3(
+            grid.Offsets.X * MathF.Round(point.X / grid.Offsets.X),
+            grid.Offsets.Y * MathF.Round(point.Y / grid.Offsets.Y),
+            MathF.Round(point.Z));
+    }
+
+    private void CreatePolygon(Vector3 point)
+    {
+        var circle = _world.CreateComponent<IPolygon, ISketch>();
+        circle.Segments = _segments;
+        circle.Center = point;
+        circle.Corner = point + Vector3.Right;
+
+        _activeSketch = (ShapeType.Polygon, circle);
+        _system.Register(circle);
     }
 }

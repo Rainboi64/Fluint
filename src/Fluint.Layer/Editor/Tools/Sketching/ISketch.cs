@@ -4,26 +4,19 @@
 // Copyright (C) 2022 Yaman Alhalabi
 
 using Fluint.Layer.EntityComponentSystem;
-using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Editor.Tools.Sketching;
 
-[Initialization(InitializationMethod.Scoped)]
-public interface ISketch : IModule, IComponent
+public interface ISketch : IComponent
 {
     BoundingBox BoundingBox
     {
         get;
     }
 
-    PositionColorVertex[] Vertex
+    Vector3[] Vertices
     {
         get;
-        set;
     }
-
-    void Update();
-    int PickVertex(Ray ray, float radius);
-    int[] PickMultipleVertex(Ray ray, float radius);
 }

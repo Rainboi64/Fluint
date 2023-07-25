@@ -15,4 +15,10 @@ public interface IGizmoCube : IModule, IGizmo
         get;
         set;
     }
+
+    Color Color
+    {
+        get;
+        set;
+    }
 }

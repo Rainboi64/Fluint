@@ -1,14 +1,14 @@
 // 
-// IGizmoLine.cs
+// ISpline.cs
 // 
-// Copyright (C) 2022 Yaman Alhalabi
+// Copyright (C) 2023 Yaman Alhalabi
 
 using Fluint.Layer.Mathematics;
 
-namespace Fluint.Layer.Editor.Gizmos;
+namespace Fluint.Layer.Editor.Tools.Sketching.Shapes;
 
 [Initialization(InitializationMethod.Scoped)]
-public interface IGizmoLine : IModule, IGizmo
+public interface ISpline : ISketch, IModule
 {
     Vector3 Start
     {
@@ -17,12 +17,6 @@ public interface IGizmoLine : IModule, IGizmo
     }
 
     Vector3 End
-    {
-        get;
-        set;
-    }
-
-    Color Color
     {
         get;
         set;

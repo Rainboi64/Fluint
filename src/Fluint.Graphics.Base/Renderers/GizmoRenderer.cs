@@ -70,7 +70,7 @@ public class GizmoRenderer : IGizmoRenderer
             _vertexShader.InputLayout,
             null, null, null,
             Viewport,
-            PrimitiveTopology.TriangleList);
+            PrimitiveTopology.Lines);
 
         _worldViewBuffer = _graphicsFactory.CreateConstantBuffer(WorldView);
         _vertexBuffer = _graphicsFactory.CreateVertexBuffer(Array.Empty<PositionColorVertex>());
