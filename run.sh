@@ -1,3 +1,4 @@
 #!/bin/sh
-cd ./output/release/x64/
-./Fluint.Editor.Runtime
+dotnet msbuild -property:Configuration="Release With Modules Setup"
+cd ./output/release/AnyCPU/
+dotnet Fluint.Editor.Runtime.dll
