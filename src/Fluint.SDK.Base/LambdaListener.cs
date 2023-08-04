@@ -137,6 +137,11 @@ public class LambdaListener : ILambdaListener
 
         _prompt = string.Format(_promptConfiguration.Prompt, lambdaColor, timer.ElapsedMilliseconds / 1000f);
 
+        if(response.Data is null)
+        {
+            return;
+        }
+
         var json = JsonConvert.SerializeObject(response.Data);
         var prettifiedJson = ColorizeJson(json);
 
