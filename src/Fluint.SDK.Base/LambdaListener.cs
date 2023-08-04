@@ -124,6 +124,8 @@ public class LambdaListener : ILambdaListener
         timer.Start();
 
         var (command, arguments) = Parse(input);
+        Console.WriteLine();
+
         var response = Execute(command, arguments);
 
         timer.Stop();
@@ -142,11 +144,15 @@ public class LambdaListener : ILambdaListener
             return;
         }
 
+        if(response.Data is string text)
+        {
+            ConsoleHelper.WriteEmbeddedColorLine(text);
+            return;
+        }
+
         var json = JsonConvert.SerializeObject(response.Data);
         var prettifiedJson = ColorizeJson(json);
 
-        // Pad with an extra newline.
-        Console.WriteLine();
         ConsoleHelper.WriteEmbeddedColorLine(prettifiedJson);
     }
 
