@@ -27,7 +27,7 @@ public class ModuleManifest
     public override string ToString()
     {
         var table = new ConsoleTable();
-        table.AddColumn(new[] { "Module Abstraction", "Module Implementation", "Assembly", "Initialization Mode" });
+        table.AddColumn(new[] { "Module Interface", "Module Implementation", "Assembly", "Initialization Mode" });
 
         var sortedAlphabetically = Modules.OrderBy(module => module.Abstraction);
 
@@ -38,7 +38,7 @@ public class ModuleManifest
         }
 
         var stringBuilder = new StringBuilder();
-        stringBuilder.Append("Loaded Modules: ");
+        stringBuilder.AppendLine("Loaded Modules: ");
         stringBuilder.AppendLine(Modules.Count().ToString());
         stringBuilder.AppendLine(table.ToMarkDownString());
 

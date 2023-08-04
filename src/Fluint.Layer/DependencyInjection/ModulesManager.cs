@@ -33,7 +33,7 @@ public static class ModulesManager
                 catch (Exception e)
                 {
                     ConsoleHelper.WriteWarning(
-                        $"[MODULE MANAGER WARNING]: Failed to load specific assembly, where an exception was thrown. {e}");
+                        $"Failed to load specific assembly, where an exception was thrown. {e}");
                 }
             }
         }
@@ -57,7 +57,7 @@ public static class ModulesManager
             if (initializationMethod is null)
             {
                 ConsoleHelper.WriteWarning(
-                    $"[MODULE MANAGER WARNING]: Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
+                    $"Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
                 initializationMethod = InitializationMethod.Scoped;
             }
 
@@ -221,7 +221,7 @@ public static class ModulesManager
                 if (initializationMethod is null)
                 {
                     ConsoleHelper.WriteWarning(
-                        $"[MODULE MANAGER WARNING]: Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
+                        $"Initialization method not set for {type.Name}, defaulted to {InitializationMethod.Scoped}");
                     initializationMethod = InitializationMethod.Scoped;
                 }
 
