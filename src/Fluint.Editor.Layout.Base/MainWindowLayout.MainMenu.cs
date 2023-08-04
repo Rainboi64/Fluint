@@ -64,6 +64,18 @@ public partial class MainWindowLayout
         };
         _mainMenuToolsToolboxItem.Text = _localizationManager.Fetch("toolbox");
 
+        // Tools -> Scene Hierarchy
+        _mainMenuToolsSceneHierarchyItem = _packet.CreateScoped<IMenuItem>();
+        _mainMenuToolsItem["ToolsMenuSceneHierarchyItem"] = _mainMenuToolsSceneHierarchyItem;
+        _mainMenuToolsSceneHierarchyItem.OnClick = new ModularAction
+        {
+            () =>
+            {
+                _window.SpawnControl<SceneHierarchyControl>();
+            }
+        };
+        _mainMenuToolsSceneHierarchyItem.Text = _localizationManager.Fetch("scene_heirarchy");
+
         // Debug
         _mainMenuDebugItem = _packet.CreateScoped<IMenuItem>();
         _mainMenu["DebugMenuItem"] = _mainMenuDebugItem;

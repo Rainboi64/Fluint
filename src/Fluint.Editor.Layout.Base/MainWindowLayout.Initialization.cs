@@ -22,9 +22,9 @@ public partial class MainWindowLayout
     private IMenuItem _mainMenuHelpAboutItem;
 
     private IMenuItem _mainMenuHelpMenuItem;
-    private IMenuItem _mainMenuToolsCameraItem;
-
     private IMenuItem _mainMenuToolsItem;
+    private IMenuItem _mainMenuToolsCameraItem;
+    private IMenuItem _mainMenuToolsSceneHierarchyItem;
     private IMenuItem _mainMenuToolsToolboxItem;
 
     private IToast _toast;

@@ -18,6 +18,18 @@ public class World : IWorld
         _packet = packet;
     }
 
+    public void AddComponent<T>(T component) where T : IComponent
+    {
+        var system = _systems[typeof(T)] as ISystem<T>;
+
+        if(system is null)
+        {
+            Console.WriteLine("System not found");
+        }
+
+        system?.Register(component);
+    }
+
     public T CreateComponent<T>() where T : IComponent
     {
         var component = _packet.CreateScoped<T>();

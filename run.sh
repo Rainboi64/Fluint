@@ -4,4 +4,4 @@ echo -----------------------------------------------
 echo                 Build Completed                
 echo -----------------------------------------------
 cd ./output/release/AnyCPU/
-dotnet Fluint.Editor.Runtime.dll
+dotnet Fluint.Editor.Runtime.dll --rebuild

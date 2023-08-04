@@ -10,6 +10,6 @@ public interface IWorld : IModule
 {
     public T CreateComponent<T>() where T : IComponent;
     public T CreateComponent<T, T2>() where T : IComponent where T2 : IComponent;
-
+    public void AddComponent<T>(T component) where T : IComponent;
     public T GetSystem<T, T2>() where T : ISystem<T2> where T2 : IComponent;
 }

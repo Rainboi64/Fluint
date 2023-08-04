@@ -6,6 +6,8 @@
 using System;
 using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Editor;
 using Fluint.Layer.Editor.Gizmos;
 using Fluint.Layer.Editor.Tools;
 using Fluint.Layer.Editor.Tools.Sketching;
@@ -24,17 +26,18 @@ public class SketchTool : ITool
     private readonly Dictionary<ISketch, IGizmo[]> _gizmos = new();
     private readonly ModulePacket _packet;
     private readonly IGizmoProvider _provider;
-
+    private readonly ILogger _logger;
     private readonly ISketchSystem _system;
     private readonly IWorld _world;
     private bool _active;
-    private (ShapeType Type, ISketch Sketch) _activeSketch = (ShapeType.None, null);
+    private (ShapeType Type, ISketch Sketch, INode Node) _activeSketch = (ShapeType.None, null, null);
 
     private int _segments = 16;
 
     public SketchTool(ModulePacket packet)
     {
         _packet = packet;
+        _logger = packet.GetSingleton<ILogger>();
         _provider = packet.GetSingleton<IGizmoProvider>();
         _world = packet.GetSingleton<IWorld>();
         _system = _world.GetSystem<ISketchSystem, ISketch>();
@@ -93,7 +96,7 @@ public class SketchTool : ITool
         if (context.BindingsManager.GetState("SKETCH_ENABLE") == InputState.Press)
         {
             _active = !_active;
-            _activeSketch = (ShapeType.None, null);
+            _activeSketch = (ShapeType.None, null, null);
         }
 
         if (!_active)
@@ -127,6 +130,8 @@ public class SketchTool : ITool
                     {
                         _segments = ((IPolygon)_activeSketch.Sketch)!.Segments +=
                             (int)context.InputManager.MouseScrollDelta.Y;
+
+                        _activeSketch.Node.Name = GenerateNodeName();
                     }
 
                     break;
@@ -214,12 +219,73 @@ public class SketchTool : ITool
 
     private void CreatePolygon(Vector3 point)
     {
-        var circle = _world.CreateComponent<IPolygon, ISketch>();
-        circle.Segments = _segments;
-        circle.Center = point;
-        circle.Corner = point + Vector3.Right;
+        var polygon = _packet.CreateScoped<IPolygon>();
+        polygon.Segments = _segments;
+        polygon.Center = point;
+        polygon.Corner = point + Vector3.Right;
 
-        _activeSketch = (ShapeType.Polygon, circle);
-        _system.Register(circle);
+        var node = _packet.CreateScoped<INode>();
+        node.Name = GenerateNodeName();
+
+        _activeSketch = (ShapeType.Polygon, polygon, node);
+
+        var sketchEntity = new Entity();
+        sketchEntity.AddComponent(node);
+        sketchEntity.AddComponent(polygon);
+
+        _world.AddComponent<INode>(node);
+        _world.AddComponent<ISketch>(polygon);
+
+        _logger.Information("[Sketch Tool] Creating a {0}", node.Name);
+    }
+
+    // https://en.wikipedia.org/wiki/List_of_polygons
+    private string GenerateNodeName()
+    {
+        switch (_segments)
+        {
+            case 1:
+                return "Line";
+            case 2:
+                return "Line";
+            case 3:
+                return "Triangle";
+            case 4:
+                return "Square";
+            case 5:
+                return "Pentagon";
+            case 6:
+                return "Hexagon";
+            case 7:
+                return "Heptagon";
+            case 8:
+                return "Octagon";
+            case 9:
+                return "Enneagon";
+            case 10:
+                return "Decagon";
+            case 11:
+                return "Hendecagon";
+            case 12:
+                return "Dodecagon";
+            case 13:
+                return "Tridecagon";
+            case 14:
+                return "Tetradecagon";
+            case 15:
+                return "Pentadecagon";
+            case 16:
+                return "Hexadecagon";
+            case 17:
+                return "Heptadecagon";
+            case 18:
+                return "Octadecagon";
+            case 19:
+                return "Enneadecagon";
+            case 20:
+                return "Icosagon";
+            default:
+                return $"{_segments}-gon";
+        }
     }
 }

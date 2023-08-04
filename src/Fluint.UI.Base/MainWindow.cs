@@ -174,7 +174,7 @@ public class MainWindow : IWindow
         }
 
         ImGui.DockSpaceOverViewport(ImGui.GetWindowViewport());
-
+        
         foreach (var control in Controls.Values)
         {
             control.Tick();

@@ -80,7 +80,7 @@ public class Container : IContainer
 
         ImGui.Begin($"{Title}###{Name}", flags);
 
-        var size = ImGui.GetWindowSize();
+        var size = ImGui.GetWindowContentRegionMax();
         Size = new Vector2i((int)size.X, (int)size.Y);
 
 
