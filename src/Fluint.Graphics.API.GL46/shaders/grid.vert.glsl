@@ -1,4 +1,4 @@
-﻿#version 430 core
+﻿#version 410 core
 
 out gl_PerVertex
 {
@@ -21,7 +21,7 @@ out mat4 ps_mvp;
 
 void main()
 {
-    ps_mvp = projection * view * model;
+    ps_mvp = transpose(projection) * transpose(view) * transpose(model);
     ps_vertex_position = ps_mvp * vec4(i_position, 1.0);
     ps_vertex_color = vec4(i_color, 1.0);
 

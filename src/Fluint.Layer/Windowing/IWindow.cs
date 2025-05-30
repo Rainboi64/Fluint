@@ -5,8 +5,8 @@
 //
 
 using System;
-using System.Collections.Generic;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
@@ -21,7 +21,7 @@ public interface IWindow : IModule
         get;
     }
 
-    public IDictionary<string, IGuiComponent> Controls
+    public IUILayer UILayer
     {
         get;
     }
@@ -59,13 +59,16 @@ public interface IWindow : IModule
         get;
     }
 
+    public Vector2 ScaleRate
+    {
+        get;
+    }
+    
     public bool VSync
     {
         get;
         set;
     }
-
-    T SpawnControl<T>() where T : Control;
 
     public event EventHandler Load;
     public event EventHandler<RenderEvent> Render;
@@ -80,7 +83,7 @@ public interface IWindow : IModule
     public void OnStart();
     public void OnMouseWheelMoved(Vector2 offset);
     public void OnTextReceived(int unicode, string data);
-    public void OnResize(int width, int height);
+    public void OnResize(int width, int height, Vector2 scaleRate);
 
     public void Puppet<TPuppet>() where TPuppet : IPuppet;
     public void Enqueue(Action action);

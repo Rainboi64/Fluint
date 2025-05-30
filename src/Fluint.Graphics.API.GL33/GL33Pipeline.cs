@@ -22,7 +22,7 @@ public class GL33Pipeline : IPipeline
         Viewport = viewport;
         PrimitiveTopology = primitiveTopology;
 
-        GL.CreateProgramPipelines(1, out _handle);
+        GL.GenProgramPipelines(1, out _handle);
         GL.UseProgramStages(_handle, ProgramStageMask.VertexShaderBit, (GL33Shader)vertexGL46Shader);
         GL.UseProgramStages(_handle, ProgramStageMask.FragmentShaderBit, (GL33Shader)pixelGL46Shader);
     }

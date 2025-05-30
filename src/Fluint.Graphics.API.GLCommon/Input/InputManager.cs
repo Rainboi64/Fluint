@@ -4,6 +4,7 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.Windowing;
@@ -78,6 +79,24 @@ public class InputManager : IInputManager
     public bool WasMouseButtonPressed(MouseButton button)
     {
         return _nativeMouse.WasButtonDown((OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)button);
+    }
+
+    public bool StartDragging(MouseButton button)
+    {
+        return !WasMouseButtonPressed(button) &&
+               IsMouseButtonPressed(button);
+    }
+
+    public bool IsDragging(MouseButton button)
+    {
+        return WasMouseButtonPressed(button) &&
+               IsMouseButtonPressed(button);    
+    }
+
+    public bool StopDragging(MouseButton button)
+    {
+        return WasMouseButtonPressed(button) &&
+               !IsMouseButtonPressed(button);
     }
 
     public Vector2 MouseScroll => GLExtensions.Vector2(_nativeMouse.Scroll);

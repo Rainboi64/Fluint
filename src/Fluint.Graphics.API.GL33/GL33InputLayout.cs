@@ -3,7 +3,9 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Fluint.Graphics.API.GLCommon;
 using Fluint.Layer.Graphics.API;
 using OpenTK.Graphics.OpenGL4;
@@ -12,21 +14,29 @@ namespace Fluint.Graphics.API.GL33;
 
 public class GL33InputLayout : IInputLayout
 {
-    private readonly IEnumerable<GLVertexAttribute> _attributes;
     private readonly int _handle;
+    private readonly List<GLVertexAttribute> _glVertexAttributes;
 
     public GL33InputLayout(IEnumerable<GLVertexAttribute> attributes)
     {
-        _attributes = attributes;
+        GL.GenVertexArrays(1, out _handle);
 
-        GL.CreateVertexArrays(1, out _handle);
+        _glVertexAttributes = attributes.ToList();
+    }
+
+    public void Enable(int stride)
+    {
         GL.BindVertexArray(_handle);
-        foreach (var attribute in _attributes)
+        foreach (var attribute in _glVertexAttributes)
         {
-            GL.EnableVertexArrayAttrib(_handle, attribute.Index);
-            GL.VertexArrayAttribFormat(_handle, attribute.Index, attribute.Components, attribute.Type, false,
-                attribute.Offset);
-            GL.VertexArrayAttribBinding(_handle, attribute.Index, 0);
+            GL.EnableVertexAttribArray(attribute.Index);
+            GL.VertexAttribPointer(attribute.Index, attribute.Components, (VertexAttribPointerType)attribute.Type, false, stride, attribute.Offset);
+            var x = GL.GetError();
+
+            if (x != ErrorCode.NoError)
+            {
+                throw new Exception();
+            }
         }
     }
 

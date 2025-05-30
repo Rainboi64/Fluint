@@ -3,7 +3,7 @@
 // 
 // Copyright (C) 2022 Yaman Alhalabi
 
-namespace Fluint.Layer.UI;
+namespace Fluint.Layer.Diagnostics;
 
 public enum NotificationType
 {

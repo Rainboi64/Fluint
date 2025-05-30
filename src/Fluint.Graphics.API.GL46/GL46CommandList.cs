@@ -15,14 +15,9 @@ namespace Fluint.Graphics.API.GL46;
 
 internal class GL46CommandList : ICommandList
 {
-    private readonly List<OpenGlCommand> _commandList;
-    private int _currentInputLayout;
+    private readonly List<OpenGlCommand> _commandList = new();
+    private GL46InputLayout _currentInputLayout;
     private PrimitiveType _currentPrimitiveType = PrimitiveType.Triangles;
-
-    public GL46CommandList()
-    {
-        _commandList = new List<OpenGlCommand>();
-    }
 
     public void Begin(string passName, IPipeline pipeline)
     {
@@ -239,7 +234,7 @@ internal class GL46CommandList : ICommandList
         var command = new OpenGlCommand
         {
             Type = CommandType.SetViewport,
-            Viewport = GLExtensions.Viewport(viewport)
+            Viewport = viewport
         };
 
         _commandList.Add(command);
@@ -255,7 +250,7 @@ internal class GL46CommandList : ICommandList
                     GL.Enable(EnableCap.DepthTest);
                     GL.DepthMask(true);
                     GL.DepthFunc(DepthFunction.Lequal);
-                    GL.DepthRange(0f, 1f);
+                    GL.DepthRange(-1f, 1f);
 
                     GL.Enable(EnableCap.Blend);
                     GL.Enable(EnableCap.LineSmooth);
@@ -273,7 +268,7 @@ internal class GL46CommandList : ICommandList
                         command.DrawVertexCount);
                     break;
                 case CommandType.SetViewport:
-                    GL.Viewport(command.Viewport);
+                    GL.Viewport(GLExtensions.Viewport(command.Viewport));
                     break;
                 case CommandType.SetScissor:
                     GL.Scissor(command.ScissorRectangle.X, command.ScissorRectangle.Y, command.ScissorRectangle.Width,
@@ -283,8 +278,8 @@ internal class GL46CommandList : ICommandList
                     _currentPrimitiveType = command.PrimitiveType;
                     break;
                 case CommandType.SetInputLayout:
-                    GL.BindVertexArray(command.InputLayout);
-                    _currentInputLayout = command.InputLayout;
+                    GL.BindVertexArray((GL46InputLayout)command.InputLayout);
+                    _currentInputLayout =(GL46InputLayout) command.InputLayout;
                     break;
                 case CommandType.SetDepthStencilState:
                     break;

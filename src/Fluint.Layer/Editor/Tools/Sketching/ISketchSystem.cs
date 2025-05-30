@@ -18,6 +18,10 @@ public interface ISketchSystem : ISystem<ISketch>
     }
 
     bool Pick(Ray ray, out ISketch sketch);
+    bool Pick(Ray ray, out IEnumerable<ISketch> sketch);
 
-    Vector3[] GetVertices();
+     Vector3[] GetVertices();
+     
+     
+     Color[] GetColors();
 }

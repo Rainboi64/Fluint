@@ -10,10 +10,8 @@ namespace Fluint.Layer.Windowing;
 
 public interface IPuppet
 {
-    /// <summary>
-    ///     Don't call outside IWindow
-    /// </summary>
-    public void SetPossessed(in IWindow possessor)
+
+    public void SetPossessed(IWindow possessor)
     {
     }
 
@@ -21,12 +19,21 @@ public interface IPuppet
     {
     }
 
-    public void OnRender(double delay)
+    public void PreRender(double delay)
+    {
+    }
+    
+    public void PostRender(double delay)
     {
     }
 
-    public void OnUpdate(double delay)
+    public void PreUpdate(double delay)
     {
+    }
+
+    public void PostUpdate(double delay)
+    {
+        
     }
 
     public void OnMouseWheelMoved(Vector2 offset)

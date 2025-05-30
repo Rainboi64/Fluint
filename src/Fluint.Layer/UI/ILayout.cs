@@ -7,8 +7,7 @@ using Fluint.Layer.Windowing;
 
 namespace Fluint.Layer.UI;
 
-[Initialization(InitializationMethod.Instanced)]
-public interface ILayout : IModule
+public interface ILayout 
 {
-    void Initialize(IWindow window);
+    void Initialize(IUILayer layer);
 }

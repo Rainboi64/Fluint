@@ -212,7 +212,7 @@ float Main(PixelPositionTexture input) : SV_TARGET
 			int2 cascades = int2(cascade, cascade + 1);
 			float shadows[2] = { 1.0f, 1.0f };
 
-			// Sample the main cascade	
+			// Sample the main cascade
 			shadows[0] = ShadowMapping_Directional(cascades[0], positonCS[cascades[0]], texel, bias);
 
 			[branch]
@@ -221,7 +221,7 @@ float Main(PixelPositionTexture input) : SV_TARGET
 				shadows[1] = ShadowMapping_Directional(cascades[1], positonCS[cascades[1]], texel, bias);
 			}
 
-			// Blend cascades		
+			// Blend cascades
 			return lerp(shadows[0], shadows[1], pow(max(cascadeBlend.x, max(cascadeBlend.y, cascadeBlend.z)), 4));
 		}
 	}

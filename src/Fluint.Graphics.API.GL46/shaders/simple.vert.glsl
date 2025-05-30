@@ -1,4 +1,4 @@
-#version 430 core
+#version 410 core
 
 out gl_PerVertex
 {
@@ -6,7 +6,7 @@ out gl_PerVertex
 };
 
 layout (location = 0) in vec3 i_position;
-layout (location = 1) in vec3 i_color;
+layout (location = 1) in vec3z i_color;
 
 layout (std140, binding = 0) uniform Matrices
 {

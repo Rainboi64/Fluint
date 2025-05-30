@@ -19,7 +19,7 @@ public enum TextureCoordinate
     R = TextureParameterName.TextureWrapR
 }
 
-internal class ImGuiTexture : IDisposable
+internal class ImGuiTexture33 : IDisposable
 {
     public const SizedInternalFormat Srgb8Alpha8 = (SizedInternalFormat)All.Srgb8Alpha8;
     public const SizedInternalFormat Rgb32F = (SizedInternalFormat)All.Rgb32f;
@@ -35,12 +35,12 @@ internal class ImGuiTexture : IDisposable
     public readonly string Name;
     public readonly int Width, Height;
 
-    static ImGuiTexture()
+    static ImGuiTexture33()
     {
         MaxAniso = GL.GetFloat((GetPName)0x84FF);
     }
 
-    public ImGuiTexture(string name, Bitmap image, bool generateMipmaps, bool srgb)
+    public ImGuiTexture33(string name, Bitmap image, bool generateMipmaps, bool srgb)
     {
         Name = name;
         Width = image.Width;
@@ -83,7 +83,7 @@ internal class ImGuiTexture : IDisposable
         GL.BindTexture(TextureTarget.Texture2D, 0);
     }
 
-    public ImGuiTexture(string name, int glTex, int width, int height, int mipmaplevels,
+    public ImGuiTexture33(string name, int glTex, int width, int height, int mipmaplevels,
         PixelInternalFormat internalFormat)
     {
         Name = name;
@@ -94,7 +94,7 @@ internal class ImGuiTexture : IDisposable
         InternalFormat = internalFormat;
     }
 
-    public ImGuiTexture(string name, int width, int height, IntPtr data, bool generateMipmaps = false,
+    public ImGuiTexture33(string name, int width, int height, IntPtr data, bool generateMipmaps = false,
         bool srgb = false)
     {
         Name = name;

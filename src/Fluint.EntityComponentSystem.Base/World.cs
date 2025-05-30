@@ -19,15 +19,13 @@ public class World : IWorld
     }
 
     public void AddComponent<T>(T component) where T : IComponent
-    {
-        var system = _systems[typeof(T)] as ISystem<T>;
-
-        if(system is null)
+    { 
+        if(_systems.TryGetValue(typeof(T), out var system))
         {
-            Console.WriteLine("System not found");
+            (system as ISystem<T>)?.Register(component);
         }
-
-        system?.Register(component);
+        
+        // Console.WriteLine("System not found");
     }
 
     public T CreateComponent<T>() where T : IComponent

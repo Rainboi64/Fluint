@@ -1,10 +1,11 @@
-// 
+//
 // SketchTool.cs
-// 
+//
 // Copyright (C) 2021 Yaman Alhalabi
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Editor;
@@ -29,10 +30,18 @@ public class SketchTool : ITool
     private readonly ILogger _logger;
     private readonly ISketchSystem _system;
     private readonly IWorld _world;
-    private bool _active;
-    private (ShapeType Type, ISketch Sketch, INode Node) _activeSketch = (ShapeType.None, null, null);
 
-    private int _segments = 16;
+    private SketchMode _mode = SketchMode.Draw;
+
+    private bool _active;
+    private (ISketch Sketch, INode Node) _activeSketch = (null, null);
+    
+    private Vector3 _intersectionPoint = Vector3.Zero;
+    private readonly List<(ISketch, int)> _selectedVertices = new();
+
+    private Vector3 _dragStart = Vector3.Zero;
+    private int _defaultSegments = 16;
+    private float _defaultDepth = 0;
 
     public SketchTool(ModulePacket packet)
     {
@@ -90,13 +99,13 @@ public class SketchTool : ITool
 
         if (context.BindingsManager.GetState("GRID_SIZE_INCREASE") == InputState.Press)
         {
-            context.Grid.Offsets = new Vector2i(context.Grid.Offsets.X + 2, context.Grid.Offsets.Y + 2);
+            context.Grid.Offsets = new Vector2(context.Grid.Offsets.X + 2, context.Grid.Offsets.Y + 2);
         }
 
         if (context.BindingsManager.GetState("SKETCH_ENABLE") == InputState.Press)
         {
             _active = !_active;
-            _activeSketch = (ShapeType.None, null, null);
+            _activeSketch = (null, null);
         }
 
         if (!_active)
@@ -106,43 +115,154 @@ public class SketchTool : ITool
 
         DrawGizmos();
 
-        if (!context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
-            context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
+        // Start Dragging
+        if (context.InputManager.StartDragging(MouseButton.Button1))
         {
+            // Mouse pick ray
             var ray = GetPickRay(context);
             var point = IntersectViewPlane(ray, context.Camera);
-            var snapped = Snap(point, context.Grid);
+            _dragStart = point;
 
-            CreatePolygon(snapped);
-        }
-        else if (context.InputManager.WasMouseButtonPressed(MouseButton.Button1) &&
-                 context.InputManager.IsMouseButtonPressed(MouseButton.Button1))
-        {
-            var ray = GetPickRay(context);
-            var point = IntersectViewPlane(ray, context.Camera);
-            var snappedPoint = Snap(point, context.Grid);
-
-            switch (_activeSketch.Type)
+            if (Pick(ray))
             {
-                case ShapeType.Polygon:
-                    ((IPolygon)_activeSketch.Sketch)!.Corner = snappedPoint;
-                    if (!context.InputManager.MouseScrollDelta.IsZero)
-                    {
-                        _segments = ((IPolygon)_activeSketch.Sketch)!.Segments +=
-                            (int)context.InputManager.MouseScrollDelta.Y;
-
-                        _activeSketch.Node.Name = GenerateNodeName();
-                    }
-
-                    break;
-
-                case ShapeType.Spline:
-                    break;
-                case ShapeType.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                return;
             }
+        }
+        
+        // Dragging
+        else if (context.InputManager.IsDragging(MouseButton.Button1))
+        {
+            Dragging(context);
+        }
+
+        // Stop Dragging
+        if (context.InputManager.StopDragging(MouseButton.Button1))
+        {
+            _activeSketch = (null, null);
+            _selectedVertices.Clear();
+            _intersectionPoint = Vector3.Zero;
+        }
+
+        // Toggle Mode
+        if (context.InputManager.IsMouseButtonPressed(MouseButton.Button3))
+        {
+            _mode = _mode == SketchMode.Extend ? SketchMode.Draw : SketchMode.Extend;
+        }
+    }
+
+    private bool Pick(Ray ray)
+    {
+        // var rayLine = _packet.CreateScoped<IGizmoLine>();
+        // rayLine.Start = ray.Position - ray.Direction * 10;
+        // rayLine.End = ray.Position + ray.Direction * 10;
+        // rayLine.Color = Color.Red;
+        // rayLine.Width = 1;
+        // _provider.Gizmos.Add(rayLine);
+        
+        // Test for selection
+        if (!_system.Pick(ray, out IEnumerable<ISketch> items))
+        {
+            return false;
+        }
+
+        var sketches = items as ISketch[] ?? items.ToArray();
+        _logger.Information("Picked {0} sketches.", sketches.Length);
+            
+        foreach (var sketch in sketches)
+        {
+            for (var i = 0; i < sketch.Vertices.Length; i += 2)
+            {
+                var cur = sketch.Vertices[i];
+                var next = sketch.Vertices[i + 1];
+
+                if (Collision.RayIsCloseToSegment(ray, cur, next, 0.1f, out var intersection))
+                {
+                    _intersectionPoint = intersection;
+                   _selectedVertices.Add((sketch, i));
+                    _selectedVertices.Add((sketch, i + 1));
+                }
+            }
+        }
+
+        return true;
+    }
+
+    private void Dragging(IViewportContext context)
+    {
+        var ray = GetPickRay(context);
+        var point = IntersectViewPlane(ray, context.Camera);
+        
+        var snappedStart = Snap(_dragStart, context.Grid);
+        var snappedEnd = Snap(point, context.Grid);
+
+        var radiusVector = snappedEnd - snappedStart;
+        if (radiusVector.Length() < 0.1f)
+        {
+            if (_activeSketch.Sketch is null)
+            {
+                return;
+            }
+
+            _system.Purge(_activeSketch.Sketch);
+            _activeSketch.Sketch = null;
+
+            return;
+        } 
+        
+        if (_selectedVertices.Count > 0)
+        {
+            foreach (var (sketch, index) in _selectedVertices)
+            {
+                var previous = index == 0 ? sketch.Vertices.Length - 1 : index - 1;
+                var next = index == sketch.Vertices.Length - 1 ? 0 : index + 1;
+                
+                sketch.Vertices[previous] = snappedEnd;
+                sketch.Vertices[index] = snappedEnd;
+                sketch.Vertices[next] = snappedEnd;
+
+                sketch.UpdateBoundingBox();
+            }
+        }
+        else if (_activeSketch.Sketch is null)
+        {
+            CreatePolygon(snappedStart, snappedEnd);
+        }
+        else
+        {
+            UpdatePolygon(context, snappedEnd);
+        }
+    }
+
+    private void UpdatePolygon(IViewportContext context, Vector3 snappedPoint)
+    {
+        var polygon = (IPolygon)_activeSketch.Sketch;
+        polygon!.Corner = snappedPoint;
+        
+        if (context.InputManager.MouseScrollDelta.IsZero)
+        {
+            return;
+        }
+
+        switch (_mode)
+        {
+            case SketchMode.Draw:
+                var newSegments = _defaultSegments + (int)context.InputManager.MouseScrollDelta.Y;
+                if (newSegments < 0)
+                {
+                    break;
+                }
+
+                _defaultSegments = newSegments;
+                polygon.Segments = newSegments;
+                
+                _activeSketch.Node.Name = PolygonNameGenerator.GenerateNodeName(_defaultSegments);
+                break;
+            case SketchMode.Extend:
+                var newDepth = context.InputManager.MouseScrollDelta.Y;
+
+                _defaultDepth = newDepth;
+                polygon.Depth = newDepth; 
+                break;
         }
     }
 
@@ -158,6 +278,7 @@ public class SketchTool : ITool
                     line.Color = Color.DarkRed;
                     line.Start = circle.Center;
                     line.End = circle.Corner;
+                    line.Width = 1;
 
                     var grabberCenter = _packet.CreateScoped<IGizmoCube>();
                     grabberCenter.Box =
@@ -217,75 +338,26 @@ public class SketchTool : ITool
             MathF.Round(point.Z));
     }
 
-    private void CreatePolygon(Vector3 point)
+    private void CreatePolygon(Vector3 start, Vector3 end)
     {
         var polygon = _packet.CreateScoped<IPolygon>();
-        polygon.Segments = _segments;
-        polygon.Center = point;
-        polygon.Corner = point + Vector3.Right;
+        polygon.Segments = _defaultSegments;
+        polygon.Center = start;
+        polygon.Corner = end;
+        polygon.Depth = _defaultDepth;
 
         var node = _packet.CreateScoped<INode>();
-        node.Name = GenerateNodeName();
+        node.Name = PolygonNameGenerator.GenerateNodeName(_defaultSegments);
 
-        _activeSketch = (ShapeType.Polygon, polygon, node);
+        _activeSketch = (polygon, node);
 
         var sketchEntity = new Entity();
         sketchEntity.AddComponent(node);
         sketchEntity.AddComponent(polygon);
 
-        _world.AddComponent<INode>(node);
+        _world.AddComponent(node);
         _world.AddComponent<ISketch>(polygon);
 
         _logger.Information("[Sketch Tool] Creating a {0}", node.Name);
-    }
-
-    // https://en.wikipedia.org/wiki/List_of_polygons
-    private string GenerateNodeName()
-    {
-        switch (_segments)
-        {
-            case 1:
-                return "Line";
-            case 2:
-                return "Line";
-            case 3:
-                return "Triangle";
-            case 4:
-                return "Square";
-            case 5:
-                return "Pentagon";
-            case 6:
-                return "Hexagon";
-            case 7:
-                return "Heptagon";
-            case 8:
-                return "Octagon";
-            case 9:
-                return "Enneagon";
-            case 10:
-                return "Decagon";
-            case 11:
-                return "Hendecagon";
-            case 12:
-                return "Dodecagon";
-            case 13:
-                return "Tridecagon";
-            case 14:
-                return "Tetradecagon";
-            case 15:
-                return "Pentadecagon";
-            case 16:
-                return "Hexadecagon";
-            case 17:
-                return "Heptadecagon";
-            case 18:
-                return "Octadecagon";
-            case 19:
-                return "Enneadecagon";
-            case 20:
-                return "Icosagon";
-            default:
-                return $"{_segments}-gon";
-        }
     }
 }

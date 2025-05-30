@@ -139,12 +139,12 @@ public class LambdaListener : ILambdaListener
 
         _prompt = string.Format(_promptConfiguration.Prompt, lambdaColor, timer.ElapsedMilliseconds / 1000f);
 
-        if(response.Data is null)
+        if (response.Data is null)
         {
             return;
         }
 
-        if(response.Data is string text)
+        if (response.Data is string text)
         {
             ConsoleHelper.WriteEmbeddedColorLine(text);
             return;

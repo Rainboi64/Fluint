@@ -67,7 +67,7 @@ public static class GLExtensions
 
     public static unsafe Rectangle Viewport(Viewport viewport)
     {
-        return *(Rectangle*)&viewport;
+        return new Rectangle(viewport.X, viewport.Y, viewport.Width, viewport.Height);
     }
 
     public static PrimitiveType GLPrimitiveType(PrimitiveTopology primitiveTopology)

@@ -578,8 +578,6 @@ public class Canvas : ICanvas
             (x, y) = (y, x);
         }
 
-        ;
-
         int t2X, minx, maxx, t1Xp, t2Xp;
 
         var changed1 = false;

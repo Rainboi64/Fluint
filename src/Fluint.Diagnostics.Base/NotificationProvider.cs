@@ -5,23 +5,33 @@
 
 using System.Collections.Generic;
 using Fluint.Layer.Diagnostics;
-using Fluint.Layer.UI;
 
 namespace Fluint.Diagnostics.Base;
-public class ToastProvider : IToastProvider
+public class NotificationProvider : INotificationProvider
 {
-    private readonly List<IToast> _toasts = new();
-    public void AddNotification(NotificationType type, string title, string message)
+    private readonly List<INotificationReceiver> _toasts = new();
+    private readonly List<Notification> _notifications = new();
+
+    public IEnumerable<Notification> Notifications => _notifications;
+
+    public void AddNotification(Notification notification)
     {
-        _toasts.ForEach(toast => toast.AddNotification(type, title, message));
+        _notifications.Add(notification);
+        _toasts.ForEach(toast => toast.AddNotification(notification));
     }
 
-    public void Subscribe(IToast toast)
+    public void AddNotification(NotificationType type, string title, string message)
+    {
+        _notifications.Add(new Notification(type, title, message));
+        _toasts.ForEach(toast => toast.AddNotification(new Notification(type, title, message)));
+    }
+
+    public void Subscribe(INotificationReceiver toast)
     {
         _toasts.Add(toast);
     }
 
-    public void Unsubscribe(IToast toast)
+    public void Unsubscribe(INotificationReceiver toast)
     {
         _toasts.Remove(toast);
     }

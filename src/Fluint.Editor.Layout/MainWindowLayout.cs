@@ -9,9 +9,8 @@ using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Functionality;
 using Fluint.Layer.Localization;
 using Fluint.Layer.UI;
-using Fluint.Layer.Windowing;
 
-namespace Fluint.Editor.Layout.Base;
+namespace Fluint.Editor.Layout;
 
 public partial class MainWindowLayout : ILayout
 {

@@ -16,13 +16,19 @@ public interface IGizmoCircularPolygon : IModule, IGizmo
         set;
     }
 
-    float Radius
+    Vector3 Corner
     {
         get;
         set;
     }
 
     int Sides
+    {
+        get;
+        set;
+    }
+    
+    public Color Color
     {
         get;
         set;

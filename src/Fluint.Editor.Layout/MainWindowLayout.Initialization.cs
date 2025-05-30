@@ -6,9 +6,8 @@
 using System;
 using System.IO;
 using Fluint.Layer.UI;
-using Fluint.Layer.Windowing;
 
-namespace Fluint.Editor.Layout.Base;
+namespace Fluint.Editor.Layout;
 
 public partial class MainWindowLayout
 {

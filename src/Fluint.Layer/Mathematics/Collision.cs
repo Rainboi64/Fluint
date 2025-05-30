@@ -386,6 +386,73 @@ public static class Collision
 
         return true;
     }
+    
+    public static Vector3 ClosestPointOnSegment(Vector3 p, Vector3 a, Vector3 b)
+    {
+        var ab = b - a;
+        var t = Vector3.Dot(p - a, ab) / Vector3.Dot(ab, ab);
+        t = Math.Clamp(t, 0, 1);
+        return a + ab * t;
+    }
+    
+    public static bool RayIsCloseToSegment(Ray ray, Vector3 p1, Vector3 p2, float tolerance, out Vector3 intersection)
+    {
+        intersection = new Vector3();
+
+        // Get a point on the ray
+        var rayPoint = ray.Position + ray.Direction; // You can adjust this to get another point on the ray
+
+        // Find the closest point on the segment to this point on the ray
+        var closestPoint = ClosestPointOnSegment(rayPoint, p1, p2);
+
+        // Calculate the distance from this point to the ray's origin
+        var diff = closestPoint - ray.Position;
+        float distance = diff.Length();
+
+        // Check if the distance is within the tolerance
+        if (distance <= tolerance)
+        {
+            intersection = closestPoint;
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool RayIntersectsSegment(Ray ray, Vector3 p1, Vector3 p2, out Vector3 intersection)
+    {
+        intersection = new Vector3();
+
+        var d = p2 - p1;
+        var e = ray.Position - p1;
+        var dirCrossD = Vector3.Cross(ray.Direction, d);
+        var denom = dirCrossD.LengthSquared();
+
+        if (denom < double.Epsilon)
+        {
+            return false; // Ray and segment are parallel.
+        }
+
+        var eCrossD = Vector3.Cross(e, d);
+        var t = eCrossD.LengthSquared() / denom;
+        if (t < 0)
+        {
+            return false; // Intersection point is behind the ray origin.
+        }
+
+        var q = ray.Position + ray.Direction * t;
+        var qMinusP1 = q - p1;
+        var qMinusP2 = q - p2;
+
+        if (!(Vector3.Dot(qMinusP1, qMinusP2) > 0))
+        {
+            intersection = q;
+            return true;
+        }
+
+        return false; // Intersection point is outside the segment.
+    }
+    
 
     /// <summary>
     ///     Determines whether there is an intersection between a <see cref="Ray" /> and a <see cref="Ray" />.
@@ -718,9 +785,7 @@ public static class Collision
 
             if (t1 > t2)
             {
-                var temp = t1;
-                t1 = t2;
-                t2 = temp;
+                (t1, t2) = (t2, t1);
             }
 
             distance = Math.Max(t1, distance);
@@ -749,9 +814,7 @@ public static class Collision
 
             if (t1 > t2)
             {
-                var temp = t1;
-                t1 = t2;
-                t2 = temp;
+                (t1, t2) = (t2, t1);
             }
 
             distance = Math.Max(t1, distance);
@@ -780,9 +843,7 @@ public static class Collision
 
             if (t1 > t2)
             {
-                var temp = t1;
-                t1 = t2;
-                t2 = temp;
+                (t1, t2) = (t2, t1);
             }
 
             distance = Math.Max(t1, distance);
@@ -799,7 +860,7 @@ public static class Collision
     }
 
     /// <summary>
-    ///     Determines whether there is an intersection between a <see cref="Ray" /> and a <see cref="Plane" />.
+    ///     Determines whether there is an intersection between a <see cref="Ray" /> and a <see cref="Plane" />.    
     /// </summary>
     /// <param name="ray">The ray to test.</param>
     /// <param name="box">The box to test.</param>

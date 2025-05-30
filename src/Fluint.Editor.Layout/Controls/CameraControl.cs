@@ -9,9 +9,8 @@ using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Localization;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
-using Fluint.Layer.Windowing;
 
-namespace Fluint.Editor.Layout.Base.Controls;
+namespace Fluint.Editor.Layout.Controls;
 
 public class CameraControl : Control
 {
@@ -48,9 +47,9 @@ public class CameraControl : Control
 
     public override void Begin(string name, UIContext context)
     {
+        base.Begin(name, context);
         _viewportContext.UIContext = context;
         _viewportContext.Start();
-        base.Begin(name);
     }
 
     public override void Tick()

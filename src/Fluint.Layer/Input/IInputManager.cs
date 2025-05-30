@@ -4,6 +4,7 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.Windowing;
 
@@ -60,4 +61,8 @@ public interface IInputManager : IModule
     bool IsMouseButtonPressed(MouseButton button);
     bool IsMouseButtonReleased(MouseButton button);
     bool WasMouseButtonPressed(MouseButton button);
+
+    bool StartDragging(MouseButton button);
+    bool IsDragging(MouseButton button);
+    bool StopDragging(MouseButton button);
 }

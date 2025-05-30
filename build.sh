@@ -1,2 +1,5 @@
-dotnet build --configuration "Release With Modules Setup"
-cd output/release/AnyCPU/
+#!/bin/sh
+dotnet msbuild -property:Configuration="Release With Modules Setup"
+echo -----------------------------------------------
+echo                 Build Completed                
+echo -----------------------------------------------

@@ -31,7 +31,7 @@ public class Control : IGuiComponent
         }
     }
 
-    public virtual void Begin(string name, IWindow parent)
+    public virtual void Begin(string name, UIContext context)
     {
         Name = name;
         foreach (var guiComponent in Children)

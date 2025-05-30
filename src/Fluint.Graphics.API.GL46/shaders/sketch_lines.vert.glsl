@@ -1,4 +1,4 @@
-#version 430 core
+#version 410 core
 
 #define MAX_NUM_TOTAL_POINTS 1000
 

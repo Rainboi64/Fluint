@@ -1,4 +1,4 @@
-#version 410 core
+#version 330 core
 
 out gl_PerVertex
 {
@@ -8,11 +8,11 @@ out gl_PerVertex
 layout (location = 0) in vec3 i_position;
 layout (location = 1) in vec3 i_color;
 
-layout (std140, binding = 0) uniform Matrices
+layout (std140, row_major) uniform Matrices
 {
-    mat4 model;
-    mat4 view;
-    mat4 projection;
+     mat4 model;
+     mat4 view;
+     mat4 projection;
 };
 
 out vec4 ps_vertex_color;
@@ -21,7 +21,9 @@ out mat4 ps_mvp;
 
 void main()
 {
-    ps_mvp = projection * view * model;
+    ps_mvp = model * view * projection;
+    ps_mvp = transpose(ps_mvp);
+    
     ps_vertex_position = ps_mvp * vec4(i_position, 1.0);
     ps_vertex_color = vec4(i_color, 1.0);
 

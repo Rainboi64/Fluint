@@ -32,9 +32,9 @@ public class GL46VertexBuffer : IVertexBuffer
     public void Initialize<T>(T[] vertices) where T : struct
     {
         VertexStride = Marshal.SizeOf<T>();
-        var size = vertices.Length * VertexStride;
+
         Bind();
-        GL.BufferData(BufferTarget.ArrayBuffer, size, vertices, BufferUsageHint.DynamicDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, 1, vertices, BufferUsageHint.DynamicDraw);
     }
 
     public static IVertexBuffer Create<T>(T[] vertices) where T : struct

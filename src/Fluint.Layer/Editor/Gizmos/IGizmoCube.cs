@@ -1,6 +1,6 @@
-// 
+//
 // IGizmoCube.cs
-// 
+//
 // Copyright (C) 2022 Yaman Alhalabi
 
 using Fluint.Layer.Mathematics;

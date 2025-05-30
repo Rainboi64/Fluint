@@ -8,7 +8,7 @@ using Fluint.Layer.Localization;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.UI;
 
-namespace Fluint.Editor.Layout.Base.Controls;
+namespace Fluint.Editor.Layout.Controls;
 
 public class AboutControl : Control
 {

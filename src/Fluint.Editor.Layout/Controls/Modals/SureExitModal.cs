@@ -9,7 +9,7 @@ using Fluint.Layer.Functionality.Common;
 using Fluint.Layer.Localization;
 using Fluint.Layer.UI;
 
-namespace Fluint.Editor.Layout.Base.Controls.Modals;
+namespace Fluint.Editor.Layout.Controls.Modals;
 
 public class SureExitModal : Control
 {

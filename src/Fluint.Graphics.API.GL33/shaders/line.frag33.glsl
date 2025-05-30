@@ -19,8 +19,8 @@ void main()
     
     float distance = length(ps_vertex_position);
 
-    float fog_start = 25;
-    float fog_end = 44;
+    float fog_start = 100;
+    float fog_end = 175;
 
     // linear interpolation
     float fog_factor = (distance - fog_start) / (fog_end - fog_start);

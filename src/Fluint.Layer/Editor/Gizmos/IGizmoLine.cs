@@ -22,6 +22,12 @@ public interface IGizmoLine : IModule, IGizmo
         set;
     }
 
+    float Width
+    {
+        get;
+        set;
+    }
+
     Color Color
     {
         get;

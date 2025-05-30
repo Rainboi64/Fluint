@@ -4,7 +4,8 @@
         <TargetFramework>net6.0</TargetFramework>
         <Platforms>AnyCPU;x64;x86</Platforms>
         <Configurations>Debug;Release;Debug With Modules Setup;Release With Modules Setup</Configurations>
-        <RootNamespace>Fluint.Engine.GL33</RootNamespace>
+        <RootNamespace>Fluint.Graphics.API.GL33</RootNamespace>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug With Modules Setup|$(Platform)'">
@@ -22,6 +23,51 @@
     <ItemGroup>
         <ProjectReference Include="..\Fluint.Graphics.API.GLCommon\Fluint.Graphics.API.GLCommon.csproj"/>
         <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="ImGui.NET" Version="1.89.7.1" />
+      <PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
+      <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="System.Drawing.Common">
+        <HintPath>..\..\output\debug\AnyCPU\base\System.Drawing.Common.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="shaders\simple.frag33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\simple.vert33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\grid.frag33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\grid.vert33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\sketch_lines.frag33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\sketch_lines.vert33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\line.frag33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\line.vert33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\basic-lines.frag33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="shaders\basic-lines.vert33.glsl">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

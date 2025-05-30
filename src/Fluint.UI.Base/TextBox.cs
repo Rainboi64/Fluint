@@ -11,7 +11,7 @@ namespace Fluint.UI.Base;
 
 public class TextBox : ITextBox
 {
-    private string _text;
+    private string _text = "";
 
     public bool IsMultiLine
     {

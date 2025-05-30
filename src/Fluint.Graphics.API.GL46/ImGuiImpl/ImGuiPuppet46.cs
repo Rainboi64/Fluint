@@ -22,7 +22,7 @@ using Vector2 = System.Numerics.Vector2;
 
 namespace Fluint.Graphics.API.GL46.ImGuiImpl;
 
-public class ImGuiPuppet : IPuppet
+public class ImGuiPuppet46 : IPuppet
 {
     private readonly IConfigurationManager _configurationManager;
 
@@ -34,13 +34,13 @@ public class ImGuiPuppet : IPuppet
 
     private readonly Vector2 _scaleFactor = Vector2.One;
 
-    private ImGuiTexture _fontTexture;
+    private ImGuiTexture46 _fontTexture46;
     private bool _frameBegun;
     private int _indexBuffer;
     private int _indexBufferSize;
 
     private IWindow _possessedWindow;
-    private ImGuiShader _shader;
+    private ImGuiShader46 _shader46;
 
     private int _vertexArray;
     private int _vertexBuffer;
@@ -49,7 +49,7 @@ public class ImGuiPuppet : IPuppet
 
     private int _windowWidth;
 
-    public ImGuiPuppet(ILogger logger, IConfigurationManager configurationManager)
+    public ImGuiPuppet46(ILogger logger, IConfigurationManager configurationManager)
     {
         _logger = logger;
         _configurationManager = configurationManager;
@@ -93,7 +93,7 @@ public class ImGuiPuppet : IPuppet
             {
                 if (!File.Exists(font.FontPath))
                 {
-                    _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiPuppet46",
+                    _logger.Warning("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiPuppet46",
                         font.FontPath, font.FontSize);
                 }
         
@@ -124,7 +124,7 @@ public class ImGuiPuppet : IPuppet
     ///     or index data has increased beyond the capacity of the existing buffers.
     ///     A <see cref="GL46CommandList" /> is needed to submit drawing and resource update commands.
     /// </summary>
-    public void OnRender(double delay)
+    public void PreRender(double delay)
     {
         if (_frameBegun)
         {
@@ -137,7 +137,7 @@ public class ImGuiPuppet : IPuppet
     /// <summary>
     ///     Updates ImGui input and IO configuration state.
     /// </summary>
-    public void OnUpdate(double delay)
+    public void PreUpdate(double delay)
     {
         if (_frameBegun)
         {
@@ -215,7 +215,7 @@ void main()
 {
     outputColor = color * texture(in_fontTexture, texCoord);
 }";
-        _shader = new ImGuiShader("ImGui", VertexSource, FragmentSource);
+        _shader46 = new ImGuiShader46("ImGui", VertexSource, FragmentSource);
 
         GL.VertexArrayVertexBuffer(_vertexArray, 0, _vertexBuffer, IntPtr.Zero, Unsafe.SizeOf<ImDrawVert>());
         GL.VertexArrayElementBuffer(_vertexArray, _indexBuffer);
@@ -238,11 +238,11 @@ void main()
         var io = ImGui.GetIO();
 
         io.Fonts.GetTexDataAsRGBA32(out IntPtr pixels, out var width, out var height, out var bytesPerPixel);
-        _fontTexture = new ImGuiTexture("ImGui Text Atlas", width, height, pixels);
-        _fontTexture.SetMagFilter(TextureMagFilter.Linear);
-        _fontTexture.SetMinFilter(TextureMinFilter.Linear);
+        _fontTexture46 = new ImGuiTexture46("ImGui Text Atlas", width, height, pixels);
+        _fontTexture46.SetMagFilter(TextureMagFilter.Linear);
+        _fontTexture46.SetMinFilter(TextureMinFilter.Linear);
 
-        io.Fonts.SetTexID((IntPtr)_fontTexture.GlTexture);
+        io.Fonts.SetTexID((IntPtr)_fontTexture46.GlTexture);
 
         io.Fonts.ClearTexData();
     }
@@ -298,26 +298,26 @@ void main()
 
     private static void SetKeyMappings()
     {
-        // var io = ImGui.GetIO();
-        // io.KeyMap[(int)ImGuiKey.Tab] = (int)Keys.Tab;
-        // io.KeyMap[(int)ImGuiKey.LeftArrow] = (int)Keys.Left;
-        // io.KeyMap[(int)ImGuiKey.RightArrow] = (int)Keys.Right;
-        // io.KeyMap[(int)ImGuiKey.UpArrow] = (int)Keys.Up;
-        // io.KeyMap[(int)ImGuiKey.DownArrow] = (int)Keys.Down;
-        // io.KeyMap[(int)ImGuiKey.PageUp] = (int)Keys.PageUp;
-        // io.KeyMap[(int)ImGuiKey.PageDown] = (int)Keys.PageDown;
-        // io.KeyMap[(int)ImGuiKey.Home] = (int)Keys.Home;
-        // io.KeyMap[(int)ImGuiKey.End] = (int)Keys.End;
-        // io.KeyMap[(int)ImGuiKey.Delete] = (int)Keys.Delete;
-        // io.KeyMap[(int)ImGuiKey.Backspace] = (int)Keys.Backspace;
-        // io.KeyMap[(int)ImGuiKey.Enter] = (int)Keys.Enter;
-        // io.KeyMap[(int)ImGuiKey.Escape] = (int)Keys.Escape;
-        // io.KeyMap[(int)ImGuiKey.A] = (int)Keys.A;
-        // io.KeyMap[(int)ImGuiKey.C] = (int)Keys.C;
-        // io.KeyMap[(int)ImGuiKey.V] = (int)Keys.V;
-        // io.KeyMap[(int)ImGuiKey.X] = (int)Keys.X;
-        // io.KeyMap[(int)ImGuiKey.Y] = (int)Keys.Y;
-        // io.KeyMap[(int)ImGuiKey.Z] = (int)Keys.Z;
+        var io = ImGui.GetIO();
+        io.KeyMap[(int)ImGuiKey.Tab] = (int)Keys.Tab;
+        io.KeyMap[(int)ImGuiKey.LeftArrow] = (int)Keys.Left;
+        io.KeyMap[(int)ImGuiKey.RightArrow] = (int)Keys.Right;
+        io.KeyMap[(int)ImGuiKey.UpArrow] = (int)Keys.Up;
+        io.KeyMap[(int)ImGuiKey.DownArrow] = (int)Keys.Down;
+        io.KeyMap[(int)ImGuiKey.PageUp] = (int)Keys.PageUp;
+        io.KeyMap[(int)ImGuiKey.PageDown] = (int)Keys.PageDown;
+        io.KeyMap[(int)ImGuiKey.Home] = (int)Keys.Home;
+        io.KeyMap[(int)ImGuiKey.End] = (int)Keys.End;
+        io.KeyMap[(int)ImGuiKey.Delete] = (int)Keys.Delete;
+        io.KeyMap[(int)ImGuiKey.Backspace] = (int)Keys.Backspace;
+        io.KeyMap[(int)ImGuiKey.Enter] = (int)Keys.Enter;
+        io.KeyMap[(int)ImGuiKey.Escape] = (int)Keys.Escape;
+        io.KeyMap[(int)ImGuiKey.A] = (int)Keys.A;
+        io.KeyMap[(int)ImGuiKey.C] = (int)Keys.C;
+        io.KeyMap[(int)ImGuiKey.V] = (int)Keys.V;
+        io.KeyMap[(int)ImGuiKey.X] = (int)Keys.X;
+        io.KeyMap[(int)ImGuiKey.Y] = (int)Keys.Y;
+        io.KeyMap[(int)ImGuiKey.Z] = (int)Keys.Z;
     }
 
     private async void RenderImDrawData(ImDrawDataPtr draw_data)
@@ -329,7 +329,7 @@ void main()
 
         for (var i = 0; i < draw_data.CmdListsCount; i++)
         {
-            var cmd_list = draw_data.CmdLists[i];
+            var cmd_list = draw_data.CmdListsRange[i];
 
             var vertexSize = cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>();
             if (vertexSize > _vertexBufferSize)
@@ -364,9 +364,9 @@ void main()
             -1.0f,
             1.0f);
 
-        _shader.UseShader();
-        GL.UniformMatrix4(_shader.GetUniformLocation("projection_matrix"), false, ref mvp);
-        GL.Uniform1(_shader.GetUniformLocation("in_fontTexture"), 0);
+        _shader46.UseShader();
+        GL.UniformMatrix4(_shader46.GetUniformLocation("projection_matrix"), false, ref mvp);
+        GL.Uniform1(_shader46.GetUniformLocation("in_fontTexture"), 0);
 
         GL.BindVertexArray(_vertexArray);
 
@@ -382,7 +382,7 @@ void main()
         // Render command lists
         for (var n = 0; n < draw_data.CmdListsCount; n++)
         {
-            var cmd_list = draw_data.CmdLists[n];
+            var cmd_list = draw_data.CmdListsRange[n];
 
             GL.NamedBufferSubData(_vertexBuffer, IntPtr.Zero, cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>(),
                 cmd_list.VtxBuffer.Data);
@@ -437,7 +437,7 @@ void main()
     /// </summary>
     public void Dispose()
     {
-        _fontTexture.Dispose();
-        _shader.Dispose();
+        _fontTexture46.Dispose();
+        _shader46.Dispose();
     }
 }

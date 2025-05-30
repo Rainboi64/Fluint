@@ -21,7 +21,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="ImGui.NET" Version="1.89.7.1"/>
+        <PackageReference Include="ImGui.NET" Version="1.89.7.1" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="3.9.0" />
     </ItemGroup>
 
     <ItemGroup>

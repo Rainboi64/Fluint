@@ -13,7 +13,7 @@ using Fluint.Layer.Mathematics;
 using Fluint.Layer.StateManagement;
 using Fluint.Layer.UI;
 
-namespace Fluint.Editor.Layout.Base.Controls;
+namespace Fluint.Editor.Layout.Controls;
 
 public class ToolboxControl : Control
 {

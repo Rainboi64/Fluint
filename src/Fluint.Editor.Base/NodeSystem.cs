@@ -26,4 +26,9 @@ public class NodeSystem : INodeSystem
         _nodes.Add(component);
         Add?.Invoke(this, new NodeAddedEventArgs(component));
     }
+
+    public void Purge(INode component)
+    {
+        _nodes.Remove(component);
+    }
 }

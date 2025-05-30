@@ -59,7 +59,7 @@ internal static class Util
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateBuffer(string name, out int buffer)
     {
-        GL.CreateBuffers(1, out buffer);
+        buffer = GL.GenBuffer();
         LabelObject(ObjectLabelIdentifier.Buffer, buffer, $"Buffer: {name}");
     }
 
@@ -78,7 +78,7 @@ internal static class Util
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateVertexArray(string name, out int vao)
     {
-        GL.CreateVertexArrays(1, out vao);
+        GL.GenVertexArrays(1, out vao);
         LabelObject(ObjectLabelIdentifier.VertexArray, vao, $"VAO: {name}");
     }
 }

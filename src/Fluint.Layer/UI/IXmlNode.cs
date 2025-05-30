@@ -1,11 +1,20 @@
 // 
-// IXMLNode.cs
+// IXmlNode.cs
 // 
 // Copyright (C) 2023 Yaman Alhalabi
 
 namespace Fluint.Layer.UI;
 
-public interface IXMLNode
+[Initialization(InitializationMethod.Scoped)]
+public interface IXmlNode : IGuiComponent, IModule
 {
-    
+    string Xml
+    {
+        set;
+    }
+
+    bool Live
+    {
+        get;
+    }
 }

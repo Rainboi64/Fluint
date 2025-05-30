@@ -1,9 +1,11 @@
-// 
+//
 // CameraTool.cs
-// 
+//
 // Copyright (C) 2022 Yaman Alhalabi
 
+using System;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Editor.Gizmos;
 using Fluint.Layer.Editor.Tools;
 using Fluint.Layer.Editor.Viewport;
 using Fluint.Layer.Graphics.API;
@@ -15,16 +17,21 @@ namespace Fluint.Editor.Base.Tools;
 public class CameraTool : ITool
 {
     private readonly ModulePacket _packet;
+    private readonly IGizmoCameraCube _cameraCube;
 
     public CameraTool(ModulePacket packet)
     {
         _packet = packet;
+        _cameraCube = _packet.CreateScoped<IGizmoCameraCube>();
+        var gizmoProvider = _packet.GetSingleton<IGizmoProvider>();
     }
 
     public void Begin(IViewportContext context)
     {
         var state = new CameraToolState(_packet.CreateScoped<IMouseCapture>());
-        state.MouseCapture.Begin(context.Window);
+        state.MouseCapture.Begin(context.UIContext.Window);
+        _cameraCube.Camera = context.Camera;
+
         context.AddState(state);
         context.OnTick += ViewportOnTick;
     }
@@ -41,8 +48,8 @@ public class CameraTool : ITool
             return;
         }
 
-
         var state = context.GetState<CameraToolState>();
+
 
         state.MouseCapture.Update();
         const float camBoost = 0.1f;
@@ -97,12 +104,12 @@ public class CameraTool : ITool
 
         if (context.InputManager.IsKeyPressed(Key.A))
         {
-            movementVec += context.Camera.Right;
+            movementVec -= context.Camera.Right;
         }
 
         if (context.InputManager.IsKeyPressed(Key.D))
         {
-            movementVec -= context.Camera.Right;
+            movementVec += context.Camera.Right;
         }
 
         context.Camera.Position += Vector3.Normalize(movementVec) * boost * (float)e.Time;

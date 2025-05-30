@@ -6,7 +6,7 @@
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <RootNamespace>Fluint.Editor.Layout.Base</RootNamespace>
+        <RootNamespace>Fluint.Editor.Layout</RootNamespace>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug With Modules Setup'">

@@ -9,8 +9,10 @@ using System.Collections.Concurrent;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
+using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Jobs;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.Miscellaneous;
 using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 using OpenTK.Graphics.OpenGL4;
@@ -34,11 +36,13 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         IConfigurationManager configurationManager) :
         base(new GameWindowSettings(), new NativeWindowSettings
         {
-            APIVersion = new Version(4, 6),
-            Size = new Vector2i(1600, 900),
-            NumberOfSamples = 4
+            Flags = ContextFlags.ForwardCompatible,
+            APIVersion = new Version(configurationManager.Get<GlfwWindowConfiguration>().MajorOpenGLVersion, configurationManager.Get<GlfwWindowConfiguration>().MinorOpenGLVersion),
+            Size = new Vector2i(800, 600),
+            NumberOfSamples = 0
         })
     {
+
         _packet = packet;
         _jobManager = jobManager;
         _logger = logger;
@@ -95,6 +99,12 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         }
     }
 
+    public Vector2 ScaleRate
+    {
+        get;
+        private set;
+    }
+
     public ConcurrentQueue<Action> FrameQueue
     {
         get;
@@ -109,21 +119,23 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         Run();
     }
 
-    public void Adopt<TClient>() where TClient : IWindow
+    public void Adopt(IWindow window)
     {
         var instanceManager = _packet.GetSingleton<IGuiInstanceManager>();
 
-        Client = (IWindow)_packet.FetchAndCreateInstance(typeof(TClient));
+        Client = window;
         Client.SetProvider(this);
 
         instanceManager.Adopt(Client);
         _logger.Verbose("[{1}] Adopted Client {0}", "OpenTK Window", Client.Title);
     }
 
-    protected override void OnLoad()
+    protected override unsafe void OnLoad()
     {
         var config = _configurationManager.Get<WindowConfiguration>();
 
+        GLFW.SetInputMode(WindowPtr, StickyAttributes.StickyMouseButtons, true);
+        
         Size = GLExtensions.Vector2I(config.WindowSize);
         WindowBorder = config.Resizable ? WindowBorder.Resizable : WindowBorder.Fixed;
 
@@ -155,9 +167,13 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         base.OnUpdateFrame(args);
     }
 
-    protected override void OnRenderFrame(FrameEventArgs args)
+    protected override unsafe void OnRenderFrame(FrameEventArgs args)
     {
-        GL.Viewport(0, 0, WindowSize.X, WindowSize.Y);
+        GLFW.GetFramebufferSize(this.WindowPtr, out var width, out var height);
+
+        ScaleRate = new Vector2((float)WindowSize.X / width, (float)WindowSize.Y / height);
+
+        GL.Viewport(0, 0, width, height);
 
         GL.ClearColor(GLExtensions.Color4(new Color(12, 12, 12, 255)));
         GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit | ClearBufferMask.StencilBufferBit);
@@ -180,14 +196,17 @@ public class GlWindowProvider : GameWindow, IWindowProvider
         base.OnMouseWheel(e);
     }
 
-    protected override void OnResize(ResizeEventArgs e)
+    protected override unsafe void OnResize(ResizeEventArgs e)
     {
-        GL.Viewport(0, 0, e.Width, e.Height);
+        GLFW.GetFramebufferSize(this.WindowPtr, out var width, out var height);
+        ScaleRate = new Vector2((float)width / WindowSize.X, (float)height / WindowSize.Y);
+
+        GL.Viewport(0, 0, width, height);
 
         _logger.Debug("[{0}] Resized to ({1}, {2})", "OpenTK Window", e.Width, e.Height);
 
         _jobManager.Invoke(JobSchedule.WindowResize, new JobArgs(Client));
-        Client.OnResize(e.Width, e.Height);
+        Client.OnResize(width, height, ScaleRate);
 
         base.OnResize(e);
     }

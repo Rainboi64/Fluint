@@ -34,7 +34,7 @@ public class GL33GraphicsFactory : IGraphicsFactory
 
     public ICommandList CreateCommandList()
     {
-        return new GL33CommandList();
+        return new GL33CommandList(_logger);
     }
 
     public IConstantBuffer CreateConstantBuffer<T>(T constants) where T : struct
@@ -90,7 +90,7 @@ public class GL33GraphicsFactory : IGraphicsFactory
             shader.AddMacro(macroName, macroValue);
         }
 
-        shader.CompileFile(shaderStage, filePath + ".glsl", vertexType);
+        shader.CompileFile(shaderStage, filePath + "33.glsl", vertexType);
         return shader;
     }
 
@@ -101,7 +101,7 @@ public class GL33GraphicsFactory : IGraphicsFactory
 
     public ITextureFactory CreateTextureFactory()
     {
-        return new GL33TextureFactory();
+        return new GL33TextureFactory(_logger);
     }
 
     public IVertexBuffer CreateVertexBuffer<T>(T[] vertices) where T : struct
@@ -141,6 +141,8 @@ public class GL33GraphicsFactory : IGraphicsFactory
                 attributes.Add(new GLVertexAttribute("i_uv", 1, VertexAttribType.Float, 2, 12));
                 attributes.Add(new GLVertexAttribute("i_normal", 2, VertexAttribType.Float, 3, 20));
                 attributes.Add(new GLVertexAttribute("i_tangent", 3, VertexAttribType.Float, 3, 32));
+                break;
+            case VertexType.Unknown: 
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(vertexType), vertexType, null);

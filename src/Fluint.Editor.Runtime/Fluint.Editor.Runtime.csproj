@@ -19,7 +19,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Fluint.Editor.Layout\Fluint.Editor.Layout.csproj" />
         <ProjectReference Include="..\Fluint.Layer\Fluint.Layer.csproj"/>
+        <ProjectReference Include="..\Fluint.SDK\Fluint.SDK.csproj" />
     </ItemGroup>
 
 </Project>

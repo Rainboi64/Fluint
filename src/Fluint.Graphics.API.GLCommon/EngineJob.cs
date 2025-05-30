@@ -31,11 +31,17 @@ public class EngineJob : IJob
 
     public void Start(JobArgs args)
     {
-        _logger.Debug("[{0}] OpenGL Version: {1}", "OpenGL46", GL.GetString(StringName.Version));
-        _logger.Debug("[{0}] Version: {1}", "OpenGL46", GL.GetString(StringName.ShadingLanguageVersion));
-        _logger.Debug("[{0}] Renderer: {1}", "OpenGL46", GL.GetString(StringName.Renderer));
-        _logger.Debug("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
-        _logger.Debug("[{0}] Extensions: {1}", "OpenGL46", GL.GetString(StringName.Extensions));
+        _logger.Information("[{0}] OpenGL Version: {1}", "OpenGL46", GL.GetString(StringName.Version));
+        _logger.Information("[{0}] Version: {1}", "OpenGL46", GL.GetString(StringName.ShadingLanguageVersion));
+        _logger.Information("[{0}] Renderer: {1}", "OpenGL46", GL.GetString(StringName.Renderer));
+        _logger.Information("[{0}] Vendor: {1}", "OpenGL46", GL.GetString(StringName.Vendor));
+        _logger.Information("[{0}] Extensions: {1}", "OpenGL46", GL.GetString(StringName.Extensions));
+
+        if (!int.TryParse(GL.GetString(StringName.ShadingLanguageVersion), out var version) || !(version >= 4.3))
+        {
+            _logger.Warning("[{0}] Debug Callback disabled", "OpenGL46");
+            return;
+        }
 
         GL.DebugMessageCallback(DebugProcCallback, IntPtr.Zero);
         GL.Enable(EnableCap.DebugOutput);

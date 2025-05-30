@@ -19,4 +19,12 @@ public interface ISketch : IComponent
     {
         get;
     }
+
+    void UpdateBoundingBox();
+
+    // int[] Indices
+    // {
+    //     get;
+    // }
+
 }

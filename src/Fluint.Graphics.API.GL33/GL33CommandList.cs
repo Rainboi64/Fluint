@@ -6,7 +6,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Fluint.Graphics.API.GLCommon;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Graphics.API;
 using Fluint.Layer.Mathematics;
 using OpenTK.Graphics.OpenGL4;
@@ -16,12 +18,27 @@ namespace Fluint.Graphics.API.GL33;
 internal class GL33CommandList : ICommandList
 {
     private readonly List<OpenGlCommand> _commandList;
-    private int _currentInputLayout;
+    private readonly ILogger _logger;
+    private GL33InputLayout _currentInputLayout;
     private PrimitiveType _currentPrimitiveType = PrimitiveType.Triangles;
+    private string _passName;
 
-    public GL33CommandList()
+    public GL33CommandList(ILogger logger)
     {
         _commandList = new List<OpenGlCommand>();
+        _logger = logger;
+    }
+
+    public override string ToString()
+    {
+        var stringBuilder = new StringBuilder();
+
+        foreach (var openGlCommand in _commandList)
+        {
+            stringBuilder.AppendLine(openGlCommand.ToString());
+        }
+
+        return stringBuilder.ToString();
     }
 
     public void Begin(string passName, IPipeline pipeline)
@@ -34,13 +51,15 @@ internal class GL33CommandList : ICommandList
 
         _commandList.Add(command);
 
-        if (pipeline != null)
+        if (pipeline == null)
         {
-            SetViewport(pipeline.Viewport);
-            SetProgramPipeline((GL33Pipeline)pipeline);
-            SetInputLayout(pipeline.InputLayout);
-            SetPrimitiveTopology(pipeline.PrimitiveTopology);
+            return;
         }
+
+        SetViewport(pipeline.Viewport);
+        SetProgramPipeline((GL33Pipeline)pipeline);
+        SetInputLayout(pipeline.InputLayout);
+        SetPrimitiveTopology(pipeline.PrimitiveTopology);
     }
 
     public void ClearRenderTarget(TextureView renderTarget, Color4 clearColor)
@@ -239,7 +258,7 @@ internal class GL33CommandList : ICommandList
         var command = new OpenGlCommand
         {
             Type = CommandType.SetViewport,
-            Viewport = GLExtensions.Viewport(viewport)
+            Viewport = viewport
         };
 
         _commandList.Add(command);
@@ -252,18 +271,19 @@ internal class GL33CommandList : ICommandList
             switch (command.Type)
             {
                 case CommandType.Begin:
-                    GL.Enable(EnableCap.DepthTest);
+                    _passName = command.Name;
+
+                    GL.Disable(EnableCap.DepthTest);
                     GL.DepthMask(true);
                     GL.DepthFunc(DepthFunction.Lequal);
-                    GL.DepthRange(0f, 1f);
+                    GL.DepthRange(-1f, 1f);
 
-                    GL.Enable(EnableCap.Blend);
-                    GL.Enable(EnableCap.LineSmooth);
-                    GL.Enable(EnableCap.Multisample);
-                    GL.BlendFunc(BlendingFactor.SrcAlpha, BlendingFactor.OneMinusSrcAlpha);
+                    GL.PolygonMode(MaterialFace.FrontAndBack, PolygonMode.Fill);
                     break;
                 case CommandType.End:
-                    GL.BindVertexArray(0);
+                    // GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+                    // GL.BindBuffer(BufferTarget.UniformBuffer, 0);
+                    // GL.BindVertexArray(0);
                     break;
                 case CommandType.Draw:
                     GL.DrawArrays(_currentPrimitiveType, 0, command.DrawVertexCount);
@@ -273,7 +293,7 @@ internal class GL33CommandList : ICommandList
                         command.DrawVertexCount);
                     break;
                 case CommandType.SetViewport:
-                    GL.Viewport(command.Viewport);
+                    GL.Viewport(GLExtensions.Viewport(command.Viewport));
                     break;
                 case CommandType.SetScissor:
                     GL.Scissor(command.ScissorRectangle.X, command.ScissorRectangle.Y, command.ScissorRectangle.Width,
@@ -283,8 +303,8 @@ internal class GL33CommandList : ICommandList
                     _currentPrimitiveType = command.PrimitiveType;
                     break;
                 case CommandType.SetInputLayout:
-                    GL.BindVertexArray(command.InputLayout);
-                    _currentInputLayout = command.InputLayout;
+                    GL.BindVertexArray((GL33InputLayout)command.InputLayout);
+                    _currentInputLayout = (GL33InputLayout)command.InputLayout;
                     break;
                 case CommandType.SetDepthStencilState:
                     break;
@@ -293,11 +313,11 @@ internal class GL33CommandList : ICommandList
                 case CommandType.SetBlendState:
                     break;
                 case CommandType.SetVertexBuffer:
-                    GL.VertexArrayVertexBuffer(_currentInputLayout, 0, command.VertexBuffer, IntPtr.Zero,
-                        command.VertexStride);
+                    GL.BindBuffer(BufferTarget.ArrayBuffer, command.VertexBuffer);
+                    _currentInputLayout.Enable(command.VertexStride);
                     break;
                 case CommandType.SetIndexBuffer:
-                    GL.VertexArrayElementBuffer(_currentInputLayout, command.IndexBuffer);
+                    GL.BindBuffer(BufferTarget.ElementArrayBuffer, command.IndexBuffer);
                     break;
                 case CommandType.SetVertexShader:
                     break;
@@ -331,7 +351,15 @@ internal class GL33CommandList : ICommandList
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            var error = GL.GetError();
+            if (error != ErrorCode.NoError && error != ErrorCode.InvalidEnum)
+            {
+                _logger.Error("[{0}] (PASS {3}) where {2} caused {1} ", "GL33CommandList", error, command.Type, _passName);
+                throw new EngineApiException("GL33", error.ToString());
+            }
         }
+
     }
 
     public void ClearRenderTarget(TextureView renderTarget, Vector4 clearColor)
@@ -350,7 +378,7 @@ internal class GL33CommandList : ICommandList
         var command = new OpenGlCommand
         {
             Type = CommandType.SetPipeline,
-            Pipeline = pipeline
+            Pipeline = pipeline,
         };
 
         _commandList.Add(command);

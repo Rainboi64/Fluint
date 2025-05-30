@@ -4,114 +4,72 @@
 // Copyright (C) 2022 Yaman Alhalabi
 
 using System;
-using System.Linq;
-using Fluint.Layer.DependencyInjection;
+using System.Threading.Tasks;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Editor.Tools.Sketching;
 using Fluint.Layer.EntityComponentSystem;
 using Fluint.Layer.Graphics.API;
-using Fluint.Layer.Graphics.Common;
 using Fluint.Layer.Graphics.Renderers;
 using Fluint.Layer.Mathematics;
 
 namespace Fluint.Graphics.Base.Renderers;
 
-public class SketchRenderer : ISketchRenderer
+public class SketchRenderer : LineRenderer, ISketchRenderer
 {
-    private readonly IGraphicsFactory _graphicsFactory;
     private readonly ISketchSystem _system;
+    private readonly Vector4 _color = (Vector4)Color.Wheat;
+    private readonly ILogger _logger;
+    private const float LineWidth = 1;
 
-    private ICommandList _commandList;
-    private Shader _fragmentShader;
+    private bool _overflowed = false;
 
-    private IConstantBuffer _lineSetupBuffer;
-
-    private IPipeline _pipeline;
-    private IVertexBuffer _vertexBuffer;
-    private int _vertexCount;
-
-    private Shader _vertexShader;
-
-    public SketchRenderer(ModulePacket packet)
+    public SketchRenderer(IWorld world, IGraphicsFactory factory, ILogger logger) : base(factory, "Sketch Lines")
     {
-        _graphicsFactory = packet.CreateScoped<IGraphicsFactory>();
-
-        var world = packet.GetSingleton<IWorld>();
         _system = world.GetSystem<ISketchSystem, ISketch>();
+        _logger = logger;
     }
 
-    public ModelViewProjection WorldView
+    long map(long x, long in_min, long in_max, long out_min, long out_max)
     {
-        get;
-        set;
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
-
-    public Viewport Viewport
+    
+    public new void PreRender()
     {
-        get;
-        set;
-    }
-
-
-    public void Start()
-    {
-        _commandList = _graphicsFactory.CreateCommandList();
-        _vertexShader = _graphicsFactory.CreateShaderFromFile(
-            ShaderStage.Vertex,
-            "./base/shaders/sketch_lines.vert",
-            VertexType.Position,
-            Enumerable.Empty<(string, string)>());
-
-        _fragmentShader = _graphicsFactory.CreateShaderFromFile(
-            ShaderStage.Pixel,
-            "./base/shaders/sketch_lines.frag",
-            VertexType.Position,
-            Enumerable.Empty<(string, string)>());
-
-        _pipeline = _graphicsFactory.CreatePipeline(
-            _vertexShader,
-            _fragmentShader,
-            _vertexShader.InputLayout,
-            null, null, null,
-            Viewport,
-            PrimitiveTopology.Lines);
-
-        _lineSetupBuffer = _graphicsFactory.CreateConstantBuffer(WorldView);
-        _vertexBuffer = _graphicsFactory.CreateVertexBuffer(Array.Empty<PositionColorVertex>());
-    }
-
-    public void PreRender()
-    {
+        if (_overflowed)
+        {
+            base.PreRender();
+            return;
+        }
+        
         var lineVertices = _system.GetVertices();
+        var vertLen = lineVertices.Length;
+        
+        var colors = _system.GetColors();
+        var colorsLen = colors.Length;
+        
+        var len = Math.Min(lineVertices.Length, BufferObject.Vertex.Length);
+        
+        BufferObject.Vertex = new PositionWidthColorVertex[MaxVertices];
 
-        _lineSetupBuffer.UpdateBuffer(WorldView);
-
-        _vertexCount = lineVertices.Length;
-        _vertexBuffer.Initialize(lineVertices);
-
-        _pipeline.Viewport = Viewport;
-        GenerateCommandList();
+        var sketchesLen = _system.Sketches.Count;
+        Parallel.For(0, len, i =>
+        {
+            BufferObject.Vertex[i] = new PositionWidthColorVertex(lineVertices[i], LineWidth, Color.White.ToVector4());
+        });
+        
+        if (lineVertices.Length > BufferObject.Vertex.Length && !_overflowed)
+        {
+            _logger.Warning("[{0}] Uniform Buffer Exhaustion", "Sketch Renderer");
+            _overflowed = true;
+        }
+        
+        base.PreRender();
     }
 
-    public void Render()
+    public FillMode FillMode
     {
-        _commandList.Submit();
-    }
-
-    public void PostRender()
-    {
-    }
-
-    public void Dispose()
-    {
-    }
-
-    private void GenerateCommandList()
-    {
-        _commandList.Clear();
-        _commandList.Begin("Sketches Lines", _pipeline);
-        _commandList.SetConstantBuffer(_lineSetupBuffer, BufferScope.VertexShader);
-        _commandList.SetVertexBuffer(_vertexBuffer);
-        _commandList.Draw(_vertexCount);
-        _commandList.End();
+        get;
+        set;
     }
 }

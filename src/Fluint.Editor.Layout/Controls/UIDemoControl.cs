@@ -8,9 +8,8 @@ using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Input;
 using Fluint.Layer.UI;
-using Fluint.Layer.Windowing;
 
-namespace Fluint.Editor.Layout.Base.Controls;
+namespace Fluint.Editor.Layout.Controls;
 
 public class UIDemoControl : Control
 {

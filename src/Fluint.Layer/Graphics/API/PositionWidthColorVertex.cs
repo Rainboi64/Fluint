@@ -9,9 +9,6 @@ using Fluint.Layer.Mathematics;
 
 namespace Fluint.Layer.Graphics.API;
 
-/// <summary>
-///     A data structure to be loaded into buffers, contains position, and color.
-/// </summary>
 [StructLayout(LayoutKind.Sequential)]
 public struct PositionWidthColorVertex
 {
@@ -19,9 +16,10 @@ public struct PositionWidthColorVertex
     public float Width;
     public Vector4 Color;
 
-    public PositionWidthColorVertex(Vector3 position, Vector4 color)
+    public PositionWidthColorVertex(Vector3 position, float width, Vector4 color)
     {
         Position = position;
+        Width = width;
         Color = color;
     }
 

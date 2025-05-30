@@ -1,4 +1,4 @@
-#version 410 core
+#version 330 core
 
 out vec4 o_frag_color;
 
@@ -17,5 +17,5 @@ void main()
     float fog_factor = (distance - fog_start) / (fog_end - fog_start);
     fog_factor = 1.0 - clamp(fog_factor, 0, 1);
 
-    o_frag_color = ps_vertex_color * fog_factor;
+    o_frag_color = ps_vertex_color * vec4(fog_factor);
 } 

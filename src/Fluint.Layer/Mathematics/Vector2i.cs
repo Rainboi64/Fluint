@@ -50,6 +50,16 @@ public struct Vector2i : IEquatable<Vector2i>
         return !(left == right);
     }
 
+    public Vector2 ToVector2()
+    {
+        return new Vector2(X, Y);
+    } 
+    
+    public System.Numerics.Vector2 ToNumericsVector2()
+    {
+        return new System.Numerics.Vector2(X, Y);
+    } 
+    
     public override string ToString()
     {
         return $"({X}, {Y})";

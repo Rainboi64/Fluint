@@ -1,6 +1,6 @@
-// 
+//
 // GizmoCube.cs
-// 
+//
 // Copyright (C) 2023 Yaman Alhalabi
 
 using System.Collections.Generic;
@@ -12,10 +12,10 @@ namespace Fluint.Editor.Base.Gizmos;
 
 public class GizmoCube : IGizmoCube
 {
-    public PositionColorVertex[] GenerateVertex()
+    public PositionWidthColorVertex[] GetVertices()
     {
         var corners = Box.GetCorners();
-        var vertices = new List<PositionColorVertex>();
+        var vertices = new List<PositionWidthColorVertex>();
 
         return vertices.ToArray();
     }

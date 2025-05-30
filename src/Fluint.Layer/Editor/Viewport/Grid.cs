@@ -9,11 +9,11 @@ namespace Fluint.Layer.Editor.Viewport;
 
 public class Grid
 {
-    private Vector2i _offsets;
+    private Vector2 _offsets;
     private Vector2i _size;
     private GridType _type;
 
-    public Grid(Vector2i offsets, Vector2i size, GridType type = GridType.XY)
+    public Grid(Vector2 offsets, Vector2i size, GridType type = GridType.XY)
     {
         _offsets = offsets;
         _size = size;
@@ -31,7 +31,7 @@ public class Grid
         }
     }
 
-    public Vector2i Offsets
+    public Vector2 Offsets
     {
         get => _offsets;
         set

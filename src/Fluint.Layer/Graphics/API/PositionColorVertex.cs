@@ -23,4 +23,9 @@ public struct PositionColorVertex
         Position = position;
         Color = color;
     }
+
+    public override string ToString()
+    {
+        return $"Position: {Position}; Color: {Color}";
+    }
 }

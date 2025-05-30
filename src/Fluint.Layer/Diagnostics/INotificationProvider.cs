@@ -9,7 +9,7 @@ using Fluint.Layer.UI;
 namespace Fluint.Layer.Diagnostics;
 
 [Initialization(InitializationMethod.Singleton)]
-public interface IToastProvider : IModule
+public interface INotificationProvider : IModule
 {
     IEnumerable<Notification> Notifications
     {
@@ -18,6 +18,6 @@ public interface IToastProvider : IModule
 
     void AddNotification(Notification notification);
     void AddNotification(NotificationType type, string title, string message);
-    void Subscribe(IToast toast);
-    void Unsubscribe(IToast toast);
+    void Subscribe(INotificationReceiver subscriber);
+    void Unsubscribe(INotificationReceiver subscriber);
 }

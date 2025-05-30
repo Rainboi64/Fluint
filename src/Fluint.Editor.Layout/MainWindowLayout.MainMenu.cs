@@ -3,14 +3,12 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
-using System;
-using System.IO;
-using Fluint.Editor.Layout.Base.Controls;
-using Fluint.Editor.Layout.Base.Controls.Modals;
+using Fluint.Editor.Layout.Controls;
+using Fluint.Editor.Layout.Controls.Modals;
 using Fluint.Layer.Functionality;
 using Fluint.Layer.UI;
 
-namespace Fluint.Editor.Layout.Base;
+namespace Fluint.Editor.Layout;
 
 public partial class MainWindowLayout
 {
@@ -76,7 +74,7 @@ public partial class MainWindowLayout
                 _layer.SpawnControl<SceneHierarchyControl>();
             }
         };
-        _mainMenuToolsSceneHierarchyItem.Text = _localizationManager.Fetch("scene_heirarchy");
+        _mainMenuToolsSceneHierarchyItem.Text = _localizationManager.Fetch("scene_hierarchy");
 
         // Window
         _mainMenuWindowItem = _packet.CreateScoped<IMenuItem>();
@@ -111,23 +109,23 @@ public partial class MainWindowLayout
         {
             () =>
             {
-            //     _window.SpawnControl<MetricsControl>();
-
-            if (!Directory.Exists(LayoutDirectory))
-            {
-                return;
-            }
-
-            var files = Directory.GetFiles(LayoutDirectory);
-                foreach (var path in files)
-                {
-                    var file = Path.GetFileNameWithoutExtension(path);
-                
-                    var node = _packet.CreateScoped<IXmlNode>();
-                    node.Xml = File.ReadAllText(path);
-                    _layer.Controls[file] = node;
-                    node.Begin(file);
-                }
+                _layer.SpawnControl<MetricsControl>();
+            //
+            // if (!Directory.Exists(LayoutDirectory))
+            // {
+            //     return;
+            // }
+            //
+            // var files = Directory.GetFiles(LayoutDirectory);
+            //     foreach (var path in files)
+            //     {
+            //         var file = Path.GetFileNameWithoutExtension(path);
+            //     
+            //         var node = _packet.CreateScoped<IXmlNode>();
+            //         node.Xml = File.ReadAllText(path);
+            //         _layer.Controls[file] = node;
+            //         node.Begin(file);
+            //     }
             }
         };
 

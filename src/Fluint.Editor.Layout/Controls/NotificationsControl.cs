@@ -8,9 +8,8 @@ using System.Collections.Generic;
 using Fluint.Layer.DependencyInjection;
 using Fluint.Layer.Diagnostics;
 using Fluint.Layer.UI;
-using Fluint.Layer.Windowing;
 
-namespace Fluint.Editor.Layout.Base.Controls;
+namespace Fluint.Editor.Layout.Controls;
 
 public class NotificationsControl : Control, INotificationReceiver
 {

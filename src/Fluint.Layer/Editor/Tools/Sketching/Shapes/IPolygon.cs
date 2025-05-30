@@ -1,6 +1,6 @@
-// 
+//
 // IPolygon.cs
-// 
+//
 // Copyright (C) 2023 Yaman Alhalabi
 
 using Fluint.Layer.Mathematics;
@@ -16,13 +16,18 @@ public interface IPolygon : ISketch, IModule
         set;
     }
 
+    float Depth
+    {
+        get;
+        set;
+    }
+
     Vector3 Center
     {
         get;
         set;
     }
 
-    // Ironically circles don't have corners -_-
     Vector3 Corner
     {
         get;

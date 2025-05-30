@@ -13,13 +13,13 @@ namespace Fluint.Editor.Base.Gizmos;
 
 public class GizmoCylinder : IGizmoCylinder
 {
-    public PositionColorVertex[] GenerateVertex()
+    public PositionWidthColorVertex[] GetVertices()
     {
         var points = new List<Vector3>();
         var color = (Vector4)Color;
-        var center = new PositionColorVertex(Center, color);
+        var center = new PositionWidthColorVertex(Center, 3, color);
         var offset = Vector3.UnitZ * Height;
-        var tip = new PositionColorVertex(Center + offset, color);
+        var tip = new PositionWidthColorVertex(Center + offset, 3, color);
 
         var angle = MathF.Tau / BaseSegments;
 
@@ -37,16 +37,16 @@ public class GizmoCylinder : IGizmoCylinder
         if (IsCone)
         {
             var count = points.Count;
-            var vertices = new List<PositionColorVertex>();
+            var vertices = new List<PositionWidthColorVertex>();
             for (var i = 0; i < count; i++)
             {
-                vertices.Add(new PositionColorVertex(points[i % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count], 3, color));
                 vertices.Add(center);
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count], 3, color));
 
-                vertices.Add(new PositionColorVertex(points[i % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count], 3, color));
                 vertices.Add(tip);
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count], 3, color));
             }
 
             return vertices.ToArray();
@@ -54,27 +54,27 @@ public class GizmoCylinder : IGizmoCylinder
         else
         {
             var count = points.Count;
-            var vertices = new List<PositionColorVertex>();
+            var vertices = new List<PositionWidthColorVertex>();
             for (var i = 0; i < count; i++)
             {
                 // Bottom
-                vertices.Add(new PositionColorVertex(points[i % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count], 3, color));
                 vertices.Add(center);
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count], 3, color));
 
                 // Top
-                vertices.Add(new PositionColorVertex(points[i % count] + offset, color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count] + offset, 3, color));
                 vertices.Add(tip);
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count] + offset, color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count] + offset, 3, color));
 
                 // Sides
-                vertices.Add(new PositionColorVertex(points[i % count], color));
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count], color));
-                vertices.Add(new PositionColorVertex(points[i % count] + offset, color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count], 3, color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count], 3, color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count] + offset, 3, color));
 
-                vertices.Add(new PositionColorVertex(points[i % count] + offset, color));
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count] + offset, color));
-                vertices.Add(new PositionColorVertex(points[(i + 1) % count], color));
+                vertices.Add(new PositionWidthColorVertex(points[i % count] + offset, 3, color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count] + offset, 3, color));
+                vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count], 3, color));
             }
 
             return vertices.ToArray();

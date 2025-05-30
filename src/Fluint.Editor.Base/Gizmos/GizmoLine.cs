@@ -11,9 +11,9 @@ namespace Fluint.Editor.Base.Gizmos;
 
 public class GizmoLine : IGizmoLine
 {
-    public PositionColorVertex[] GenerateVertex()
+    public PositionWidthColorVertex[] GetVertices()
     {
-        return new PositionColorVertex[] { new(Start, (Vector4)Color), new(End, (Vector4)Color) };
+        return new PositionWidthColorVertex[] { new(Start, Width, (Vector4)Color), new(End, Width, (Vector4)Color) };
     }
 
     public Vector3 Start
@@ -28,9 +28,20 @@ public class GizmoLine : IGizmoLine
         set;
     }
 
+    public float Width
+    {
+        get;
+        set;
+    }
+
     public Color Color
     {
         get;
         set;
+    }
+
+    public override string ToString()
+    {
+        return $"Start: {Start}, end: {End}";
     }
 }

@@ -28,25 +28,7 @@ public class Adopt : ILambda
 
     public LambdaObject Run(string[] args)
     {
-        var exists = _packet
-            .CurrentRuntime
-            .Parent.Instances
-            .Values
-            .OfType<Instance>()
-            .Any();
-
-        if (exists)
-        {
-            Console.WriteLine();
-            return LambdaObject.Error("Fluint instance already exists");
-        }
-
-        var id = _packet.CurrentRuntime.Parent.CreateInstance<Instance>();
-        new Thread(() =>
-        {
-            _packet.CurrentRuntime.Parent.Start(id);
-        }).Start();
-
-        return new LambdaObject("{id}\n");
+        
+        return new LambdaObject("1");
     }
 }

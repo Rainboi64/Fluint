@@ -5,7 +5,7 @@
 
 namespace Fluint.Layer.Diagnostics;
 
-public class INotificationReceiver
+public interface INotificationReceiver
 {
-    
+    public void AddNotification(Notification notification);
 }

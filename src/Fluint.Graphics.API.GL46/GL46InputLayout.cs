@@ -12,20 +12,16 @@ namespace Fluint.Graphics.API.GL46;
 
 public class GL46InputLayout : IInputLayout
 {
-    private readonly IEnumerable<GLVertexAttribute> _attributes;
     private readonly int _handle;
 
     public GL46InputLayout(IEnumerable<GLVertexAttribute> attributes)
     {
-        _attributes = attributes;
-
         GL.CreateVertexArrays(1, out _handle);
         GL.BindVertexArray(_handle);
-        foreach (var attribute in _attributes)
+        foreach (var attribute in attributes)
         {
             GL.EnableVertexArrayAttrib(_handle, attribute.Index);
-            GL.VertexArrayAttribFormat(_handle, attribute.Index, attribute.Components, attribute.Type, false,
-                attribute.Offset);
+            GL.VertexArrayAttribFormat(_handle, attribute.Index, attribute.Components, attribute.Type, false, attribute.Offset);
             GL.VertexArrayAttribBinding(_handle, attribute.Index, 0);
         }
     }

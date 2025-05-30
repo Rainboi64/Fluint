@@ -25,7 +25,11 @@ public class Spline : ISpline
 
     public BoundingBox BoundingBox => BoundingBox.FromPoints(new[] { Start, End });
     public Vector3[] Vertices => new[] { Start, End };
-
+    
+    public void UpdateBoundingBox()
+    {
+    }
+    
     public IEntity Entity
     {
         get;

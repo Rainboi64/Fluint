@@ -9,6 +9,7 @@ using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.StateManagement;
+using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 
 namespace Fluint.Layer.Editor.Viewport;
@@ -16,12 +17,6 @@ namespace Fluint.Layer.Editor.Viewport;
 [Initialization(InitializationMethod.Scoped)]
 public interface IViewportContext : IModule, IStatefulContext
 {
-    IWindow Window
-    {
-        get;
-        set;
-    }
-
     ICamera Camera
     {
         get;
@@ -48,6 +43,12 @@ public interface IViewportContext : IModule, IStatefulContext
     }
 
     Vector2i Location
+    {
+        get;
+        set;
+    }
+
+    UIContext UIContext
     {
         get;
         set;

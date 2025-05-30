@@ -3,9 +3,16 @@
 // 
 // Copyright (C) 2023 Yaman Alhalabi
 
+using Fluint.Layer.Diagnostics;
+
 namespace Fluint.Layer.UI;
 
-public interface INotificationItem
+[Initialization(InitializationMethod.Scoped)]
+public interface INotificationItem : IGuiComponent, IModule
 {
-    
+    Notification Info
+    {
+        get;
+        set;
+    }
 }

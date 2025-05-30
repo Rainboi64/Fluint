@@ -25,7 +25,7 @@ public class GizmoCircularPolygon : IGizmoCircularPolygon
         set;
     }
 
-    public float Radius
+    public Vector3 Corner
     {
         get;
         set;
@@ -37,28 +37,32 @@ public class GizmoCircularPolygon : IGizmoCircularPolygon
         set;
     }
 
-    public PositionColorVertex[] GenerateVertex()
+    public Color Color
+    {
+        get;
+        set;
+    }
+
+    public PositionWidthColorVertex[] GetVertices()
     {
         var points = new List<Vector3>();
-        var center = new PositionColorVertex(Center, Vector4.One);
         var angle = MathF.Tau / Sides;
 
-        for (var i = 0; i < Sides; i += Skip)
+        var a0 = angle / (1.0f + Sides % 2);
+
+        for (var i = 0; i < Sides; i++)
         {
-            var n = i % Sides * angle;
-            var point =
-                new Vector3(
-                    Center.X + MathF.Cos(n) * Radius,
-                    Center.Y + MathF.Sin(n) * Radius,
-                    Center.Z);
+            var n = a0 + i % Sides * angle;
+            var point = Center + Vector3.Transform(Center - Corner, Quaternion.RotationAxis(Vector3.Cross(Center, Corner), n));
             points.Add(point);
         }
 
         var count = points.Count;
-        var vertices = new List<PositionColorVertex>();
-        for (var i = 0; i < count; i++)
+        var vertices = new List<PositionWidthColorVertex>();
+        for (var i = 0; i < count; i += 1)
         {
-            vertices.Add(new PositionColorVertex(points[i % count], Vector4.One));
+            vertices.Add(new PositionWidthColorVertex(points[i % count], 1, Color.ToVector4()));
+            vertices.Add(new PositionWidthColorVertex(points[(i + 1) % count], 1, Color.ToVector4()));
         }
 
         return vertices.ToArray();

@@ -3,10 +3,12 @@
 // 
 // Copyright (C) 2022 Yaman Alhalabi
 
+using Fluint.Layer.Diagnostics;
+
 namespace Fluint.Layer.UI;
 
-[Initialization(InitializationMethod.Singleton)]
-public interface IToast : IGuiComponent, IModule
+[Initialization(InitializationMethod.Scoped)]
+public interface IToast : IGuiComponent, INotificationReceiver, IModule
 {
-    void AddNotification(NotificationType type, string title, string message);
+    
 }

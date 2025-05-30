@@ -1,6 +1,6 @@
-// 
+//
 // Polygon.cs
-// 
+//
 // Copyright (C) 2023 Yaman Alhalabi
 
 using System;
@@ -15,6 +15,7 @@ public class Polygon : IPolygon
 {
     private Vector3 _center = Vector3.Zero;
     private Vector3 _corner = Vector3.One;
+    private float _depth = 0;
     private int _segments = 16;
     private Vector3 _up = Vector3.Up;
 
@@ -42,6 +43,15 @@ public class Polygon : IPolygon
         set
         {
             _segments = Math.Max(value, 1);
+            Update();
+        }
+    }
+
+    public float Depth
+    {
+        get => _depth;
+        set {
+            _depth = value;
             Update();
         }
     }
@@ -78,11 +88,12 @@ public class Polygon : IPolygon
 
     private void Update()
     {
+        
         if (_segments == 1)
         {
-            BoundingBox = BoundingBox.FromPoints(new[] { _center, _corner });
             Vertices = new[]
                 { _center, _corner };
+            BoundingBox = Layer.Mathematics.BoundingBox.FromPoints(Vertices);
 
             return;
         }
@@ -92,22 +103,52 @@ public class Polygon : IPolygon
 
         var a0 = angle / (1.0f + _segments % 2);
 
-        for (var i = 0; i < _segments; i += 1)
+        for (var i = 0; i < _segments; i++)
         {
             var n = a0 + i % _segments * angle;
             var point = _center + Vector3.Transform(_center - _corner, Quaternion.RotationAxis(_up, n));
             points.Add(point);
+
         }
 
         var count = points.Count;
         var vertices = new List<Vector3>();
-        for (var i = 0; i < count; i++)
+        for (var i = 0; i < count; i += 1)
         {
+            if(_depth != 0) {
+                vertices.Add(points[i % count]);
+                vertices.Add(points[i % count] + _up * _depth);
+
+                vertices.Add(points[(i + 1) % count]);
+                vertices.Add(points[(i + 1) % count] + _up * _depth);
+
+                vertices.Add(points[i % count]);
+                vertices.Add(points[(i + 1) % count]);
+
+                vertices.Add(points[i % count] + _up * _depth);
+                vertices.Add(points[(i + 1) % count] + _up * _depth);
+            }
+
             vertices.Add(points[i % count]);
             vertices.Add(points[(i + 1) % count]);
         }
 
-        BoundingBox = BoundingBox.FromPoints(new[] { _center - _corner, _center + _center });
         Vertices = vertices.ToArray();
+        UpdateBoundingBox();
     }
+    
+    
+    public void UpdateBoundingBox()
+    {
+        var bb = BoundingBox.FromPoints(Vertices);
+        
+        const float padding = 0.1f;
+        var b = Vector3.One * padding;
+        
+        var min = bb.Minimum;
+        var max = bb.Maximum + b;
+
+        BoundingBox = new BoundingBox(min, max);
+    }
+
 }

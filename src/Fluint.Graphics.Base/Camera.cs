@@ -124,4 +124,9 @@ public class Camera : ICamera
         Right = Vector3.Normalize(Vector3.Cross(Front, Vector3.UnitY));
         Up = Vector3.Normalize(Vector3.Cross(Right, Front));
     }
+
+    public override string ToString()
+    {
+        return $"Projection: ${ProjectionMode} Position: {Position} Front: {Front} Up: {Up} Right: {Right} Zoom: {Zoom} Fov: {Fov} Yaw: {Yaw} Pitch: {Pitch} Viewport: {Viewport}";
+    }
 }

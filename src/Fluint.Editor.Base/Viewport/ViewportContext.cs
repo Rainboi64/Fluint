@@ -13,6 +13,7 @@ using Fluint.Layer.Graphics;
 using Fluint.Layer.Input;
 using Fluint.Layer.Mathematics;
 using Fluint.Layer.StateManagement;
+using Fluint.Layer.UI;
 using Fluint.Layer.Windowing;
 
 namespace Fluint.Editor.Base.Viewport;
@@ -30,12 +31,6 @@ public class ViewportContext : IViewportContext
         _configurationManager = packet.GetSingleton<IConfigurationManager>();
         BindingsManager = packet.CreateScoped<IBindingsManager>();
         InputManager = packet.CreateScoped<IInputManager>();
-    }
-
-    public IWindow Window
-    {
-        get;
-        set;
     }
 
     public ICamera Camera
@@ -73,6 +68,12 @@ public class ViewportContext : IViewportContext
         set;
     }
 
+    public UIContext UIContext
+    {
+        get;
+        set;
+    }
+
     public bool Focused
     {
         get;
@@ -92,11 +93,11 @@ public class ViewportContext : IViewportContext
         Camera.ProjectionMode = cameraConfig.ProjectionMode;
         Camera.Position = new Vector3(0, 0, 0);
         Camera.Zoom = cameraConfig.Zoom;
-        Camera.Pitch = 90;
+        Camera.Pitch = -90;
 
         _viewportRenderer.Start();
 
-        InputManager = Window.InputManager;
+        InputManager = UIContext.Window.InputManager;
         BindingsManager.InputManager = InputManager;
 
         var tools = _packet.GetInstances<ITool>();
@@ -108,7 +109,7 @@ public class ViewportContext : IViewportContext
 
     public void Update()
     {
-        OnTick?.Invoke(this, new TickEventArgs(Window.FrameTime));
+        OnTick?.Invoke(this, new TickEventArgs(UIContext.Window.FrameTime));
         _viewportRenderer.Render();
     }
 

@@ -1,6 +1,6 @@
-// 
+//
 // MouseCapture.cs
-// 
+//
 // Copyright (C) 2021 Yaman Alhalabi
 
 using System;
@@ -13,7 +13,8 @@ namespace Fluint.Input.Base;
 public class MouseCapture : IMouseCapture
 {
     private const int Trigger = 2;
-    private const int Padding = 2;
+    private const int Padding = 16;
+
     private Vector2 _delta;
     private IInputManager _inputManager;
     private Vector2 _lastMousePosition = Vector2.Zero;
@@ -47,12 +48,12 @@ public class MouseCapture : IMouseCapture
     {
         _screenSize = _window.ScreenSize;
 
-        if (_screenSize.X - _mouseLocation.X <= Trigger)
+        if (_screenSize.X - _mouseLocation.X < Trigger)
         {
             _inputManager.MouseLocation = new Vector2(Padding - _windowLocation.X, _inputManager.MouseLocation.Y);
             _delta.X -= _screenSize.X;
         }
-        else if (_mouseLocation.X <= Trigger)
+        else if (_mouseLocation.X < Trigger)
         {
             _inputManager.MouseLocation = new Vector2(_screenSize.X - Padding, _inputManager.MouseLocation.Y);
             _delta.X += _screenSize.X;

@@ -18,7 +18,7 @@ public class BindingsManager : IBindingsManager
     {
         new Binding { Tag = "GRID_SIZE_INCREASE", MainCombination = new[] { Key.KeyPadAdd, Key.LeftControl } },
         new Binding { Tag = "SAVE_CONFIG", MainCombination = new[] { Key.S, Key.LeftControl } },
-        new Binding { Tag = "SKETCH_ENABLE", MainCombination = new[] { Key.S, Key.LeftAlt } },
+        new Binding { Tag = "SKETCH_ENABLE", MainCombination = new[] { Key.S, Key.B } },
         new Binding { Tag = "MOVE_CAMERA", MainCombination = new[] { Key.Space } }
     };
 

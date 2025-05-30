@@ -3,6 +3,7 @@
 // 
 // Copyright (C) 2021 Yaman Alhalabi
 
+using System;
 using System.Runtime.InteropServices;
 using Fluint.Layer.Graphics.API;
 using OpenTK.Graphics.OpenGL4;
@@ -15,7 +16,7 @@ public class GL33VertexBuffer : IVertexBuffer
 
     public GL33VertexBuffer()
     {
-        GL.CreateBuffers(1, out _handle);
+        GL.GenBuffers(1, out _handle);
     }
 
     public int VertexStride
@@ -32,9 +33,9 @@ public class GL33VertexBuffer : IVertexBuffer
     public void Initialize<T>(T[] vertices) where T : struct
     {
         VertexStride = Marshal.SizeOf<T>();
-
+        
         Bind();
-        GL.BufferData(BufferTarget.ArrayBuffer, 1, vertices, BufferUsageHint.DynamicDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, Math.Max(VertexStride * vertices.Length, 1), vertices, BufferUsageHint.DynamicDraw);
     }
 
     public static IVertexBuffer Create<T>(T[] vertices) where T : struct

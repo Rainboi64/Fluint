@@ -7,13 +7,13 @@
 using System;
 using System.Collections.Concurrent;
 using Fluint.Layer.Mathematics;
+using Fluint.Layer.Windowing;
 
-namespace Fluint.Layer.Windowing;
+namespace Fluint.Layer.Graphics.API;
 
 [Initialization(InitializationMethod.Scoped)]
 public interface IWindowProvider : IModule
 {
-    // TODO: Flesh this shit out completely.
     IWindow Client
     {
         get;
@@ -69,8 +69,7 @@ public interface IWindowProvider : IModule
     }
 
     public void SetMouseLocation(Vector2 location);
-
-    public void Adopt<TClient>() where TClient : IWindow;
+    public void Adopt(IWindow window);
     public void Start();
     void Close();
 }

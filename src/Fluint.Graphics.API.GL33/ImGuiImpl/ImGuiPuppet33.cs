@@ -22,7 +22,7 @@ using Vector2 = System.Numerics.Vector2;
 
 namespace Fluint.Graphics.API.GL33.ImGuiImpl;
 
-public class ImGuiPuppet : IPuppet
+public class ImGuiPuppet33 : IPuppet
 {
     private readonly IConfigurationManager _configurationManager;
 
@@ -32,15 +32,15 @@ public class ImGuiPuppet : IPuppet
     private readonly List<char> _pressedChars = new();
 
 
-    private readonly Vector2 _scaleFactor = Vector2.One;
+    private  Vector2 _scaleFactor = Vector2.One;
 
-    private ImGuiTexture _fontTexture;
+    private ImGuiTexture33 _fontTexture33;
     private bool _frameBegun;
     private int _indexBuffer;
     private int _indexBufferSize;
 
     private IWindow _possessedWindow;
-    private ImGuiShader _shader;
+    private ImGuiShader33 _shader33;
 
     private int _vertexArray;
     private int _vertexBuffer;
@@ -49,13 +49,13 @@ public class ImGuiPuppet : IPuppet
 
     private int _windowWidth;
 
-    public ImGuiPuppet(ILogger logger, IConfigurationManager configurationManager)
+    public ImGuiPuppet33(ILogger logger, IConfigurationManager configurationManager)
     {
         _logger = logger;
         _configurationManager = configurationManager;
     }
 
-    public void SetPossessed(in IWindow possessor)
+    public void SetPossessed(IWindow possessor)
     {
         _possessedWindow = possessor;
     }
@@ -82,23 +82,23 @@ public class ImGuiPuppet : IPuppet
             var builder =
                 new ImFontGlyphRangesBuilderPtr(ImGuiNative.ImFontGlyphRangesBuilder_ImFontGlyphRangesBuilder());
             builder.AddRanges(io.Fonts.GetGlyphRangesDefault());
-        
+            
             builder.AddText(
                 "Α α Β β Γ γ Δ δ Ε ε Ζ ζ Η η Θ θ Ι ι Κ κ Λ λ Μ μ Ν ν Ξ ξ Ο ο Π π Ρ ρ Σ σ ς Τ τ Υ υ Φ φ Χ χ Ψ ψ Ω ω");
-        
+            
             builder.BuildRanges(out var ranges);
-        
+            
             foreach (var font in config.Fonts)
             {
                 if (!File.Exists(font.FontPath))
                 {
-                    _logger.Error("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiPuppet33",
+                    _logger.Warning("[{0}] Configuration Error font file doesn't exist ({1}, {2})", "ImGuiPuppet33",
                         font.FontPath, font.FontSize);
                 }
-        
+            
                 io.Fonts.AddFontFromFileTTF(font.FontPath, font.FontSize, null, ranges.Data);
             }
-        
+            
             io.Fonts.Build();
         }
 
@@ -123,7 +123,7 @@ public class ImGuiPuppet : IPuppet
     ///     or index data has increased beyond the capacity of the existing buffers.
     ///     A <see cref="GL46CommandList" /> is needed to submit drawing and resource update commands.
     /// </summary>
-    public void OnRender(double delay)
+    public void PreRender(double delay)
     {
         if (!_frameBegun)
         {
@@ -138,7 +138,7 @@ public class ImGuiPuppet : IPuppet
     /// <summary>
     ///     Updates ImGui input and IO configuration state.
     /// </summary>
-    public void OnUpdate(double delay)
+    public void PreUpdate(double delay)
     {
         if (_frameBegun)
         {
@@ -176,11 +176,11 @@ public class ImGuiPuppet : IPuppet
         var io = ImGui.GetIO();
 
         io.Fonts.GetTexDataAsRGBA32(out IntPtr pixels, out var width, out var height, out var bytesPerPixel);
-        _fontTexture = new ImGuiTexture("ImGui Text Atlas", width, height, pixels);
-        _fontTexture.SetMagFilter(TextureMagFilter.Linear);
-        _fontTexture.SetMinFilter(TextureMinFilter.Linear);
+        _fontTexture33 = new ImGuiTexture33("ImGui Text Atlas", width, height, pixels);
+        _fontTexture33.SetMagFilter(TextureMagFilter.Linear);
+        _fontTexture33.SetMinFilter(TextureMinFilter.Linear);
 
-        io.Fonts.SetTexID((IntPtr)_fontTexture.GlTexture);
+        io.Fonts.SetTexID((IntPtr)_fontTexture33.GlTexture);
 
         io.Fonts.ClearTexData();
     }
@@ -193,6 +193,8 @@ public class ImGuiPuppet : IPuppet
     {
         var io = ImGui.GetIO();
 
+        _scaleFactor = new Vector2(_possessedWindow.ScaleRate.X, _possessedWindow.ScaleRate.Y);
+        
         io.DisplaySize = new Vector2(
             _windowWidth / _scaleFactor.X,
             _windowHeight / _scaleFactor.Y);
@@ -268,9 +270,6 @@ public class ImGuiPuppet : IPuppet
         Util.CreateVertexBuffer("ImGui", out _vertexBuffer);
         Util.CreateElementBuffer("ImGui", out _indexBuffer);
     
-        GL.BufferData(BufferTarget.ArrayBuffer, _vertexBufferSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
-        GL.BufferData(BufferTarget.ElementArrayBuffer, _indexBufferSize, IntPtr.Zero, BufferUsageHint.DynamicDraw);
-
         RecreateFontDeviceTexture();
 
         var VertexSource = @"#version 330 core
@@ -303,7 +302,7 @@ void main()
 {
     outputColor = color * texture(in_fontTexture, texCoord);
 }";
-        _shader = new ImGuiShader("ImGui", VertexSource, FragmentSource);
+        _shader33 = new ImGuiShader33("ImGui", VertexSource, FragmentSource);
 
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBuffer);
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _indexBuffer);
@@ -318,18 +317,18 @@ void main()
         GL.VertexAttribPointer(2, 4, VertexAttribPointerType.UnsignedByte, true, Unsafe.SizeOf<ImDrawVert>(), 16);
     }
 
-    private void RenderImDrawData(ImDrawDataPtr draw_data)
-{
-    if (draw_data.CmdListsCount == 0)
+    private void RenderImDrawData(ImDrawDataPtr drawData)
+    {
+    if (drawData.CmdListsCount == 0)
     {
         return;
     }
 
-    for (var i = 0; i < draw_data.CmdListsCount; i++)
+    for (var i = 0; i < drawData.CmdListsCount; i++)
     {
-        var cmd_list = draw_data.CmdListsRange[i];
+        var cmdList = drawData.CmdListsRange[i];
 
-        var vertexSize = cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>();
+        var vertexSize = cmdList.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>();
         if (vertexSize > _vertexBufferSize)
         {
             var newSize = (int)Math.Max(_vertexBufferSize * 1.5f, vertexSize);
@@ -341,7 +340,7 @@ void main()
                 _vertexBufferSize);
         }
 
-        var indexSize = cmd_list.IdxBuffer.Size * sizeof(ushort);
+        var indexSize = cmdList.IdxBuffer.Size * sizeof(ushort);
         if (indexSize > _indexBufferSize)
         {
             var newSize = (int)Math.Max(_indexBufferSize * 1.5f, indexSize);
@@ -357,20 +356,20 @@ void main()
     // Setup orthographic projection matrix into our constant buffer
     var io = ImGui.GetIO();
     var mvp = Matrix4.CreateOrthographicOffCenter(
-        0,
+        0.0f,
         io.DisplaySize.X,
         io.DisplaySize.Y,
         0.0f,
         -1.0f,
         1.0f);
 
-    _shader.UseShader();
-    GL.UniformMatrix4(_shader.GetUniformLocation("projection_matrix"), false, ref mvp);
-    GL.Uniform1(_shader.GetUniformLocation("in_fontTexture"), 0);
+    _shader33.UseShader();
+    GL.UniformMatrix4(_shader33.GetUniformLocation("projection_matrix"), false, ref mvp);
+    GL.Uniform1(_shader33.GetUniformLocation("in_fontTexture"), 0);
 
     GL.BindVertexArray(_vertexArray);
 
-    draw_data.ScaleClipRects(io.DisplayFramebufferScale);
+    drawData.ScaleClipRects(io.DisplayFramebufferScale);
 
     GL.Enable(EnableCap.Blend);
     GL.Enable(EnableCap.ScissorTest);
@@ -380,23 +379,23 @@ void main()
     GL.Disable(EnableCap.DepthTest);
 
     // Render command lists
-    for (var n = 0; n < draw_data.CmdListsCount; n++)
+    for (var n = 0; n < drawData.CmdListsCount; n++)
     {
-        var cmd_list = draw_data.CmdListsRange[n];
+        var cmdList = drawData.CmdListsRange[n];
 
         GL.BindBuffer(BufferTarget.ArrayBuffer, _vertexBuffer);
-        GL.BufferData(BufferTarget.ArrayBuffer, cmd_list.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>(),
-            cmd_list.VtxBuffer.Data, BufferUsageHint.DynamicDraw);
+        GL.BufferData(BufferTarget.ArrayBuffer, cmdList.VtxBuffer.Size * Unsafe.SizeOf<ImDrawVert>(),
+            cmdList.VtxBuffer.Data, BufferUsageHint.DynamicDraw);
         GL.BindBuffer(BufferTarget.ElementArrayBuffer, _indexBuffer);
-        GL.BufferData(BufferTarget.ElementArrayBuffer, cmd_list.IdxBuffer.Size * sizeof(ushort),
-            cmd_list.IdxBuffer.Data, BufferUsageHint.DynamicDraw);
+        GL.BufferData(BufferTarget.ElementArrayBuffer, cmdList.IdxBuffer.Size * sizeof(ushort),
+            cmdList.IdxBuffer.Data, BufferUsageHint.DynamicDraw);
 
         var vtx_offset = 0;
         var idx_offset = 0;
 
-        for (var cmd_i = 0; cmd_i < cmd_list.CmdBuffer.Size; cmd_i++)
+        for (var cmd_i = 0; cmd_i < cmdList.CmdBuffer.Size; cmd_i++)
         {
-            var pcmd = cmd_list.CmdBuffer[cmd_i];
+            var pcmd = cmdList.CmdBuffer[cmd_i];
             if (pcmd.UserCallback != IntPtr.Zero)
             {
                 throw new NotImplementedException();
@@ -404,16 +403,9 @@ void main()
 
             GL.ActiveTexture(TextureUnit.Texture0);
             GL.BindTexture(TextureTarget.Texture2D, (int)pcmd.TextureId);
-
-            float dpiScale = 1;
-
+            
             // We do _windowHeight - (int)clip.W instead of (int)clip.Y because gl has flipped Y when it comes to these coordinates
             var clip = pcmd.ClipRect;
-            clip.X *= dpiScale;
-            clip.Y *= dpiScale;
-            clip.Z *= dpiScale;
-            clip.W *= dpiScale;
-            
             GL.Scissor((int)clip.X, _windowHeight - (int)clip.W, (int)(clip.Z - clip.X),
                 (int)(clip.W - clip.Y));
 
@@ -431,7 +423,7 @@ void main()
             idx_offset += (int)pcmd.ElemCount;
         }
 
-        vtx_offset += cmd_list.VtxBuffer.Size;
+        vtx_offset += cmdList.VtxBuffer.Size;
     }
 
     GL.BindVertexArray(0);
@@ -447,7 +439,7 @@ void main()
     /// </summary>
     public void Dispose()
     {
-        _fontTexture.Dispose();
-        _shader.Dispose();
+        _fontTexture33.Dispose();
+        _shader33.Dispose();
     }
 }

@@ -16,10 +16,7 @@ public interface IGuiInstanceManager : IModule
     {
         get;
     }
-
-    /// <summary>
-    ///     please don't call outside provider.
-    /// </summary>
-    /// <param name="window"></param>
+    
+    
     void Adopt(in IWindow window);
 }

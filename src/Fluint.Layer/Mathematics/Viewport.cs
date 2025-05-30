@@ -15,7 +15,7 @@ namespace Fluint.Layer.Mathematics;
 ///     Defines the viewport dimensions.
 /// </summary>
 [StructLayout(LayoutKind.Sequential, Pack = 4)]
-public struct Viewport : IEquatable<Viewport>
+public class Viewport : IEquatable<Viewport>
 {
     /// <summary>
     ///     Position of the pixel coordinate of the upper-left corner of the viewport.

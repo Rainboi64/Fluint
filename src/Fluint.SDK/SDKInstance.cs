@@ -49,7 +49,6 @@ public class SdkInstance : IRuntime
     public void Start()
     {
         var listener = Packet.CreateScoped<ILambdaListener>();
-
         listener.Listen();
     }
 

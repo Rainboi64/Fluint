@@ -8,13 +8,15 @@ using System.Collections.Generic;
 using System.Numerics;
 using Fluint.Layer.Configuration;
 using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Diagnostics;
 using Fluint.Layer.Localization;
 using Fluint.Layer.UI;
 using ImGuiNET;
 
 namespace Fluint.UI.Base;
 
-public class Toast : IToast
+public class 
+    Toast : IToast
 {
     private const int DefaultLifeCycle = 12;
 
@@ -26,21 +28,25 @@ public class Toast : IToast
         NotificationFlags = ImGuiWindowFlags.AlwaysAutoResize | ImGuiWindowFlags.NoDecoration | ImGuiWindowFlags.NoNav |
                             ImGuiWindowFlags.NoInputs | ImGuiWindowFlags.NoSavedSettings;
 
-    private readonly List<Notification> _notifications = new();
+    private readonly List<ToastNotification> _notifications = new();
+    private readonly INotificationProvider _provider;
     private readonly ModulePacket _packet;
+    
     private ILocalizationManager _localizationManager;
     private ThemeConfiguration _theme;
 
     public Toast(ModulePacket packet)
     {
         _packet = packet;
+        _provider = _packet.GetSingleton<INotificationProvider>();
+        _provider.Subscribe(this);
     }
-
-    public void AddNotification(NotificationType type, string title, string message)
+    
+    ~Toast()
     {
-        _notifications.Add(new Notification(type, title, message));
+        _provider.Unsubscribe(this);
     }
-
+    
     public string Name
     {
         get;
@@ -56,7 +62,7 @@ public class Toast : IToast
 
     public void Tick()
     {
-        var purgeList = new List<Notification>();
+        var purgeList = new List<ToastNotification>();
 
         var size = ImGui.GetMainViewport().Size;
 
@@ -110,31 +116,18 @@ public class Toast : IToast
         }
     }
 
-    private class Notification
+    public void AddNotification(Notification notification)
     {
-        public Notification(NotificationType type, string title, string message)
+        _notifications.Add(new ToastNotification(notification.Type, notification.Title, notification.Message));
+    }
+    
+    private class ToastNotification : Notification
+    {
+        public ToastNotification(NotificationType type, string title, string message) : base(type, title, message)
         {
-            Type = type;
-            Title = title;
-            Message = message;
             LifeCycle = DefaultLifeCycle;
         }
-
-        public NotificationType Type
-        {
-            get;
-        }
-
-        public string Title
-        {
-            get;
-        }
-
-        public string Message
-        {
-            get;
-        }
-
+        
         public float LifeCycle
         {
             get;

@@ -9,5 +9,5 @@ namespace Fluint.Layer.Editor.Gizmos;
 
 public interface IGizmo
 {
-    PositionColorVertex[] GenerateVertex();
+    PositionWidthColorVertex[] GetVertices();
 }

@@ -1,6 +1,7 @@
-// 
+
+//
 // ViewportRenderer.cs
-// 
+//
 // Copyright (C) 2022 Yaman Alhalabi
 
 using Fluint.Layer.DependencyInjection;
@@ -17,6 +18,7 @@ namespace Fluint.Editor.Base;
 public class ViewportRenderer : IViewportRenderer
 {
     private readonly ICommandList _commandList;
+    private readonly Layer.Mathematics.Viewport _viewport;
 
     public ViewportRenderer(ModulePacket packet)
     {
@@ -25,14 +27,21 @@ public class ViewportRenderer : IViewportRenderer
         Pipeline = packet.CreateScoped<IRenderingPipeline>();
         _commandList = packet.CreateScoped<IGraphicsFactory>().CreateCommandList();
 
-        Grid = new Grid(new Vector2i(1, 1), new Vector2i(1024, 1024));
+        _viewport = new Layer.Mathematics.Viewport(0, 0, 250, 250);
+        Grid = new Grid(new Vector2(0.5f, 0.5f), new Vector2i(64, 64));
 
         var gridRenderer = packet.CreateScoped<IGridRenderer>();
+        gridRenderer.Viewport = _viewport;
         gridRenderer.Grid = Grid;
 
         var sketchRenderer = packet.CreateScoped<ISketchRenderer>();
+        sketchRenderer.Viewport = _viewport;
+
         var debugRenderer = packet.CreateScoped<IDebugRenderer>();
+        debugRenderer.Viewport = _viewport;
+
         var gizmoRenderer = packet.CreateScoped<IGizmoRenderer>();
+        gizmoRenderer.Viewport = _viewport;
 
         Pipeline.Renderers.Add(gridRenderer);
         Pipeline.Renderers.Add(sketchRenderer);
@@ -94,9 +103,11 @@ public class ViewportRenderer : IViewportRenderer
 
     public void Resize(Layer.Mathematics.Viewport viewport)
     {
-        foreach (var renderer in Pipeline.Renderers)
-        {
-            renderer.Viewport = viewport;
-        }
+        _viewport.X = viewport.X;
+        _viewport.Y = viewport.Y;
+        _viewport.Width = viewport.Width;
+        _viewport.Height = viewport.Height;
+        _viewport.MaxDepth = viewport.MaxDepth;
+        _viewport.MinDepth = viewport.MinDepth;
     }
 }

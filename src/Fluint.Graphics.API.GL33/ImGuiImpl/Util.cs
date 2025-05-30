@@ -4,13 +4,13 @@
 // Copyright (C) 2021 Yaman Alhalabi
 //
 
+using System;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 using OpenTK.Graphics.OpenGL4;
 
-namespace Fluint.Graphics.API.GL46.ImGuiImpl;
-
+namespace Fluint.Graphics.API.GL33.ImGuiImpl;
 internal static class Util
 {
     [Pure]
@@ -19,66 +19,62 @@ internal static class Util
         return value < min ? min : value > max ? max : value;
     }
 
-    [Conditional("DEBUG")]
     public static void CheckGlError(string title)
     {
         var error = GL.GetError();
         if (error != ErrorCode.NoError)
         {
-            Debug.Print($"{title}: {error}");
+            Console.WriteLine($"{title}: {error}");
         }
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void LabelObject(ObjectLabelIdentifier objLabelIdent, int glObject, string name)
-    {
-        // GL.ObjectLabel(objLabelIdent, glObject, name.Length, name);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateTexture(TextureTarget target, string name, out int texture)
     {
-        GL.CreateTextures(target, 1, out texture);
-        LabelObject(ObjectLabelIdentifier.Texture, texture, $"GL46Texture: {name}");
+        GL.GenTextures(1, out texture);
+        // LabelObject(ObjectLabelIdentifier.Texture, texture, $"GL33Texture: {name}");
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateProgram(string name, out int program)
     {
         program = GL.CreateProgram();
-        LabelObject(ObjectLabelIdentifier.Program, program, $"Program: {name}");
+        // LabelObject(ObjectLabelIdentifier.Program, program, $"Program: {name}");
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateShader(ShaderType type, string name, out int shader)
     {
         shader = GL.CreateShader(type);
-        LabelObject(ObjectLabelIdentifier.Shader, shader, $"GL46Shader: {type}: {name}");
+        // LabelObject(ObjectLabelIdentifier.Shader, shader, $"GL33Shader: {type}: {name}");
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateBuffer(string name, out int buffer)
     {
-        buffer = GL.GenBuffer();
-        LabelObject(ObjectLabelIdentifier.Buffer, buffer, $"Buffer: {name}");
+        GL.GenBuffers(1, out buffer);
+        // LabelObject(ObjectLabelIdentifier.Buffer, buffer, $"Buffer: {name}");
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateVertexBuffer(string name, out int buffer)
     {
         CreateBuffer($"VBO: {name}", out buffer);
+        GL.BindBuffer(BufferTarget.ArrayBuffer, buffer);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateElementBuffer(string name, out int buffer)
     {
         CreateBuffer($"EBO: {name}", out buffer);
+        GL.BindBuffer(BufferTarget.ElementArrayBuffer, buffer);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void CreateVertexArray(string name, out int vao)
     {
         GL.GenVertexArrays(1, out vao);
-        LabelObject(ObjectLabelIdentifier.VertexArray, vao, $"VAO: {name}");
+        GL.BindVertexArray(vao);
+        // LabelObject(ObjectLabelIdentifier.VertexArray, vao, $"VAO: {name}");
     }
 }

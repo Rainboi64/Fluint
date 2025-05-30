@@ -1,6 +1,6 @@
-// 
+//
 // MeshFactory.cs
-// 
+//
 // Copyright (C) 2021 Yaman Alhalabi
 
 using System;
@@ -31,42 +31,42 @@ public class MeshFactory : IMeshFactory
         var cubeColor = new Vector4(112 / 256f, 53 / 256f, 63 / 256f, 1.0f);
         var cubeVertices = new List<PositionColorVertex>
         {
-            new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Front 
+            new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Front
             new(new Vector3(-1.0f, 1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, -1.0f), cubeColor),
             new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, -1.0f, -1.0f), cubeColor),
 
-            new(new Vector3(-1.0f, -1.0f, 1.0f), cubeColor), // BACK 
+            new(new Vector3(-1.0f, -1.0f, 1.0f), cubeColor), // BACK
             new(new Vector3(1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, -1.0f, 1.0f), cubeColor),
             new(new Vector3(1.0f, -1.0f, 1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, 1.0f), cubeColor),
 
-            new(new Vector3(-1.0f, 1.0f, -1.0f), cubeColor), // Top 
+            new(new Vector3(-1.0f, 1.0f, -1.0f), cubeColor), // Top
             new(new Vector3(-1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, 1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(1.0f, 1.0f, -1.0f), cubeColor),
 
-            new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Bottom 
+            new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Bottom
             new(new Vector3(1.0f, -1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, -1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, -1.0f, -1.0f), cubeColor),
             new(new Vector3(1.0f, -1.0f, 1.0f), cubeColor),
 
-            new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Left 
+            new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor), // Left
             new(new Vector3(-1.0f, -1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, -1.0f, -1.0f), cubeColor),
             new(new Vector3(-1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(-1.0f, 1.0f, -1.0f), cubeColor),
 
-            new(new Vector3(1.0f, -1.0f, -1.0f), cubeColor), // Right 
+            new(new Vector3(1.0f, -1.0f, -1.0f), cubeColor), // Right
             new(new Vector3(1.0f, 1.0f, 1.0f), cubeColor),
             new(new Vector3(1.0f, -1.0f, 1.0f), cubeColor),
             new(new Vector3(1.0f, -1.0f, -1.0f), cubeColor),

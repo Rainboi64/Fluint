@@ -1,5 +1,5 @@
 ﻿//
-// GL46Shader.cs
+// GL33Shader.cs
 //
 // Copyright (C) 2021 Yaman Alhalabi
 //
@@ -39,7 +39,7 @@ internal class GL33Shader : Shader
         _nativeShader = GL.CreateShaderProgram(shaderStage.ToOpenTK(), 1, new[] { shaderText });
         ValidateProgram();
 
-        if (shaderStage == ShaderStage.Vertex && vertexType != VertexType.Unknown)
+        if (shaderStage == ShaderStage.Vertex)
         {
             InputLayout = _graphicsFactory.CreateInputLayout(vertexType);
         }
@@ -57,8 +57,9 @@ internal class GL33Shader : Shader
         if (compiled == 0)
         {
             GL.GetProgramInfoLog(_nativeShader, out var programLog);
-            _logger.Error("[{0}]: {1}", "GL46Shader", programLog);
+            _logger.Error("[{0}]: {1}", "GL33Shader", programLog);
             GL.DeleteShader(_nativeShader);
+            throw new EngineApiException("GL33", programLog);
         }
     }
 }

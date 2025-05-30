@@ -14,12 +14,13 @@ namespace Fluint.Editor.Base.Gizmos;
 public class GizmoSphere : IGizmoSphere
 {
     // https://gamedev.stackexchange.com/questions/188654/creating-sphere-triangles-from-vertices
-    public PositionColorVertex[] GenerateVertex()
+    public PositionWidthColorVertex[] GetVertices()
     {
+        var width = 3;
         var numVertices = LatitudeLines * (LongitudeLines + 1) + 2;
         var numTriangles = LongitudeLines * LatitudeLines * 2;
 
-        var vertices = new PositionColorVertex[numTriangles * 3];
+        var vertices = new PositionWidthColorVertex[numTriangles * 3];
         var positions = new Vector3[numVertices];
 
         // Poles
@@ -51,9 +52,9 @@ public class GizmoSphere : IGizmoSphere
         v = 0;
         for (var i = 0; i < LongitudeLines; i++)
         {
-            vertices[v++] = new PositionColorVertex(positions[0], (Vector4)Color);
-            vertices[v++] = new PositionColorVertex(positions[i + 2], (Vector4)Color);
-            vertices[v++] = new PositionColorVertex(positions[i + 1], (Vector4)Color);
+            vertices[v++] = new PositionWidthColorVertex(positions[0], width, (Vector4)Color);
+            vertices[v++] = new PositionWidthColorVertex(positions[i + 2], width, (Vector4)Color);
+            vertices[v++] = new PositionWidthColorVertex(positions[i + 1], width, (Vector4)Color);
         }
 
         var rowLength = LongitudeLines + 1;
@@ -65,13 +66,13 @@ public class GizmoSphere : IGizmoSphere
             {
                 var firstCorner = rowStart + longitude;
                 // First triangle of quad: Top-Left, Bottom-Left, Bottom-Right
-                vertices[v++] = new PositionColorVertex(positions[firstCorner], (Vector4)Color);
-                vertices[v++] = new PositionColorVertex(positions[firstCorner + rowLength + 1], (Vector4)Color);
-                vertices[v++] = new PositionColorVertex(positions[firstCorner + rowLength], (Vector4)Color);
+                vertices[v++] = new PositionWidthColorVertex(positions[firstCorner], width, (Vector4)Color);
+                vertices[v++] = new PositionWidthColorVertex(positions[firstCorner + rowLength + 1], width, (Vector4)Color);
+                vertices[v++] = new PositionWidthColorVertex(positions[firstCorner + rowLength], width, (Vector4)Color);
                 // Second triangle of quad: Top-Left, Bottom-Right, Top-Right
-                vertices[v++] = new PositionColorVertex(positions[firstCorner], (Vector4)Color);
-                vertices[v++] = new PositionColorVertex(positions[firstCorner + 1], (Vector4)Color);
-                vertices[v++] = new PositionColorVertex(positions[firstCorner + rowLength + 1], (Vector4)Color);
+                vertices[v++] = new PositionWidthColorVertex(positions[firstCorner], width, (Vector4)Color);
+                vertices[v++] = new PositionWidthColorVertex(positions[firstCorner + 1], width, (Vector4)Color);
+                vertices[v++] = new PositionWidthColorVertex(positions[firstCorner + rowLength + 1], width, (Vector4)Color);
             }
         }
 
@@ -79,9 +80,9 @@ public class GizmoSphere : IGizmoSphere
         var bottomRow = (LatitudeLines - 1) * rowLength + 1;
         for (var i = 0; i < LongitudeLines; i++)
         {
-            vertices[v++] = new PositionColorVertex(positions[pole], (Vector4)Color);
-            vertices[v++] = new PositionColorVertex(positions[bottomRow + i], (Vector4)Color);
-            vertices[v++] = new PositionColorVertex(positions[bottomRow + i + 1], (Vector4)Color);
+            vertices[v++] = new PositionWidthColorVertex(positions[pole], width, (Vector4)Color);
+            vertices[v++] = new PositionWidthColorVertex(positions[bottomRow + i], width, (Vector4)Color);
+            vertices[v++] = new PositionWidthColorVertex(positions[bottomRow + i + 1], width, (Vector4)Color);
         }
 
         return vertices;

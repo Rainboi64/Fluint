@@ -7,8 +7,11 @@
 using System;
 using System.IO;
 using System.Reflection;
+using Fluint.Layer.DependencyInjection;
+using Fluint.Layer.Diagnostics;
 using Serilog;
 using Serilog.Core.Enrichers;
+using Serilog.Events;
 using Serilog.Sinks.SystemConsole.Themes;
 using ILogger = Fluint.Layer.Diagnostics.ILogger;
 
@@ -16,46 +19,88 @@ namespace Fluint.Diagnostics.Base;
 
 public class SerilogLogger : ILogger
 {
-    public SerilogLogger()
+    private INotificationProvider _notificationsProvider;
+    private ModulePacket _packet;
+    public SerilogLogger(ModulePacket packet)
     {
+        _packet = packet;
+        
         var exePath = Path.GetDirectoryName(
             Assembly.GetEntryAssembly()?.Location);
 
         Log.Logger = new LoggerConfiguration()
             .Enrich.FromLogContext()
             .Enrich.With(new PropertyEnricher("Caller", Assembly.GetCallingAssembly()))
-            .WriteTo.Console(theme: AnsiConsoleTheme.Literate)
+            .WriteTo.Console(theme: AnsiConsoleTheme.Code)
             .WriteTo.File(exePath + "/logs/log-.log", rollingInterval: RollingInterval.Day)
+            .WriteTo.Conditional( (log) =>
+            {
+                NotificationType level;
+                switch (log.Level)
+                {
+                    case LogEventLevel.Error:
+                    case LogEventLevel.Fatal:
+                        level = NotificationType.Error;
+                        break;
+                    default:
+                    case LogEventLevel.Warning:
+                        level = NotificationType.Warning;
+                        break;
+
+                    case LogEventLevel.Debug:
+                        level = NotificationType.Debug;
+                        break;
+                    case LogEventLevel.Verbose:
+                    case LogEventLevel.Information:
+                        level = NotificationType.Information;
+                        break;
+                }
+                GetProvider().AddNotification(level, "Message", string.Format( log.RenderMessage(), "Hello"));
+                return true;
+            }, (config) =>
+            {
+                
+            })
             .CreateLogger();
+    }
+
+    private INotificationProvider GetProvider()
+    {
+        return _notificationsProvider ??= _packet.GetSingleton<INotificationProvider>() ?? new DummyProvider();
     }
 
     public void Information(string messageTemplate)
     {
         Log.Information(messageTemplate);
+        GetProvider().AddNotification(new Notification(NotificationType.Information, "", messageTemplate));
     }
 
     public void Information(string messageTemplate, params object[] propertyValue)
     {
         Log.Information(messageTemplate, propertyValue);
+        GetProvider().AddNotification(new Notification(NotificationType.Information, "", string.Format(messageTemplate, propertyValue)));
     }
 
     public void Information(string messageTemplate, object first)
     {
         Log.Information(messageTemplate, first);
+        GetProvider().AddNotification(new Notification(NotificationType.Information, "", string.Format(messageTemplate, first)));
     }
 
     public void Information(string messageTemplate, object first, object second)
     {
-        Log.Information(messageTemplate, first.ToString(), second.ToString());
+        Log.Information(messageTemplate, first, second);
     }
 
     public void Information(string messageTemplate, object first, object second, object third)
     {
-        Log.Information(messageTemplate, first.ToString(), second.ToString(), third.ToString());
+        Log.Information(messageTemplate, first, second, third);
     }
 
     public void Information(Exception exception, string messageTemplate)
     {
+        Log.Information(exception, messageTemplate);
+
     }
 
     public void Information(Exception exception, string messageTemplate, params object[] propertyValue)
@@ -121,16 +166,19 @@ public class SerilogLogger : ILogger
     public void Error(string messageTemplate)
     {
         Log.Error(messageTemplate);
+        GetProvider().AddNotification(new Notification(NotificationType.Error, "", messageTemplate));
     }
 
     public void Error(string messageTemplate, params object[] propertyValue)
     {
-        Log.Error(messageTemplate, propertyValue);
+        Log.Error(messageTemplate, propertyValue);   
+        GetProvider().AddNotification(new Notification(NotificationType.Error, "", string.Format(messageTemplate, propertyValue)));
     }
 
     public void Error(Exception exception, string messageTemplate)
     {
         Log.Error(exception, messageTemplate);
+        GetProvider().AddNotification(new Notification(NotificationType.Error, "", messageTemplate));
     }
 
     public void Error(Exception exception, string messageTemplate, params object[] propertyValue)
